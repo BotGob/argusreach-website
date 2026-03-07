@@ -26,1212 +26,300 @@
     }
 
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
     ::-webkit-scrollbar { width: 2px; }
-    ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: #2a2a2a; }
 
     /* ── NAV ── */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 300;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 64px;
-      height: 56px;
-      background: rgba(15,15,15,0.9);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 64px; height: 56px;
+      background: rgba(15,15,15,0.9); backdrop-filter: blur(24px);
       border-bottom: 1px solid var(--border);
       transition: background 0.3s, border-color 0.3s;
     }
-
     nav.scrolled { background: rgba(15,15,15,0.97); border-bottom-color: rgba(255,255,255,0.1); }
 
-    .logo {
-      font-size: 0.95rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--white);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    .logo { font-size: 0.95rem; font-weight: 800; letter-spacing: -0.02em; color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+    .logo-mark { width: 22px; height: 22px; border: 1.5px solid rgba(255,255,255,0.25); border-radius: 5px; display: grid; place-items: center; }
+    .logo-mark-dot { width: 6px; height: 6px; background: var(--white); border-radius: 50%; }
+    .logo span { color: var(--sub); font-weight: 300; }
 
-    .logo-mark {
-      width: 22px; height: 22px;
-      border: 1.5px solid rgba(255,255,255,0.25);
-      border-radius: 5px;
-      display: grid;
-      place-items: center;
-    }
-
-    .logo-mark-dot {
-      width: 6px; height: 6px;
-      background: var(--white);
-      border-radius: 50%;
-    }
-
-    .logo-text { letter-spacing: -0.02em; }
-    .logo-text span { color: var(--sub); font-weight: 300; }
-
-    .nav-links {
-      display: flex;
-      gap: 40px;
-      list-style: none;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: var(--sub);
-      text-decoration: none;
-      font-size: 0.825rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
+    .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
+    .nav-links a { color: var(--sub); text-decoration: none; font-size: 0.825rem; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
-
-    .nav-cta {
-      background: var(--white) !important;
-      color: #000 !important;
-      padding: 7px 20px !important;
-      border-radius: 5px !important;
-      font-weight: 700 !important;
-      font-size: 0.8rem !important;
-      transition: opacity 0.2s !important;
-    }
-
+    .nav-cta { background: var(--white) !important; color: #000 !important; padding: 7px 20px !important; border-radius: 5px !important; font-weight: 700 !important; font-size: 0.8rem !important; transition: opacity 0.2s !important; }
     .nav-cta:hover { opacity: 0.85 !important; }
 
     /* ── HERO ── */
-    .hero {
-      position: relative;
-      height: 100vh;
-      min-height: 720px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 56px 24px 80px;
-      overflow: hidden;
-    }
+    .hero { position: relative; height: 100vh; min-height: 720px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 56px 24px 80px; overflow: hidden; }
+    #hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    .hero-grad { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 70% at 50% 40%, transparent 30%, rgba(15,15,15,0.8) 100%); pointer-events: none; }
+    .hero-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 180px; background: linear-gradient(to bottom, transparent, var(--bg)); pointer-events: none; }
+    .hero-inner { position: relative; z-index: 2; max-width: 880px; margin: 0 auto; }
 
-    #hero-canvas {
-      position: absolute;
-      inset: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-    }
-
-    .hero-grad {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 70% at 50% 40%, transparent 30%, rgba(15,15,15,0.8) 100%);
-      pointer-events: none;
-    }
-
-    .hero-bottom {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 180px;
-      background: linear-gradient(to bottom, transparent, var(--bg));
-      pointer-events: none;
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      max-width: 880px;
-      margin: 0 auto;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 44px;
-    }
-
-    .badge-live {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(74,222,128,0.07);
-      border: 1px solid rgba(74,222,128,0.18);
-      border-radius: 3px;
-      padding: 4px 12px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--green);
-    }
-
-    .live-dot {
-      width: 5px; height: 5px;
-      background: var(--green);
-      border-radius: 50%;
-      animation: blink 2.5s ease-in-out infinite;
-    }
-
+    .hero-badge { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 44px; }
+    .badge-live { display: flex; align-items: center; gap: 6px; background: rgba(74,222,128,0.07); border: 1px solid rgba(74,222,128,0.18); border-radius: 3px; padding: 4px 12px; font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); }
+    .live-dot { width: 5px; height: 5px; background: var(--green); border-radius: 50%; animation: blink 2.5s ease-in-out infinite; }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.15} }
-
     .badge-sep { width: 1px; height: 12px; background: var(--border2); }
+    .badge-loc { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
 
-    .badge-loc {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    h1 {
-      font-size: clamp(3.25rem, 8.5vw, 6.75rem);
-      font-weight: 900;
-      letter-spacing: -0.05em;
-      line-height: 0.91;
-      color: var(--white);
-      margin-bottom: 36px;
-    }
-
-    h1 .muted-line {
-      display: block;
-      color: rgba(255,255,255,0.22);
-      font-weight: 200;
-    }
-
-    .hero-desc {
-      font-size: 1.05rem;
-      color: var(--sub);
-      line-height: 1.85;
-      max-width: 500px;
-      margin: 0 auto 52px;
-    }
-
-    .hero-ctas {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-white {
-      background: var(--white);
-      color: #000;
-      padding: 14px 32px;
-      border-radius: 5px;
-      font-size: 0.875rem;
-      font-weight: 700;
-      text-decoration: none;
-      letter-spacing: -0.01em;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: opacity 0.2s, transform 0.15s;
-    }
-
+    h1 { font-size: clamp(3.25rem, 8.5vw, 6.75rem); font-weight: 900; letter-spacing: -0.05em; line-height: 0.91; color: var(--white); margin-bottom: 36px; }
+    h1 .muted-line { display: block; color: rgba(255,255,255,0.22); font-weight: 200; }
+    .hero-desc { font-size: 1.05rem; color: var(--sub); line-height: 1.85; max-width: 500px; margin: 0 auto 52px; }
+    .hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-white { background: var(--white); color: #000; padding: 14px 32px; border-radius: 5px; font-size: 0.875rem; font-weight: 700; text-decoration: none; letter-spacing: -0.01em; display: inline-flex; align-items: center; gap: 8px; transition: opacity 0.2s, transform 0.15s; }
     .btn-white:hover { opacity: 0.87; transform: translateY(-1px); }
-
-    .btn-ghost {
-      color: var(--sub);
-      padding: 14px 28px;
-      border-radius: 5px;
-      font-size: 0.875rem;
-      font-weight: 500;
-      text-decoration: none;
-      border: 1px solid var(--border2);
-      transition: color 0.2s, border-color 0.2s;
-    }
-
+    .btn-ghost { color: var(--sub); padding: 14px 28px; border-radius: 5px; font-size: 0.875rem; font-weight: 500; text-decoration: none; border: 1px solid var(--border2); transition: color 0.2s, border-color 0.2s; }
     .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.28); }
 
+    /* ── MARQUEE ── */
+    .marquee-section { padding: 32px 0; overflow: hidden; background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .marquee-row { display: flex; gap: 0; overflow: hidden; mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); }
+    .marquee-row + .marquee-row { margin-top: 12px; }
+    .marquee-track { display: flex; gap: 0; white-space: nowrap; }
+    .marquee-row.left .marquee-track { animation: marqueeLeft 28s linear infinite; }
+    .marquee-row.right .marquee-track { animation: marqueeRight 32s linear infinite; }
+    .marquee-row.left2 .marquee-track { animation: marqueeLeft 36s linear infinite; }
+    @keyframes marqueeLeft { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    @keyframes marqueeRight { 0%{transform:translateX(-50%)} 100%{transform:translateX(0)} }
+    .marquee-tag { display: inline-flex; align-items: center; gap: 8px; padding: 7px 20px; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.01em; color: var(--sub); border-right: 1px solid var(--border); white-space: nowrap; }
+    .marquee-row.right .marquee-tag { opacity: 0.75; }
+    .marquee-dot { width: 4px; height: 4px; background: var(--green); border-radius: 50%; flex-shrink: 0; opacity: 0.6; }
+
     /* ── DO BAR ── */
-    .do-bar {
-      background: var(--white);
-      border-top: 1px solid rgba(255,255,255,0.05);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .do-inner {
-      display: flex;
-      align-items: stretch;
-    }
-
-    .do-label {
-      flex-shrink: 0;
-      background: #111;
-      padding: 0 28px;
-      display: flex;
-      align-items: center;
-      border-right: 1px solid rgba(255,255,255,0.07);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #555;
-    }
-
-    .do-items {
-      display: flex;
-      flex: 1;
-    }
-
-    .do-item {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 17px 16px;
-      border-right: 1px solid #e8e8e8;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: #111;
-      letter-spacing: -0.01em;
-      white-space: nowrap;
-    }
-
+    .do-bar { background: var(--white); border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .do-inner { display: flex; align-items: stretch; }
+    .do-label { flex-shrink: 0; background: #111; padding: 0 28px; display: flex; align-items: center; border-right: 1px solid rgba(255,255,255,0.07); font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: #555; }
+    .do-items { display: flex; flex: 1; }
+    .do-item { flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 17px 16px; border-right: 1px solid #e8e8e8; font-size: 0.82rem; font-weight: 600; color: #111; letter-spacing: -0.01em; white-space: nowrap; }
     .do-item:last-child { border-right: none; }
     .do-item svg { width: 15px; height: 15px; stroke: #666; flex-shrink: 0; }
 
     /* ── STATS ── */
-    .stats-wrap {
-      background: var(--bg2);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .stats-wrap .inner {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .stat-cell {
-      padding: 56px 40px;
-      border-right: 1px solid var(--border);
-      text-align: center;
-    }
-
+    .stats-wrap { background: var(--bg2); border-bottom: 1px solid var(--border); }
+    .stats-wrap .inner { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat-cell { padding: 56px 40px; border-right: 1px solid var(--border); text-align: center; }
     .stat-cell:last-child { border-right: none; }
-
-    .stat-n {
-      font-size: 3.25rem;
-      font-weight: 900;
-      letter-spacing: -0.05em;
-      line-height: 1;
-      color: var(--white);
-      display: block;
-      margin-bottom: 12px;
-    }
-
+    .stat-n { font-size: 3.25rem; font-weight: 900; letter-spacing: -0.05em; line-height: 1; color: var(--white); display: block; margin-bottom: 12px; }
     .stat-n em { color: var(--green); font-style: normal; }
-
-    .stat-l {
-      font-size: 0.78rem;
-      color: var(--sub);
-      line-height: 1.6;
-    }
+    .stat-l { font-size: 0.78rem; color: var(--sub); line-height: 1.6; }
 
     /* ── GENERIC ── */
     section { padding: 120px 64px; }
     .wrap { max-width: 1280px; margin: 0 auto; }
-
-    .ey {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.6rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 22px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
+    .ey { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 22px; display: flex; align-items: center; gap: 14px; }
     .ey::before { content: ''; width: 18px; height: 1px; background: var(--muted); }
+    .sh { font-size: clamp(2.25rem, 4.5vw, 3.75rem); font-weight: 900; letter-spacing: -0.045em; line-height: 0.96; color: var(--white); margin-bottom: 20px; }
+    .sp { font-size: 1rem; color: var(--sub); max-width: 460px; line-height: 1.8; }
 
-    .sh {
-      font-size: clamp(2.25rem, 4.5vw, 3.75rem);
-      font-weight: 900;
-      letter-spacing: -0.045em;
-      line-height: 0.96;
-      color: var(--white);
-      margin-bottom: 20px;
-    }
+    /* ── DEMO SECTION ── */
+    .demo-bg { background: var(--bg2); }
+    .demo-window { margin-top: 64px; border: 1px solid var(--border2); border-radius: 12px; overflow: hidden; background: var(--bg3); }
+    .demo-chrome { display: flex; align-items: center; gap: 16px; padding: 13px 20px; background: var(--bg4); border-bottom: 1px solid var(--border); }
+    .demo-dots { display: flex; gap: 7px; }
+    .demo-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .demo-dot.r { background: #ff5f57; }
+    .demo-dot.y { background: #febc2e; }
+    .demo-dot.g { background: #28c840; }
+    .demo-chrome-label { flex: 1; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--muted); letter-spacing: 0.05em; }
+    .demo-live-pill { display: flex; align-items: center; gap: 5px; font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; font-weight: 600; letter-spacing: 0.12em; color: var(--green); background: rgba(74,222,128,0.07); border: 1px solid rgba(74,222,128,0.18); padding: 3px 10px; border-radius: 3px; }
+    .demo-live-dot { width: 5px; height: 5px; background: var(--green); border-radius: 50%; animation: blink 2s infinite; }
 
-    .sp {
-      font-size: 1rem;
-      color: var(--sub);
-      max-width: 460px;
-      line-height: 1.8;
-    }
+    .demo-body { display: grid; grid-template-columns: 300px 1fr; }
+    .demo-panel-label { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
 
-    /* ── HOW IT WORKS — SCROLLYTELLING ── */
+    /* Left */
+    .demo-left { padding: 24px 20px; border-right: 1px solid var(--border); display: flex; flex-direction: column; gap: 16px; }
+    .prospect-card { display: flex; gap: 12px; align-items: center; padding: 14px; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; }
+    .prospect-avatar { width: 44px; height: 44px; border-radius: 9px; background: linear-gradient(135deg, #1e293b, #334155); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: rgba(255,255,255,0.55); flex-shrink: 0; letter-spacing: 0.04em; }
+    .prospect-name { font-size: 0.875rem; font-weight: 700; color: var(--white); letter-spacing: -0.01em; }
+    .prospect-title { font-size: 0.72rem; color: var(--sub); margin-top: 1px; }
+    .prospect-company { font-size: 0.75rem; color: var(--text); font-weight: 500; margin-top: 2px; }
+    .prospect-loc { display: flex; align-items: center; gap: 4px; font-size: 0.68rem; color: var(--muted); margin-top: 3px; }
+    .prospect-data { display: flex; flex-direction: column; }
+    .pd-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.775rem; }
+    .pd-row:last-child { border-bottom: none; }
+    .pd-k { color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.05em; }
+    .pd-v { color: var(--white); font-weight: 500; font-size: 0.8rem; }
+    .pd-v.sig { color: var(--green); font-size: 0.72rem; }
+    .argus-status { display: flex; align-items: center; gap: 8px; padding: 9px 12px; background: rgba(74,222,128,0.05); border: 1px solid rgba(74,222,128,0.12); border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--green); letter-spacing: 0.04em; }
+    .thinking-dots { display: flex; gap: 4px; }
+    .thinking-dots span { width: 4px; height: 4px; background: var(--green); border-radius: 50%; animation: tdot 1.2s infinite; }
+    .thinking-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .thinking-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes tdot { 0%,80%,100%{opacity:0.2;transform:scale(0.8)} 40%{opacity:1;transform:scale(1)} }
+
+    /* Right */
+    .demo-right { padding: 24px; display: flex; flex-direction: column; gap: 12px; min-height: 460px; overflow: hidden; }
+    .email-compose { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; flex-shrink: 0; }
+    .email-field { display: flex; align-items: baseline; gap: 10px; padding: 9px 14px; border-bottom: 1px solid var(--border); }
+    .email-lbl { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em; color: var(--muted); text-transform: uppercase; flex-shrink: 0; width: 44px; }
+    .email-to { font-size: 0.8rem; color: var(--green); font-family: 'JetBrains Mono', monospace; }
+    .email-from-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; color: var(--sub); }
+    .email-from-tag strong { color: var(--white); font-weight: 600; }
+    .email-subject-text { font-size: 0.875rem; font-weight: 600; color: var(--white); }
+    .cursor { display: inline-block; color: var(--green); font-weight: 300; animation: cur 0.85s step-end infinite; }
+    @keyframes cur { 0%,100%{opacity:1} 50%{opacity:0} }
+    .email-body-area { padding: 14px; font-size: 0.82rem; color: #bbb; line-height: 1.78; white-space: pre-wrap; min-height: 160px; }
+
+    /* Reply message */
+    .email-reply { background: rgba(255,255,255,0.03); border: 1px solid var(--border2); border-radius: 8px; padding: 14px; opacity: 0; transform: translateY(8px); transition: opacity 0.5s ease, transform 0.5s ease; flex-shrink: 0; }
+    .email-reply.show { opacity: 1; transform: translateY(0); }
+    .reply-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+    .reply-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.15); padding: 2px 8px; border-radius: 2px; }
+    .reply-from { font-size: 0.75rem; color: var(--sub); font-family: 'JetBrains Mono', monospace; }
+    .reply-body { font-size: 0.82rem; color: #ccc; line-height: 1.65; font-style: italic; }
+
+    /* Booking confirmation */
+    .booking-confirm { background: rgba(74,222,128,0.06); border: 1px solid rgba(74,222,128,0.2); border-radius: 8px; padding: 14px 18px; display: flex; align-items: center; gap: 14px; opacity: 0; transform: translateY(8px); transition: opacity 0.5s ease, transform 0.5s ease; flex-shrink: 0; }
+    .booking-confirm.show { opacity: 1; transform: translateY(0); }
+    .booking-icon { width: 36px; height: 36px; background: rgba(74,222,128,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--green); font-size: 1rem; }
+    .booking-detail { display: flex; flex-direction: column; gap: 3px; }
+    .booking-label { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); }
+    .booking-title { font-size: 0.875rem; font-weight: 700; color: var(--white); }
+    .booking-time { font-size: 0.78rem; color: var(--sub); }
+
+    /* Sequence bar */
+    .seq-bar { display: flex; align-items: center; gap: 12px; padding-top: 4px; }
+    .seq-lbl { font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); flex-shrink: 0; }
+    .seq-steps { display: flex; align-items: center; gap: 6px; }
+    .seq-step { display: flex; flex-direction: column; align-items: center; gap: 3px; opacity: 0.3; transition: opacity 0.3s; }
+    .seq-step.on { opacity: 1; }
+    .seq-num { width: 22px; height: 22px; border: 1px solid var(--border2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: 700; color: var(--sub); transition: all 0.3s; }
+    .seq-step.on .seq-num { background: var(--green); border-color: var(--green); color: #000; }
+    .seq-name { font-family: 'JetBrains Mono', monospace; font-size: 0.52rem; color: var(--muted); }
+    .seq-arr { color: var(--muted); font-size: 0.65rem; opacity: 0.35; }
+
+    /* Footer */
+    .demo-footer { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; border-top: 1px solid var(--border); background: var(--bg); }
+    .demo-footer-lbl { font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; letter-spacing: 0.08em; color: var(--muted); }
+    .demo-switcher { display: flex; gap: 6px; }
+    .dsw { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.04em; color: var(--muted); padding: 4px 12px; border: 1px solid var(--border); border-radius: 3px; cursor: pointer; transition: all 0.2s; }
+    .dsw.active { color: var(--green); border-color: rgba(74,222,128,0.3); background: rgba(74,222,128,0.06); }
+
+    /* ── HOW IT WORKS ── */
     .how-bg { background: var(--bg2); }
-
-    .how-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      margin-top: 72px;
-      align-items: start;
-    }
-
-    /* Steps: left side, scrollable */
+    .how-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 72px; align-items: start; }
     .how-steps-col { position: relative; }
-
-    .how-step {
-      display: flex;
-      gap: 28px;
-      align-items: flex-start;
-      padding: 40px 0;
-      border-bottom: 1px solid var(--border);
-      transition: opacity 0.4s ease;
-      opacity: 0.3;
-    }
-
+    .how-step { display: flex; gap: 28px; align-items: flex-start; padding: 48px 0; border-bottom: 1px solid var(--border); opacity: 0.25; transition: opacity 0.5s ease; }
     .how-step:first-child { padding-top: 0; }
-    .how-step:last-child { border-bottom: none; }
+    .how-step:last-child { border-bottom: none; padding-bottom: 0; }
     .how-step.active { opacity: 1; }
-
-    .step-num-box {
-      flex-shrink: 0;
-      width: 36px;
-      padding-top: 3px;
-    }
-
-    .step-num {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      transition: color 0.4s;
-    }
-
+    .step-num-box { flex-shrink: 0; width: 36px; padding-top: 3px; }
+    .step-num { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; color: var(--muted); transition: color 0.4s; }
     .how-step.active .step-num { color: var(--green); }
+    .step-content h3 { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.025em; color: var(--white); margin-bottom: 10px; line-height: 1.25; }
+    .step-content p { font-size: 0.875rem; color: var(--sub); line-height: 1.78; }
 
-    .step-content h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      letter-spacing: -0.025em;
-      color: var(--white);
-      margin-bottom: 10px;
-      line-height: 1.25;
-    }
-
-    .step-content p {
-      font-size: 0.875rem;
-      color: var(--sub);
-      line-height: 1.78;
-    }
-
-    /* Visual: right side, sticky */
-    .how-sticky {
-      position: sticky;
-      top: 96px;
-    }
-
-    .visual-panel {
-      background: var(--bg3);
-      border: 1px solid var(--border2);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .vp-header {
-      border-bottom: 1px solid var(--border);
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .vp-dot {
-      width: 9px; height: 9px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.1);
-    }
-
-    .vp-body {
-      padding: 40px;
-      min-height: 340px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .vp-step-num {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 5.5rem;
-      font-weight: 900;
-      letter-spacing: -0.05em;
-      line-height: 1;
-      color: rgba(255,255,255,0.04);
-      margin-bottom: 16px;
-      transition: opacity 0.3s;
-    }
-
-    .vp-title {
-      font-size: 1.4rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: var(--white);
-      margin-bottom: 14px;
-      line-height: 1.2;
-      transition: opacity 0.3s;
-    }
-
-    .vp-desc {
-      font-size: 0.875rem;
-      color: var(--sub);
-      line-height: 1.8;
-      margin-bottom: 28px;
-      transition: opacity 0.3s;
-    }
-
-    .vp-tags {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      transition: opacity 0.3s;
-    }
-
-    .vp-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--green);
-      background: rgba(74,222,128,0.07);
-      border: 1px solid rgba(74,222,128,0.15);
-      padding: 4px 12px;
-      border-radius: 3px;
-    }
-
-    /* panel fade transition */
-    .vp-body.fade-out { opacity: 0; transform: translateY(6px); }
-    .vp-body { transition: opacity 0.2s ease, transform 0.2s ease; }
+    .how-sticky { position: sticky; top: 96px; }
+    .visual-panel { background: var(--bg3); border: 1px solid var(--border2); border-radius: 12px; overflow: hidden; }
+    .vp-header { border-bottom: 1px solid var(--border); padding: 14px 20px; display: flex; align-items: center; gap: 8px; }
+    .vp-hd { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.08); }
+    .vp-body { padding: 40px; min-height: 340px; display: flex; flex-direction: column; justify-content: center; transition: opacity 0.2s ease, transform 0.2s ease; }
+    .vp-body.fading { opacity: 0; transform: translateY(6px); }
+    .vp-big-num { font-family: 'JetBrains Mono', monospace; font-size: 5.5rem; font-weight: 900; letter-spacing: -0.05em; line-height: 1; color: rgba(255,255,255,0.04); margin-bottom: 16px; }
+    .vp-title { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.03em; color: var(--white); margin-bottom: 14px; line-height: 1.2; }
+    .vp-desc { font-size: 0.875rem; color: var(--sub); line-height: 1.8; margin-bottom: 28px; }
+    .vp-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .vp-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); background: rgba(74,222,128,0.07); border: 1px solid rgba(74,222,128,0.15); padding: 4px 12px; border-radius: 3px; }
 
     /* ── PROBLEM / SOLUTION ── */
-    .ps-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border: 1px solid var(--border);
-      margin-top: 72px;
-    }
-
-    .ps-col {
-      padding: 52px 48px;
-    }
-
-    .ps-col.right {
-      background: var(--bg2);
-      border-left: 1px solid var(--border);
-    }
-
-    .ps-hdr {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding-bottom: 20px;
-      margin-bottom: 4px;
-      border-bottom: 1px solid var(--border);
-    }
-
+    .ps-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); margin-top: 72px; }
+    .ps-col { padding: 52px 48px; }
+    .ps-col.right { background: var(--bg2); border-left: 1px solid var(--border); }
+    .ps-hdr { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; padding-bottom: 20px; margin-bottom: 4px; border-bottom: 1px solid var(--border); }
     .ps-hdr.neg { color: var(--muted); }
     .ps-hdr.pos { color: var(--green); }
-
-    .ps-row {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
+    .ps-row { display: flex; gap: 16px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid var(--border); }
     .ps-row:last-child { border-bottom: none; }
-
     .ps-ico { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; }
-
-    .ps-row p {
-      font-size: 0.875rem;
-      color: var(--sub);
-      line-height: 1.7;
-    }
-
+    .ps-row p { font-size: 0.875rem; color: var(--sub); line-height: 1.7; }
     .ps-row p b { color: var(--white); font-weight: 600; }
 
     /* ── WHO WE SERVE ── */
     .serve-bg { background: var(--bg2); }
-
-    .serve-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border: 1px solid var(--border);
-      margin-top: 72px;
-    }
-
-    .sc {
-      padding: 44px 36px;
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      transition: background 0.25s;
-      position: relative;
-      overflow: hidden;
-    }
-
+    .serve-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--border); margin-top: 72px; }
+    .sc { padding: 44px 36px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); transition: background 0.25s; position: relative; overflow: hidden; }
     .sc:hover { background: var(--bg3); }
-
-    .sc::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 0; height: 2px;
-      background: var(--green);
-      transition: width 0.35s ease;
-    }
-
+    .sc::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--green); transition: width 0.35s ease; }
     .sc:hover::after { width: 100%; }
-
     .sc:nth-child(3n) { border-right: none; }
     .sc:nth-child(4), .sc:nth-child(5), .sc:nth-child(6) { border-bottom: none; }
-
-    .sc-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
-
+    .sc-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px; }
     .sc-ico { width: 32px; height: 32px; stroke: rgba(255,255,255,0.4); }
-
-    .sc-pill {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.53rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--green);
-      border: 1px solid rgba(74,222,128,0.2);
-      padding: 3px 10px;
-      border-radius: 2px;
-    }
-
-    .sc h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--white);
-      margin-bottom: 10px;
-      line-height: 1.3;
-    }
-
-    .sc p {
-      font-size: 0.825rem;
-      color: var(--sub);
-      line-height: 1.75;
-    }
+    .sc-pill { font-family: 'JetBrains Mono', monospace; font-size: 0.53rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); border: 1px solid rgba(74,222,128,0.2); padding: 3px 10px; border-radius: 2px; }
+    .sc h3 { font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--white); margin-bottom: 10px; line-height: 1.3; }
+    .sc p { font-size: 0.825rem; color: var(--sub); line-height: 1.75; }
 
     /* ── RESULTS ── */
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border: 1px solid var(--border);
-      margin-top: 72px;
-    }
-
-    .rc {
-      padding: 48px 40px;
-      border-right: 1px solid var(--border);
-    }
-
+    .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--border); margin-top: 72px; }
+    .rc { padding: 48px 40px; border-right: 1px solid var(--border); }
     .rc:last-child { border-right: none; }
-
-    .rc-num {
-      font-size: 3rem;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      color: var(--white);
-      line-height: 1;
-      margin-bottom: 14px;
-    }
-
+    .rc-num { font-size: 3rem; font-weight: 900; letter-spacing: -0.04em; color: var(--white); line-height: 1; margin-bottom: 14px; }
     .rc-num em { color: var(--green); font-style: normal; }
-
-    .rc h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--white);
-      margin-bottom: 10px;
-    }
-
-    .rc p {
-      font-size: 0.825rem;
-      color: var(--sub);
-      line-height: 1.72;
-    }
+    .rc h3 { font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--white); margin-bottom: 10px; }
+    .rc p { font-size: 0.825rem; color: var(--sub); line-height: 1.72; }
 
     /* ── PRICING ── */
     .pricing-bg { background: var(--bg2); }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border: 1px solid var(--border);
-      margin-top: 72px;
-    }
-
-    .pc {
-      padding: 52px 44px;
-      border-right: 1px solid var(--border);
-      transition: background 0.25s;
-    }
-
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--border); margin-top: 72px; }
+    .pc { padding: 52px 44px; border-right: 1px solid var(--border); transition: background 0.25s; }
     .pc:last-child { border-right: none; }
     .pc:not(.feat):hover { background: var(--bg3); }
-
-    .pc.feat {
-      background: var(--white);
-      color: #000;
-    }
-
-    .pc-tier {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--sub);
-      margin-bottom: 20px;
-    }
-
+    .pc.feat { background: var(--white); color: #000; }
+    .pc-tier { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sub); margin-bottom: 20px; }
     .pc.feat .pc-tier { color: #777; }
-
-    .pc-price {
-      font-size: 3.5rem;
-      font-weight: 900;
-      letter-spacing: -0.05em;
-      line-height: 1;
-      color: var(--white);
-    }
-
+    .pc-price { font-size: 3.5rem; font-weight: 900; letter-spacing: -0.05em; line-height: 1; color: var(--white); }
     .pc.feat .pc-price { color: #000; }
     .pc-price sup { font-size: 1.2rem; vertical-align: top; margin-top: 10px; display: inline-block; }
     .pc-price sub { font-size: 0.875rem; font-weight: 400; color: var(--sub); }
     .pc.feat .pc-price sub { color: #666; }
-
-    .pc-billing {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin: 8px 0 36px;
-    }
-
+    .pc-billing { font-size: 0.75rem; color: var(--muted); margin: 8px 0 36px; }
     .pc.feat .pc-billing { color: #888; }
-
     .pc-div { height: 1px; background: var(--border); margin-bottom: 28px; }
     .pc.feat .pc-div { background: #e0e0e0; }
-
     .pc-list { list-style: none; margin-bottom: 40px; }
-
-    .pc-li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 0.85rem;
-      color: var(--sub);
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
+    .pc-li { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; color: var(--sub); padding: 10px 0; border-bottom: 1px solid var(--border); }
     .pc.feat .pc-li { color: #444; border-bottom-color: #ebebeb; }
     .pc-li:last-child { border-bottom: none; }
-
     .chk { width: 15px; height: 15px; color: var(--green); flex-shrink: 0; }
     .pc.feat .chk { color: #000; }
-
-    .pc-btn {
-      display: block;
-      text-align: center;
-      padding: 13px;
-      border-radius: 5px;
-      font-weight: 700;
-      font-size: 0.875rem;
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-
+    .pc-btn { display: block; text-align: center; padding: 13px; border-radius: 5px; font-weight: 700; font-size: 0.875rem; text-decoration: none; transition: opacity 0.2s; }
     .pc-btn.dark { background: #000; color: #fff; }
     .pc-btn.outline { border: 1px solid var(--border2); color: var(--white); }
     .pc-btn:hover { opacity: 0.78; }
 
     /* ── CTA ── */
-    .cta-block {
-      background: var(--white);
-      padding: 160px 64px;
-      text-align: center;
-    }
-
-    .cta-block h2 {
-      font-size: clamp(3rem, 9vw, 6.5rem);
-      font-weight: 900;
-      letter-spacing: -0.05em;
-      line-height: 0.9;
-      color: #000;
-      margin-bottom: 32px;
-    }
-
-    .cta-block p {
-      font-size: 1.05rem;
-      color: #666;
-      max-width: 440px;
-      margin: 0 auto 52px;
-      line-height: 1.8;
-    }
-
-    .btn-black {
-      background: #000;
-      color: #fff;
-      padding: 16px 44px;
-      border-radius: 5px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      text-decoration: none;
-      letter-spacing: -0.01em;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: opacity 0.2s, transform 0.15s;
-    }
-
+    .cta-block { background: var(--white); padding: 160px 64px; text-align: center; }
+    .cta-block h2 { font-size: clamp(3rem, 9vw, 6.5rem); font-weight: 900; letter-spacing: -0.05em; line-height: 0.9; color: #000; margin-bottom: 32px; }
+    .cta-block p { font-size: 1.05rem; color: #666; max-width: 440px; margin: 0 auto 52px; line-height: 1.8; }
+    .btn-black { background: #000; color: #fff; padding: 16px 44px; border-radius: 5px; font-size: 0.9rem; font-weight: 700; text-decoration: none; letter-spacing: -0.01em; display: inline-flex; align-items: center; gap: 10px; transition: opacity 0.2s, transform 0.15s; }
     .btn-black:hover { opacity: 0.84; transform: translateY(-2px); }
 
     /* ── FOOTER ── */
-    footer {
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      padding: 36px 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .ft-logo {
-      font-size: 0.9rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--white);
-      text-decoration: none;
-    }
-
+    footer { background: var(--bg); border-top: 1px solid var(--border); padding: 36px 64px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .ft-logo { font-size: 0.9rem; font-weight: 800; letter-spacing: -0.02em; color: var(--white); text-decoration: none; }
     .ft-logo span { color: var(--muted); font-weight: 300; }
     footer p { font-size: 0.75rem; color: var(--muted); }
 
     /* ── REVEAL ── */
-    .rv {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
+    .rv { opacity: 0; transform: translateY(24px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
     .rv.show { opacity: 1; transform: none; }
-
-    .d1 { transition-delay: 0.07s; }
-    .d2 { transition-delay: 0.14s; }
-    .d3 { transition-delay: 0.21s; }
-    .d4 { transition-delay: 0.28s; }
-    .d5 { transition-delay: 0.35s; }
-    .d6 { transition-delay: 0.42s; }
-
-    @keyframes heroUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:none; } }
+    .d1{transition-delay:.07s} .d2{transition-delay:.14s} .d3{transition-delay:.21s}
+    .d4{transition-delay:.28s} .d5{transition-delay:.35s} .d6{transition-delay:.42s}
+    @keyframes heroUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:none} }
     .hero-inner { animation: heroUp 0.95s 0.1s both; }
-
-    /* ── DEMO SECTION ── */
-    .demo-section { background: var(--bg2); }
-
-    .demo-window {
-      margin-top: 64px;
-      border: 1px solid var(--border2);
-      border-radius: 12px;
-      overflow: hidden;
-      background: var(--bg3);
-    }
-
-    .demo-chrome {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 14px 20px;
-      background: var(--bg4);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .demo-dots { display: flex; gap: 7px; }
-
-    .demo-dot {
-      width: 12px; height: 12px;
-      border-radius: 50%;
-    }
-
-    .demo-dot.red { background: #ff5f57; }
-    .demo-dot.yellow { background: #febc2e; }
-    .demo-dot.green-dot { background: #28c840; }
-
-    .demo-chrome-title {
-      flex: 1;
-      text-align: center;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--muted);
-      letter-spacing: 0.05em;
-    }
-
-    .demo-badge-wrap { display: flex; justify-content: flex-end; min-width: 60px; }
-
-    .demo-live-badge {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.55rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      color: var(--green);
-      background: rgba(74,222,128,0.07);
-      border: 1px solid rgba(74,222,128,0.18);
-      padding: 3px 10px;
-      border-radius: 3px;
-    }
-
-    .demo-live-dot {
-      width: 5px; height: 5px;
-      background: var(--green);
-      border-radius: 50%;
-      animation: blink 2s infinite;
-    }
-
-    .demo-body {
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      min-height: 420px;
-    }
-
-    /* Left panel */
-    .demo-left {
-      padding: 28px 24px;
-      border-right: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .demo-panel-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-
-    .prospect-card {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-      padding: 16px;
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      transition: all 0.4s ease;
-    }
-
-    .prospect-avatar {
-      width: 48px; height: 48px;
-      background: linear-gradient(135deg, #1e293b, #334155);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.875rem;
-      font-weight: 700;
-      color: rgba(255,255,255,0.6);
-      flex-shrink: 0;
-      letter-spacing: 0.03em;
-      transition: all 0.4s ease;
-    }
-
-    .prospect-name {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: -0.01em;
-      margin-bottom: 2px;
-    }
-
-    .prospect-title {
-      font-size: 0.75rem;
-      color: var(--sub);
-    }
-
-    .prospect-company {
-      font-size: 0.78rem;
-      color: var(--white);
-      font-weight: 500;
-      margin-top: 2px;
-    }
-
-    .prospect-loc {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 0.7rem;
-      color: var(--muted);
-      margin-top: 3px;
-    }
-
-    .prospect-data { display: flex; flex-direction: column; gap: 0; }
-
-    .pd-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 9px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.775rem;
-    }
-
-    .pd-row:last-child { border-bottom: none; }
-    .pd-key { color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.05em; }
-    .pd-val { color: var(--white); font-weight: 500; }
-    .pd-val.signal { color: var(--green); font-size: 0.72rem; }
-
-    .argus-thinking {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      background: rgba(74,222,128,0.05);
-      border: 1px solid rgba(74,222,128,0.12);
-      border-radius: 6px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--green);
-      letter-spacing: 0.05em;
-    }
-
-    .thinking-dots {
-      display: flex;
-      gap: 4px;
-    }
-
-    .thinking-dots span {
-      width: 4px; height: 4px;
-      background: var(--green);
-      border-radius: 50%;
-      animation: tdot 1.2s infinite;
-    }
-
-    .thinking-dots span:nth-child(2) { animation-delay: 0.2s; }
-    .thinking-dots span:nth-child(3) { animation-delay: 0.4s; }
-
-    @keyframes tdot {
-      0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); }
-      40% { opacity: 1; transform: scale(1); }
-    }
-
-    /* Right panel */
-    .demo-right {
-      padding: 28px 28px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .email-compose {
-      flex: 1;
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .email-field {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-      padding: 10px 16px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .email-field-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      text-transform: uppercase;
-      flex-shrink: 0;
-      width: 48px;
-    }
-
-    .email-to {
-      font-size: 0.825rem;
-      color: var(--green);
-      font-family: 'JetBrains Mono', monospace;
-      letter-spacing: 0.02em;
-    }
-
-    .email-subject {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--white);
-      letter-spacing: -0.01em;
-    }
-
-    .email-divider { height: 1px; background: var(--border); }
-
-    .email-body {
-      padding: 16px;
-      font-size: 0.84rem;
-      color: #bbb;
-      line-height: 1.75;
-      min-height: 180px;
-      white-space: pre-wrap;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .cursor {
-      display: inline-block;
-      color: var(--green);
-      font-weight: 300;
-      animation: cursorBlink 0.8s step-end infinite;
-    }
-
-    @keyframes cursorBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
-    .sequence-bar {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .seq-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      flex-shrink: 0;
-    }
-
-    .seq-steps {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .seq-step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3px;
-      opacity: 0.35;
-      transition: opacity 0.3s;
-    }
-
-    .seq-step.active { opacity: 1; }
-
-    .seq-num {
-      width: 24px; height: 24px;
-      border: 1px solid var(--border2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.65rem;
-      font-weight: 700;
-      color: var(--sub);
-      transition: all 0.3s;
-    }
-
-    .seq-step.active .seq-num {
-      background: var(--green);
-      border-color: var(--green);
-      color: #000;
-    }
-
-    .seq-name {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.55rem;
-      color: var(--muted);
-    }
-
-    .seq-arrow { color: var(--muted); font-size: 0.7rem; opacity: 0.4; }
-
-    .demo-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 24px;
-      border-top: 1px solid var(--border);
-      background: var(--bg);
-    }
-
-    .demo-footer-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-    }
-
-    .demo-switcher {
-      display: flex;
-      gap: 8px;
-    }
-
-    .dsw {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.05em;
-      color: var(--muted);
-      padding: 4px 12px;
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .dsw.active {
-      color: var(--green);
-      border-color: rgba(74,222,128,0.3);
-      background: rgba(74,222,128,0.06);
-    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
-      .demo-body { grid-template-columns: 1fr; }
-      .demo-left { border-right: none; border-bottom: 1px solid var(--border); }
-      .demo-footer { flex-direction: column; gap: 12px; align-items: flex-start; }
-    }
       nav { padding: 0 24px; }
       .nav-links { display: none; }
       section { padding: 80px 24px; }
+      .demo-body { grid-template-columns: 1fr; }
+      .demo-left { border-right: none; border-bottom: 1px solid var(--border); }
       .how-layout { grid-template-columns: 1fr; gap: 48px; }
       .how-sticky { display: none; }
       .how-step { opacity: 1; }
@@ -1239,8 +327,6 @@
       .ps-col.right { border-left: none; border-top: 1px solid var(--border); }
       .serve-grid { grid-template-columns: 1fr; }
       .sc { border-right: none; }
-      .sc:nth-child(4), .sc:nth-child(5), .sc:nth-child(6) { border-bottom: 1px solid var(--border); }
-      .sc:last-child { border-bottom: none; }
       .results-grid { grid-template-columns: 1fr; }
       .rc { border-right: none; border-bottom: 1px solid var(--border); }
       .rc:last-child { border-bottom: none; }
@@ -1249,9 +335,9 @@
       .pc:last-child { border-bottom: none; }
       .stats-wrap .inner { grid-template-columns: 1fr 1fr; }
       .stat-cell { border-right: none; border-bottom: 1px solid var(--border); }
-      .stat-cell:last-child { border-bottom: none; }
+      .stat-cell:nth-child(odd) { border-right: 1px solid var(--border); }
       .do-items { flex-wrap: wrap; }
-      .do-item { border-right: none; border-bottom: 1px solid #e8e8e8; flex: 0 0 50%; }
+      .do-item { flex: 0 0 50%; border-right: none; border-bottom: 1px solid #e8e8e8; }
       .cta-block { padding: 100px 24px; }
       footer { padding: 28px 24px; flex-direction: column; align-items: flex-start; }
     }
@@ -1263,9 +349,10 @@
 <nav id="nav">
   <a href="/" class="logo">
     <div class="logo-mark"><div class="logo-mark-dot"></div></div>
-    <span class="logo-text">ArgusReach<span> · AI Sales</span></span>
+    ArgusReach<span> · AI Sales</span>
   </a>
   <ul class="nav-links">
+    <li><a href="#demo">Demo</a></li>
     <li><a href="#how">How it works</a></li>
     <li><a href="#who">Who we serve</a></li>
     <li><a href="#pricing">Pricing</a></li>
@@ -1278,61 +365,112 @@
   <canvas id="hero-canvas"></canvas>
   <div class="hero-grad"></div>
   <div class="hero-bottom"></div>
-
   <div class="hero-inner">
     <div class="hero-badge">
-      <div class="badge-live">
-        <span class="live-dot"></span>
-        Active
-      </div>
+      <div class="badge-live"><span class="live-dot"></span>Active</div>
       <div class="badge-sep"></div>
       <div class="badge-loc">Tampa Bay &amp; Florida</div>
     </div>
-
-    <h1>
-      We Fill<br />Your Pipeline.
-      <span class="muted-line">You Close Deals.</span>
-    </h1>
-
-    <p class="hero-desc">
-      ArgusReach is a done-for-you AI outreach system. We find your ideal prospects, write personalized emails, handle every follow-up, and deliver qualified meetings directly to your calendar.
-    </p>
-
+    <h1>We Fill<br />Your Pipeline.<span class="muted-line">You Close Deals.</span></h1>
+    <p class="hero-desc">ArgusReach is a done-for-you AI outreach system. We find your ideal prospects, write personalized emails, handle every follow-up, and deliver qualified meetings directly to your calendar.</p>
     <div class="hero-ctas">
-      <a href="#book" class="btn-white">
-        Book a Free Strategy Call
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="#how" class="btn-ghost">How it works →</a>
+      <a href="#book" class="btn-white">Book a Free Strategy Call <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#demo" class="btn-ghost">See it in action →</a>
     </div>
   </div>
 </section>
 
-<!-- ── DO BAR ── -->
+<!-- ── MARQUEE ── -->
+<div class="marquee-section">
+  <div class="marquee-row left">
+    <div class="marquee-track" id="mq1">
+      <span class="marquee-tag"><span class="marquee-dot"></span>Fill Your Pipeline</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Qualified Meetings</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>AI-Personalized Outreach</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Zero Hiring</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Done For You</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Book More Meetings</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Consistent Pipeline</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Scale Outbound</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Save Time</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Outperform Competitors</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>No Cold Calling</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>More Revenue</span>
+      <!-- duplicate for seamless loop -->
+      <span class="marquee-tag"><span class="marquee-dot"></span>Fill Your Pipeline</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Qualified Meetings</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>AI-Personalized Outreach</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Zero Hiring</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Done For You</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Book More Meetings</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Consistent Pipeline</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Scale Outbound</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Save Time</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Outperform Competitors</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>No Cold Calling</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>More Revenue</span>
+    </div>
+  </div>
+  <div class="marquee-row right">
+    <div class="marquee-track" id="mq2">
+      <span class="marquee-tag"><span class="marquee-dot"></span>Automated Follow-Up</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Vetted Prospects</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Close More Deals</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Hands-Free Growth</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>RIA &amp; Insurance Specialists</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Reach Decision-Makers</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Predictable Revenue</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Industry-Specific Targeting</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Stop Chasing Referrals</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Always Prospecting</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Automated Follow-Up</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Vetted Prospects</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Close More Deals</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Hands-Free Growth</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>RIA &amp; Insurance Specialists</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Reach Decision-Makers</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Predictable Revenue</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Industry-Specific Targeting</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Stop Chasing Referrals</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Always Prospecting</span>
+    </div>
+  </div>
+  <div class="marquee-row left2">
+    <div class="marquee-track" id="mq3">
+      <span class="marquee-tag"><span class="marquee-dot"></span>Wealth Management</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Insurance Agencies</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Physical Therapy</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Mental Health Practices</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Commercial Real Estate</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Professional Services</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Tampa Bay · Florida</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>2–3× Open Rates</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>4–12 Meetings / Month</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>48hr Launch</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Wealth Management</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Insurance Agencies</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Physical Therapy</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Mental Health Practices</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Commercial Real Estate</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Professional Services</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>Tampa Bay · Florida</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>2–3× Open Rates</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>4–12 Meetings / Month</span>
+      <span class="marquee-tag"><span class="marquee-dot"></span>48hr Launch</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── WHAT WE DO BAR ── -->
 <div class="do-bar">
   <div class="do-inner">
     <div class="do-label">What we do</div>
     <div class="do-items">
-      <div class="do-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        Find Prospects
-      </div>
-      <div class="do-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4 9.5-9.5z"/></svg>
-        Write Outreach
-      </div>
-      <div class="do-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        Send Sequences
-      </div>
-      <div class="do-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-        Handle Replies
-      </div>
-      <div class="do-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        Book Meetings
-      </div>
+      <div class="do-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>Find Prospects</div>
+      <div class="do-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4 9.5-9.5z"/></svg>Write Outreach</div>
+      <div class="do-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Send Sequences</div>
+      <div class="do-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Handle Replies</div>
+      <div class="do-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Meetings</div>
     </div>
   </div>
 </div>
@@ -1340,153 +478,118 @@
 <!-- ── STATS ── -->
 <div class="stats-wrap">
   <div class="inner">
-    <div class="stat-cell rv">
-      <span class="stat-n">100<em>%</em></span>
-      <div class="stat-l">Done for you<br />No lift required</div>
-    </div>
-    <div class="stat-cell rv d1">
-      <span class="stat-n"><em>$0</em></span>
-      <div class="stat-l">SDR salary<br />vs. $70K+ to hire</div>
-    </div>
-    <div class="stat-cell rv d2">
-      <span class="stat-n">48<em>hr</em></span>
-      <div class="stat-l">To first outreach<br />After onboarding call</div>
-    </div>
-    <div class="stat-cell rv d3">
-      <span class="stat-n">3<em>–5×</em></span>
-      <div class="stat-l">More volume<br />Than a human SDR</div>
-    </div>
+    <div class="stat-cell rv"><span class="stat-n">100<em>%</em></span><div class="stat-l">Done for you<br />No lift required</div></div>
+    <div class="stat-cell rv d1"><span class="stat-n"><em>$0</em></span><div class="stat-l">SDR salary<br />vs. $70K+ to hire</div></div>
+    <div class="stat-cell rv d2"><span class="stat-n">48<em>hr</em></span><div class="stat-l">To first outreach<br />After onboarding call</div></div>
+    <div class="stat-cell rv d3"><span class="stat-n">3<em>–5×</em></span><div class="stat-l">More volume<br />Than a human SDR</div></div>
   </div>
 </div>
 
 <!-- ── LIVE DEMO ── -->
-<section class="demo-section">
+<section id="demo" class="demo-bg">
   <div class="wrap">
     <div class="rv">
       <div class="ey">Live Demo</div>
-      <h2 class="sh">Watch Argus write<br />a cold email in real time.</h2>
-      <p class="sp">Argus pulls verified data on your target prospect and composes a personalized email — in seconds. This is what runs for your business, every day, automatically.</p>
+      <h2 class="sh">Watch Argus work<br />for your business.</h2>
+      <p class="sp">This is exactly what Argus does for your clients — it finds their ideal prospects and writes personalized emails on their behalf. Watch a full cycle: outreach → reply → meeting booked.</p>
     </div>
 
     <div class="demo-window rv">
-      <!-- Window chrome -->
       <div class="demo-chrome">
-        <div class="demo-dots">
-          <span class="demo-dot red"></span>
-          <span class="demo-dot yellow"></span>
-          <span class="demo-dot green-dot"></span>
-        </div>
-        <div class="demo-chrome-title">
-          <span class="demo-status-label" id="demo-status-label">Argus — Outreach Engine</span>
-        </div>
-        <div class="demo-badge-wrap">
-          <span class="demo-live-badge">
-            <span class="demo-live-dot"></span>
-            LIVE
-          </span>
-        </div>
+        <div class="demo-dots"><span class="demo-dot r"></span><span class="demo-dot y"></span><span class="demo-dot g"></span></div>
+        <div class="demo-chrome-label" id="demo-chrome-label">Argus Outreach Engine — Active Session</div>
+        <div class="demo-live-pill"><span class="demo-live-dot"></span>LIVE</div>
       </div>
 
-      <!-- Demo body -->
       <div class="demo-body">
-        <!-- Left: prospect card -->
+        <!-- Left: prospect info -->
         <div class="demo-left">
           <div class="demo-panel-label">Target Prospect</div>
-          <div class="prospect-card" id="prospect-card">
-            <div class="prospect-avatar" id="prospect-avatar">
-              <span id="prospect-initials">MC</span>
-            </div>
-            <div class="prospect-info">
-              <div class="prospect-name" id="prospect-name">Michael Chen</div>
-              <div class="prospect-title" id="prospect-title">Principal</div>
-              <div class="prospect-company" id="prospect-company">Harbor Wealth Management</div>
-              <div class="prospect-loc" id="prospect-loc">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Tampa, FL
-              </div>
+          <div class="prospect-card">
+            <div class="prospect-avatar" id="p-initials">TW</div>
+            <div>
+              <div class="prospect-name" id="p-name">Thomas Whitfield</div>
+              <div class="prospect-title" id="p-title">CEO &amp; Founder</div>
+              <div class="prospect-company" id="p-company">Whitfield Holdings</div>
+              <div class="prospect-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="10" height="10"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span id="p-loc">Tampa, FL</span></div>
             </div>
           </div>
 
           <div class="prospect-data">
-            <div class="pd-row">
-              <span class="pd-key">Industry</span>
-              <span class="pd-val" id="pd-industry">Wealth Management</span>
-            </div>
-            <div class="pd-row">
-              <span class="pd-key">Firm size</span>
-              <span class="pd-val" id="pd-size">8 employees</span>
-            </div>
-            <div class="pd-row">
-              <span class="pd-key">AUM est.</span>
-              <span class="pd-val" id="pd-aum">$180M+</span>
-            </div>
-            <div class="pd-row">
-              <span class="pd-key">Signal</span>
-              <span class="pd-val signal" id="pd-signal">Referral-only firm</span>
-            </div>
+            <div class="pd-row"><span class="pd-k">Client</span><span class="pd-v" id="p-client">Bay Harbor Wealth Advisors</span></div>
+            <div class="pd-row"><span class="pd-k">Industry</span><span class="pd-v" id="p-industry">Private Equity / Family Office</span></div>
+            <div class="pd-row"><span class="pd-k">Est. Net Worth</span><span class="pd-v" id="p-aum">$8M+</span></div>
+            <div class="pd-row"><span class="pd-k">Signal</span><span class="pd-v sig" id="p-signal">Recent business exit</span></div>
           </div>
 
-          <div class="argus-thinking" id="argus-thinking">
-            <div class="thinking-dots">
-              <span></span><span></span><span></span>
-            </div>
-            <span id="thinking-text">Analyzing prospect...</span>
+          <div class="argus-status">
+            <div class="thinking-dots"><span></span><span></span><span></span></div>
+            <span id="argus-status-text">Analyzing prospect...</span>
           </div>
         </div>
 
-        <!-- Right: email compose -->
+        <!-- Right: email + reply + booking -->
         <div class="demo-right">
-          <div class="demo-panel-label">Composing Outreach</div>
+          <div class="demo-panel-label">Outreach Sequence</div>
+
+          <!-- Sent email -->
           <div class="email-compose">
             <div class="email-field">
-              <span class="email-field-label">To</span>
-              <span class="email-to" id="email-to">m.chen@harborwealthmgmt.com</span>
+              <span class="email-lbl">From</span>
+              <span class="email-from-tag"><strong id="email-from">James K.</strong><span style="color:var(--muted);margin-left:4px" id="email-from-co">· Bay Harbor Wealth Advisors</span></span>
             </div>
             <div class="email-field">
-              <span class="email-field-label">Subject</span>
-              <span class="email-subject" id="email-subject"><span id="subject-text"></span><span class="cursor" id="subject-cursor">|</span></span>
+              <span class="email-lbl">To</span>
+              <span class="email-to" id="email-to">t.whitfield@whitfieldholdings.com</span>
             </div>
-            <div class="email-divider"></div>
-            <div class="email-body" id="email-body">
-              <span id="body-text"></span><span class="cursor" id="body-cursor" style="display:none">|</span>
+            <div class="email-field">
+              <span class="email-lbl">Subject</span>
+              <span class="email-subject-text"><span id="subject-text"></span><span class="cursor" id="subject-cur">|</span></span>
+            </div>
+            <div class="email-body-area"><span id="body-text"></span><span class="cursor" id="body-cur" style="display:none">|</span></div>
+          </div>
+
+          <!-- Reply (hidden until triggered) -->
+          <div class="email-reply" id="email-reply">
+            <div class="reply-header">
+              <span class="reply-tag">↩ Reply</span>
+              <span class="reply-from" id="reply-from">t.whitfield@whitfieldholdings.com</span>
+            </div>
+            <div class="reply-body" id="reply-body">"James — thanks for reaching out. I've actually been meaning to connect with a trusted advisor since the sale. Thursday afternoon works great if you have time?"</div>
+          </div>
+
+          <!-- Booking confirmation (hidden until triggered) -->
+          <div class="booking-confirm" id="booking-confirm">
+            <div class="booking-icon">✓</div>
+            <div class="booking-detail">
+              <div class="booking-label">Meeting Booked — Argus</div>
+              <div class="booking-title" id="booking-title">Thomas Whitfield · Bay Harbor Wealth Advisors</div>
+              <div class="booking-time" id="booking-time">Thu Mar 13 · 2:00 PM · 30 min discovery call · Added to calendar</div>
             </div>
           </div>
 
           <!-- Sequence indicator -->
-          <div class="sequence-bar">
-            <div class="seq-label">Sequence</div>
+          <div class="seq-bar">
+            <span class="seq-lbl">Sequence</span>
             <div class="seq-steps">
-              <div class="seq-step active" id="seq-1">
-                <span class="seq-num">1</span>
-                <span class="seq-name">Initial</span>
-              </div>
-              <div class="seq-arrow">→</div>
-              <div class="seq-step" id="seq-2">
-                <span class="seq-num">2</span>
-                <span class="seq-name">Day 3</span>
-              </div>
-              <div class="seq-arrow">→</div>
-              <div class="seq-step" id="seq-3">
-                <span class="seq-num">3</span>
-                <span class="seq-name">Day 7</span>
-              </div>
-              <div class="seq-arrow">→</div>
-              <div class="seq-step" id="seq-4">
-                <span class="seq-num">4</span>
-                <span class="seq-name">Day 14</span>
-              </div>
+              <div class="seq-step on" id="sq1"><span class="seq-num">1</span><span class="seq-name">Initial</span></div>
+              <span class="seq-arr">→</span>
+              <div class="seq-step" id="sq2"><span class="seq-num">2</span><span class="seq-name">Day 3</span></div>
+              <span class="seq-arr">→</span>
+              <div class="seq-step" id="sq3"><span class="seq-num">3</span><span class="seq-name">Day 7</span></div>
+              <span class="seq-arr">→</span>
+              <div class="seq-step" id="sq4"><span class="seq-num">4</span><span class="seq-name">Day 14</span></div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Prospect switcher -->
       <div class="demo-footer">
-        <span class="demo-footer-label">Prospects processed this session</span>
+        <span class="demo-footer-lbl">Active campaigns this session</span>
         <div class="demo-switcher">
-          <div class="dsw active" data-idx="0">Michael C. · RIA</div>
-          <div class="dsw" data-idx="1">Sarah R. · Insurance</div>
-          <div class="dsw" data-idx="2">Dr. Morrison · PT</div>
+          <div class="dsw active" data-idx="0">Whitfield · RIA</div>
+          <div class="dsw" data-idx="1">Park · Insurance</div>
+          <div class="dsw" data-idx="2">Dr. Torres · PT</div>
         </div>
       </div>
     </div>
@@ -1503,21 +606,19 @@
     </div>
 
     <div class="how-layout">
-
-      <!-- Steps: scroll through these -->
-      <div class="how-steps-col">
+      <div class="how-steps-col" id="how-steps-col">
         <div class="how-step active" data-step="0">
           <div class="step-num-box"><span class="step-num">01</span></div>
           <div class="step-content">
             <h3>Define Your Ideal Customer</h3>
-            <p>One onboarding call. We learn your business, your best clients, your deal size — and build the precise blueprint that drives every targeting decision we make on your behalf.</p>
+            <p>One onboarding call. We learn your business, your best clients, your deal size — and build the precise targeting blueprint that drives every decision we make on your behalf.</p>
           </div>
         </div>
         <div class="how-step" data-step="1">
           <div class="step-num-box"><span class="step-num">02</span></div>
           <div class="step-content">
             <h3>Build Your Prospect List</h3>
-            <p>Our system sources verified contacts matched exactly to your criteria — name, title, company, email. No guesswork. No outdated databases. No bounces hurting your sender reputation.</p>
+            <p>Our system sources verified contacts matched exactly to your criteria — name, title, company, email. No guesswork. No outdated databases. No bounces that hurt your deliverability.</p>
           </div>
         </div>
         <div class="how-step" data-step="2">
@@ -1538,28 +639,19 @@
           <div class="step-num-box"><span class="step-num">05</span></div>
           <div class="step-content">
             <h3>Deliver Qualified Meetings</h3>
-            <p>Interested replies are reviewed, qualified, and routed directly to your booking link. You focus on closing. We keep your calendar consistently full.</p>
+            <p>Interested replies are reviewed, qualified, and routed directly to your calendar. You close deals. We keep your pipeline consistently full.</p>
           </div>
         </div>
       </div>
 
-      <!-- Sticky visual panel: updates on scroll -->
       <div class="how-sticky">
         <div class="visual-panel">
-          <div class="vp-header">
-            <div class="vp-dot"></div>
-            <div class="vp-dot"></div>
-            <div class="vp-dot"></div>
-          </div>
+          <div class="vp-header"><div class="vp-hd"></div><div class="vp-hd"></div><div class="vp-hd"></div></div>
           <div class="vp-body" id="vp-body">
-            <div class="vp-step-num" id="vp-num">01</div>
+            <div class="vp-big-num" id="vp-num">01</div>
             <div class="vp-title" id="vp-title">Define Your Ideal Customer</div>
-            <div class="vp-desc" id="vp-desc">One onboarding call. We map your best clients, ideal deal profile, and exact targeting criteria — the blueprint that guides everything we build for you.</div>
-            <div class="vp-tags" id="vp-tags">
-              <span class="vp-tag">ICP Research</span>
-              <span class="vp-tag">Strategy</span>
-              <span class="vp-tag">One Call</span>
-            </div>
+            <div class="vp-desc" id="vp-desc">One onboarding call. We map your best clients, ideal deal profile, and targeting criteria — the blueprint that guides everything.</div>
+            <div class="vp-tags" id="vp-tags"><span class="vp-tag">ICP Research</span><span class="vp-tag">Strategy</span><span class="vp-tag">One Call</span></div>
           </div>
         </div>
       </div>
@@ -1577,41 +669,17 @@
     <div class="ps-grid rv">
       <div class="ps-col">
         <div class="ps-hdr neg">// Without ArgusReach</div>
-        <div class="ps-row">
-          <svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#2e2e2e" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          <p><b>Entirely dependent on referrals</b> — unpredictable, impossible to scale, dries up without warning.</p>
-        </div>
-        <div class="ps-row">
-          <svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#2e2e2e" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          <p><b>A SDR hire costs $70K+/year</b> — salary, benefits, and management overhead before a single meeting is booked.</p>
-        </div>
-        <div class="ps-row">
-          <svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#2e2e2e" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          <p><b>Generic blasts get deleted</b> — mass email reads like spam, gets treated like spam, and damages your domain reputation.</p>
-        </div>
-        <div class="ps-row">
-          <svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#2e2e2e" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          <p><b>Outreach never gets done</b> — it's always the lowest priority, pushed to next week, every week.</p>
-        </div>
+        <div class="ps-row"><svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#2e2e2e" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p><b>Entirely dependent on referrals</b> — unpredictable, impossible to scale, dries up without warning.</p></div>
+        <div class="ps-row"><svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#2e2e2e" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p><b>A SDR hire costs $70K+/year</b> — salary, benefits, and management overhead before a single meeting is booked.</p></div>
+        <div class="ps-row"><svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#2e2e2e" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p><b>Generic blasts get deleted</b> — mass email reads like spam, gets treated like spam.</p></div>
+        <div class="ps-row"><svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#2e2e2e" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p><b>Outreach never gets done</b> — it's always the lowest priority, pushed to next week, every week.</p></div>
       </div>
       <div class="ps-col right">
         <div class="ps-hdr pos">// With ArgusReach</div>
-        <div class="ps-row">
-          <svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-          <p><b>Consistent, predictable pipeline</b> — outbound runs every month whether you think about it or not.</p>
-        </div>
-        <div class="ps-row">
-          <svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-          <p><b>A fraction of the cost of a hire</b> — starting at $750/month. No salary, no overhead, no management.</p>
-        </div>
-        <div class="ps-row">
-          <svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-          <p><b>AI-personalized at scale</b> — every message is written for the specific prospect. Open rates 2–3× industry average.</p>
-        </div>
-        <div class="ps-row">
-          <svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-          <p><b>Zero time from you</b> — after one call, your only job is showing up to the meetings we book.</p>
-        </div>
+        <div class="ps-row"><svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg><p><b>Consistent, predictable pipeline</b> — outbound runs every month whether you think about it or not.</p></div>
+        <div class="ps-row"><svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg><p><b>A fraction of the cost of a hire</b> — starting at $750/month. No salary, no overhead, no management.</p></div>
+        <div class="ps-row"><svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg><p><b>AI-personalized at scale</b> — every message references specific details about the prospect. 2–3× open rates.</p></div>
+        <div class="ps-row"><svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg><p><b>Zero time from you</b> — after one onboarding call, you only show up to the meetings we book.</p></div>
       </div>
     </div>
   </div>
@@ -1625,56 +693,13 @@
       <h2 class="sh">Built for businesses<br />where one deal matters.</h2>
       <p class="sp">We specialize in industries where a single closed client more than justifies the investment — and where decision-makers respond to direct, professional outreach.</p>
     </div>
-
     <div class="serve-grid">
-      <div class="sc rv">
-        <div class="sc-top">
-          <svg class="sc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
-          <span class="sc-pill">Primary</span>
-        </div>
-        <h3>Wealth Management & RIAs</h3>
-        <p>Independent advisors and RIA firms who need qualified prospect conversations without cold calling. We target HNW individuals, business owners, and executives near key financial transitions.</p>
-      </div>
-      <div class="sc rv d1">
-        <div class="sc-top">
-          <svg class="sc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <span class="sc-pill">Primary</span>
-        </div>
-        <h3>Insurance Agencies</h3>
-        <p>Independent agencies growing beyond referrals. We target business owners, HR decision-makers, and high-income households — whoever fits your specific book of business.</p>
-      </div>
-      <div class="sc rv d2">
-        <div class="sc-top">
-          <svg class="sc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          <span class="sc-pill">Available</span>
-        </div>
-        <h3>Commercial Real Estate</h3>
-        <p>Brokers and investment sales teams who need consistent outreach to property owners, investors, and prospective tenants across targeted submarkets.</p>
-      </div>
-      <div class="sc rv d3">
-        <div class="sc-top">
-          <svg class="sc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          <span class="sc-pill">Available</span>
-        </div>
-        <h3>Professional Services</h3>
-        <p>Business attorneys, CPAs, and B2B consultants who need qualified introductions without the bandwidth to build consistent outbound prospecting.</p>
-      </div>
-      <div class="sc rv d4">
-        <div class="sc-top">
-          <svg class="sc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-          <span class="sc-pill">Available</span>
-        </div>
-        <h3>Physical Therapy Practices</h3>
-        <p>Growing practices seeking new patient sources through physician referral outreach, corporate wellness partnerships, and direct-to-patient campaigns in their local market.</p>
-      </div>
-      <div class="sc rv d5">
-        <div class="sc-top">
-          <svg class="sc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-          <span class="sc-pill">Available</span>
-        </div>
-        <h3>Mental Health Practices</h3>
-        <p>Group practices and therapists building caseload through targeted outreach to HR departments, EAP coordinators, and employee wellness programs at local employers.</p>
-      </div>
+      <div class="sc rv"><div class="sc-top"><svg class="sc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg><span class="sc-pill">Primary</span></div><h3>Wealth Management &amp; RIAs</h3><p>Independent advisors and RIA firms who need qualified prospect conversations without cold calling. We target HNW individuals, business owners, and executives near key financial transitions.</p></div>
+      <div class="sc rv d1"><div class="sc-top"><svg class="sc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="sc-pill">Primary</span></div><h3>Insurance Agencies</h3><p>Independent agencies growing beyond referrals. We target business owners, HR decision-makers, and high-income households — whoever fits your specific book of business.</p></div>
+      <div class="sc rv d2"><div class="sc-top"><svg class="sc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="sc-pill">Available</span></div><h3>Commercial Real Estate</h3><p>Brokers and investment sales teams who need consistent outreach to property owners, investors, and prospective tenants across targeted submarkets.</p></div>
+      <div class="sc rv d3"><div class="sc-top"><svg class="sc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span class="sc-pill">Available</span></div><h3>Professional Services</h3><p>Business attorneys, CPAs, and B2B consultants who need qualified introductions without the bandwidth to build consistent outbound prospecting.</p></div>
+      <div class="sc rv d4"><div class="sc-top"><svg class="sc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span class="sc-pill">Available</span></div><h3>Physical Therapy Practices</h3><p>Growing practices seeking new patient sources through physician referral outreach, corporate wellness partnerships, and direct-to-patient campaigns in their local market.</p></div>
+      <div class="sc rv d5"><div class="sc-top"><svg class="sc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg><span class="sc-pill">Available</span></div><h3>Mental Health Practices</h3><p>Group practices and therapists building caseload through targeted outreach to HR departments, EAP coordinators, and employee wellness programs at local employers.</p></div>
     </div>
   </div>
 </section>
@@ -1688,21 +713,9 @@
       <p class="sp">Conservative estimates based on standard B2B cold email performance. Results vary by industry, target profile, and offer clarity.</p>
     </div>
     <div class="results-grid">
-      <div class="rc rv">
-        <div class="rc-num">35–55<em>%</em></div>
-        <h3>Average Open Rate</h3>
-        <p>Personalized outreach consistently outperforms the industry average of 15–20%. Our sequences are written and tested for both deliverability and relevance.</p>
-      </div>
-      <div class="rc rv d1">
-        <div class="rc-num">4–8<em>%</em></div>
-        <h3>Positive Reply Rate</h3>
-        <p>Of contacts engaged, a meaningful share respond with genuine interest. On the Starter plan (200 contacts), that's 8–16 qualified conversations started per month.</p>
-      </div>
-      <div class="rc rv d2">
-        <div class="rc-num">4–12</div>
-        <h3>Qualified Meetings / Month</h3>
-        <p>Clients can expect a consistent flow of calendar-confirmed meetings with decision-makers in their target market — depending on plan and vertical.</p>
-      </div>
+      <div class="rc rv"><div class="rc-num">35–55<em>%</em></div><h3>Average Open Rate</h3><p>Personalized outreach consistently outperforms the industry average of 15–20%. Our sequences are written and tested for both deliverability and relevance.</p></div>
+      <div class="rc rv d1"><div class="rc-num">4–8<em>%</em></div><h3>Positive Reply Rate</h3><p>Of contacts engaged, a meaningful share respond with genuine interest. On the Starter plan (200 contacts), that's 8–16 qualified conversations started per month.</p></div>
+      <div class="rc rv d2"><div class="rc-num">4–12</div><h3>Qualified Meetings / Month</h3><p>Clients can expect a consistent flow of calendar-confirmed meetings with decision-makers — depending on plan, vertical, and offer strength.</p></div>
     </div>
   </div>
 </section>
@@ -1715,7 +728,6 @@
       <h2 class="sh">Simple. Transparent.<br />No surprises.</h2>
       <p class="sp" style="margin:0 auto;">Flat monthly fees. No hidden costs. No performance markups. Cancel after your initial 3-month engagement.</p>
     </div>
-
     <div class="pricing-grid">
       <div class="pc rv">
         <div class="pc-tier">Starter</div>
@@ -1732,7 +744,6 @@
         </ul>
         <a href="#book" class="pc-btn outline">Get Started</a>
       </div>
-
       <div class="pc feat rv d1">
         <div class="pc-tier">Growth — Most Popular</div>
         <div class="pc-price"><sup>$</sup>1,500<sub>/mo</sub></div>
@@ -1748,7 +759,6 @@
         </ul>
         <a href="#book" class="pc-btn dark">Get Started</a>
       </div>
-
       <div class="pc rv d2">
         <div class="pc-tier">Scale</div>
         <div class="pc-price"><sup>$</sup>2,500<sub>/mo</sub></div>
@@ -1774,10 +784,7 @@
   <div class="rv">
     <h2>Stop Waiting<br />on Referrals.</h2>
     <p>Book a free 15-minute strategy call. We'll show you exactly what an ArgusReach pipeline system looks like for your specific business — no commitment, no pitch.</p>
-    <a href="https://calendly.com/argusreach" class="btn-black" target="_blank" rel="noopener">
-      Book Your Free Call
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
+    <a href="https://calendly.com/argusreach" class="btn-black" target="_blank" rel="noopener">Book Your Free Call <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
   </div>
 </section>
 
@@ -1790,354 +797,280 @@
 
 <script>
 (function () {
-  /* ── CANVAS: subtle white particle network ── */
+  /* ── CANVAS ── */
   const canvas = document.getElementById('hero-canvas');
   const ctx = canvas.getContext('2d');
   let W, H, nodes = [], mouse = { x: -9999, y: -9999 }, raf;
-
-  function resize() {
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-  }
-
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
   function init() {
     nodes = [];
     const n = Math.min(Math.floor((W * H) / 10000), 90);
-    for (let i = 0; i < n; i++) {
-      nodes.push({
-        x: Math.random() * W,
-        y: Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.38,
-        vy: (Math.random() - 0.5) * 0.38,
-        r: Math.random() * 1.4 + 0.8,
-        phase: Math.random() * Math.PI * 2
-      });
-    }
+    for (let i = 0; i < n; i++) nodes.push({ x: Math.random()*W, y: Math.random()*H, vx:(Math.random()-.5)*.38, vy:(Math.random()-.5)*.38, r:Math.random()*1.4+.8, phase:Math.random()*Math.PI*2 });
   }
-
   function tick() {
-    ctx.clearRect(0, 0, W, H);
-    const now = performance.now() / 1000;
-    const maxD = 145;
-
-    for (let i = 0; i < nodes.length; i++) {
-      const a = nodes[i];
-      a.x += a.vx; a.y += a.vy;
-      if (a.x < 0 || a.x > W) a.vx *= -1;
-      if (a.y < 0 || a.y > H) a.vy *= -1;
-
-      // Mouse repel
-      const dx = a.x - mouse.x, dy = a.y - mouse.y;
-      const d = Math.sqrt(dx * dx + dy * dy);
-      if (d < 100 && d > 0) {
-        const f = (100 - d) / 100 * 0.55;
-        a.vx += dx / d * f; a.vy += dy / d * f;
-        const sp = Math.sqrt(a.vx * a.vx + a.vy * a.vy);
-        if (sp > 2.2) { a.vx = a.vx / sp * 2.2; a.vy = a.vy / sp * 2.2; }
-      }
-
-      const pulse = 0.45 + 0.35 * Math.sin(now * 1.3 + a.phase);
-
-      // Node dot
-      ctx.beginPath();
-      ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255,255,255,${pulse * 0.6})`;
-      ctx.fill();
-
-      // Connections
-      for (let j = i + 1; j < nodes.length; j++) {
-        const b = nodes[j];
-        const ex = a.x - b.x, ey = a.y - b.y;
-        const ed = Math.sqrt(ex * ex + ey * ey);
-        if (ed < maxD) {
-          ctx.beginPath();
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.strokeStyle = `rgba(255,255,255,${(1 - ed / maxD) * 0.1})`;
-          ctx.lineWidth = 0.5;
-          ctx.stroke();
-        }
-      }
-    }
-
+    ctx.clearRect(0,0,W,H);
+    const now = performance.now()/1000, maxD = 145;
+    nodes.forEach((a,i) => {
+      a.x+=a.vx; a.y+=a.vy;
+      if(a.x<0||a.x>W) a.vx*=-1; if(a.y<0||a.y>H) a.vy*=-1;
+      const dx=a.x-mouse.x, dy=a.y-mouse.y, d=Math.sqrt(dx*dx+dy*dy);
+      if(d<100&&d>0){const f=(100-d)/100*.55; a.vx+=dx/d*f; a.vy+=dy/d*f; const sp=Math.sqrt(a.vx*a.vx+a.vy*a.vy); if(sp>2.2){a.vx=a.vx/sp*2.2;a.vy=a.vy/sp*2.2;}}
+      const pulse=.45+.35*Math.sin(now*1.3+a.phase);
+      ctx.beginPath(); ctx.arc(a.x,a.y,a.r,0,Math.PI*2); ctx.fillStyle=`rgba(255,255,255,${pulse*.6})`; ctx.fill();
+      for(let j=i+1;j<nodes.length;j++){const b=nodes[j],ex=a.x-b.x,ey=a.y-b.y,ed=Math.sqrt(ex*ex+ey*ey); if(ed<maxD){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=`rgba(255,255,255,${(1-ed/maxD)*.1})`;ctx.lineWidth=.5;ctx.stroke();}}
+    });
     raf = requestAnimationFrame(tick);
   }
-
   resize(); init(); tick();
-  window.addEventListener('resize', () => { cancelAnimationFrame(raf); resize(); init(); tick(); });
-  window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
-  window.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
+  window.addEventListener('resize',()=>{cancelAnimationFrame(raf);resize();init();tick();});
+  window.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;});
+  window.addEventListener('mouseleave',()=>{mouse.x=-9999;mouse.y=-9999;});
 
   /* ── SCROLL REVEAL ── */
   const rvEls = document.querySelectorAll('.rv');
-  const rvObs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); rvObs.unobserve(e.target); } });
-  }, { threshold: 0.1 });
-  rvEls.forEach(el => rvObs.observe(el));
+  const rvObs = new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');rvObs.unobserve(e.target);}});},{threshold:0.1});
+  rvEls.forEach(el=>rvObs.observe(el));
 
-  /* ── HOW IT WORKS: SCROLL-TRIGGERED STEP PANEL ── */
+  /* ── HOW IT WORKS: SCROLL TRIGGER ── */
   const stepData = [
-    {
-      num: '01', title: 'Define Your Ideal Customer',
-      desc: 'One onboarding call. We map your best clients, deal size, and targeting criteria — the blueprint that drives every decision.',
-      tags: ['ICP Research', 'Strategy', 'One Call']
-    },
-    {
-      num: '02', title: 'Build Your Prospect List',
-      desc: 'Verified contacts pulled from premium data sources — name, title, company, email. Clean, accurate, and matched to your criteria.',
-      tags: ['Verified Data', 'Zero Bounces', 'Targeted']
-    },
-    {
-      num: '03', title: 'Write Personalized Outreach',
-      desc: 'Every email references the prospect\'s specific company, role, and market. Not a template — a real message that earns a reply.',
-      tags: ['AI-Written', '2–3× Open Rate', 'Personalized']
-    },
-    {
-      num: '04', title: 'Run Automated Follow-Up',
-      desc: '4–5 touch sequences run automatically over three weeks. Most replies come at touch 3 or 4. We never stop too early.',
-      tags: ['Multi-Touch', 'Auto Follow-Up', '3-Week Cycle']
-    },
-    {
-      num: '05', title: 'Deliver Qualified Meetings',
-      desc: 'Interested replies reviewed, qualified, and routed to your booking link. Your calendar stays full. You close deals.',
-      tags: ['Meeting Booked', 'Qualified', 'Ready to Close']
-    }
+    {num:'01',title:'Define Your Ideal Customer',desc:'One onboarding call. We map your best clients, deal size, and targeting criteria — the blueprint that drives every decision.',tags:['ICP Research','Strategy','One Call']},
+    {num:'02',title:'Build Your Prospect List',desc:'Verified contacts from premium data sources — name, title, company, email. Clean, accurate, matched to your exact criteria.',tags:['Verified Data','Zero Bounces','Targeted']},
+    {num:'03',title:'Write Personalized Outreach',desc:"Every email references the prospect's specific company, role, and market context. Not a template — a real message that earns a reply.",tags:['AI-Written','2–3× Open Rate','Personalized']},
+    {num:'04',title:'Run Automated Follow-Up',desc:'4–5 touches over 3 weeks. Positive signals surface, cold prospects exit gracefully. We never stop too early.',tags:['Multi-Touch','Auto Follow-Up','3-Week Cycle']},
+    {num:'05',title:'Deliver Qualified Meetings',desc:'Interested replies reviewed, qualified, and routed to your booking link. Your calendar stays full. You close deals.',tags:['Meeting Booked','Qualified','Ready to Close']}
   ];
-
   const howSteps = document.querySelectorAll('.how-step');
   const vpBody = document.getElementById('vp-body');
   const vpNum = document.getElementById('vp-num');
   const vpTitle = document.getElementById('vp-title');
   const vpDesc = document.getElementById('vp-desc');
   const vpTags = document.getElementById('vp-tags');
-  let currentActive = 0;
+  let curStep = 0;
 
-  function updatePanel(idx, animate) {
-    if (idx === currentActive && !animate) return;
-    currentActive = idx;
-
-    // Fade out
-    vpBody.classList.add('fade-out');
-
-    setTimeout(() => {
-      const d = stepData[idx];
-      vpNum.textContent = d.num;
-      vpTitle.textContent = d.title;
-      vpDesc.textContent = d.desc;
-      vpTags.innerHTML = d.tags.map(t => `<span class="vp-tag">${t}</span>`).join('');
-      vpBody.classList.remove('fade-out');
-    }, 180);
-
-    // Update active step highlight
-    howSteps.forEach((s, i) => s.classList.toggle('active', i === idx));
+  function setStep(idx) {
+    if(idx===curStep) return;
+    curStep = idx;
+    howSteps.forEach((s,i)=>s.classList.toggle('active',i===idx));
+    vpBody.classList.add('fading');
+    setTimeout(()=>{
+      const d=stepData[idx];
+      vpNum.textContent=d.num; vpTitle.textContent=d.title; vpDesc.textContent=d.desc;
+      vpTags.innerHTML=d.tags.map(t=>`<span class="vp-tag">${t}</span>`).join('');
+      vpBody.classList.remove('fading');
+    },200);
   }
 
-  // IntersectionObserver: fires when each step hits 50% visibility
-  const stepObs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const idx = parseInt(entry.target.dataset.step);
-        updatePanel(idx, true);
-      }
-    });
-  }, {
-    threshold: 0.55,
-    rootMargin: '0px 0px -10% 0px'
-  });
+  const stepObs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){setStep(parseInt(e.target.dataset.step));}});
+  },{threshold:0, rootMargin:'-30% 0px -30% 0px'});
+  howSteps.forEach(s=>stepObs.observe(s));
 
-  howSteps.forEach(step => stepObs.observe(step));
-
-  /* ── NAV SCROLL ── */
+  /* ── NAV ── */
   const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
+  window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
 
-  /* ── LIVE DEMO TYPING ANIMATION ── */
+  /* ── LIVE DEMO ── */
   const prospects = [
     {
-      initials: 'MC', name: 'Michael Chen', title: 'Principal',
-      company: 'Harbor Wealth Management', loc: 'Tampa, FL',
-      to: 'm.chen@harborwealthmgmt.com',
-      industry: 'Wealth Management', size: '8 employees', aum: '$180M+', signal: 'Referral-only firm',
-      subject: 'Quick question about your prospecting, Michael',
-      body: `Hi Michael,
+      initials:'TW', name:'Thomas Whitfield', title:'CEO & Founder', company:'Whitfield Holdings', loc:'Tampa, FL',
+      client:'Bay Harbor Wealth Advisors', industry:'Private Equity / Family Office', aum:'$8M+', signal:'Recent business exit',
+      fromName:'James K.', fromCo:'Bay Harbor Wealth Advisors',
+      to:'t.whitfield@whitfieldholdings.com',
+      subject:'Thomas — wealth planning after your Whitfield Holdings exit?',
+      body:`Hi Thomas,
 
-I came across Harbor Wealth Management and noticed you've built an impressive practice focused on serving Tampa's business owner community.
+Congratulations on the Whitfield Holdings transaction — that kind of liquidity event opens a very specific set of planning opportunities, and there's often a narrow window to make the right moves.
 
-Quick question: outside of referrals, how are you currently reaching qualified new prospects?
+I'm James at Bay Harbor Wealth Advisors. We specialize in working with Tampa-area business owners navigating exactly this kind of transition — from business wealth to investable wealth.
 
-Most advisors I talk to are exceptional at serving existing clients, but don't have a consistent way to reach new ones — especially HNW individuals who aren't already in their network.
-
-We run a done-for-you AI outreach system specifically built for RIAs. We handle everything — finding qualified prospects, writing personalized outreach, follow-up — and deliver booked meetings to your calendar.
-
-Worth a 15-minute call to see if it fits what you're building?
+Would you be open to a brief conversation? No agenda, just an introduction.
 
 Best,
-[Sender Name]`
+James K.
+Bay Harbor Wealth Advisors`,
+      replyFrom:'t.whitfield@whitfieldholdings.com',
+      replyBody:'"James — thanks for reaching out. I\'ve actually been meaning to connect with a trusted advisor since the sale. Thursday afternoon works great if you have time?"',
+      bookingTitle:'Thomas Whitfield · Bay Harbor Wealth Advisors',
+      bookingTime:'Thu Mar 13 · 2:00 PM · 30 min discovery call · Added to calendar'
     },
     {
-      initials: 'SR', name: 'Sarah Rodriguez', title: 'Owner',
-      company: 'Bay Shield Insurance Group', loc: 'St. Petersburg, FL',
-      to: 's.rodriguez@bayshieldins.com',
-      industry: 'Independent Insurance', size: '5 employees', aum: '$2.4M GWP', signal: 'Growth phase',
-      subject: 'More qualified conversations for Bay Shield?',
-      body: `Hi Sarah,
+      initials:'KP', name:'Kevin Park', title:'HR Director', company:'Suncoast Manufacturing', loc:'St. Petersburg, FL',
+      client:'Coastal Shield Insurance', industry:'Manufacturing (120 employees)', aum:'Q2 renewal', signal:'Group benefits up for renewal',
+      fromName:'Maria L.', fromCo:'Coastal Shield Insurance',
+      to:'k.park@suncoastmfg.com',
+      subject:'Group benefits renewal coming up, Kevin?',
+      body:`Hi Kevin,
 
-I noticed Bay Shield Insurance Group has been expanding its commercial lines book in Pinellas County — solid growth in a competitive market.
+I noticed Suncoast Manufacturing has been expanding its St. Pete team — congratulations on the growth.
 
-I wanted to reach out because most independent agency owners I speak with in St. Pete are in the same spot: great at retaining clients, but outbound prospecting falls to the bottom of the list every week.
+With Q2 approaching, I wanted to reach out before your group benefits renewal window closes. We work with a number of manufacturers in Pinellas County and typically find 15–25% in savings or meaningful coverage improvements at renewal.
 
-We run an AI-powered outreach service for agencies like yours. We identify business owners, HR decision-makers, and high-income households in your target market, reach out on your behalf, and book the conversations.
-
-No cold calling on your end. No hiring. Just qualified meetings on your calendar.
-
-Open to a 15-minute call this week?
+Worth a quick conversation before you finalize anything?
 
 Best,
-[Sender Name]`
+Maria L.
+Coastal Shield Insurance`,
+      replyFrom:'k.park@suncoastmfg.com',
+      replyBody:'"Maria — timing is actually perfect, we\'re reviewing plans next month. Can we do a quick call this week?"',
+      bookingTitle:'Kevin Park · Coastal Shield Insurance',
+      bookingTime:'Tue Mar 11 · 10:00 AM · Benefits review call · Added to calendar'
     },
     {
-      initials: 'JM', name: 'Dr. James Morrison', title: 'Practice Director',
-      company: 'Gulf Coast Physical Therapy', loc: 'Clearwater, FL',
-      to: 'j.morrison@gulfcoastpt.com',
-      industry: 'Physical Therapy', size: '3 locations', aum: 'Growing practice', signal: 'Physician referral gap',
-      subject: 'Physician referral outreach for Gulf Coast PT',
-      body: `Hi Dr. Morrison,
+      initials:'RT', name:'Dr. Raymond Torres', title:'Orthopedic Surgeon', company:'Tampa Ortho & Sports Medicine', loc:'Clearwater, FL',
+      client:'Gulf Coast Physical Therapy', industry:'Orthopedic Surgery', aum:'High referral volume', signal:'New Clearwater location opened',
+      fromName:'Dr. Sarah M.', fromCo:'Gulf Coast Physical Therapy',
+      to:'r.torres@tampaortho.com',
+      subject:'Referral partnership — Gulf Coast PT & Tampa Ortho',
+      body:`Hi Dr. Torres,
 
-Gulf Coast Physical Therapy's expansion to three locations is impressive — clearly you're delivering results for your patients in the Clearwater area.
+Congratulations on Tampa Ortho's new Clearwater location — that area has been underserved and it's great to see you expanding.
 
-I'm reaching out because most growing PT practices face the same challenge: strong clinical outcomes, but inconsistent physician referral pipelines that rely entirely on personal relationships.
+I'm Dr. Sarah at Gulf Coast Physical Therapy. We have three locations across Clearwater and Dunedin and work closely with a number of orthopedic practices on post-surgical and sports rehab.
 
-We run a done-for-you outreach system that builds and manages physician referral campaigns on your behalf — reaching orthopedic surgeons, PCPs, and sports medicine practices in your referral radius, consistently and professionally.
-
-You focus on patient care. We keep your referral pipeline full.
-
-Could we connect for 15 minutes this week?
+I'd love to introduce our team and explore whether a referral partnership makes sense. Any interest in a brief introduction next week?
 
 Best,
-[Sender Name]`
+Dr. Sarah M.
+Gulf Coast Physical Therapy`,
+      replyFrom:'r.torres@tampaortho.com',
+      replyBody:'"Dr. Sarah — absolutely, we\'re always looking for quality PT partners in Clearwater. Next Wednesday morning works well."',
+      bookingTitle:'Dr. Raymond Torres · Gulf Coast Physical Therapy',
+      bookingTime:'Wed Mar 12 · 9:00 AM · Partnership intro call · Added to calendar'
     }
   ];
 
   let demoIdx = 0;
-  let typingActive = false;
-  let typingTimeout = null;
+  let typingT = null;
+  let demoRunning = false;
 
-  const elInitials = document.getElementById('prospect-initials');
-  const elName = document.getElementById('prospect-name');
-  const elTitle = document.getElementById('prospect-title');
-  const elCompany = document.getElementById('prospect-company');
-  const elLoc = document.getElementById('prospect-loc');
+  const elInitials = document.getElementById('p-initials');
+  const elName = document.getElementById('p-name');
+  const elTitle = document.getElementById('p-title');
+  const elCompany = document.getElementById('p-company');
+  const elLoc = document.getElementById('p-loc');
+  const elClient = document.getElementById('p-client');
+  const elIndustry = document.getElementById('p-industry');
+  const elAum = document.getElementById('p-aum');
+  const elSignal = document.getElementById('p-signal');
+  const elFrom = document.getElementById('email-from');
+  const elFromCo = document.getElementById('email-from-co');
   const elTo = document.getElementById('email-to');
-  const elIndustry = document.getElementById('pd-industry');
-  const elSize = document.getElementById('pd-size');
-  const elAum = document.getElementById('pd-aum');
-  const elSignal = document.getElementById('pd-signal');
-  const elSubjectText = document.getElementById('subject-text');
-  const elSubjectCursor = document.getElementById('subject-cursor');
-  const elBodyText = document.getElementById('body-text');
-  const elBodyCursor = document.getElementById('body-cursor');
-  const elThinkingText = document.getElementById('thinking-text');
+  const elSubj = document.getElementById('subject-text');
+  const elSubjCur = document.getElementById('subject-cur');
+  const elBody = document.getElementById('body-text');
+  const elBodyCur = document.getElementById('body-cur');
+  const elStatus = document.getElementById('argus-status-text');
+  const elReply = document.getElementById('email-reply');
+  const elReplyFrom = document.getElementById('reply-from');
+  const elReplyBody = document.getElementById('reply-body');
+  const elBooking = document.getElementById('booking-confirm');
+  const elBookingTitle = document.getElementById('booking-title');
+  const elBookingTime = document.getElementById('booking-time');
   const switchers = document.querySelectorAll('.dsw');
 
-  function typeText(el, text, speed, onDone) {
+  function stopDemo() {
+    demoRunning = false;
+    clearTimeout(typingT);
+  }
+
+  function typeText(el, text, speed, done) {
     let i = 0;
     function next() {
-      if (!typingActive) return;
+      if (!demoRunning) return;
       if (i < text.length) {
-        el.textContent += text[i];
-        i++;
-        typingTimeout = setTimeout(next, speed + Math.random() * speed * 0.5);
-      } else {
-        if (onDone) onDone();
-      }
+        el.textContent += text[i++];
+        typingT = setTimeout(next, speed + Math.random()*speed*.4);
+      } else { if (done) done(); }
     }
     next();
   }
 
-  function loadProspect(idx, autoStart) {
-    if (typingActive) {
-      typingActive = false;
-      clearTimeout(typingTimeout);
-    }
-
+  function runDemo(idx) {
+    stopDemo();
     const p = prospects[idx];
     demoIdx = idx;
+    switchers.forEach((s,i)=>s.classList.toggle('active',i===idx));
 
-    // Update switchers
-    switchers.forEach((s, i) => s.classList.toggle('active', i === idx));
-
-    // Update prospect card
+    // Reset UI
     elInitials.textContent = p.initials;
     elName.textContent = p.name;
     elTitle.textContent = p.title;
     elCompany.textContent = p.company;
+    elLoc.textContent = p.loc;
+    elClient.textContent = p.client;
     elIndustry.textContent = p.industry;
-    elSize.textContent = p.size;
     elAum.textContent = p.aum;
     elSignal.textContent = p.signal;
+    elFrom.textContent = p.fromName;
+    elFromCo.textContent = '· ' + p.fromCo;
     elTo.textContent = p.to;
+    elSubj.textContent = '';
+    elBody.textContent = '';
+    elSubjCur.style.display = 'inline';
+    elBodyCur.style.display = 'none';
+    elReply.classList.remove('show');
+    elBooking.classList.remove('show');
+    elReplyFrom.textContent = p.replyFrom;
+    elReplyBody.textContent = p.replyBody;
+    elBookingTitle.textContent = p.bookingTitle;
+    elBookingTime.textContent = p.bookingTime;
+    elStatus.textContent = 'Analyzing prospect...';
 
-    // Reset email
-    elSubjectText.textContent = '';
-    elBodyText.textContent = '';
-    elSubjectCursor.style.display = 'inline';
-    elBodyCursor.style.display = 'none';
+    demoRunning = true;
 
-    // Thinking state
-    elThinkingText.textContent = 'Analyzing prospect...';
+    // Phase 1: analyze
+    typingT = setTimeout(() => {
+      if (!demoRunning) return;
+      elStatus.textContent = 'Composing personalized outreach...';
 
-    if (autoStart) {
-      setTimeout(() => startTyping(p), 1200);
-    }
-  }
+      // Phase 2: type subject
+      typeText(elSubj, p.subject, 26, () => {
+        if (!demoRunning) return;
+        elSubjCur.style.display = 'none';
+        elBodyCur.style.display = 'inline';
+        elStatus.textContent = 'Writing email body...';
 
-  function startTyping(p) {
-    typingActive = true;
-    elThinkingText.textContent = 'Composing outreach...';
+        // Phase 3: type body
+        typeText(elBody, p.body, 12, () => {
+          if (!demoRunning) return;
+          elBodyCur.style.display = 'none';
+          elStatus.textContent = 'Email sent. Monitoring for reply...';
 
-    // Type subject
-    typeText(elSubjectText, p.subject, 28, () => {
-      // Move cursor to body
-      elSubjectCursor.style.display = 'none';
-      elBodyCursor.style.display = 'inline';
-      elThinkingText.textContent = 'Writing personalized body...';
+          // Phase 4: show reply
+          typingT = setTimeout(() => {
+            if (!demoRunning) return;
+            elReply.classList.add('show');
+            elStatus.textContent = 'Positive reply detected — booking meeting...';
 
-      setTimeout(() => {
-        typeText(elBodyText, p.body, 14, () => {
-          elBodyCursor.style.display = 'none';
-          elThinkingText.textContent = 'Email ready to send ✓';
+            // Phase 5: show booking
+            typingT = setTimeout(() => {
+              if (!demoRunning) return;
+              elBooking.classList.add('show');
+              elStatus.textContent = 'Meeting booked ✓ — moving to next prospect';
 
-          // Advance to next prospect after delay
-          setTimeout(() => {
-            const nextIdx = (demoIdx + 1) % prospects.length;
-            loadProspect(nextIdx, true);
-          }, 4000);
+              // Phase 6: next
+              typingT = setTimeout(() => {
+                runDemo((demoIdx + 1) % prospects.length);
+              }, 4000);
+            }, 1500);
+          }, 2500);
         });
-      }, 400);
-    });
+      });
+    }, 1000);
   }
 
-  // Start demo when section enters viewport
+  // Start when visible
   const demoWindow = document.querySelector('.demo-window');
   if (demoWindow) {
     const demoObs = new IntersectionObserver(entries => {
       entries.forEach(e => {
-        if (e.isIntersecting) {
-          demoObs.unobserve(e.target);
-          loadProspect(0, true);
-        }
+        if (e.isIntersecting) { demoObs.unobserve(e.target); runDemo(0); }
       });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.2 });
     demoObs.observe(demoWindow);
   }
 
-  // Manual switcher clicks
-  switchers.forEach((sw, i) => {
-    sw.addEventListener('click', () => loadProspect(i, true));
-  });
-
+  switchers.forEach((sw, i) => sw.addEventListener('click', () => runDemo(i)));
 })();
 </script>
 </body>
