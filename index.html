@@ -12,17 +12,17 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:      #040404;
-      --bg2:     #0a0a0a;
-      --bg3:     #111111;
-      --border:  rgba(255,255,255,0.055);
-      --border2: rgba(255,255,255,0.12);
-      --text:    #f5f5f5;
+      --bg:      #0f0f0f;
+      --bg2:     #161616;
+      --bg3:     #1c1c1c;
+      --bg4:     #222222;
+      --border:  rgba(255,255,255,0.07);
+      --border2: rgba(255,255,255,0.14);
+      --text:    #f8f8f8;
       --muted:   #4a4a4a;
-      --muted2:  #7a7a7a;
-      --green:   #00e676;
-      --green2:  #00c853;
-      --glow:    rgba(0,230,118,0.15);
+      --sub:     #888888;
+      --green:   #4ade80;
+      --white:   #ffffff;
     }
 
     html { scroll-behavior: smooth; }
@@ -34,13 +34,14 @@
       line-height: 1.6;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     ::-webkit-scrollbar { width: 2px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: #222; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #333; }
 
-    /* ─── NAV ─── */
+    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -48,136 +49,137 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 60px;
-      height: 58px;
-      background: rgba(4,4,4,0.85);
+      padding: 0 64px;
+      height: 56px;
+      background: rgba(15,15,15,0.92);
       backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
+      transition: border-color 0.3s;
     }
 
     .logo {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 800;
-      letter-spacing: -0.025em;
-      color: #fff;
+      letter-spacing: -0.02em;
+      color: var(--white);
       text-decoration: none;
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .logo-mark {
-      width: 28px; height: 28px;
-      border: 1.5px solid var(--green);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
+    .logo-icon {
+      width: 24px; height: 24px;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      border-radius: 5px;
+      display: grid;
+      place-items: center;
     }
 
-    .logo-mark::after {
-      content: '';
-      width: 8px; height: 8px;
-      background: var(--green);
+    .logo-icon-dot {
+      width: 6px; height: 6px;
+      background: var(--white);
       border-radius: 50%;
-      box-shadow: 0 0 8px var(--green);
     }
 
-    .logo-text span { color: var(--green); }
+    .logo span { color: var(--sub); font-weight: 300; }
 
-    .nav-links {
+    .nav-menu {
       display: flex;
-      gap: 40px;
+      gap: 36px;
       list-style: none;
       align-items: center;
     }
 
-    .nav-links a {
-      color: var(--muted2);
+    .nav-menu a {
+      color: var(--sub);
       text-decoration: none;
       font-size: 0.825rem;
       font-weight: 500;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.01em;
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: #fff; }
+    .nav-menu a:hover { color: var(--white); }
 
-    .nav-btn {
-      background: #fff !important;
+    .nav-cta {
+      background: var(--white) !important;
       color: #000 !important;
-      padding: 8px 22px !important;
+      padding: 7px 18px !important;
       border-radius: 5px !important;
       font-size: 0.8rem !important;
       font-weight: 700 !important;
-      letter-spacing: 0.01em !important;
       transition: opacity 0.2s !important;
     }
 
-    .nav-btn:hover { opacity: 0.85 !important; }
+    .nav-cta:hover { opacity: 0.85 !important; }
 
-    /* ─── HERO ─── */
+    /* ── HERO ── */
     .hero {
       position: relative;
-      height: 100vh;
-      min-height: 720px;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 80px 24px 80px;
+      padding: 100px 24px 80px;
       overflow: hidden;
     }
 
-    #neural-canvas {
+    #canvas {
       position: absolute;
       inset: 0;
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
     }
 
-    .hero-vignette {
+    .hero-fade {
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 70% 70% at 50% 50%, transparent 30%, rgba(4,4,4,0.85) 100%);
+      background: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 20%, rgba(15,15,15,0.75) 100%);
       pointer-events: none;
-      z-index: 1;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
+    .hero-bottom-fade {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 200px;
+      background: linear-gradient(to bottom, transparent, var(--bg));
+      pointer-events: none;
     }
 
-    .status-pill {
+    .hero-content { position: relative; z-index: 2; }
+
+    .hero-eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(0,230,118,0.06);
-      border: 1px solid rgba(0,230,118,0.2);
-      border-radius: 3px;
-      padding: 6px 16px;
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
-      font-weight: 500;
-      color: var(--green);
-      letter-spacing: 0.08em;
+      color: var(--sub);
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 44px;
+      margin-bottom: 40px;
     }
 
-    .status-dot {
+    .live-indicator {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 4px 10px;
+      border-radius: 3px;
+    }
+
+    .live-dot {
       width: 5px; height: 5px;
       background: var(--green);
       border-radius: 50%;
-      box-shadow: 0 0 6px var(--green), 0 0 12px var(--green);
-      animation: blink 2.5s ease-in-out infinite;
+      animation: liveBlink 2s ease-in-out infinite;
     }
 
-    @keyframes blink {
+    @keyframes liveBlink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.2; }
     }
@@ -186,407 +188,356 @@
       font-size: clamp(3.5rem, 9vw, 7rem);
       font-weight: 900;
       letter-spacing: -0.05em;
-      line-height: 0.92;
-      margin-bottom: 36px;
-      color: #fff;
+      line-height: 0.9;
+      margin-bottom: 40px;
+      color: var(--white);
     }
 
-    h1 .dim {
-      color: #333;
+    h1 .soft {
+      display: block;
+      color: rgba(255,255,255,0.28);
       font-weight: 300;
+      letter-spacing: -0.04em;
     }
 
-    .hero-p {
-      font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-      color: var(--muted2);
-      max-width: 520px;
+    .hero-desc {
+      font-size: clamp(1rem, 1.8vw, 1.1rem);
+      color: var(--sub);
+      max-width: 500px;
       margin: 0 auto 52px;
       line-height: 1.85;
-      font-weight: 400;
     }
 
-    .hero-actions {
+    .hero-btns {
       display: flex;
       gap: 12px;
       justify-content: center;
-      align-items: center;
       flex-wrap: wrap;
     }
 
-    .btn-primary {
-      background: #fff;
+    .btn-w {
+      background: var(--white);
       color: #000;
-      padding: 15px 34px;
+      padding: 14px 32px;
       border-radius: 5px;
       font-size: 0.875rem;
       font-weight: 700;
       text-decoration: none;
       letter-spacing: -0.01em;
       transition: opacity 0.2s, transform 0.15s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
     }
 
-    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-w:hover { opacity: 0.88; transform: translateY(-1px); }
 
-    .btn-secondary {
-      color: var(--muted2);
-      padding: 15px 28px;
+    .btn-g {
+      color: var(--sub);
+      padding: 14px 28px;
       border-radius: 5px;
       font-size: 0.875rem;
       font-weight: 500;
       text-decoration: none;
-      border: 1px solid var(--border2);
+      border: 1px solid rgba(255,255,255,0.12);
       transition: color 0.2s, border-color 0.2s;
-      letter-spacing: -0.01em;
     }
 
-    .btn-secondary:hover { color: #fff; border-color: rgba(255,255,255,0.3); }
+    .btn-g:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
 
-    .hero-scroll {
-      position: absolute;
-      bottom: 44px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .hero-scroll-line {
-      width: 1px;
-      height: 50px;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.2), transparent);
-      animation: scrollLine 2.5s ease-in-out infinite;
-    }
-
-    @keyframes scrollLine {
-      0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
-      40% { transform: scaleY(1); opacity: 1; }
-      100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
-    }
-
-    /* ─── TICKER / WHAT WE DO ─── */
-    .ticker-bar {
-      background: #fff;
-      color: #000;
-      padding: 0 0;
-      overflow: hidden;
-      position: relative;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .ticker-inner {
-      display: flex;
-      align-items: stretch;
-    }
-
-    .ticker-label {
-      flex-shrink: 0;
-      background: #000;
-      color: #fff;
-      padding: 18px 28px;
-      font-size: 0.6rem;
-      font-weight: 800;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      border-right: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .ticker-items {
-      display: flex;
-      align-items: stretch;
-      flex: 1;
-    }
-
-    .ticker-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 18px 32px;
-      border-right: 1px solid #e8e8e8;
-      font-size: 0.825rem;
-      font-weight: 600;
-      color: #111;
-      letter-spacing: -0.01em;
-      flex: 1;
-      justify-content: center;
-    }
-
-    .ticker-item:last-child { border-right: none; }
-
-    .ticker-icon {
-      width: 18px; height: 18px;
-      flex-shrink: 0;
-    }
-
-    /* ─── STATS ─── */
-    .stats-row {
+    /* ── WHAT WE DO BAR ── */
+    .do-bar {
+      border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
+      background: var(--white);
     }
 
-    .stats-inner {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+    .do-inner {
+      display: flex;
+      align-items: stretch;
       max-width: 100%;
     }
 
-    .stat-cell {
-      padding: 52px 40px;
+    .do-label {
+      background: #111;
+      color: var(--sub);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .do-items {
+      display: flex;
+      flex: 1;
+    }
+
+    .do-item {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 18px 20px;
+      border-right: 1px solid #e8e8e8;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #111;
+      letter-spacing: -0.01em;
+    }
+
+    .do-item:last-child { border-right: none; }
+
+    .do-item svg { width: 16px; height: 16px; stroke: #555; flex-shrink: 0; }
+
+    /* ── STATS ── */
+    .stats-section {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat-box {
+      padding: 56px 40px;
       border-right: 1px solid var(--border);
       text-align: center;
     }
 
-    .stat-cell:last-child { border-right: none; }
+    .stat-box:last-child { border-right: none; }
 
-    .stat-val {
-      font-size: 3rem;
+    .stat-n {
+      font-size: 3.25rem;
       font-weight: 900;
       letter-spacing: -0.05em;
-      color: #fff;
+      color: var(--white);
       display: block;
       line-height: 1;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    .stat-val .g { color: var(--green); }
+    .stat-n em { color: var(--green); font-style: normal; }
 
-    .stat-lbl {
-      font-size: 0.75rem;
-      color: var(--muted2);
-      line-height: 1.5;
-      font-weight: 400;
+    .stat-l {
+      font-size: 0.78rem;
+      color: var(--sub);
+      line-height: 1.55;
     }
 
-    /* ─── SECTIONS ─── */
-    section { padding: 120px 60px; }
+    /* ── GENERIC SECTION ── */
+    section { padding: 120px 64px; }
 
-    .container { max-width: 1280px; margin: 0 auto; }
+    .cnt { max-width: 1280px; margin: 0 auto; }
 
-    .eyebrow {
+    .ey {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       font-weight: 500;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 24px;
+      color: var(--sub);
+      margin-bottom: 20px;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
 
-    .eyebrow::before {
-      content: '';
-      width: 24px;
-      height: 1px;
-      background: var(--green);
-    }
+    .ey::before { content: ''; width: 20px; height: 1px; background: var(--sub); }
 
-    .sec-title {
-      font-size: clamp(2.5rem, 5vw, 4rem);
+    .st {
+      font-size: clamp(2.25rem, 5vw, 3.75rem);
       font-weight: 900;
       letter-spacing: -0.045em;
       line-height: 0.95;
-      margin-bottom: 24px;
-      color: #fff;
+      color: var(--white);
+      margin-bottom: 20px;
     }
 
-    .sec-sub {
+    .sb {
       font-size: 1rem;
-      color: var(--muted2);
-      max-width: 480px;
+      color: var(--sub);
+      max-width: 460px;
       line-height: 1.8;
     }
 
-    /* ─── HOW IT WORKS ─── */
+    /* ── HOW IT WORKS — SCROLLYTELLING ── */
     .how-bg { background: var(--bg2); }
 
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      margin-top: 72px;
-      border: 1px solid var(--border);
-    }
-
-    .proc-step {
-      padding: 44px 32px;
-      border-right: 1px solid var(--border);
-      transition: background 0.3s;
-      position: relative;
-    }
-
-    .proc-step:last-child { border-right: none; }
-    .proc-step:hover { background: var(--bg3); }
-
-    .proc-step::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: transparent;
-      transition: background 0.3s;
-    }
-
-    .proc-step:hover::before { background: var(--green); }
-
-    .proc-num {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--green);
-      letter-spacing: 0.1em;
-      margin-bottom: 24px;
-    }
-
-    .proc-icon {
-      width: 36px; height: 36px;
-      margin-bottom: 20px;
-      opacity: 0.9;
-    }
-
-    .proc-step h3 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-      color: #fff;
-      line-height: 1.3;
-    }
-
-    .proc-step p {
-      font-size: 0.8rem;
-      color: var(--muted2);
-      line-height: 1.7;
-    }
-
-    /* ─── PROBLEM / SOLUTION ─── */
-    .ps-wrapper {
+    .how-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: start;
       margin-top: 72px;
+    }
+
+    .how-steps { position: relative; }
+
+    .how-step {
+      display: flex;
+      gap: 28px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+      opacity: 0.35;
+      transition: opacity 0.4s ease;
+      cursor: default;
+    }
+
+    .how-step:last-child { border-bottom: none; }
+    .how-step.active { opacity: 1; }
+
+    .step-num-col {
+      flex-shrink: 0;
+      padding-top: 3px;
+    }
+
+    .step-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--sub);
+      letter-spacing: 0.1em;
+      transition: color 0.3s;
+    }
+
+    .how-step.active .step-num { color: var(--green); }
+
+    .step-body h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+
+    .step-body p {
+      font-size: 0.875rem;
+      color: var(--sub);
+      line-height: 1.75;
+    }
+
+    .how-visual {
+      position: sticky;
+      top: 120px;
+    }
+
+    .visual-box {
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      border-radius: 12px;
+      padding: 40px;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .visual-step-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 5rem;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      color: rgba(255,255,255,0.04);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .visual-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .visual-desc {
+      font-size: 0.875rem;
+      color: var(--sub);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .visual-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .vtag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      color: var(--green);
+      background: rgba(74,222,128,0.07);
+      border: 1px solid rgba(74,222,128,0.15);
+      padding: 4px 12px;
+      border-radius: 3px;
+      text-transform: uppercase;
+    }
+
+    /* ── PROBLEM / SOLUTION ── */
+    .ps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
       border: 1px solid var(--border);
+      margin-top: 72px;
     }
 
-    .ps-col {
-      padding: 56px 52px;
-    }
-
-    .ps-col + .ps-col {
-      border-left: 1px solid var(--border);
+    .ps-side {
       background: var(--bg2);
+      padding: 52px 48px;
     }
+
+    .ps-side.right { background: var(--bg3); }
 
     .ps-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.6rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      margin-bottom: 36px;
-      padding-bottom: 16px;
+      padding-bottom: 20px;
+      margin-bottom: 8px;
       border-bottom: 1px solid var(--border);
     }
 
-    .ps-label.bad { color: var(--muted); }
-    .ps-label.good { color: var(--green); }
+    .ps-label.neg { color: var(--muted); }
+    .ps-label.pos { color: var(--green); }
 
-    .ps-row {
+    .ps-item {
       display: flex;
-      gap: 18px;
-      align-items: flex-start;
+      gap: 16px;
       padding: 20px 0;
       border-bottom: 1px solid var(--border);
+      align-items: flex-start;
     }
 
-    .ps-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .ps-item:last-child { border-bottom: none; }
 
-    .ps-marker {
-      width: 20px; height: 20px;
+    .ps-ico {
+      width: 18px; height: 18px;
       flex-shrink: 0;
-      margin-top: 1px;
+      margin-top: 2px;
     }
 
-    .ps-row p {
+    .ps-item p {
       font-size: 0.875rem;
-      color: var(--muted2);
-      line-height: 1.65;
+      color: var(--sub);
+      line-height: 1.7;
     }
 
-    .ps-row p strong { color: #fff; font-weight: 600; }
+    .ps-item p b { color: var(--white); font-weight: 600; }
 
-    /* ─── WHO WE SERVE ─── */
+    /* ── WHO WE SERVE ── */
     .serve-bg { background: var(--bg2); }
 
     .serve-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      margin-top: 72px;
-      border: 1px solid var(--border);
-    }
-
-    .serve-card {
-      padding: 52px 48px;
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      transition: background 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .serve-card:nth-child(even) { border-right: none; }
-    .serve-card:nth-child(3), .serve-card:nth-child(4) { border-bottom: none; }
-    .serve-card:hover { background: var(--bg3); }
-
-    .serve-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 0; height: 1px;
-      background: var(--green);
-      transition: width 0.4s ease;
-    }
-
-    .serve-card:hover::after { width: 100%; }
-
-    .serve-icon {
-      width: 40px; height: 40px;
-      margin-bottom: 24px;
-      opacity: 0.85;
-    }
-
-    .serve-card h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      letter-spacing: -0.025em;
-      margin-bottom: 14px;
-      color: #fff;
-    }
-
-    .serve-card p {
-      font-size: 0.875rem;
-      color: var(--muted2);
-      line-height: 1.75;
-    }
-
-    .serve-tag {
-      display: inline-block;
-      margin-top: 24px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--green);
-      border: 1px solid rgba(0,230,118,0.2);
-      padding: 4px 12px;
-      border-radius: 2px;
-    }
-
-    /* ─── TESTIMONIALS ─── */
-    .testi-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
@@ -595,69 +546,105 @@
       margin-top: 72px;
     }
 
-    .testi-card {
+    .serve-card {
       background: var(--bg2);
-      padding: 44px 40px;
+      padding: 44px 36px;
+      transition: background 0.3s;
+      position: relative;
+    }
+
+    .serve-card:hover { background: var(--bg4); }
+
+    .serve-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: transparent;
       transition: background 0.3s;
     }
 
-    .testi-card:hover { background: var(--bg3); }
+    .serve-card:hover::before { background: var(--green); }
 
-    .testi-quote {
-      font-size: 0.95rem;
-      color: #ccc;
-      line-height: 1.8;
-      margin-bottom: 32px;
-      font-style: italic;
-      font-weight: 300;
+    .serve-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 20px;
     }
 
-    .testi-quote::before {
-      content: '"';
-      font-size: 2.5rem;
-      color: var(--green);
-      font-style: normal;
-      font-weight: 900;
-      line-height: 0;
-      vertical-align: -0.5rem;
-      margin-right: 4px;
+    .serve-ico {
+      width: 32px; height: 32px;
+      stroke: rgba(255,255,255,0.5);
     }
 
-    .testi-author {
-      border-top: 1px solid var(--border);
-      padding-top: 20px;
-    }
-
-    .testi-name {
-      font-size: 0.875rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 4px;
-      letter-spacing: -0.01em;
-    }
-
-    .testi-role {
+    .serve-pill {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--muted2);
-      letter-spacing: 0.05em;
-    }
-
-    .testi-result {
-      margin-top: 16px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(0,230,118,0.07);
-      border: 1px solid rgba(0,230,118,0.15);
-      padding: 5px 12px;
-      border-radius: 3px;
-      font-size: 0.75rem;
-      font-weight: 600;
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       color: var(--green);
+      border: 1px solid rgba(74,222,128,0.2);
+      padding: 3px 10px;
+      border-radius: 2px;
     }
 
-    /* ─── PRICING ─── */
+    .serve-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .serve-card p {
+      font-size: 0.825rem;
+      color: var(--sub);
+      line-height: 1.75;
+    }
+
+    /* ── RESULTS / PROJECTIONS ── */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 72px;
+    }
+
+    .result-card {
+      background: var(--bg2);
+      padding: 48px 40px;
+    }
+
+    .result-num {
+      font-size: 2.75rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .result-num em { color: var(--green); font-style: normal; }
+
+    .result-label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 10px;
+      letter-spacing: -0.015em;
+    }
+
+    .result-desc {
+      font-size: 0.825rem;
+      color: var(--sub);
+      line-height: 1.7;
+    }
+
+    /* ── PRICING ── */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -667,136 +654,123 @@
       margin-top: 72px;
     }
 
-    .price-card {
+    .pc {
       background: var(--bg2);
       padding: 52px 44px;
       transition: background 0.3s;
     }
 
-    .price-card:hover { background: var(--bg3); }
+    .pc:hover { background: var(--bg3); }
 
-    .price-card.featured {
-      background: #fff;
+    .pc.feat {
+      background: var(--white);
       color: #000;
     }
 
-    .price-card.featured .plan-tier { color: #555; }
-    .price-card.featured .price-num { color: #000; }
-    .price-card.featured .price-per { color: #666; }
-    .price-card.featured .price-billing { color: #777; }
-    .price-card.featured .price-divider { background: #e0e0e0; }
-    .price-card.featured .price-li { color: #444; border-color: #e8e8e8; }
-    .price-card.featured .price-check { color: #000; }
-    .price-card.featured:hover { background: #f7f7f7; }
+    .pc.feat:hover { background: #f5f5f5; }
 
-    .plan-tier {
+    .pc-tier {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.6rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--muted2);
+      color: var(--sub);
       margin-bottom: 20px;
     }
 
-    .price-num {
+    .pc.feat .pc-tier { color: #777; }
+
+    .pc-price {
       font-size: 3.5rem;
       font-weight: 900;
       letter-spacing: -0.05em;
       line-height: 1;
-      color: #fff;
-      margin-bottom: 4px;
+      color: var(--white);
     }
 
-    .price-per {
-      font-size: 0.875rem;
-      font-weight: 400;
-      color: var(--muted2);
-    }
+    .pc.feat .pc-price { color: #000; }
 
-    .price-billing {
+    .pc-price sup { font-size: 1.25rem; vertical-align: top; margin-top: 10px; display: inline-block; }
+    .pc-mo { font-size: 0.9rem; font-weight: 400; color: var(--sub); }
+    .pc.feat .pc-mo { color: #666; }
+
+    .pc-billing {
       font-size: 0.75rem;
       color: var(--muted);
-      margin-top: 6px;
-      margin-bottom: 32px;
+      margin-top: 8px;
+      margin-bottom: 36px;
     }
 
-    .price-divider {
+    .pc.feat .pc-billing { color: #888; }
+
+    .pc-div {
       height: 1px;
       background: var(--border);
       margin-bottom: 28px;
     }
 
-    .price-features { list-style: none; margin-bottom: 40px; }
+    .pc.feat .pc-div { background: #e0e0e0; }
 
-    .price-li {
-      font-size: 0.85rem;
-      color: var(--muted2);
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
+    .pc-list { list-style: none; margin-bottom: 40px; }
+
+    .pc-li {
       display: flex;
       align-items: center;
       gap: 12px;
+      font-size: 0.85rem;
+      color: var(--sub);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
       letter-spacing: -0.01em;
     }
 
-    .price-li:last-child { border-bottom: none; }
+    .pc.feat .pc-li { color: #444; border-bottom-color: #ebebeb; }
 
-    .price-check {
-      color: var(--green);
-      flex-shrink: 0;
-      width: 16px; height: 16px;
-    }
+    .pc-li:last-child { border-bottom: none; }
 
-    .price-btn {
+    .pc-chk { width: 16px; height: 16px; flex-shrink: 0; color: var(--green); }
+    .pc.feat .pc-chk { color: #000; }
+
+    .pc-btn {
       display: block;
       text-align: center;
-      padding: 14px;
+      padding: 13px;
       border-radius: 5px;
       font-weight: 700;
       font-size: 0.875rem;
       text-decoration: none;
-      letter-spacing: -0.01em;
       transition: opacity 0.2s;
     }
 
-    .price-btn.dark { background: #000; color: #fff; }
-    .price-btn.outline { border: 1px solid var(--border2); color: #fff; }
-    .price-btn:hover { opacity: 0.8; }
+    .pc-btn.dark { background: #000; color: #fff; }
+    .pc-btn.border { border: 1px solid var(--border2); color: var(--white); }
+    .pc-btn:hover { opacity: 0.78; }
 
-    .price-note {
-      text-align: center;
-      font-size: 0.775rem;
-      color: var(--muted);
-      margin-top: 24px;
-    }
-
-    /* ─── FINAL CTA ─── */
+    /* ── CTA ── */
     .cta-section {
-      background: #fff;
-      color: #000;
-      padding: 160px 60px;
+      background: var(--white);
+      padding: 160px 64px;
       text-align: center;
     }
 
     .cta-section h2 {
-      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-size: clamp(3rem, 9vw, 6.5rem);
       font-weight: 900;
       letter-spacing: -0.05em;
       line-height: 0.92;
-      margin-bottom: 32px;
       color: #000;
+      margin-bottom: 32px;
     }
 
     .cta-section p {
       font-size: 1.05rem;
-      color: #555;
-      max-width: 460px;
+      color: #666;
+      max-width: 440px;
       margin: 0 auto 52px;
       line-height: 1.8;
     }
 
-    .btn-black {
+    .btn-blk {
       background: #000;
       color: #fff;
       padding: 16px 44px;
@@ -805,71 +779,81 @@
       font-weight: 700;
       text-decoration: none;
       letter-spacing: -0.01em;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       transition: opacity 0.2s, transform 0.15s;
-      display: inline-block;
     }
 
-    .btn-black:hover { opacity: 0.85; transform: translateY(-2px); }
+    .btn-blk:hover { opacity: 0.85; transform: translateY(-2px); }
 
-    /* ─── FOOTER ─── */
+    /* ── FOOTER ── */
     footer {
+      background: var(--bg);
       border-top: 1px solid var(--border);
-      padding: 36px 60px;
+      padding: 36px 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 16px;
-      background: var(--bg);
     }
 
-    .footer-logo {
-      font-size: 0.95rem;
+    .ft-logo {
+      font-size: 0.9rem;
       font-weight: 800;
-      color: #fff;
-      text-decoration: none;
       letter-spacing: -0.02em;
+      color: var(--white);
+      text-decoration: none;
     }
 
-    .footer-logo span { color: var(--green); }
+    .ft-logo span { color: rgba(255,255,255,0.3); font-weight: 300; }
 
     footer p { font-size: 0.75rem; color: var(--muted); }
 
-    /* ─── REVEAL ─── */
-    .reveal {
+    /* ── REVEAL ANIMATIONS ── */
+    .rv {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(28px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .reveal.on { opacity: 1; transform: none; }
-    .d1 { transition-delay: 0.07s; }
-    .d2 { transition-delay: 0.14s; }
-    .d3 { transition-delay: 0.21s; }
-    .d4 { transition-delay: 0.28s; }
-    .d5 { transition-delay: 0.35s; }
 
-    @keyframes heroIn {
-      from { opacity: 0; transform: translateY(20px); }
+    .rv.show { opacity: 1; transform: none; }
+
+    .rv.from-left { transform: translateX(-28px); }
+    .rv.from-right { transform: translateX(28px); }
+    .rv.from-left.show, .rv.from-right.show { transform: none; }
+
+    .d1 { transition-delay: 0.06s; }
+    .d2 { transition-delay: 0.12s; }
+    .d3 { transition-delay: 0.18s; }
+    .d4 { transition-delay: 0.24s; }
+    .d5 { transition-delay: 0.30s; }
+    .d6 { transition-delay: 0.36s; }
+
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: none; }
     }
-    .hero-content { animation: heroIn 1s 0.1s both; }
 
-    /* ─── RESPONSIVE ─── */
+    .hero-content { animation: heroFadeUp 1s 0.1s both; }
+
+    /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
       nav { padding: 0 24px; }
-      .nav-links { display: none; }
+      .nav-menu { display: none; }
       section { padding: 80px 24px; }
-      .process-grid { grid-template-columns: 1fr 1fr; }
-      .ps-wrapper { grid-template-columns: 1fr; }
-      .ps-col + .ps-col { border-left: none; border-top: 1px solid var(--border); }
+      .how-layout { grid-template-columns: 1fr; gap: 40px; }
+      .how-visual { position: static; display: none; }
+      .ps-grid { grid-template-columns: 1fr; }
+      .ps-side.right { border-top: 1px solid var(--border); }
       .serve-grid { grid-template-columns: 1fr; }
-      .serve-card { border-right: none; }
-      .testi-grid { grid-template-columns: 1fr; }
+      .results-grid { grid-template-columns: 1fr; }
       .pricing-grid { grid-template-columns: 1fr; }
-      .stats-inner { grid-template-columns: 1fr 1fr; }
-      .stat-cell { border-right: none; border-bottom: 1px solid var(--border); }
-      .ticker-items { flex-wrap: wrap; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .stat-box { border-right: none; border-bottom: 1px solid var(--border); }
+      .do-items { flex-wrap: wrap; }
       .cta-section { padding: 100px 24px; }
       footer { padding: 28px 24px; flex-direction: column; align-items: flex-start; }
     }
@@ -877,451 +861,454 @@
 </head>
 <body>
 
-<!-- ─── NAV ─── -->
+<!-- ── NAV ── -->
 <nav>
   <a href="/" class="logo">
-    <div class="logo-mark"></div>
-    <span class="logo-text">Argus<span>Reach</span></span>
+    <div class="logo-icon"><div class="logo-icon-dot"></div></div>
+    Argus<span>Reach</span>
   </a>
-  <ul class="nav-links">
+  <ul class="nav-menu">
     <li><a href="#how">How it works</a></li>
     <li><a href="#who">Who we serve</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#book" class="nav-btn">Book a Call</a></li>
+    <li><a href="#book" class="nav-cta">Book a Call</a></li>
   </ul>
 </nav>
 
-<!-- ─── HERO ─── -->
+<!-- ── HERO ── -->
 <section class="hero">
-  <canvas id="neural-canvas"></canvas>
-  <div class="hero-vignette"></div>
+  <canvas id="canvas"></canvas>
+  <div class="hero-fade"></div>
+  <div class="hero-bottom-fade"></div>
 
   <div class="hero-content">
-    <div class="status-pill">
-      <span class="status-dot"></span>
-      System Active · Tampa Bay &amp; Florida
+    <div class="hero-eyebrow">
+      <div class="live-indicator">
+        <span class="live-dot"></span>
+        Active · Tampa Bay &amp; Florida
+      </div>
+      AI Sales Development
     </div>
 
     <h1>
       We Fill<br />Your Pipeline.
-      <br /><span class="dim">You Close Deals.</span>
+      <span class="soft">You Close Deals.</span>
     </h1>
 
-    <p class="hero-p">
-      ArgusReach is a done-for-you AI outreach system. We find your ideal prospects, send personalized emails, follow up automatically, and deliver qualified meetings directly to your calendar.
+    <p class="hero-desc">
+      ArgusReach is a done-for-you AI outreach system. We identify your ideal prospects, write personalized emails, handle follow-up automatically, and deliver qualified meetings to your calendar.
     </p>
 
-    <div class="hero-actions">
-      <a href="#book" class="btn-primary">
-        Book a Free Strategy Call
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="#how" class="btn-secondary">See how it works</a>
+    <div class="hero-btns">
+      <a href="#book" class="btn-w">Book a Free Strategy Call</a>
+      <a href="#how" class="btn-g">See how it works →</a>
     </div>
-  </div>
-
-  <div class="hero-scroll">
-    <div class="hero-scroll-line"></div>
   </div>
 </section>
 
-<!-- ─── WHAT WE DO TICKER ─── -->
-<div class="ticker-bar">
-  <div class="ticker-inner">
-    <div class="ticker-label">What we do</div>
-    <div class="ticker-items">
-      <div class="ticker-item">
-        <svg class="ticker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+<!-- ── WHAT WE DO ── -->
+<div class="do-bar">
+  <div class="do-inner">
+    <div class="do-label">What we do</div>
+    <div class="do-items">
+      <div class="do-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         Find Prospects
       </div>
-      <div class="ticker-item">
-        <svg class="ticker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      <div class="do-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4 9.5-9.5z"/></svg>
         Write Outreach
       </div>
-      <div class="ticker-item">
-        <svg class="ticker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 1.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.24 6.24l1.47-1.47a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <div class="do-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         Send Sequences
       </div>
-      <div class="ticker-item">
-        <svg class="ticker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      <div class="do-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
         Handle Replies
       </div>
-      <div class="ticker-item">
-        <svg class="ticker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <div class="do-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         Book Meetings
       </div>
     </div>
   </div>
 </div>
 
-<!-- ─── STATS ─── -->
-<div class="stats-row">
-  <div class="stats-inner">
-    <div class="stat-cell reveal">
-      <span class="stat-val">100<span class="g">%</span></span>
-      <div class="stat-lbl">Done for you<br />Zero lift required</div>
+<!-- ── STATS ── -->
+<div class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-box rv">
+      <span class="stat-n">100<em>%</em></span>
+      <div class="stat-l">Done for you<br />No lift required from your team</div>
     </div>
-    <div class="stat-cell reveal d1">
-      <span class="stat-val"><span class="g">$0</span></span>
-      <div class="stat-lbl">SDR salary required<br />vs. $70K+ to hire</div>
+    <div class="stat-box rv d1">
+      <span class="stat-n"><em>$0</em></span>
+      <div class="stat-l">SDR salary required<br />vs. $70,000+ per year to hire</div>
     </div>
-    <div class="stat-cell reveal d2">
-      <span class="stat-val">48<span class="g">hr</span></span>
-      <div class="stat-lbl">To first outreach<br />After onboarding call</div>
+    <div class="stat-box rv d2">
+      <span class="stat-n">48<em>hr</em></span>
+      <div class="stat-l">Time to first outreach<br />After a single onboarding call</div>
     </div>
-    <div class="stat-cell reveal d3">
-      <span class="stat-val">3<span class="g">–5×</span></span>
-      <div class="stat-lbl">More outbound volume<br />than a human SDR</div>
+    <div class="stat-box rv d3">
+      <span class="stat-n">3<em>–5×</em></span>
+      <div class="stat-l">More outbound volume<br />Than a single human SDR</div>
     </div>
   </div>
 </div>
 
-<!-- ─── HOW IT WORKS ─── -->
+<!-- ── HOW IT WORKS ── -->
 <section id="how" class="how-bg">
-  <div class="container">
-    <div class="reveal">
-      <div class="eyebrow">How it works</div>
-      <h2 class="sec-title">Five steps.<br />Zero effort on your end.</h2>
-      <p class="sec-sub">We handle your entire outbound motion. After one onboarding call, your only job is to show up to the meetings we book.</p>
+  <div class="cnt">
+    <div class="rv">
+      <div class="ey">How it works</div>
+      <h2 class="st">Five steps.<br />Zero effort on your end.</h2>
+      <p class="sb">We handle every part of the outbound process. After one onboarding call, your only job is showing up to the meetings we book.</p>
     </div>
 
-    <div class="process-grid">
-      <div class="proc-step reveal d1">
-        <div class="proc-num">01 —</div>
-        <svg class="proc-icon" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-        <h3>Define Your Ideal Customer</h3>
-        <p>One onboarding call. We learn your business, best clients, target deal size — and build the blueprint that drives everything we do.</p>
+    <div class="how-layout">
+      <div class="how-steps" id="how-steps">
+        <div class="how-step active" data-step="0">
+          <div class="step-num-col"><div class="step-num">01</div></div>
+          <div class="step-body">
+            <h3>Define Your Ideal Customer</h3>
+            <p>One onboarding call. We learn your business, your best clients, your ideal deal size — and build the blueprint that guides every decision we make on your behalf.</p>
+          </div>
+        </div>
+        <div class="how-step" data-step="1">
+          <div class="step-num-col"><div class="step-num">02</div></div>
+          <div class="step-body">
+            <h3>Build Your Prospect List</h3>
+            <p>Our system sources verified contacts matched precisely to your criteria — name, title, company, email. No guesswork. No outdated databases. No bounces.</p>
+          </div>
+        </div>
+        <div class="how-step" data-step="2">
+          <div class="step-num-col"><div class="step-num">03</div></div>
+          <div class="step-body">
+            <h3>Write Personalized Outreach</h3>
+            <p>Every email is written specifically for the individual prospect — referencing their business, role, and market context. Not a template. Not a mail merge. Messages that earn responses.</p>
+          </div>
+        </div>
+        <div class="how-step" data-step="3">
+          <div class="step-num-col"><div class="step-num">04</div></div>
+          <div class="step-body">
+            <h3>Run Automated Sequences</h3>
+            <p>4 to 5 touch follow-up campaigns run on autopilot, spaced intelligently over three weeks. Most positive replies come after touch three. We never stop too early.</p>
+          </div>
+        </div>
+        <div class="how-step" data-step="4">
+          <div class="step-num-col"><div class="step-num">05</div></div>
+          <div class="step-body">
+            <h3>Deliver Qualified Meetings</h3>
+            <p>Interested replies are reviewed, qualified, and routed directly to your calendar. You close deals. We keep your funnel consistently full.</p>
+          </div>
+        </div>
       </div>
-      <div class="proc-step reveal d2">
-        <div class="proc-num">02 —</div>
-        <svg class="proc-icon" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><circle cx="11" cy="11" r="3"/></svg>
-        <h3>Build Your Prospect List</h3>
-        <p>Our AI sources verified contacts matched to your exact criteria — name, title, company, email. No guesswork, no outdated data, no bounces.</p>
-      </div>
-      <div class="proc-step reveal d3">
-        <div class="proc-num">03 —</div>
-        <svg class="proc-icon" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-        <h3>Write Personalized Outreach</h3>
-        <p>Every email is written specifically for the individual — referencing their company, role, and market. Real personalization that earns responses.</p>
-      </div>
-      <div class="proc-step reveal d4">
-        <div class="proc-num">04 —</div>
-        <svg class="proc-icon" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        <h3>Run Automated Sequences</h3>
-        <p>4–5 touch follow-up campaigns run on autopilot, spaced intelligently. Most positive replies come at touch 3 or 4. We never stop too early.</p>
-      </div>
-      <div class="proc-step reveal d5">
-        <div class="proc-num">05 —</div>
-        <svg class="proc-icon" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9 16 11 18 15 14"/></svg>
-        <h3>Deliver Qualified Meetings</h3>
-        <p>Interested replies are reviewed, qualified, and routed to your booking link. You close deals. We keep the funnel full.</p>
+
+      <div class="how-visual">
+        <div class="visual-box" id="visual-box">
+          <div class="visual-step-num" id="v-num">01</div>
+          <div class="visual-title" id="v-title">Define Your Ideal Customer</div>
+          <div class="visual-desc" id="v-desc">One onboarding call. We learn everything needed to target the right people at the right companies with the right message.</div>
+          <div class="visual-tags" id="v-tags">
+            <span class="vtag">ICP Research</span>
+            <span class="vtag">Strategy</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── PROBLEM / SOLUTION ─── -->
+<!-- ── PROBLEM / SOLUTION ── -->
 <section>
-  <div class="container">
-    <div class="reveal">
-      <div class="eyebrow">The problem we solve</div>
-      <h2 class="sec-title">Referrals plateau.<br />Pipeline doesn't build itself.</h2>
+  <div class="cnt">
+    <div class="rv">
+      <div class="ey">The problem we solve</div>
+      <h2 class="st">Referrals plateau.<br />Pipeline doesn't build itself.</h2>
     </div>
-    <div class="ps-wrapper reveal">
-      <div class="ps-col">
-        <div class="ps-label bad">// Without ArgusReach</div>
-        <div class="ps-row">
-          <svg class="ps-marker" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          <p><strong>Entirely dependent on referrals</strong> — unpredictable, impossible to scale, dries up without warning.</p>
+    <div class="ps-grid rv">
+      <div class="ps-side">
+        <div class="ps-label neg">// Without ArgusReach</div>
+        <div class="ps-item">
+          <svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#3a3a3a" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          <p><b>Entirely dependent on referrals</b> — unpredictable, impossible to scale, dries up without warning.</p>
         </div>
-        <div class="ps-row">
-          <svg class="ps-marker" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          <p><strong>Hiring a SDR costs $70K+/year</strong> — salary, benefits, training, and management overhead before a single meeting is booked.</p>
+        <div class="ps-item">
+          <svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#3a3a3a" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          <p><b>Hiring a SDR costs $70K+/year</b> — salary, benefits, and management time before a single meeting is booked.</p>
         </div>
-        <div class="ps-row">
-          <svg class="ps-marker" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          <p><strong>Generic blasts get ignored</strong> — mass email looks like spam, gets treated like spam, and damages your sender reputation.</p>
+        <div class="ps-item">
+          <svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#3a3a3a" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          <p><b>Generic blasts get ignored</b> — mass email looks like spam, gets treated like spam, and damages your reputation.</p>
         </div>
-        <div class="ps-row">
-          <svg class="ps-marker" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          <p><strong>No time to prospect consistently</strong> — outreach falls to the bottom of the priority list every single week.</p>
+        <div class="ps-item">
+          <svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#3a3a3a" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          <p><b>No time to prospect consistently</b> — outreach falls to the bottom of the list every single week.</p>
         </div>
       </div>
-      <div class="ps-col">
-        <div class="ps-label good">// With ArgusReach</div>
-        <div class="ps-row">
-          <svg class="ps-marker" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-          <p><strong>Consistent, predictable pipeline</strong> — outbound runs every month whether you think about it or not.</p>
+      <div class="ps-side right">
+        <div class="ps-label pos">// With ArgusReach</div>
+        <div class="ps-item">
+          <svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+          <p><b>Consistent, predictable pipeline</b> — outbound runs every month whether you think about it or not.</p>
         </div>
-        <div class="ps-row">
-          <svg class="ps-marker" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-          <p><strong>A fraction of the cost of a hire</strong> — starting at $750/month. No salary, no overhead, no management time.</p>
+        <div class="ps-item">
+          <svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+          <p><b>A fraction of the cost of a hire</b> — starting at $750/month. No salary, no overhead, no management.</p>
         </div>
-        <div class="ps-row">
-          <svg class="ps-marker" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-          <p><strong>AI-personalized at scale</strong> — every message references specific details about the prospect. Open rates 2–3× higher.</p>
+        <div class="ps-item">
+          <svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+          <p><b>AI-personalized at scale</b> — every message references specific details about the prospect. Open rates 2–3× higher.</p>
         </div>
-        <div class="ps-row">
-          <svg class="ps-marker" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-          <p><strong>Zero time from you</strong> — after one onboarding call, you show up to meetings. Everything else is handled.</p>
+        <div class="ps-item">
+          <svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+          <p><b>Zero time from you</b> — after one onboarding call, you only show up to the meetings we book.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── WHO WE SERVE ─── -->
+<!-- ── WHO WE SERVE ── -->
 <section id="who" class="serve-bg">
-  <div class="container">
-    <div class="reveal">
-      <div class="eyebrow">Who we serve</div>
-      <h2 class="sec-title">Built for businesses<br />where one deal matters.</h2>
-      <p class="sec-sub">We specialize in financial and professional services — industries where a single closed client justifies months of outreach investment.</p>
+  <div class="cnt">
+    <div class="rv">
+      <div class="ey">Who we serve</div>
+      <h2 class="st">Built for businesses<br />where one deal matters.</h2>
+      <p class="sb">We specialize in industries where a single closed client justifies months of outreach — and where decision-makers respond to direct, professional outreach.</p>
     </div>
 
     <div class="serve-grid">
-      <div class="serve-card reveal">
-        <svg class="serve-icon" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="1.25"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+      <div class="serve-card rv">
+        <div class="serve-card-top">
+          <svg class="serve-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+          <span class="serve-pill">Primary</span>
+        </div>
         <h3>Wealth Management & RIAs</h3>
-        <p>Independent advisors and RIA firms who need a steady stream of qualified conversations without cold calling or ad spend. We target HNW individuals, business owners, and executives approaching key financial transitions.</p>
-        <span class="serve-tag">Primary Focus</span>
+        <p>Independent advisors and RIA firms who need qualified prospect conversations without cold calling. We target HNW individuals, business owners, and executives near key financial events.</p>
       </div>
-      <div class="serve-card reveal d1">
-        <svg class="serve-icon" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="1.25"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div class="serve-card rv d1">
+        <div class="serve-card-top">
+          <svg class="serve-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span class="serve-pill">Primary</span>
+        </div>
         <h3>Insurance Agencies</h3>
-        <p>Independent agencies looking to grow beyond referrals. We reach business owners for group benefits, high-income households for personal lines, and HR decision-makers — exactly who fits your book of business.</p>
-        <span class="serve-tag">Primary Focus</span>
+        <p>Independent agencies growing beyond referrals. We reach business owners, HR decision-makers, and high-income households — whoever fits your specific book of business.</p>
       </div>
-      <div class="serve-card reveal d2">
-        <svg class="serve-icon" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="1.25"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <div class="serve-card rv d2">
+        <div class="serve-card-top">
+          <svg class="serve-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span class="serve-pill">Available</span>
+        </div>
         <h3>Commercial Real Estate</h3>
-        <p>Brokers and investment sales teams who need consistent outreach to property owners, capital allocators, and prospective tenants across specific submarkets and geographies.</p>
-        <span class="serve-tag">Available</span>
+        <p>Brokers and investment sales teams who need consistent outreach to property owners, investors, and prospective tenants across targeted submarkets and geographies.</p>
       </div>
-      <div class="serve-card reveal d3">
-        <svg class="serve-icon" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="1.25"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <div class="serve-card rv d3">
+        <div class="serve-card-top">
+          <svg class="serve-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span class="serve-pill">Available</span>
+        </div>
         <h3>Professional Services</h3>
-        <p>Business attorneys, CPAs, mortgage brokers, and B2B consultants who need qualified introductions but don't have the bandwidth to prospect with the consistency required to build real pipeline.</p>
-        <span class="serve-tag">Available</span>
+        <p>Business attorneys, CPAs, and B2B consultants who need qualified introductions without the bandwidth to build and maintain consistent outbound prospecting.</p>
+      </div>
+      <div class="serve-card rv d4">
+        <div class="serve-card-top">
+          <svg class="serve-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          <span class="serve-pill">Available</span>
+        </div>
+        <h3>Physical Therapy Practices</h3>
+        <p>Multi-location or growing practices seeking new patient sources through physician referral outreach, corporate wellness partnerships, and direct-to-patient campaigns in their local market.</p>
+      </div>
+      <div class="serve-card rv d5">
+        <div class="serve-card-top">
+          <svg class="serve-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          <span class="serve-pill">Available</span>
+        </div>
+        <h3>Mental Health Practices</h3>
+        <p>Group practices and private therapists building their caseload through targeted B2B outreach to HR departments, EAP coordinators, and employee wellness programs at local companies.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── TESTIMONIALS ─── -->
+<!-- ── PROJECTED RESULTS ── -->
 <section>
-  <div class="container">
-    <div class="reveal">
-      <div class="eyebrow">Client results</div>
-      <h2 class="sec-title">What our clients say.</h2>
+  <div class="cnt">
+    <div class="rv">
+      <div class="ey">What to expect</div>
+      <h2 class="st">Realistic projections.<br />Based on industry benchmarks.</h2>
+      <p class="sb">These are conservative estimates based on standard B2B cold email performance. Your results will vary based on industry, target profile, and offer strength.</p>
     </div>
-    <div class="testi-grid">
-      <div class="testi-card reveal">
-        <div class="testi-quote">We were entirely referral-dependent. ArgusReach built a consistent outbound channel that now runs in the background while we focus on serving existing clients. The quality of the meetings is solid — these are real conversations, not cold pitches.</div>
-        <div class="testi-author">
-          <div class="testi-name">Michael T.</div>
-          <div class="testi-role">Principal · Independent RIA · Tampa Bay</div>
-          <div class="testi-result">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-            8 qualified meetings in first 90 days
-          </div>
-        </div>
+    <div class="results-grid">
+      <div class="result-card rv">
+        <div class="result-num">35–55<em>%</em></div>
+        <div class="result-label">Average Open Rate</div>
+        <div class="result-desc">Personalized outreach consistently outperforms industry averages of 15–20%. Our sequences are written and tested for deliverability and relevance.</div>
       </div>
-      <div class="testi-card reveal d1">
-        <div class="testi-quote">I was skeptical that AI outreach could represent our agency the right way. But the emails don't read like AI — they read like something I would write. We booked our first meeting within the second week of going live.</div>
-        <div class="testi-author">
-          <div class="testi-name">David R.</div>
-          <div class="testi-role">Owner · Independent Insurance Agency · Clearwater</div>
-          <div class="testi-result">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-            First meeting booked in week 2
-          </div>
-        </div>
+      <div class="result-card rv d1">
+        <div class="result-num">4–8<em>%</em></div>
+        <div class="result-label">Positive Reply Rate</div>
+        <div class="result-desc">Of contacts engaged, a meaningful percentage will respond with interest. At 200 contacts/month, that's 8–16 positive conversations started per month on the Starter plan.</div>
       </div>
-      <div class="testi-card reveal d2">
-        <div class="testi-quote">The reporting alone is worth it — I can see exactly who was contacted, what was sent, and what got responses. It's the transparency I never had with agencies before. And the meetings are actually with the right people.</div>
-        <div class="testi-author">
-          <div class="testi-name">Jennifer M.</div>
-          <div class="testi-role">Managing Partner · CPA Practice · St. Petersburg</div>
-          <div class="testi-result">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-            6 new engagements in Q1
-          </div>
-        </div>
+      <div class="result-card rv d2">
+        <div class="result-num">4–12</div>
+        <div class="result-label">Qualified Meetings / Month</div>
+        <div class="result-desc">Depending on plan and vertical, clients can expect a consistent flow of qualified, calendar-confirmed meetings with decision-makers in their target market.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── PRICING ─── -->
+<!-- ── PRICING ── -->
 <section id="pricing" style="background: var(--bg2);">
-  <div class="container">
-    <div class="reveal" style="text-align:center;">
-      <div class="eyebrow" style="justify-content:center;">Pricing</div>
-      <h2 class="sec-title">Simple pricing.<br />No surprises.</h2>
-      <p class="sec-sub" style="margin:0 auto;">Flat monthly fees. No performance markups. No hidden costs. Cancel after your initial engagement.</p>
+  <div class="cnt">
+    <div class="rv" style="text-align:center;">
+      <div class="ey" style="justify-content:center;">Pricing</div>
+      <h2 class="st">Simple. Transparent.<br />No surprises.</h2>
+      <p class="sb" style="margin:0 auto;">Flat monthly fees. No performance markups. No hidden costs. Cancel after your initial 3-month engagement.</p>
     </div>
 
     <div class="pricing-grid">
-      <div class="price-card reveal">
-        <div class="plan-tier">Starter</div>
-        <div class="price-num">$750</div>
-        <div class="price-per">per month</div>
-        <div class="price-billing">3-month minimum · $500 one-time setup</div>
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li><svg class="price-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>200 verified contacts per month</li>
-          <li><svg class="price-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>1 personalized email sequence</li>
-          <li><svg class="price-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>4-touch automated follow-up</li>
-          <li><svg class="price-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Response monitoring &amp; routing</li>
-          <li><svg class="price-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Monthly performance report</li>
-          <li><svg class="price-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Dedicated onboarding call</li>
+      <div class="pc rv">
+        <div class="pc-tier">Starter</div>
+        <div class="pc-price"><sup>$</sup>750<span class="pc-mo">/mo</span></div>
+        <div class="pc-billing">3-month minimum · $500 one-time setup</div>
+        <div class="pc-div"></div>
+        <ul class="pc-list">
+          <li class="pc-li"><svg class="pc-chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>200 verified contacts per month</li>
+          <li class="pc-li"><svg class="pc-chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>1 personalized email sequence</li>
+          <li class="pc-li"><svg class="pc-chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>4-touch automated follow-up</li>
+          <li class="pc-li"><svg class="pc-chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Response monitoring &amp; routing</li>
+          <li class="pc-li"><svg class="pc-chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Monthly performance report</li>
+          <li class="pc-li"><svg class="pc-chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Dedicated onboarding call</li>
         </ul>
-        <a href="#book" class="price-btn outline">Get Started</a>
+        <a href="#book" class="pc-btn border">Get Started</a>
       </div>
 
-      <div class="price-card featured reveal d1">
-        <div class="plan-tier">Growth — Most Popular</div>
-        <div class="price-num">$1,500</div>
-        <div class="price-per">per month</div>
-        <div class="price-billing">3-month minimum · $500 one-time setup</div>
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li><svg class="price-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>500 verified contacts per month</li>
-          <li><svg class="price-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>2 sequences — test multiple profiles</li>
-          <li><svg class="price-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>A/B subject line optimization</li>
-          <li><svg class="price-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Response monitoring &amp; routing</li>
-          <li><svg class="price-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Bi-weekly performance reports</li>
-          <li><svg class="price-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Monthly strategy call</li>
+      <div class="pc feat rv d1">
+        <div class="pc-tier">Growth — Most Popular</div>
+        <div class="pc-price"><sup>$</sup>1,500<span class="pc-mo">/mo</span></div>
+        <div class="pc-billing">3-month minimum · $500 one-time setup</div>
+        <div class="pc-div"></div>
+        <ul class="pc-list">
+          <li class="pc-li"><svg class="pc-chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>500 verified contacts per month</li>
+          <li class="pc-li"><svg class="pc-chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>2 sequences — multiple ICPs</li>
+          <li class="pc-li"><svg class="pc-chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>A/B subject line optimization</li>
+          <li class="pc-li"><svg class="pc-chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Response monitoring &amp; routing</li>
+          <li class="pc-li"><svg class="pc-chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Bi-weekly performance reports</li>
+          <li class="pc-li"><svg class="pc-chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Monthly strategy call</li>
         </ul>
-        <a href="#book" class="price-btn dark">Get Started</a>
+        <a href="#book" class="pc-btn dark">Get Started</a>
       </div>
 
-      <div class="price-card reveal d2">
-        <div class="plan-tier">Scale</div>
-        <div class="price-num">$2,500</div>
-        <div class="price-per">per month</div>
-        <div class="price-billing">3-month minimum · $500 one-time setup</div>
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li><svg class="price-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>1,000+ contacts per month</li>
-          <li><svg class="price-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>3 sequences · full A/B suite</li>
-          <li><svg class="price-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Priority response handling</li>
-          <li><svg class="price-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Weekly performance reports</li>
-          <li><svg class="price-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Weekly strategy calls</li>
-          <li><svg class="price-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Dedicated account management</li>
+      <div class="pc rv d2">
+        <div class="pc-tier">Scale</div>
+        <div class="pc-price"><sup>$</sup>2,500<span class="pc-mo">/mo</span></div>
+        <div class="pc-billing">3-month minimum · $500 one-time setup</div>
+        <div class="pc-div"></div>
+        <ul class="pc-list">
+          <li class="pc-li"><svg class="pc-chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>1,000+ contacts per month</li>
+          <li class="pc-li"><svg class="pc-chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>3 sequences · full A/B suite</li>
+          <li class="pc-li"><svg class="pc-chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Priority response handling</li>
+          <li class="pc-li"><svg class="pc-chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Weekly performance reports</li>
+          <li class="pc-li"><svg class="pc-chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Weekly strategy calls</li>
+          <li class="pc-li"><svg class="pc-chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Dedicated account management</li>
         </ul>
-        <a href="#book" class="price-btn outline">Get Started</a>
+        <a href="#book" class="pc-btn border">Get Started</a>
       </div>
     </div>
-    <p class="price-note reveal">All plans require a 3-month minimum. Setup fee is one-time. No contracts after the initial period.</p>
+    <p style="text-align:center; font-size:0.775rem; color:var(--muted); margin-top:24px;" class="rv">All plans require a 3-month minimum. Setup fee is one-time. No contracts after the initial period.</p>
   </div>
 </section>
 
-<!-- ─── FINAL CTA ─── -->
+<!-- ── FINAL CTA ── -->
 <section id="book" class="cta-section">
-  <div class="reveal">
+  <div class="rv">
     <h2>Stop Waiting<br />on Referrals.</h2>
-    <p>Book a free 15-minute strategy call. We'll walk you through exactly what an ArgusReach pipeline system looks like for your business — no commitment, no sales pitch.</p>
-    <a href="https://calendly.com/argusreach" class="btn-black" target="_blank" rel="noopener">Book Your Free Call →</a>
+    <p>Book a free 15-minute strategy call. We'll map out exactly what an ArgusReach pipeline system looks like for your specific business — no commitment, no pitch.</p>
+    <a href="https://calendly.com/argusreach" class="btn-blk" target="_blank" rel="noopener">
+      Book Your Free Call
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
   </div>
 </section>
 
-<!-- ─── FOOTER ─── -->
+<!-- ── FOOTER ── -->
 <footer>
-  <a href="/" class="footer-logo">Argus<span>Reach</span></a>
+  <a href="/" class="ft-logo">ArgusReach<span> · AI Sales Development</span></a>
   <p>© 2026 ArgusReach · Tampa Bay, Florida</p>
   <p>vito@argusreach.com</p>
 </footer>
 
-<!-- ─── SCRIPTS ─── -->
 <script>
 (function() {
-  /* ── NEURAL NETWORK CANVAS ── */
-  const canvas = document.getElementById('neural-canvas');
+  /* ── CANVAS: subtle data network, white/grey nodes ── */
+  const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
-  let W, H, nodes = [], mouse = { x: -9999, y: -9999 }, raf;
+  let W, H, nodes = [], mouse = {x: -9999, y: -9999}, raf;
 
   function resize() {
     W = canvas.width = window.innerWidth;
     H = canvas.height = window.innerHeight;
   }
 
-  function initNodes() {
+  function init() {
     nodes = [];
-    const count = Math.min(Math.floor((W * H) / 9000), 120);
-    for (let i = 0; i < count; i++) {
+    const n = Math.min(Math.floor((W * H) / 10000), 100);
+    for (let i = 0; i < n; i++) {
       nodes.push({
         x: Math.random() * W,
         y: Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        r: Math.random() * 2 + 1.5,
-        pulse: Math.random() * Math.PI * 2
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        r: Math.random() * 1.5 + 1,
+        phase: Math.random() * Math.PI * 2
       });
     }
   }
 
   function draw() {
     ctx.clearRect(0, 0, W, H);
-    const maxDist = 160;
     const now = performance.now() / 1000;
+    const maxD = 150;
 
-    nodes.forEach((n, i) => {
-      // Move
-      n.x += n.vx;
-      n.y += n.vy;
-      if (n.x < 0 || n.x > W) n.vx *= -1;
-      if (n.y < 0 || n.y > H) n.vy *= -1;
+    nodes.forEach((a, i) => {
+      a.x += a.vx; a.y += a.vy;
+      if (a.x < 0 || a.x > W) a.vx *= -1;
+      if (a.y < 0 || a.y > H) a.vy *= -1;
 
-      // Mouse repel
-      const mdx = n.x - mouse.x;
-      const mdy = n.y - mouse.y;
-      const md = Math.sqrt(mdx * mdx + mdy * mdy);
-      if (md < 120) {
-        const force = (120 - md) / 120 * 0.8;
-        n.vx += (mdx / md) * force;
-        n.vy += (mdy / md) * force;
-        // clamp speed
-        const speed = Math.sqrt(n.vx*n.vx + n.vy*n.vy);
-        if (speed > 3) { n.vx = (n.vx/speed)*3; n.vy = (n.vy/speed)*3; }
+      // Gentle mouse repel
+      const mdx = a.x - mouse.x, mdy = a.y - mouse.y;
+      const md = Math.sqrt(mdx*mdx + mdy*mdy);
+      if (md < 100 && md > 0) {
+        const f = (100 - md) / 100 * 0.6;
+        a.vx += mdx / md * f;
+        a.vy += mdy / md * f;
+        const sp = Math.sqrt(a.vx*a.vx + a.vy*a.vy);
+        if (sp > 2.5) { a.vx = a.vx/sp*2.5; a.vy = a.vy/sp*2.5; }
       }
 
-      // Pulse glow
-      const glow = 0.6 + 0.4 * Math.sin(now * 1.5 + n.pulse);
-      const radius = n.r * (0.9 + 0.1 * glow);
+      const pulse = 0.5 + 0.5 * Math.sin(now * 1.2 + a.phase);
+      const alpha = 0.25 + 0.25 * pulse;
 
-      // Draw glow
-      const grad = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, radius * 4);
-      grad.addColorStop(0, `rgba(0,230,118,${0.5 * glow})`);
-      grad.addColorStop(1, 'rgba(0,230,118,0)');
+      // Node
       ctx.beginPath();
-      ctx.arc(n.x, n.y, radius * 4, 0, Math.PI * 2);
-      ctx.fillStyle = grad;
+      ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${alpha})`;
       ctx.fill();
 
-      // Draw core node
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(0,230,118,${0.85 * glow})`;
-      ctx.shadowColor = '#00e676';
-      ctx.shadowBlur = 8;
-      ctx.fill();
-      ctx.shadowBlur = 0;
-
-      // Draw connections
+      // Connections
       for (let j = i + 1; j < nodes.length; j++) {
-        const m = nodes[j];
-        const dx = n.x - m.x;
-        const dy = n.y - m.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < maxDist) {
-          const alpha = (1 - dist / maxDist);
+        const b = nodes[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < maxD) {
           ctx.beginPath();
-          ctx.moveTo(n.x, n.y);
-          ctx.lineTo(m.x, m.y);
-          ctx.strokeStyle = `rgba(0,230,118,${alpha * 0.35})`;
-          ctx.lineWidth = alpha * 0.8;
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(255,255,255,${(1 - d/maxD) * 0.12})`;
+          ctx.lineWidth = 0.5;
           ctx.stroke();
         }
       }
@@ -1330,36 +1317,60 @@
     raf = requestAnimationFrame(draw);
   }
 
-  resize(); initNodes(); draw();
-
-  window.addEventListener('resize', () => {
-    cancelAnimationFrame(raf);
-    resize(); initNodes(); draw();
-  });
-
-  window.addEventListener('mousemove', e => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-  });
-
-  window.addEventListener('mouseleave', () => {
-    mouse.x = -9999; mouse.y = -9999;
-  });
+  resize(); init(); draw();
+  window.addEventListener('resize', () => { cancelAnimationFrame(raf); resize(); init(); draw(); });
+  window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+  window.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
 
   /* ── SCROLL REVEAL ── */
-  const revealEls = document.querySelectorAll('.reveal');
+  const rvEls = document.querySelectorAll('.rv');
   const ro = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('on'); ro.unobserve(e.target); }
-    });
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); ro.unobserve(e.target); } });
   }, { threshold: 0.1 });
-  revealEls.forEach(el => ro.observe(el));
+  rvEls.forEach(el => ro.observe(el));
 
-  /* ── NAV OPACITY ON SCROLL ── */
-  window.addEventListener('scroll', () => {
-    document.querySelector('nav').style.background =
-      window.scrollY > 50 ? 'rgba(4,4,4,0.97)' : 'rgba(4,4,4,0.85)';
+  /* ── HOW IT WORKS: INTERACTIVE STEPS ── */
+  const stepData = [
+    { num: '01', title: 'Define Your Ideal Customer', desc: 'One onboarding call. We map your best clients, deal characteristics, and target profile — the blueprint for everything we build.', tags: ['ICP Research', 'Strategy Call'] },
+    { num: '02', title: 'Build Your Prospect List', desc: 'Verified contacts pulled from premium data sources, filtered to match your exact criteria. Clean, deliverable, and ready.', tags: ['Verified Data', 'Zero Bounces'] },
+    { num: '03', title: 'Write Personalized Outreach', desc: 'AI writes each email for the specific prospect — their company, role, and market context. Not a template.', tags: ['AI Personalization', '2–3× Open Rates'] },
+    { num: '04', title: 'Run Automated Sequences', desc: '4–5 touches over 3 weeks. Positive signals surface, cold prospects exit gracefully. We never stop too early.', tags: ['Multi-Touch', 'Auto Follow-Up'] },
+    { num: '05', title: 'Deliver Qualified Meetings', desc: 'Interested replies reviewed, qualified, and routed to your calendar. You focus on closing.', tags: ['Meeting Booked', 'Ready to Close'] }
+  ];
+
+  const steps = document.querySelectorAll('.how-step');
+  const vNum = document.getElementById('v-num');
+  const vTitle = document.getElementById('v-title');
+  const vDesc = document.getElementById('v-desc');
+  const vTags = document.getElementById('v-tags');
+
+  function setStep(idx) {
+    steps.forEach((s, i) => s.classList.toggle('active', i === idx));
+    const d = stepData[idx];
+    vNum.textContent = d.num;
+    vTitle.textContent = d.title;
+    vDesc.textContent = d.desc;
+    vTags.innerHTML = d.tags.map(t => `<span class="vtag">${t}</span>`).join('');
+  }
+
+  steps.forEach((step, i) => {
+    step.addEventListener('click', () => setStep(i));
+    step.style.cursor = 'pointer';
   });
+
+  // Auto-cycle
+  let currentStep = 0;
+  setInterval(() => {
+    currentStep = (currentStep + 1) % steps.length;
+    setStep(currentStep);
+  }, 3500);
+
+  /* ── NAV SCROLL ── */
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.borderBottomColor =
+      window.scrollY > 60 ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.07)';
+  });
+
 })();
 </script>
 </body>
