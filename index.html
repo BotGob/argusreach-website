@@ -305,6 +305,31 @@
     .ft-logo span { color: var(--muted); font-weight: 300; }
     footer p { font-size: 0.75rem; color: var(--muted); }
 
+    /* ── MODES ── */
+    .modes-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); margin-top: 56px; }
+    .mode-col { padding: 48px 44px; }
+    .mode-col.right { border-left: 1px solid var(--border); background: var(--bg2); }
+    .mode-badge { display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 12px; border-radius: 3px; margin-bottom: 20px; }
+    .mode-badge.auto { color: var(--green); background: rgba(74,222,128,0.07); border: 1px solid rgba(74,222,128,0.18); }
+    .mode-badge.draft { color: var(--sub); background: rgba(255,255,255,0.03); border: 1px solid var(--border2); }
+    .mode-col h3 { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.03em; color: var(--white); margin-bottom: 12px; }
+    .mode-col p { font-size: 0.875rem; color: var(--sub); line-height: 1.8; margin-bottom: 20px; }
+    .mode-list { list-style: none; }
+    .mode-li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.845rem; color: var(--sub); padding: 9px 0; border-bottom: 1px solid var(--border); line-height: 1.5; }
+    .mode-li:last-child { border-bottom: none; }
+    .mode-li svg { flex-shrink: 0; margin-top: 2px; }
+
+    /* ── EMAIL CAPTURE ── */
+    .email-cap { margin-top: 40px; padding-top: 40px; border-top: 1px solid rgba(0,0,0,0.1); }
+    .email-cap p { font-size: 0.875rem; color: #888; margin-bottom: 14px; }
+    .email-cap-form { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .email-cap-input { background: #f5f5f5; border: 1px solid #ddd; border-radius: 5px; padding: 12px 20px; font-size: 0.875rem; font-family: 'Inter', sans-serif; color: #111; outline: none; width: 280px; transition: border-color 0.2s; }
+    .email-cap-input:focus { border-color: #999; }
+    .email-cap-input::placeholder { color: #aaa; }
+    .email-cap-btn { background: #111; color: #fff; border: none; border-radius: 5px; padding: 12px 24px; font-size: 0.875rem; font-weight: 700; font-family: 'Inter', sans-serif; cursor: pointer; transition: opacity 0.2s; white-space: nowrap; }
+    .email-cap-btn:hover { opacity: 0.78; }
+    .email-cap-confirm { font-size: 0.8rem; color: #555; margin-top: 10px; display: none; }
+
     /* ── REVEAL ── */
     .rv { opacity: 0; transform: translateY(24px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
     .rv.show { opacity: 1; transform: none; }
@@ -338,6 +363,10 @@
       .stat-cell:nth-child(odd) { border-right: 1px solid var(--border); }
       .do-items { flex-wrap: wrap; }
       .do-item { flex: 0 0 50%; border-right: none; border-bottom: 1px solid #e8e8e8; }
+      .modes-grid { grid-template-columns: 1fr; }
+      .mode-col.right { border-left: none; border-top: 1px solid var(--border); }
+      .email-cap-form { flex-direction: column; align-items: center; }
+      .email-cap-input { width: 100%; max-width: 320px; }
       .cta-block { padding: 100px 24px; }
       footer { padding: 28px 24px; flex-direction: column; align-items: flex-start; }
     }
@@ -659,6 +688,41 @@
   </div>
 </section>
 
+<!-- ── TWO MODES ── -->
+<section>
+  <div class="wrap">
+    <div class="rv">
+      <div class="ey">How we work with you</div>
+      <h2 class="sh">Fully automated<br />or human-approved.</h2>
+      <p class="sp">You choose how much control you want. Either way, we handle the prospecting, the writing, and the follow-up.</p>
+    </div>
+    <div class="modes-grid rv">
+      <div class="mode-col">
+        <div class="mode-badge auto"><svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#4ade80"/></svg>Fully Automated</div>
+        <h3>Set it and forget it.</h3>
+        <p>We run your entire outreach engine end-to-end. Prospects are sourced, emails are written and sent, follow-ups run automatically. You get notified when someone replies with interest — and we route them to your calendar.</p>
+        <ul class="mode-list">
+          <li class="mode-li"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Zero time required after onboarding</li>
+          <li class="mode-li"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Maximum volume and consistency</li>
+          <li class="mode-li"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>You approve sequences once at launch</li>
+          <li class="mode-li"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Best for: most clients once comfortable</li>
+        </ul>
+      </div>
+      <div class="mode-col right">
+        <div class="mode-badge draft">Draft Approval Mode</div>
+        <h3>You approve before anything sends.</h3>
+        <p>We source your prospects and write every email. Before anything goes out, you review and approve each batch. Want to tweak the wording? Change a detail? Done. Nothing sends without your sign-off.</p>
+        <ul class="mode-list">
+          <li class="mode-li"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Full visibility into every email sent</li>
+          <li class="mode-li"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Ideal for compliance-sensitive industries</li>
+          <li class="mode-li"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Great starting point if you're new to outbound</li>
+          <li class="mode-li"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Switch to fully automated anytime</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── PROBLEM / SOLUTION ── -->
 <section>
   <div class="wrap">
@@ -785,6 +849,14 @@
     <h2>Stop Waiting<br />on Referrals.</h2>
     <p>Book a free 15-minute strategy call. We'll show you exactly what an ArgusReach pipeline system looks like for your specific business — no commitment, no pitch.</p>
     <a href="https://calendly.com/vito-argusreach/30min" class="btn-black" target="_blank" rel="noopener">Book Your Free Call <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <div class="email-cap">
+      <p>Not ready for a call? Get our free process overview — how we build your pipeline, what to expect, and what results look like for your industry.</p>
+      <div class="email-cap-form">
+        <input type="email" class="email-cap-input" id="cap-email" placeholder="your@email.com" />
+        <button class="email-cap-btn" onclick="submitCap()">Send It →</button>
+      </div>
+      <div class="email-cap-confirm" id="cap-confirm">Got it — check your inbox shortly.</div>
+    </div>
   </div>
 </section>
 
@@ -1072,6 +1144,26 @@ Gulf Coast Physical Therapy`,
 
   switchers.forEach((sw, i) => sw.addEventListener('click', () => runDemo(i)));
 })();
+
+/* ── EMAIL CAPTURE ── */
+async function submitCap() {
+  const email = document.getElementById('cap-email').value.trim();
+  if (!email || !email.includes('@')) return;
+  await fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      access_key: '5acaa42c-17b4-4b12-a89d-80442844c3cf',
+      subject: 'ArgusReach — Process Overview Request',
+      from_name: 'ArgusReach Website',
+      'Email': email,
+      'Request': 'Process overview / not ready for call'
+    })
+  });
+  document.getElementById('cap-email').style.display = 'none';
+  document.querySelector('.email-cap-btn').style.display = 'none';
+  document.getElementById('cap-confirm').style.display = 'block';
+}
 </script>
 </body>
 </html>
