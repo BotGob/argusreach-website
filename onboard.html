@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Onboarding — ArgusReach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f0f0f; --bg2: #161616; --bg3: #1d1d1d;
+      --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.13);
+      --text: #f5f5f5; --sub: #888; --muted: #444;
+      --green: #4ade80; --white: #ffffff;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 0 64px; height: 56px; background: rgba(15,15,15,0.97); border-bottom: 1px solid var(--border); }
+    .logo { font-size: 0.95rem; font-weight: 800; letter-spacing: -0.02em; color: var(--white); text-decoration: none; }
+    .logo span { color: var(--sub); font-weight: 300; }
+    .nav-back { font-size: 0.8rem; color: var(--sub); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+    .nav-back:hover { color: var(--white); }
+
+    .page { max-width: 760px; margin: 0 auto; padding: 72px 24px 120px; }
+
+    .page-ey { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+    .page-ey::before { content: ''; width: 18px; height: 1px; background: var(--muted); }
+    h1 { font-size: 2.75rem; font-weight: 900; letter-spacing: -0.04em; line-height: 0.96; color: var(--white); margin-bottom: 16px; }
+    .page-sub { font-size: 0.95rem; color: var(--sub); line-height: 1.8; margin-bottom: 56px; max-width: 540px; }
+
+    /* Progress */
+    .progress-bar { display: flex; gap: 0; margin-bottom: 48px; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+    .pb-step { flex: 1; padding: 10px 14px; font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); border-right: 1px solid var(--border); text-align: center; transition: all 0.3s; }
+    .pb-step:last-child { border-right: none; }
+    .pb-step.active { color: var(--green); background: rgba(74,222,128,0.05); }
+    .pb-step.done { color: var(--sub); background: rgba(255,255,255,0.02); }
+
+    /* Sections */
+    .form-section { display: none; }
+    .form-section.active { display: block; }
+
+    .section-hdr { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green); margin-bottom: 28px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+
+    .field { margin-bottom: 24px; }
+    .field label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--white); margin-bottom: 8px; letter-spacing: -0.01em; }
+    .field .hint { font-size: 0.75rem; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+    .field input, .field select, .field textarea {
+      width: 100%; background: var(--bg2); border: 1px solid var(--border2); border-radius: 6px;
+      color: var(--text); font-family: 'Inter', sans-serif; font-size: 0.875rem;
+      padding: 12px 16px; outline: none; transition: border-color 0.2s;
+      appearance: none;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: rgba(74,222,128,0.4); }
+    .field textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+    .field select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    /* Checkboxes */
+    .check-group { display: flex; flex-direction: column; gap: 10px; }
+    .check-item { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+    .check-item input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--green); cursor: pointer; flex-shrink: 0; }
+    .check-item span { font-size: 0.845rem; color: var(--sub); }
+
+    /* Navigation */
+    .form-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+    .btn-prev { color: var(--sub); font-size: 0.85rem; font-weight: 500; background: none; border: 1px solid var(--border2); padding: 11px 24px; border-radius: 5px; cursor: pointer; transition: all 0.2s; }
+    .btn-prev:hover { color: var(--white); border-color: rgba(255,255,255,0.28); }
+    .btn-next { background: var(--white); color: #000; font-size: 0.875rem; font-weight: 700; padding: 12px 32px; border-radius: 5px; border: none; cursor: pointer; transition: opacity 0.2s; }
+    .btn-next:hover { opacity: 0.85; }
+    .btn-submit { background: var(--green); color: #000; font-size: 0.875rem; font-weight: 700; padding: 12px 36px; border-radius: 5px; border: none; cursor: pointer; transition: opacity 0.2s; }
+    .btn-submit:hover { opacity: 0.85; }
+
+    /* Success */
+    .success-screen { display: none; text-align: center; padding: 80px 0; }
+    .success-icon { width: 64px; height: 64px; background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 1.75rem; }
+    .success-screen h2 { font-size: 2rem; font-weight: 900; letter-spacing: -0.04em; color: var(--white); margin-bottom: 16px; }
+    .success-screen p { font-size: 0.925rem; color: var(--sub); line-height: 1.8; max-width: 440px; margin: 0 auto; }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; }
+      .field-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">ArgusReach<span> · AI Sales</span></a>
+  <a href="/" class="nav-back">← Back to site</a>
+</nav>
+
+<div class="page">
+  <div class="page-ey">Client Onboarding</div>
+  <h1>Let's build<br />your system.</h1>
+  <p class="page-sub">This takes about 10 minutes. Your answers are how we build your prospect list, write your email sequences, and configure everything before we launch. The more detail, the better your results.</p>
+
+  <div class="progress-bar">
+    <div class="pb-step active" id="pb0">01 · Identity</div>
+    <div class="pb-step" id="pb1">02 · Business</div>
+    <div class="pb-step" id="pb2">03 · Prospects</div>
+    <div class="pb-step" id="pb3">04 · Voice</div>
+    <div class="pb-step" id="pb4">05 · Logistics</div>
+  </div>
+
+  <form id="intake-form">
+
+    <!-- SECTION 1: Identity -->
+    <div class="form-section active" id="sec0">
+      <div class="section-hdr">01 · Client Identity</div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Firm name *</label>
+          <input type="text" name="firm_name" placeholder="Bay Harbor Wealth Advisors" required />
+        </div>
+        <div class="field">
+          <label>Your name *</label>
+          <input type="text" name="contact_name" placeholder="James K." required />
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Your email *</label>
+          <input type="email" name="contact_email" placeholder="james@bayharborwealth.com" required />
+        </div>
+        <div class="field">
+          <label>Your phone</label>
+          <input type="tel" name="contact_phone" placeholder="(813) 555-0100" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Name to appear on outreach emails *</label>
+        <div class="hint">This is how your prospects will see you. Typically first name + last initial, or full name.</div>
+        <input type="text" name="from_name" placeholder="James K." required />
+      </div>
+
+      <div class="field">
+        <label>Email address outreach sends from *</label>
+        <div class="hint">Ideally your real business email. We'll configure it to send from this address on your behalf.</div>
+        <input type="email" name="from_email" placeholder="james@bayharborwealth.com" required />
+      </div>
+
+      <div class="field">
+        <label>Your meeting booking link *</label>
+        <div class="hint">Your Calendly, Cal.com, or other booking link. This is where interested prospects schedule with you.</div>
+        <input type="url" name="calendar_link" placeholder="https://calendly.com/yourusername/30min" required />
+      </div>
+
+      <div class="field">
+        <label>Plan *</label>
+        <select name="plan" required>
+          <option value="">Select your plan</option>
+          <option value="starter">Starter — $750/mo (200 contacts)</option>
+          <option value="growth">Growth — $1,500/mo (500 contacts)</option>
+          <option value="scale">Scale — $2,500/mo (1,000+ contacts)</option>
+        </select>
+      </div>
+
+      <div class="form-nav">
+        <span></span>
+        <button type="button" class="btn-next" onclick="goTo(1)">Next: Your Business →</button>
+      </div>
+    </div>
+
+    <!-- SECTION 2: Business -->
+    <div class="form-section" id="sec1">
+      <div class="section-hdr">02 · Your Business</div>
+
+      <div class="field">
+        <label>What do you do? (in your own words) *</label>
+        <div class="hint">Explain it how you'd explain it to a new acquaintance at dinner. Not your website copy — the real version.</div>
+        <textarea name="what_you_do" placeholder="We're an independent wealth management firm in Tampa. We work with business owners and executives who are approaching a major financial transition — a business sale, retirement, or inheritance — and need a trusted advisor to help them not screw it up." required></textarea>
+      </div>
+
+      <div class="field">
+        <label>Describe your 2-3 best current clients *</label>
+        <div class="hint">What do they have in common? Industry, company size, situation, personality, how they found you?</div>
+        <textarea name="best_clients" placeholder="My best clients are typically business owners in their 50s who've been running their company for 20+ years and are starting to think about what comes next. They're successful but haven't thought much about wealth planning because the business has always been the plan." required></textarea>
+      </div>
+
+      <div class="field">
+        <label>Average annual client value *</label>
+        <div class="hint">Rough estimate — AUM fees, annual premium, retainer, or average deal size.</div>
+        <input type="text" name="client_value" placeholder="e.g. $8,000/year in AUM fees, or $15,000 group benefits premium" required />
+      </div>
+
+      <div class="field">
+        <label>What result do you deliver for clients? *</label>
+        <div class="hint">Not features — the transformation. What's different for them after working with you?</div>
+        <textarea name="core_value" placeholder="They go from having all their wealth tied up in one business to having a diversified, tax-efficient investment portfolio they understand and feel confident about." required></textarea>
+      </div>
+
+      <div class="field">
+        <label>What makes you different from competitors?</label>
+        <textarea name="differentiator" placeholder="We only take on 30 clients at a time. Every client gets my personal number. We specialize in business owner transitions — it's not a side service, it's all we do."></textarea>
+      </div>
+
+      <div class="form-nav">
+        <button type="button" class="btn-prev" onclick="goTo(0)">← Back</button>
+        <button type="button" class="btn-next" onclick="goTo(2)">Next: Ideal Prospects →</button>
+      </div>
+    </div>
+
+    <!-- SECTION 3: Prospects -->
+    <div class="form-section" id="sec2">
+      <div class="section-hdr">03 · Your Ideal Prospect</div>
+
+      <div class="field">
+        <label>Who is the decision-maker? (titles we should target) *</label>
+        <div class="hint">Check all that apply.</div>
+        <div class="check-group">
+          <label class="check-item"><input type="checkbox" name="titles" value="CEO / Founder / Owner" /><span>CEO / Founder / Owner</span></label>
+          <label class="check-item"><input type="checkbox" name="titles" value="CFO / Controller" /><span>CFO / Controller</span></label>
+          <label class="check-item"><input type="checkbox" name="titles" value="Managing Partner" /><span>Managing Partner</span></label>
+          <label class="check-item"><input type="checkbox" name="titles" value="HR Director / VP HR" /><span>HR Director / VP HR</span></label>
+          <label class="check-item"><input type="checkbox" name="titles" value="Physician / Surgeon" /><span>Physician / Surgeon</span></label>
+          <label class="check-item"><input type="checkbox" name="titles" value="Practice Owner" /><span>Practice Owner</span></label>
+          <label class="check-item"><input type="checkbox" name="titles" value="Individual (HNW)" /><span>Individual (high net worth)</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Other titles to target</label>
+        <input type="text" name="titles_other" placeholder="e.g. Chief People Officer, Benefits Manager" />
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Target company size *</label>
+          <select name="company_size" required>
+            <option value="">Select range</option>
+            <option value="1-10">1–10 employees</option>
+            <option value="10-50">10–50 employees</option>
+            <option value="50-200">50–200 employees</option>
+            <option value="200-500">200–500 employees</option>
+            <option value="500+">500+ employees</option>
+            <option value="individual">Individual / no company</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Geographic focus *</label>
+          <input type="text" name="geography" placeholder="e.g. Tampa Bay — 30 mile radius" required />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Target industries *</label>
+        <div class="hint">Be specific. "Professional services" is less useful than "law firms, accounting firms, engineering firms."</div>
+        <input type="text" name="industries" placeholder="e.g. Manufacturing, healthcare practices, construction companies, law firms" required />
+      </div>
+
+      <div class="field">
+        <label>What signals mean someone is ready to buy RIGHT NOW?</label>
+        <div class="check-group">
+          <label class="check-item"><input type="checkbox" name="triggers" value="Recent business sale / exit" /><span>Recent business sale or exit</span></label>
+          <label class="check-item"><input type="checkbox" name="triggers" value="Company growth / hiring" /><span>Company hitting growth milestone (hiring, new location)</span></label>
+          <label class="check-item"><input type="checkbox" name="triggers" value="Benefits renewal" /><span>Benefits renewal approaching</span></label>
+          <label class="check-item"><input type="checkbox" name="triggers" value="Post-surgical / injury" /><span>Post-surgical or injury recovery</span></label>
+          <label class="check-item"><input type="checkbox" name="triggers" value="Inherited wealth / divorce" /><span>Inherited wealth or divorce</span></label>
+          <label class="check-item"><input type="checkbox" name="triggers" value="New business formation" /><span>New business formation</span></label>
+          <label class="check-item"><input type="checkbox" name="triggers" value="Approaching retirement" /><span>Approaching retirement (55–65)</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Other trigger events</label>
+        <input type="text" name="triggers_other" placeholder="e.g. Signed a large government contract, just raised Series A" />
+      </div>
+
+      <div class="field">
+        <label>Who should we NOT contact? *</label>
+        <div class="hint">Current clients, competitors, specific industries, people you have existing relationships with.</div>
+        <textarea name="exclusions" placeholder="Do not contact: existing clients (I'll provide a list), any employees of [competitor firm names], anyone I've already spoken with in the last 6 months." required></textarea>
+      </div>
+
+      <div class="form-nav">
+        <button type="button" class="btn-prev" onclick="goTo(1)">← Back</button>
+        <button type="button" class="btn-next" onclick="goTo(3)">Next: Voice & Tone →</button>
+      </div>
+    </div>
+
+    <!-- SECTION 4: Voice -->
+    <div class="form-section" id="sec3">
+      <div class="section-hdr">04 · Voice &amp; Tone</div>
+
+      <div class="field">
+        <label>How do you naturally communicate? *</label>
+        <select name="tone" required>
+          <option value="">Select closest match</option>
+          <option value="formal">Formal and professional — titles, "Dear Mr. Smith," polished</option>
+          <option value="warm">Warm and collegial — first names, conversational, personable</option>
+          <option value="direct">Direct and brief — short emails, no fluff, gets to the point fast</option>
+          <option value="educational">Educational / advisory — shares insights, positions as expert</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Phrases you naturally use</label>
+        <div class="hint">Sign-offs, greetings, expressions you use all the time. We'll match your voice.</div>
+        <input type="text" name="phrases_use" placeholder='e.g. "I appreciate your time" / "Warm regards" / "Happy to connect"' />
+      </div>
+
+      <div class="field">
+        <label>Phrases or words to avoid</label>
+        <input type="text" name="phrases_avoid" placeholder='e.g. Never say "guarantee," avoid "free," don&apos;t mention competitors by name' />
+      </div>
+
+      <div class="field">
+        <label>Compliance notes</label>
+        <div class="hint">Any regulatory constraints? RIAs should note SEC/FINRA restrictions. Insurance agents note state rules.</div>
+        <textarea name="compliance" placeholder="e.g. SEC-registered RIA — no specific return promises, no claims about performance, no guarantees of any kind. All outreach subject to our compliance review."></textarea>
+      </div>
+
+      <div class="field">
+        <label>Sample of your writing</label>
+        <div class="hint">Paste a LinkedIn post, a client email, your bio, anything you've written. This helps us match your voice precisely.</div>
+        <textarea name="writing_sample" placeholder="Paste anything here — a LinkedIn post, a bio, an email you've sent, even a text message. The more the better."></textarea>
+      </div>
+
+      <div class="form-nav">
+        <button type="button" class="btn-prev" onclick="goTo(2)">← Back</button>
+        <button type="button" class="btn-next" onclick="goTo(4)">Next: Logistics →</button>
+      </div>
+    </div>
+
+    <!-- SECTION 5: Logistics -->
+    <div class="form-section" id="sec4">
+      <div class="section-hdr">05 · Logistics &amp; Preferences</div>
+
+      <div class="field">
+        <label>Preferred send days</label>
+        <div class="check-group" style="flex-direction:row;flex-wrap:wrap;gap:14px;">
+          <label class="check-item"><input type="checkbox" name="send_days" value="Monday" /><span>Mon</span></label>
+          <label class="check-item"><input type="checkbox" name="send_days" value="Tuesday" checked /><span>Tue</span></label>
+          <label class="check-item"><input type="checkbox" name="send_days" value="Wednesday" checked /><span>Wed</span></label>
+          <label class="check-item"><input type="checkbox" name="send_days" value="Thursday" checked /><span>Thu</span></label>
+          <label class="check-item"><input type="checkbox" name="send_days" value="Friday" /><span>Fri</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Preferred send time (your time zone)</label>
+        <select name="send_time">
+          <option value="7-9am">7–9 AM (recommended)</option>
+          <option value="9-11am">9–11 AM</option>
+          <option value="12-2pm">12–2 PM</option>
+          <option value="2-4pm">2–4 PM</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>How do you want to receive hot reply alerts? *</label>
+        <div class="hint">When someone replies positively, how should we notify you?</div>
+        <select name="notification_method" required>
+          <option value="">Select preference</option>
+          <option value="email">Email forward to my inbox</option>
+          <option value="text">Text message</option>
+          <option value="both">Both email and text</option>
+          <option value="digest">Weekly digest — don't notify in real time</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Reporting preference</label>
+        <select name="reporting">
+          <option value="monthly">Monthly report (included in all plans)</option>
+          <option value="biweekly">Bi-weekly report</option>
+          <option value="weekly">Weekly report (Growth/Scale plans)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Anything else we should know?</label>
+        <div class="hint">Market context, competitive dynamics, timing constraints, specific companies you want to target or avoid.</div>
+        <textarea name="additional_notes" placeholder="e.g. We're in a very relationship-driven market — the tone needs to feel like a warm introduction, not a cold pitch. Also avoid anyone who works at Smith Barney — I have a personal connection there."></textarea>
+      </div>
+
+      <div class="field">
+        <label>Do-not-contact list</label>
+        <div class="hint">If you have a list of emails or companies to skip, reply to your onboarding confirmation email with that list attached.</div>
+        <textarea name="dnc_notes" placeholder="I'll email my do-not-contact list separately. It includes: [any names you remember offhand]"></textarea>
+      </div>
+
+      <div class="form-nav">
+        <button type="button" class="btn-prev" onclick="goTo(3)">← Back</button>
+        <button type="submit" class="btn-submit">Submit Intake →</button>
+      </div>
+    </div>
+
+  </form>
+
+  <!-- Success -->
+  <div class="success-screen" id="success">
+    <div class="success-icon">✓</div>
+    <h2>We're on it.</h2>
+    <p>Your intake has been submitted. You'll receive a confirmation at your email within minutes. We'll have your prospect list and first sequence drafts ready within 3 business days — you'll approve everything before a single email goes out.</p>
+    <p style="margin-top:20px;">Questions? Email <a href="mailto:vito@argusreach.com" style="color:var(--green);text-decoration:none;">vito@argusreach.com</a></p>
+  </div>
+</div>
+
+<script>
+  let current = 0;
+
+  function goTo(idx) {
+    document.getElementById('sec' + current).classList.remove('active');
+    document.getElementById('pb' + current).classList.remove('active');
+    document.getElementById('pb' + current).classList.add('done');
+    current = idx;
+    document.getElementById('sec' + current).classList.add('active');
+    document.getElementById('pb' + current).classList.remove('done');
+    document.getElementById('pb' + current).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  document.getElementById('intake-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const data = new FormData(form);
+
+    // Collect checkboxes
+    const titles = [...form.querySelectorAll('input[name="titles"]:checked')].map(el => el.value).join(', ');
+    const triggers = [...form.querySelectorAll('input[name="triggers"]:checked')].map(el => el.value).join(', ');
+    const sendDays = [...form.querySelectorAll('input[name="send_days"]:checked')].map(el => el.value).join(', ');
+
+    const payload = {
+      access_key: 'REPLACE_WITH_WEB3FORMS_KEY', // <-- replace after signup at web3forms.com
+      subject: `New ArgusReach Client Intake — ${data.get('firm_name')}`,
+      from_name: 'ArgusReach Intake Form',
+      // Identity
+      'Firm Name': data.get('firm_name'),
+      'Contact Name': data.get('contact_name'),
+      'Contact Email': data.get('contact_email'),
+      'Contact Phone': data.get('contact_phone'),
+      'Outreach From (Name)': data.get('from_name'),
+      'Outreach From (Email)': data.get('from_email'),
+      'Calendar / Booking Link': data.get('calendar_link'),
+      'Plan': data.get('plan'),
+      // Business
+      'What They Do': data.get('what_you_do'),
+      'Best Clients': data.get('best_clients'),
+      'Avg Client Value': data.get('client_value'),
+      'Core Value Prop': data.get('core_value'),
+      'Differentiator': data.get('differentiator'),
+      // Prospects
+      'Decision Maker Titles': titles + (data.get('titles_other') ? ', ' + data.get('titles_other') : ''),
+      'Company Size': data.get('company_size'),
+      'Geography': data.get('geography'),
+      'Industries': data.get('industries'),
+      'Trigger Events': triggers + (data.get('triggers_other') ? ', ' + data.get('triggers_other') : ''),
+      'Exclusions / DNC': data.get('exclusions'),
+      // Voice
+      'Tone': data.get('tone'),
+      'Phrases To Use': data.get('phrases_use'),
+      'Phrases To Avoid': data.get('phrases_avoid'),
+      'Compliance Notes': data.get('compliance'),
+      'Writing Sample': data.get('writing_sample'),
+      // Logistics
+      'Send Days': sendDays,
+      'Send Time': data.get('send_time'),
+      'Notification Method': data.get('notification_method'),
+      'Reporting': data.get('reporting'),
+      'Additional Notes': data.get('additional_notes'),
+      'DNC Notes': data.get('dnc_notes')
+    };
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok) {
+        form.style.display = 'none';
+        document.querySelector('.progress-bar').style.display = 'none';
+        document.getElementById('success').style.display = 'block';
+      } else {
+        alert('Something went wrong. Please email vito@argusreach.com directly.');
+      }
+    } catch(err) {
+      alert('Network error. Please email vito@argusreach.com directly.');
+    }
+  });
+</script>
+</body>
+</html>
