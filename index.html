@@ -314,6 +314,9 @@
     .ft-logo { font-size: 0.9rem; font-weight: 800; letter-spacing: -0.02em; color: var(--white); text-decoration: none; }
     .ft-logo span { color: var(--muted); font-weight: 300; }
     footer p { font-size: 0.75rem; color: var(--muted); }
+    .ft-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .ft-links a { font-size: 0.75rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .ft-links a:hover { color: var(--sub); }
 
     /* ── MODES ── */
     .modes-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); margin-top: 56px; }
@@ -920,8 +923,13 @@
 <!-- ── FOOTER ── -->
 <footer>
   <a href="/" class="ft-logo">ArgusReach<span> · AI Sales Development · Tampa Bay, FL</span></a>
+  <div class="ft-links">
+    <a href="/overview">One-Pager</a>
+    <a href="/roi">ROI Calculator</a>
+    <a href="/faq">FAQ</a>
+    <a href="mailto:vito@argusreach.com">vito@argusreach.com</a>
+  </div>
   <p>© 2026 ArgusReach</p>
-  <p>vito@argusreach.com</p>
 </footer>
 
 <script>

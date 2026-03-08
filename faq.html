@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — ArgusReach</title>
+  <meta name="description" content="Frequently asked questions about ArgusReach AI-powered sales development for professional services firms." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #0f0f0f; --bg2: #161616; --bg3: #1d1d1d; --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.13); --text: #f0f0f0; --sub: #888; --muted: #444; --green: #4ade80; --white: #fff; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 52px; border-bottom: 1px solid var(--border2); background: rgba(15,15,15,0.97); position: sticky; top: 0; z-index: 100; }
+    .logo { font-size: 0.9rem; font-weight: 800; letter-spacing: -0.02em; color: var(--white); text-decoration: none; }
+    .logo span { color: var(--sub); font-weight: 300; }
+    .btn-book { background: var(--green); color: #000; font-size: 0.8rem; font-weight: 700; padding: 8px 20px; border-radius: 4px; text-decoration: none; }
+
+    .page { max-width: 720px; margin: 0 auto; padding: 64px 24px 100px; }
+    .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+    .eyebrow::before { content: ''; width: 18px; height: 1px; background: var(--muted); }
+    h1 { font-size: 2.5rem; font-weight: 900; letter-spacing: -0.04em; color: var(--white); margin-bottom: 12px; }
+    .page-sub { font-size: 0.925rem; color: var(--sub); line-height: 1.75; margin-bottom: 56px; }
+
+    .faq-section { margin-bottom: 48px; }
+    .section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q { width: 100%; text-align: left; background: none; border: none; padding: 20px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+    .faq-q-text { font-size: 0.925rem; font-weight: 600; color: var(--white); line-height: 1.4; text-align: left; }
+    .faq-icon { font-size: 1.1rem; color: var(--green); flex-shrink: 0; margin-top: 2px; transition: transform 0.2s; font-family: 'JetBrains Mono', monospace; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a { display: none; padding: 0 0 20px; font-size: 0.875rem; color: var(--sub); line-height: 1.8; }
+    .faq-item.open .faq-a { display: block; }
+    .faq-a strong { color: rgba(255,255,255,0.7); }
+    .faq-a a { color: var(--green); text-decoration: none; }
+
+    .cta { background: var(--bg2); border: 1px solid var(--border2); border-radius: 8px; padding: 40px; text-align: center; margin-top: 64px; }
+    .cta h2 { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.03em; color: var(--white); margin-bottom: 10px; }
+    .cta p { font-size: 0.875rem; color: var(--sub); margin-bottom: 24px; line-height: 1.7; }
+    .btn-white { background: var(--white); color: #000; font-size: 0.875rem; font-weight: 700; padding: 12px 28px; border-radius: 5px; text-decoration: none; display: inline-block; }
+
+    @media (max-width: 640px) { nav { padding: 0 16px; } h1 { font-size: 1.75rem; } .page { padding: 40px 16px 80px; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/" class="logo">ArgusReach<span> · AI Sales</span></a>
+  <a href="https://calendly.com/vito-argusreach/30min" class="btn-book" target="_blank">Book a Call</a>
+</nav>
+
+<div class="page">
+  <div class="eyebrow">FAQ</div>
+  <h1>Common questions.</h1>
+  <p class="page-sub">Everything you want to know before the strategy call. If something isn't here, just email us at <a href="mailto:vito@argusreach.com" style="color:var(--green)">vito@argusreach.com</a>.</p>
+
+  <!-- HOW IT WORKS -->
+  <div class="faq-section">
+    <div class="section-label">How It Works</div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">What exactly does ArgusReach do?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">We build and run a done-for-you outbound system for your firm. That means: finding your ideal prospects, writing personalized emails in your voice, sending them from your email address, managing follow-up, handling replies, and routing interested prospects to your calendar. You do one onboarding call and then show up to the meetings we book.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">Will prospects know this is outsourced?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">No. Everything goes out from your name, your email address, your firm. The emails are written in your voice after we learn how you communicate. ArgusReach is never mentioned. As far as the prospect is concerned, they received a thoughtful email from you personally.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">How long until I start seeing meetings on my calendar?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">We can have the first emails out within 48 hours of your sequence approval. Most clients see their first positive replies within the first 1–2 weeks. Meetings typically start appearing in week 2–3 as the sequence progresses and follow-ups land.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">How much of my time does this actually require?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">One 45-minute onboarding call to define your ICP and voice. A review of your email sequences before launch (usually 20–30 minutes). Then your only regular commitment is showing up to the meetings we book. We send you a monthly report — reading it takes about 5 minutes.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">Can I see the emails before they go out?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><strong>Yes — always.</strong> We share every sequence with you for review before launch via a shared Google Doc. You can edit anything. Nothing goes out without your explicit sign-off. If you'd prefer to approve each individual email before it sends, we offer Draft Approval Mode — same price, full control.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">What happens when a prospect replies?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">We classify every reply. Interested prospects get routed to your booking link automatically. "Not now" replies get logged with a follow-up date. Unsubscribe requests are honored immediately and the contact is added to your do-not-contact list. You get notified of hot replies within the hour. Anything unusual or sensitive gets escalated to you directly — no auto-response in those cases.</div>
+    </div>
+  </div>
+
+  <!-- COMPLIANCE -->
+  <div class="faq-section">
+    <div class="section-label">Compliance &amp; Legal</div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">Is this compliant for RIAs? My compliance team will ask.</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">We don't make any investment performance claims, mention specific securities, or make any regulated representations in the outreach. Every email is a professional introduction — equivalent to a cold call or a referral introduction, which are both compliant for RIAs. You review and approve all content before it goes out, which means you're in control of what's said under your name. We also recommend running the sequence templates by your compliance team before launch — we make this easy by providing a clean document for review.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">Is email outreach legal? What about CAN-SPAM?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Yes. B2B email outreach to business professionals is legal and standard practice. We build CAN-SPAM compliance into every sequence: every email includes a clear way to opt out, we honor unsubscribe requests immediately, every email identifies the sender, and no deceptive subject lines are used. Our service agreement outlines compliance responsibilities in detail.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">Can I provide my own contact list?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Yes — and we encourage it. Conference contacts, LinkedIn connections, old leads, referrals you haven't followed up on yet — these typically convert 2–3× better than cold outreach because there's an existing connection to reference. We prioritize your warm list first, then fill remaining volume with cold prospecting. By providing the list, you confirm there's a legitimate business basis for outreach.</div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="faq-section">
+    <div class="section-label">Results &amp; Expectations</div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">What results can I realistically expect?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Based on industry benchmarks: open rates of 35–55% (vs. 15–20% industry average), and positive reply rates of 4–8% of contacts reached. On the Starter plan (200 contacts/month), that's roughly 8–16 qualified conversations started per month. Not all become meetings — conversion depends on your offer, vertical, and follow-up. We don't guarantee a specific number of clients closed; that depends on your close rate. <a href="/roi">Use the ROI calculator</a> to model the math for your specific situation.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">I've tried cold email before and it didn't work.</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">That's the most common thing we hear — and it almost always comes down to execution, not the channel. Generic email blasts don't work. What works is precise targeting, genuine personalization, a well-structured sequence, and professional copy that doesn't sound like a template. Cold email sent correctly still delivers some of the highest ROI of any outbound channel. We've built the execution from the ground up to do it right.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">How do you measure success?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Monthly reports include: contacts reached, emails sent, open rate, positive reply rate, meetings booked, and unsubscribes. We also track what's working (subject lines, sequence steps, segments) and share what we're changing next month. The ultimate metric is meetings on your calendar — that's what we optimize for.</div>
+    </div>
+  </div>
+
+  <!-- PRICING & LOGISTICS -->
+  <div class="faq-section">
+    <div class="section-label">Pricing &amp; Logistics</div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">What's the setup fee for?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">The $500 setup fee covers: the onboarding call, ICP research and prospect list build, full email sequence writing (all touches, A/B variants), outreach email configuration on your domain, and all systems setup. It's one-time — no recurring setup costs after that.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">Why a 3-month minimum?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Outbound takes time to compound. Month 1 is setup and launch. Month 2 is full volume with A/B data. Month 3 is optimized based on real performance. Clients who quit after 30 days leave before the system has had time to work. Three months gives us enough signal to genuinely optimize — and gives you a fair shot at seeing real results. After the initial term, it's month-to-month with 30 days notice.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">Do I need to set up a new email account?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Yes — a dedicated outreach email on your domain (e.g., james.k@yourfirm.com). This keeps outreach volume separate from your main inbox, protects your primary email's deliverability, and gives ArgusReach access without ever touching your personal account. We walk you through the 5-minute setup during onboarding. Your main inbox is never accessed or affected.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">Can I upgrade or downgrade plans?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Yes. After the initial 3-month term, you can adjust your plan at any monthly renewal with 7 days notice. Most clients start on Starter and upgrade to Growth once they see the system working.</div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h2>Still have questions?</h2>
+    <p>Book a free 15-minute strategy call. We'll answer anything and show you exactly what ArgusReach would look like for your firm — no obligation.</p>
+    <a href="https://calendly.com/vito-argusreach/30min" class="btn-white" target="_blank">Book a Free Call →</a>
+  </div>
+</div>
+
+<script>
+function toggle(btn) {
+  const item = btn.parentElement;
+  item.classList.toggle('open');
+}
+</script>
+</body>
+</html>
