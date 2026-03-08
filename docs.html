@@ -85,31 +85,31 @@
   <div class="sidebar">
     <div class="sb-section">
       <div class="sb-hdr">Sales</div>
-      <a class="sb-item active" onclick="show('pitch')">Sales Call Script</a>
-      <a class="sb-item" onclick="show('objections')">Objection Handling</a>
-      <a class="sb-item" onclick="show('icp')">ICP Research</a>
-      <a class="sb-item" onclick="show('apollo')">Apollo Search Templates</a>
+      <a class="sb-item active" onclick="show('pitch', this)">Sales Call Script</a>
+      <a class="sb-item" onclick="show('objections', this)">Objection Handling</a>
+      <a class="sb-item" onclick="show('icp', this)">ICP Research</a>
+      <a class="sb-item" onclick="show('apollo', this)">Apollo Search Templates</a>
     </div>
     <div class="sb-section">
       <div class="sb-hdr">Outreach</div>
-      <a class="sb-item" onclick="show('linkedin')">LinkedIn Script</a>
-      <a class="sb-item" onclick="show('vito-email')">Vito's Outreach Emails</a>
-      <a class="sb-item" onclick="show('sequences')">Email Sequences — RIA/Insurance</a>
-      <a class="sb-item" onclick="show('sequences-pt')">Email Sequences — PT/Mental Health</a>
+      <a class="sb-item" onclick="show('linkedin', this)">LinkedIn Script</a>
+      <a class="sb-item" onclick="show('vito-email', this)">Vito's Outreach Emails</a>
+      <a class="sb-item" onclick="show('sequences', this)">Email Sequences — RIA/Insurance</a>
+      <a class="sb-item" onclick="show('sequences-pt', this)">Email Sequences — PT/Mental Health</a>
     </div>
     <div class="sb-section">
       <div class="sb-hdr">Client Ops</div>
-      <a class="sb-item" onclick="show('welcome')">Welcome Email</a>
-      <a class="sb-item" onclick="show('onboarding')">Onboarding Checklist</a>
-      <a class="sb-item" onclick="show('report')">Monthly Report Template</a>
-      <a class="sb-item" onclick="show('reply-sop')">Reply Handling SOP</a>
+      <a class="sb-item" onclick="show('welcome', this)">Welcome Email</a>
+      <a class="sb-item" onclick="show('onboarding', this)">Onboarding Checklist</a>
+      <a class="sb-item" onclick="show('report', this)">Monthly Report Template</a>
+      <a class="sb-item" onclick="show('reply-sop', this)">Reply Handling SOP</a>
     </div>
     <div class="sb-section">
       <div class="sb-hdr">Client-Facing</div>
-      <a class="sb-item" onclick="show('proposal')">Proposal Template</a>
-      <a class="sb-item" onclick="show('agreement')">Service Agreement</a>
-      <a class="sb-item" onclick="show('overview')">Process Overview Email</a>
-      <a class="sb-item" onclick="show('prospect-list')">Client Prospect List Guide</a>
+      <a class="sb-item" onclick="show('proposal', this)">Proposal Template</a>
+      <a class="sb-item" onclick="show('agreement', this)">Service Agreement</a>
+      <a class="sb-item" onclick="show('overview', this)">Process Overview Email</a>
+      <a class="sb-item" onclick="show('prospect-list', this)">Client Prospect List Guide</a>
     </div>
   </div>
 
@@ -142,7 +142,7 @@
       </ul>
 
       <h2>10:00–12:30 — Objections</h2>
-      <p>See the <a onclick="show('objections')" style="color:var(--green);cursor:pointer;">Objection Handling doc</a> for full responses. Most common:</p>
+      <p>See the <a onclick="show('objections', this)" style="color:var(--green);cursor:pointer;">Objection Handling doc</a> for full responses. Most common:</p>
       <ul>
         <li>"I've tried cold email" → execution was wrong, not the channel</li>
         <li>"Too expensive" → what's one new client worth to you annually?</li>
@@ -773,11 +773,11 @@ argusreach.com</pre>
 </div><!-- /layout -->
 
 <script>
-function show(id) {
+function show(id, el) {
   document.querySelectorAll('.doc').forEach(d => d.classList.remove('active'));
   document.querySelectorAll('.sb-item').forEach(i => i.classList.remove('active'));
   document.getElementById('doc-' + id).classList.add('active');
-  event.target.classList.add('active');
+  (el || document.querySelector('[data-doc="' + id + '"]')).classList.add('active');
   document.querySelector('.content').scrollTop = 0;
 }
 
