@@ -160,6 +160,23 @@
         </select>
       </div>
 
+      <div class="field">
+        <label>Your dedicated outreach email address</label>
+        <div class="hint">The new Gmail account on your domain that ArgusReach will send from (e.g. james.k@yourdomain.com). If not yet created, leave blank — we'll set this up on the onboarding call.</div>
+        <input type="email" name="outreach_email" placeholder="james.k@yourdomain.com" />
+      </div>
+
+      <div class="field">
+        <label>Do you have an existing contact list to prioritize?</label>
+        <div class="hint">Conference contacts, LinkedIn connections, old leads, referrals you haven't followed up — these convert 2–3× better than cold outreach.</div>
+        <select name="has_contact_list">
+          <option value="yes_will_email">Yes — I'll email it to vito@argusreach.com</option>
+          <option value="yes_onboarding">Yes — I'll bring it to the onboarding call</option>
+          <option value="no">No — start with cold prospecting</option>
+          <option value="maybe">Maybe — I'll check what I have</option>
+        </select>
+      </div>
+
       <div class="form-nav">
         <span></span>
         <button type="button" class="btn-next" onclick="goTo(1)">Next: Your Business →</button>
@@ -440,6 +457,8 @@
       'Outreach From (Email)': data.get('from_email'),
       'Calendar / Booking Link': data.get('calendar_link'),
       'Plan': data.get('plan'),
+      'Outreach Email': data.get('outreach_email'),
+      'Has Existing Contact List': data.get('has_contact_list'),
       // Business
       'What They Do': data.get('what_you_do'),
       'Best Clients': data.get('best_clients'),
