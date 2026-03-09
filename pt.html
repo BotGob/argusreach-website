@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ArgusReach for Physical Therapy Practices</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0a0a0a; --bg2: #111; --bg3: #181818;
+  --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.12);
+  --text: #f0f0f0; --sub: #888; --green: #4ade80; --white: #fff;
+}
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+
+.wrap { max-width: 720px; margin: 0 auto; padding: 64px 24px 96px; }
+
+/* Hero */
+.eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 20px; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.1; color: var(--white); margin-bottom: 20px; }
+h1 span { color: var(--green); }
+.hero-sub { font-size: 1.05rem; color: var(--sub); line-height: 1.7; margin-bottom: 48px; max-width: 560px; }
+
+/* Pain section */
+.section-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sub); margin-bottom: 20px; }
+.pain-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 48px; }
+.pain-item { background: var(--bg2); border: 1px solid var(--border2); border-left: 3px solid #ef4444; border-radius: 6px; padding: 16px 18px; font-size: 0.9rem; color: var(--text); line-height: 1.5; }
+.pain-item b { color: var(--white); }
+
+/* Divider */
+.divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+
+/* Solution */
+.solution-list { display: flex; flex-direction: column; gap: 24px; margin-bottom: 48px; }
+.sol { display: flex; gap: 16px; align-items: flex-start; }
+.sol-num { width: 32px; height: 32px; border-radius: 50%; background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.3); color: var(--green); font-size: 0.75rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.sol-body h3 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+.sol-body p { font-size: 0.875rem; color: var(--sub); line-height: 1.65; }
+.sol-body p b { color: var(--text); }
+
+/* Result bar */
+.result-bar { background: var(--bg2); border: 1px solid var(--border2); border-radius: 8px; padding: 28px; margin-bottom: 48px; }
+.result-bar h3 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sub); margin-bottom: 20px; }
+.results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.result { text-align: center; }
+.result-num { font-size: 1.8rem; font-weight: 900; color: var(--green); letter-spacing: -0.04em; line-height: 1; margin-bottom: 6px; }
+.result-label { font-size: 0.72rem; color: var(--sub); line-height: 1.4; }
+
+/* How it works */
+.steps { display: flex; flex-direction: column; gap: 0; margin-bottom: 48px; position: relative; }
+.step { display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+.step:last-child { border-bottom: none; }
+.step-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green); flex-shrink: 0; margin-top: 6px; }
+.step-body { font-size: 0.875rem; color: var(--sub); line-height: 1.6; }
+.step-body b { color: var(--white); display: block; margin-bottom: 4px; font-size: 0.9rem; }
+
+/* Pricing */
+.pricing { background: var(--bg2); border: 1px solid var(--border2); border-radius: 8px; padding: 28px; margin-bottom: 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+.price-left h3 { font-size: 1.1rem; font-weight: 800; color: var(--white); margin-bottom: 6px; }
+.price-left p { font-size: 0.82rem; color: var(--sub); line-height: 1.6; }
+.price-right { text-align: right; }
+.price-main { font-size: 2rem; font-weight: 900; color: var(--white); letter-spacing: -0.04em; }
+.price-sub { font-size: 0.75rem; color: var(--sub); margin-top: 4px; }
+
+/* CTA */
+.cta-block { text-align: center; }
+.cta-block p { font-size: 0.9rem; color: var(--sub); margin-bottom: 20px; }
+.btn { display: inline-block; background: var(--green); color: #000; font-weight: 800; font-size: 0.9rem; padding: 14px 32px; border-radius: 6px; text-decoration: none; letter-spacing: -0.01em; }
+.btn:hover { opacity: 0.9; }
+.cta-sub { font-size: 0.75rem; color: var(--sub); margin-top: 12px; }
+
+/* Footer */
+footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; font-size: 0.72rem; color: #444; }
+footer a { color: #555; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="eyebrow">ArgusReach · Physical Therapy</div>
+  <h1>Your PTs shouldn't be<br /><span>working a call list.</span></h1>
+  <p class="hero-sub">We automate patient re-engagement and physician referral outreach — so your staff focuses on care, not cold calls.</p>
+
+  <!-- PAIN -->
+  <div class="section-label">Sound familiar?</div>
+  <div class="pain-list">
+    <div class="pain-item"><b>Your PTs spend hours each week</b> going through a list of lapsed patients — calling, emailing, following up. It pulls them away from patient care, it's inconsistent, and the results depend on who's motivated that week.</div>
+    <div class="pain-item"><b>New patient referrals feel unpredictable.</b> You rely on word of mouth and the occasional relationship a PT has with a local doctor. There's no systematic way to build new referral pipelines with physicians in your area.</div>
+    <div class="pain-item"><b>You know there's a pipeline sitting untouched</b> — former patients who stopped coming, local orthopedic surgeons and sports med doctors who've never heard of your practice. But nobody has time to work it consistently.</div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- SOLUTION -->
+  <div class="section-label">What we do</div>
+  <div class="solution-list">
+    <div class="sol">
+      <div class="sol-num">1</div>
+      <div class="sol-body">
+        <h3>Lapsed Patient Re-engagement — Automated</h3>
+        <p>We write a personalized email sequence in your practice's voice and send it automatically to patients who've gone quiet. <b>No PT involvement required.</b> When someone responds and wants to book — it lands in your inbox, ready to schedule. Your PTs stay focused on the patients in front of them.</p>
+      </div>
+    </div>
+    <div class="sol">
+      <div class="sol-num">2</div>
+      <div class="sol-body">
+        <h3>Physician Referral Outreach — Done for You</h3>
+        <p>We identify every orthopedic surgeon, sports medicine doctor, PCP, and chiropractor within your target area and reach out on your behalf. <b>A short, professional introduction</b> — who you are, what you specialize in, and a request for a 15-minute conversation. You show up to the meetings. We fill the calendar.</p>
+      </div>
+    </div>
+    <div class="sol">
+      <div class="sol-num">3</div>
+      <div class="sol-body">
+        <h3>Replies Handled, Meetings Booked</h3>
+        <p>Every response gets classified and routed automatically. Interested? A booking link goes back immediately. Not now? Politely noted. Unsubscribe? Done. <b>You never touch a cold reply.</b> Only warm conversations reach you.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="result-bar">
+    <h3>What practices typically see</h3>
+    <div class="results">
+      <div class="result">
+        <div class="result-num">15–30%</div>
+        <div class="result-label">lapsed patient re-engagement rate from automated outreach</div>
+      </div>
+      <div class="result">
+        <div class="result-num">3–8</div>
+        <div class="result-label">new physician referral meetings booked per month</div>
+      </div>
+      <div class="result">
+        <div class="result-num">0 hrs</div>
+        <div class="result-label">of PT staff time spent on outreach or follow-up</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="section-label">How it works</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-dot"></div>
+      <div class="step-body"><b>We learn your practice</b>A short onboarding call. We learn your specialties, your tone, your ideal referral partners, and your re-engagement goals.</div>
+    </div>
+    <div class="step">
+      <div class="step-dot"></div>
+      <div class="step-body"><b>We write the sequences</b>Custom email campaigns — one for lapsed patients, one for physician outreach. You review and approve before anything sends.</div>
+    </div>
+    <div class="step">
+      <div class="step-dot"></div>
+      <div class="step-body"><b>Campaigns go live</b>Emails send automatically on a human-like schedule. Replies are monitored 24/7 and routed to you when someone's interested.</div>
+    </div>
+    <div class="step">
+      <div class="step-dot"></div>
+      <div class="step-body"><b>You show up to meetings</b>That's it. We handle everything before the conversation. You close.</div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="pricing">
+    <div class="price-left">
+      <h3>Starter Plan</h3>
+      <p>200 contacts/month · 1 active campaign<br />Full setup, sequence writing, reply handling included.<br />3-month minimum · cancel anytime after.</p>
+    </div>
+    <div class="price-right">
+      <div class="price-main">$750<span style="font-size:1rem;font-weight:400;color:#888">/mo</span></div>
+      <div class="price-sub">+ $500 one-time setup fee</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <p>Ready to stop working the call list and start filling the calendar?</p>
+    <a href="https://calendly.com/vito-argusreach/30min" class="btn">Book a Free Strategy Call</a>
+    <div class="cta-sub">No commitment. 30 minutes. We'll show you exactly what this looks like for your practice.</div>
+  </div>
+
+  <footer>
+    <a href="https://argusreach.com">argusreach.com</a> &nbsp;·&nbsp; vito@argusreach.com
+  </footer>
+
+</div>
+</body>
+</html>
