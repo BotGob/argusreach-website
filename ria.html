@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ArgusReach for Investment Advisors</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0a0a0a; --bg2: #111; --bg3: #181818;
+  --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.12);
+  --text: #f0f0f0; --sub: #888; --green: #4ade80; --white: #fff;
+}
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+
+.wrap { max-width: 720px; margin: 0 auto; padding: 64px 24px 96px; }
+
+/* Hero */
+.eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 20px; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.1; color: var(--white); margin-bottom: 20px; }
+h1 span { color: var(--green); }
+.hero-sub { font-size: 1.05rem; color: var(--sub); line-height: 1.7; margin-bottom: 48px; max-width: 560px; }
+
+/* Pain section */
+.section-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sub); margin-bottom: 20px; }
+.pain-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 48px; }
+.pain-item { background: var(--bg2); border: 1px solid var(--border2); border-left: 3px solid #ef4444; border-radius: 6px; padding: 16px 18px; font-size: 0.9rem; color: var(--text); line-height: 1.5; }
+.pain-item b { color: var(--white); }
+
+/* Divider */
+.divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+
+/* Solution */
+.solution-list { display: flex; flex-direction: column; gap: 24px; margin-bottom: 48px; }
+.sol { display: flex; gap: 16px; align-items: flex-start; }
+.sol-num { width: 32px; height: 32px; border-radius: 50%; background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.3); color: var(--green); font-size: 0.75rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.sol-body h3 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+.sol-body p { font-size: 0.875rem; color: var(--sub); line-height: 1.65; }
+.sol-body p b { color: var(--text); }
+
+/* Compliance callout */
+.compliance-box { background: rgba(74,222,128,0.05); border: 1px solid rgba(74,222,128,0.2); border-radius: 8px; padding: 20px 22px; margin-bottom: 48px; }
+.compliance-box h3 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
+.compliance-box p { font-size: 0.875rem; color: var(--sub); line-height: 1.65; }
+.compliance-box p b { color: var(--text); }
+
+/* Result bar */
+.result-bar { background: var(--bg2); border: 1px solid var(--border2); border-radius: 8px; padding: 28px; margin-bottom: 48px; }
+.result-bar h3 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sub); margin-bottom: 20px; }
+.results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.result { text-align: center; }
+.result-num { font-size: 1.8rem; font-weight: 900; color: var(--green); letter-spacing: -0.04em; line-height: 1; margin-bottom: 6px; }
+.result-label { font-size: 0.72rem; color: var(--sub); line-height: 1.4; }
+
+/* How it works */
+.steps { display: flex; flex-direction: column; gap: 0; margin-bottom: 48px; position: relative; }
+.step { display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+.step:last-child { border-bottom: none; }
+.step-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green); flex-shrink: 0; margin-top: 6px; }
+.step-body { font-size: 0.875rem; color: var(--sub); line-height: 1.6; }
+.step-body b { color: var(--white); display: block; margin-bottom: 4px; font-size: 0.9rem; }
+
+/* Pricing */
+.pricing { background: var(--bg2); border: 1px solid var(--border2); border-radius: 8px; padding: 28px; margin-bottom: 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+.price-left h3 { font-size: 1.1rem; font-weight: 800; color: var(--white); margin-bottom: 6px; }
+.price-left p { font-size: 0.82rem; color: var(--sub); line-height: 1.6; }
+.price-right { text-align: right; }
+.price-main { font-size: 2rem; font-weight: 900; color: var(--white); letter-spacing: -0.04em; }
+.price-sub { font-size: 0.75rem; color: var(--sub); margin-top: 4px; }
+
+/* CTA */
+.cta-block { text-align: center; }
+.cta-block p { font-size: 0.9rem; color: var(--sub); margin-bottom: 20px; }
+.btn { display: inline-block; background: var(--green); color: #000; font-weight: 800; font-size: 0.9rem; padding: 14px 32px; border-radius: 6px; text-decoration: none; letter-spacing: -0.01em; }
+.btn:hover { opacity: 0.9; }
+.cta-sub { font-size: 0.75rem; color: var(--sub); margin-top: 12px; }
+
+/* Footer */
+footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; font-size: 0.72rem; color: #444; }
+footer a { color: #555; text-decoration: none; }
+
+@media print {
+  body { background: #fff; color: #111; }
+  .btn { background: #111; color: #fff; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="eyebrow">ArgusReach · Investment Advisory</div>
+  <h1>Your advisors should be<br /><span>closing deals, not finding them.</span></h1>
+  <p class="hero-sub">We build and work a systematic pipeline of mid-market government entities in your target states — so your advisors spend their time in front of qualified prospects, not hunting for them.</p>
+
+  <!-- PAIN -->
+  <div class="section-label">Sound familiar?</div>
+  <div class="pain-list">
+    <div class="pain-item"><b>A handful of mega clients make up most of your AUM and revenue.</b> You know the concentration risk. One large redemption or a relationship change at the wrong time and it shows up in the numbers immediately. Management wants to diversify — but nobody has a systematic way to build the mid-market pipeline.</div>
+    <div class="pain-item"><b>Your sales team is thin and focused on the largest targets.</b> Chasing whales makes sense when it works, but the $10M–$200M government entities — cities, counties, fire districts, school boards — get ignored. They're out there, they have investable assets, and your competitors are quietly picking them up.</div>
+    <div class="pain-item"><b>The contacts are hard to find, and nobody has time to find them.</b> Finance Directors, Treasurers, and CFOs at local government entities aren't on LinkedIn the way corporate buyers are. Building a quality list takes research. Working that list takes consistency. Neither happens when your team is focused on quarterly numbers.</div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- SOLUTION -->
+  <div class="section-label">What we do</div>
+  <div class="solution-list">
+    <div class="sol">
+      <div class="sol-num">1</div>
+      <div class="sol-body">
+        <h3>We map and size the opportunity — using public records</h3>
+        <p>Government entities publish their investment balances publicly via CAFR (Comprehensive Annual Financial Reports) and bond issuance data via EMMA (MSRB). <b>We use these to identify every entity in your target states within your AUM range</b> — cities, counties, fire districts, police departments, school boards, utility authorities — and filter down to the right-size prospects your advisors actually want to meet with.</p>
+      </div>
+    </div>
+    <div class="sol">
+      <div class="sol-num">2</div>
+      <div class="sol-body">
+        <h3>We find the right contacts and build the prospect list</h3>
+        <p>Once we've sized the opportunity, we identify the actual decision-makers — Finance Directors, City Treasurers, CFOs, and comptrollers — and build a clean, verified contact list. <b>If you already have entity relationships internally but are missing contacts, we fill the gaps.</b> No cold database dumps — a curated, validated list built around your ICP.</p>
+      </div>
+    </div>
+    <div class="sol">
+      <div class="sol-num">3</div>
+      <div class="sol-body">
+        <h3>Compliance-approved outreach, sent in your advisor's voice</h3>
+        <p>We write a professional email sequence that positions your firm's expertise in public entity cash management, LGIP pools, and fixed income — <b>then your compliance team reviews and approves every word before a single email sends.</b> Outreach goes from your advisor's email address, signed as them. We operate entirely in the background.</p>
+      </div>
+    </div>
+    <div class="sol">
+      <div class="sol-num">4</div>
+      <div class="sol-body">
+        <h3>Interested prospects book directly onto your advisor's calendar</h3>
+        <p>Every response gets classified and routed. When someone's interested, a Calendly link goes back immediately and the meeting lands directly on your advisor's calendar. <b>Your advisor shows up to a qualified conversation — already knowing the entity type, estimated AUM, and contact context.</b> They close. We handled everything before that call.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPLIANCE CALLOUT -->
+  <div class="compliance-box">
+    <h3>Built with compliance in mind</h3>
+    <p>We know SEC and FINRA rules matter here. Our role is strictly <b>lead generation and meeting scheduling</b> — no investment recommendations, no performance claims, no solicitation of retail investors. All outreach copy is submitted to your compliance team for approval before launch. We don't send a single email until you've signed off. Your firm stays in control; we just fill the calendar.</p>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="result-bar">
+    <h3>What firms typically see</h3>
+    <div class="results">
+      <div class="result">
+        <div class="result-num">8–20</div>
+        <div class="result-label">new qualified government entity meetings booked per quarter</div>
+      </div>
+      <div class="result">
+        <div class="result-num">$10M–$200M</div>
+        <div class="result-label">AUM range — right-sized for pool diversification</div>
+      </div>
+      <div class="result">
+        <div class="result-num">0 hrs</div>
+        <div class="result-label">of advisor or sales team time spent on cold prospecting</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="section-label">How it works</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-dot"></div>
+      <div class="step-body"><b>We learn your firm and define the ICP</b>A short onboarding call. We align on target states, entity types, AUM range, and the profile of your best-fit prospects. We also learn your advisors' voice and any compliance guardrails to build around.</div>
+    </div>
+    <div class="step">
+      <div class="step-dot"></div>
+      <div class="step-body"><b>We source and size prospects from public records</b>CAFR data + EMMA bond records + contact research via Apollo and LinkedIn. You get a curated, AUM-filtered list of decision-makers — not a raw database export.</div>
+    </div>
+    <div class="step">
+      <div class="step-dot"></div>
+      <div class="step-body"><b>Compliance reviews and approves all copy</b>We submit all email sequences to your compliance team. Nothing sends until they sign off. Typically a 3–5 touch sequence over 3–4 weeks per prospect.</div>
+    </div>
+    <div class="step">
+      <div class="step-dot"></div>
+      <div class="step-body"><b>Campaigns go live from your advisor's email</b>Outreach sends on a human-like schedule. Replies are monitored and routed in real time. Interested responses get a Calendly link immediately — no delay, no dropped leads.</div>
+    </div>
+    <div class="step">
+      <div class="step-dot"></div>
+      <div class="step-body"><b>Your advisor shows up to a warm, informed conversation</b>Meeting lands on their calendar with full prospect context: entity type, estimated AUM, and prior email thread. They walk in prepared. You close new relationships. We refresh the pipeline and do it again.</div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="pricing">
+    <div class="price-left">
+      <h3>Starter Plan</h3>
+      <p>200 prospects/month · 1 active advisor campaign<br />Full setup, sequence writing, compliance submission, reply handling.<br />3-month minimum · cancel anytime after.</p>
+    </div>
+    <div class="price-right">
+      <div class="price-main">$750<span style="font-size:1rem;font-weight:400;color:#888">/mo</span></div>
+      <div class="price-sub">+ $500 one-time setup fee</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <p>Ready to build a mid-market pipeline that runs without your sales team chasing it?</p>
+    <a href="https://calendly.com/vito-argusreach/30min" class="btn">Book a Free Strategy Call</a>
+    <div class="cta-sub">No commitment. 30 minutes. We'll map out what this looks like for your states and AUM range.</div>
+  </div>
+
+  <footer>
+    <a href="https://argusreach.com">argusreach.com</a> &nbsp;·&nbsp; vito@argusreach.com
+  </footer>
+
+</div>
+</body>
+</html>
