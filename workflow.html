@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How ArgusReach Works — Step by Step</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0a0a0a; --bg2: #111; --bg3: #181818;
+  --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.12);
+  --text: #f0f0f0; --sub: #888; --green: #4ade80; --white: #fff;
+}
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 700px; margin: 0 auto; padding: 64px 24px 96px; }
+
+.eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 20px; }
+h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.1; color: var(--white); margin-bottom: 16px; }
+h1 span { color: var(--green); }
+.hero-sub { font-size: 1rem; color: var(--sub); line-height: 1.7; margin-bottom: 56px; max-width: 540px; }
+
+/* Timeline */
+.timeline { display: flex; flex-direction: column; gap: 0; position: relative; }
+.timeline::before { content: ''; position: absolute; left: 20px; top: 8px; bottom: 8px; width: 2px; background: var(--border2); }
+
+.tl-item { display: flex; gap: 20px; padding-bottom: 40px; position: relative; }
+.tl-item:last-child { padding-bottom: 0; }
+
+.tl-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 42px; }
+.tl-dot { width: 42px; height: 42px; border-radius: 50%; background: rgba(74,222,128,0.1); border: 2px solid var(--green); color: var(--green); font-size: 0.8rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; z-index: 1; position: relative; }
+.tl-dot.client { background: rgba(96,165,250,0.1); border-color: #60a5fa; color: #60a5fa; }
+.tl-dot.auto { background: rgba(74,222,128,0.1); border-color: var(--green); color: var(--green); }
+
+.tl-body { flex: 1; padding-top: 8px; }
+.tl-tag { display: inline-block; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; margin-bottom: 10px; }
+.tl-tag.you { background: rgba(96,165,250,0.1); color: #60a5fa; border: 1px solid rgba(96,165,250,0.25); }
+.tl-tag.argus { background: rgba(74,222,128,0.1); color: var(--green); border: 1px solid rgba(74,222,128,0.25); }
+.tl-tag.both { background: rgba(251,191,36,0.1); color: #fbbf24; border: 1px solid rgba(251,191,36,0.25); }
+
+.tl-body h3 { font-size: 1rem; font-weight: 800; color: var(--white); margin-bottom: 8px; letter-spacing: -0.02em; }
+.tl-body p { font-size: 0.875rem; color: var(--sub); line-height: 1.65; }
+.tl-body p b { color: var(--text); }
+.tl-body .note { margin-top: 10px; font-size: 0.78rem; color: #555; font-style: italic; }
+
+/* Time badge */
+.tl-time { display: inline-block; font-size: 0.7rem; color: #555; margin-top: 8px; font-family: monospace; }
+
+/* Divider */
+.phase-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #444; margin: 40px 0 24px 62px; }
+
+/* What you're on the hook for */
+.summary { background: var(--bg2); border: 1px solid var(--border2); border-radius: 8px; padding: 24px 28px; margin: 56px 0 48px; }
+.summary h3 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sub); margin-bottom: 18px; }
+.summary-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.summary-col h4 { font-size: 0.8rem; font-weight: 700; margin-bottom: 12px; }
+.summary-col h4.you { color: #60a5fa; }
+.summary-col h4.argus { color: var(--green); }
+.summary-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.summary-col li { font-size: 0.82rem; color: var(--sub); display: flex; gap: 8px; align-items: flex-start; line-height: 1.4; }
+.summary-col li::before { content: '→'; flex-shrink: 0; margin-top: 1px; }
+.summary-col.you li::before { color: #60a5fa; }
+.summary-col.argus li::before { color: var(--green); }
+
+/* CTA */
+.cta-block { text-align: center; }
+.cta-block p { font-size: 0.9rem; color: var(--sub); margin-bottom: 20px; }
+.btn { display: inline-block; background: var(--green); color: #000; font-weight: 800; font-size: 0.9rem; padding: 14px 32px; border-radius: 6px; text-decoration: none; }
+.cta-sub { font-size: 0.75rem; color: var(--sub); margin-top: 12px; }
+
+footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; font-size: 0.72rem; color: #444; }
+footer a { color: #555; text-decoration: none; }
+
+@media print {
+  body { background: #fff; color: #111; }
+  .timeline::before { background: #ddd; }
+  .btn { background: #111; color: #fff; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">ArgusReach · How It Works</div>
+  <h1>From first call to first meeting —<br /><span>here's every step.</span></h1>
+  <p class="hero-sub">A clear picture of what happens when, who does what, and what you can expect. Two colors: blue is you, green is Argus and our team.</p>
+
+  <!-- PHASE 1 -->
+  <div class="phase-label">Phase 1 — Setup · Week 1</div>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot client">1</div></div>
+      <div class="tl-body">
+        <div class="tl-tag you">You</div>
+        <h3>Onboarding Call — 45 minutes</h3>
+        <p>We learn your practice: who your best referral sources are, which specialties you want to target, your geography, and how you naturally communicate. This is the only time we ask for a significant block of your time. Everything after this is handled for you.</p>
+        <div class="tl-time">⏱ ~45 min, one time</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot client">2</div></div>
+      <div class="tl-body">
+        <div class="tl-tag you">You</div>
+        <h3>Share Two Lists — Optional but Valuable</h3>
+        <p><b>Warm list:</b> Physicians, specialists, or referral sources you've already met or reached out to before — even if it went nowhere. We prioritize these with openers that reference the existing connection.<br /><br /><b>Existing relationships:</b> Anyone you already actively work with who should never receive a cold intro email. We remove these automatically before anything sends.</p>
+        <p class="note">Can be a spreadsheet, a CSV from your EHR, or even a rough list of names. We clean and organize it.</p>
+        <div class="tl-time">⏱ ~20 min to pull together</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot auto">3</div></div>
+      <div class="tl-body">
+        <div class="tl-tag argus">Argus</div>
+        <h3>Build Your Physician Target List</h3>
+        <p>Argus sources verified physician contacts in your target area — PCPs, orthopedic surgeons, sports medicine doctors, neurologists, or whatever specialties match your practice. Every contact is verified: name, practice, email, specialty. Your warm list gets folded in and prioritized. Existing relationships get removed.</p>
+        <div class="tl-time">⏱ 1–2 business days</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot auto">4</div></div>
+      <div class="tl-body">
+        <div class="tl-tag argus">Argus</div>
+        <h3>Write Personalized Outreach Sequences</h3>
+        <p>A 4–5 touch email sequence in your voice — introducing your practice, your specialties, and why a referral relationship makes sense. <b>Each email's opening line is written specifically for that physician</b> — referencing their specialty, practice type, or location. Not a template blast. Every message feels like it was written for them.</p>
+        <div class="tl-time">⏱ 1–2 business days</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot client">5</div></div>
+      <div class="tl-body">
+        <div class="tl-tag both">You + Us</div>
+        <h3>Review and Approve</h3>
+        <p>We share the complete email sequence with you before a single email sends. Read through it, edit anything, change the tone — whatever you need. <b>Nothing goes out without your explicit sign-off.</b> Most clients take 15–20 minutes on this step.</p>
+        <div class="tl-time">⏱ ~15–20 min</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase-label">Phase 2 — Live · Week 2 onward</div>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot auto">6</div></div>
+      <div class="tl-body">
+        <div class="tl-tag argus">Argus</div>
+        <h3>Campaigns Go Live</h3>
+        <p>Emails send from your outreach address on a human-like schedule — not a blast, not a bot pattern. Follow-ups go out automatically to non-responders at timed intervals. Every email looks like it came directly from you.</p>
+        <div class="tl-time">⏱ Runs automatically, 24/7</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot auto">7</div></div>
+      <div class="tl-body">
+        <div class="tl-tag argus">Argus</div>
+        <h3>Every Reply Is Handled</h3>
+        <p>Argus monitors and classifies every reply in real time:<br /><br />
+        <b>Interested</b> → booking link sent immediately, meeting lands on your calendar.<br />
+        <b>Not now</b> → logged with a follow-up date, re-queued for a future sequence.<br />
+        <b>Unsubscribe</b> → honored instantly, contact added to permanent do-not-contact.<br />
+        <b>Anything unusual</b> → flagged to you directly, no auto-response.</p>
+        <div class="tl-time">⏱ Handled within the hour</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot auto">8</div></div>
+      <div class="tl-body">
+        <div class="tl-tag argus">Argus</div>
+        <h3>Every Touchpoint Tracked Automatically</h3>
+        <p>Every contact is logged: when we reached out, what was sent, whether they opened it, what they replied, and what the next action is. <b>No more guessing when you last contacted someone</b> or whether a physician has ever been in your pipeline. Your entire referral outreach history — organized, searchable, always current.</p>
+        <div class="tl-time">⏱ Updated in real time</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot client">9</div></div>
+      <div class="tl-body">
+        <div class="tl-tag you">You</div>
+        <h3>Show Up to the Meeting</h3>
+        <p>The physician already knows who you are — they responded to your email. You walk in warm, not cold. The meeting is on your calendar with context on who they are, what they replied, and any prior outreach history.</p>
+        <div class="tl-time">⏱ Your only recurring commitment</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase-label">Phase 3 — Ongoing · Every Month</div>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot auto">10</div></div>
+      <div class="tl-body">
+        <div class="tl-tag argus">Argus</div>
+        <h3>Monthly Report + Optimization</h3>
+        <p>Every month you receive a clear report: emails sent, open rates, replies received, meetings booked, and what we're changing next month. We optimize continuously — subject lines, timing, messaging — based on what's working. The system gets sharper every cycle.</p>
+        <div class="tl-time">⏱ ~5 min to read</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left"><div class="tl-dot auto">11</div></div>
+      <div class="tl-body">
+        <div class="tl-tag argus">Argus</div>
+        <h3>Pipeline Refreshes Automatically</h3>
+        <p>As the contact list works through the sequence, Argus sources new physician contacts to keep volume consistent. Your pipeline never goes quiet. You never have to think about it.</p>
+        <div class="tl-time">⏱ Automatic, every month</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="summary">
+    <h3>The full picture at a glance</h3>
+    <div class="summary-cols">
+      <div class="summary-col you">
+        <h4 class="you">What you do</h4>
+        <ul>
+          <li>One 45-min onboarding call</li>
+          <li>Share your existing contact lists (optional)</li>
+          <li>Review and approve the email sequences (~20 min)</li>
+          <li>Show up to the meetings</li>
+          <li>Read the monthly report (~5 min)</li>
+        </ul>
+      </div>
+      <div class="summary-col argus">
+        <h4 class="argus">What Argus handles</h4>
+        <ul>
+          <li>Build and verify your physician target list</li>
+          <li>Write personalized outreach in your voice</li>
+          <li>Send and manage all email sequences</li>
+          <li>Handle every reply, every follow-up</li>
+          <li>Log every touchpoint automatically</li>
+          <li>Book meetings directly to your calendar</li>
+          <li>Monthly reporting and optimization</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <p>Ready to see what this looks like for your practice specifically?</p>
+    <a href="https://calendly.com/vito-argusreach/30min" class="btn">Book a Free Strategy Call</a>
+    <div class="cta-sub">30 minutes. We'll map out your target physician list, walk through the sequences, and answer every question.</div>
+  </div>
+
+  <footer>
+    <a href="https://argusreach.com">argusreach.com</a> &nbsp;·&nbsp; vito@argusreach.com
+  </footer>
+
+</div>
+</body>
+</html>
