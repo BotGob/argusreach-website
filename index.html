@@ -375,9 +375,11 @@
       .pricing-grid { grid-template-columns: 1fr; }
       .pc { border-right: none; border-bottom: 1px solid var(--border); }
       .pc:last-child { border-bottom: none; }
-      .stats-wrap .inner { grid-template-columns: 1fr 1fr; }
-      .stat-cell { border-right: none; border-bottom: 1px solid var(--border); }
+      .stats-wrap .inner { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .stat-cell { border-right: none; border-bottom: 1px solid var(--border); padding: 36px 20px; overflow: hidden; }
       .stat-cell:nth-child(odd) { border-right: 1px solid var(--border); }
+      .stat-n { font-size: 2rem; }
+      .stat-l { font-size: 0.72rem; }
       .do-items { flex-wrap: wrap; }
       .do-item { flex: 0 0 50%; border-right: none; border-bottom: 1px solid #e8e8e8; }
       .trust-grid { grid-template-columns: 1fr; }
@@ -389,6 +391,13 @@
       .email-cap-input { width: 100%; max-width: 320px; }
       .cta-block { padding: 100px 24px; }
       footer { padding: 28px 24px; flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .stats-wrap .inner { grid-template-columns: 1fr; }
+      .stat-cell { border-right: none; }
+      .stat-cell:nth-child(odd) { border-right: none; }
+      .stat-n { font-size: 2.5rem; }
     }
   </style>
 </head>
