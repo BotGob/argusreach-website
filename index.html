@@ -79,7 +79,7 @@
     .marquee-section { padding: 32px 0; overflow: hidden; background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .marquee-row { display: flex; gap: 0; overflow: hidden; mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); }
     .marquee-row + .marquee-row { margin-top: 12px; }
-    .marquee-track { display: flex; gap: 0; white-space: nowrap; }
+    .marquee-track { display: flex; gap: 0; white-space: nowrap; will-change: transform; }
     .marquee-row.left .marquee-track { animation: marqueeLeft 28s linear infinite; }
     .marquee-row.right .marquee-track { animation: marqueeRight 32s linear infinite; }
     .marquee-row.left2 .marquee-track { animation: marqueeLeft 36s linear infinite; }
@@ -942,21 +942,33 @@
   /* ── CANVAS ── */
   const canvas = document.getElementById('hero-canvas');
   const ctx = canvas.getContext('2d');
-  let W, H, nodes = [], mouse = { x: -9999, y: -9999 }, raf;
+  const isMobile = window.innerWidth < 768;
+  let W, H, nodes = [], mouse = { x: -9999, y: -9999 }, raf, heroVisible = true;
+
+  // Pause canvas when hero scrolls out of view — big mobile perf win
+  const heroSection = canvas.closest('section') || canvas.parentElement;
+  const heroObs = new IntersectionObserver(entries => {
+    heroVisible = entries[0].isIntersecting;
+    if (heroVisible && !raf) { raf = requestAnimationFrame(tick); }
+  }, { threshold: 0 });
+  heroObs.observe(heroSection);
+
   function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
   function init() {
     nodes = [];
-    const n = Math.min(Math.floor((W * H) / 10000), 90);
+    // Fewer nodes on mobile — less CPU drain
+    const maxNodes = isMobile ? 25 : 90;
+    const n = Math.min(Math.floor((W * H) / 10000), maxNodes);
     for (let i = 0; i < n; i++) nodes.push({ x: Math.random()*W, y: Math.random()*H, vx:(Math.random()-.5)*.38, vy:(Math.random()-.5)*.38, r:Math.random()*1.4+.8, phase:Math.random()*Math.PI*2 });
   }
   function tick() {
+    if (!heroVisible) { raf = null; return; }
     ctx.clearRect(0,0,W,H);
-    const now = performance.now()/1000, maxD = 145;
+    const now = performance.now()/1000, maxD = isMobile ? 80 : 145;
     nodes.forEach((a,i) => {
       a.x+=a.vx; a.y+=a.vy;
       if(a.x<0||a.x>W) a.vx*=-1; if(a.y<0||a.y>H) a.vy*=-1;
-      const dx=a.x-mouse.x, dy=a.y-mouse.y, d=Math.sqrt(dx*dx+dy*dy);
-      if(d<100&&d>0){const f=(100-d)/100*.55; a.vx+=dx/d*f; a.vy+=dy/d*f; const sp=Math.sqrt(a.vx*a.vx+a.vy*a.vy); if(sp>2.2){a.vx=a.vx/sp*2.2;a.vy=a.vy/sp*2.2;}}
+      if(!isMobile){const dx=a.x-mouse.x, dy=a.y-mouse.y, d=Math.sqrt(dx*dx+dy*dy); if(d<100&&d>0){const f=(100-d)/100*.55; a.vx+=dx/d*f; a.vy+=dy/d*f; const sp=Math.sqrt(a.vx*a.vx+a.vy*a.vy); if(sp>2.2){a.vx=a.vx/sp*2.2;a.vy=a.vy/sp*2.2;}}}
       const pulse=.45+.35*Math.sin(now*1.3+a.phase);
       ctx.beginPath(); ctx.arc(a.x,a.y,a.r,0,Math.PI*2); ctx.fillStyle=`rgba(255,255,255,${pulse*.6})`; ctx.fill();
       for(let j=i+1;j<nodes.length;j++){const b=nodes[j],ex=a.x-b.x,ey=a.y-b.y,ed=Math.sqrt(ex*ex+ey*ey); if(ed<maxD){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=`rgba(255,255,255,${(1-ed/maxD)*.1})`;ctx.lineWidth=.5;ctx.stroke();}}
@@ -964,7 +976,7 @@
     raf = requestAnimationFrame(tick);
   }
   resize(); init(); tick();
-  window.addEventListener('resize',()=>{cancelAnimationFrame(raf);resize();init();tick();});
+  window.addEventListener('resize',()=>{cancelAnimationFrame(raf);raf=null;resize();init();if(heroVisible)raf=requestAnimationFrame(tick);});
   window.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;});
   window.addEventListener('mouseleave',()=>{mouse.x=-9999;mouse.y=-9999;});
 
@@ -1002,6 +1014,7 @@
     },200);
   }
 
+  let scrollTicking = false;
   function updateActiveStep() {
     const mid = window.innerHeight / 2;
     let closest = 0, closestDist = Infinity;
@@ -1012,8 +1025,11 @@
       if (dist < closestDist) { closestDist = dist; closest = i; }
     });
     setStep(closest);
+    scrollTicking = false;
   }
-  window.addEventListener('scroll', updateActiveStep, { passive: true });
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) { requestAnimationFrame(updateActiveStep); scrollTicking = true; }
+  }, { passive: true });
   updateActiveStep();
 
   /* ── NAV ── */
