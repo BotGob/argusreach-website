@@ -619,13 +619,16 @@
             <div class="reply-body" id="reply-body">"James — thanks for reaching out. I've actually been meaning to connect with a trusted advisor since the sale. Thursday afternoon works great if you have time?"</div>
           </div>
 
-          <!-- Booking confirmation (hidden until triggered) -->
-          <div class="booking-confirm" id="booking-confirm">
-            <div class="booking-icon">✓</div>
-            <div class="booking-detail">
-              <div class="booking-label">Meeting Booked — Argus</div>
-              <div class="booking-title" id="booking-title">Thomas Whitfield · Bay Harbor Wealth Advisors</div>
-              <div class="booking-time" id="booking-time">Thu Mar 13 · 2:00 PM · 30 min discovery call · Added to calendar</div>
+          <!-- Argus reply (hidden until triggered) -->
+          <div class="booking-confirm" id="booking-confirm" style="flex-direction:column;align-items:flex-start;gap:10px;">
+            <div style="display:flex;align-items:center;gap:8px;width:100%;">
+              <span class="reply-tag" style="background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.2);color:var(--green);font-family:'JetBrains Mono',monospace;font-size:0.55rem;letter-spacing:0.08em;text-transform:uppercase;padding:2px 8px;border-radius:2px;">↩ Argus Reply</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--muted);" id="argus-reply-from"></span>
+            </div>
+            <div style="font-size:0.82rem;color:#ccc;line-height:1.65;" id="argus-reply-body"></div>
+            <div style="display:flex;align-items:center;gap:8px;margin-top:4px;padding-top:10px;border-top:1px solid var(--border);width:100%;">
+              <span style="color:var(--green);font-size:0.85rem;">✓</span>
+              <span style="font-size:0.75rem;color:var(--sub);" id="booking-time">Thu Mar 13 · 2:00 PM · 30 min discovery call · Added to calendar</span>
             </div>
           </div>
 
@@ -943,7 +946,8 @@ Daniel R.
 Meridian Wealth Partners`,
       replyFrom:'m.webb@webbcapitalgroup.com',
       replyBody:'"Daniel — thanks for reaching out. I\'ve actually been meaning to connect with a trusted advisor since the sale. Thursday afternoon works great if you have time?"',
-      bookingTitle:'Marcus Webb · Meridian Wealth Partners',
+      argusReplyFrom:'daniel.r@meridianwealthpartners.com',
+      argusReplyBody:'Marcus — really appreciate you getting back to me. Happy to connect whenever works for you. Here\'s a link to grab a time: calendly.com/meridian-daniel — Looking forward to it.',
       bookingTime:'Thu Mar 13 · 2:00 PM · 30 min discovery call · Added to calendar'
     },
     {
@@ -965,7 +969,8 @@ Jennifer H.
 Summit Benefits Advisors`,
       replyFrom:'c.okafor@lakelandindustrial.com',
       replyBody:'"Jennifer — timing is actually perfect, we\'re reviewing plans next month. Can we do a quick call this week?"',
-      bookingTitle:'Christine Okafor · Summit Benefits Advisors',
+      argusReplyFrom:'jennifer.h@summitbenefits.com',
+      argusReplyBody:'Christine — great, this timing works out perfectly. Here\'s a link to find a time that works for you: calendly.com/summit-jennifer — Looking forward to connecting!',
       bookingTime:'Tue Mar 11 · 10:00 AM · Benefits review call · Added to calendar'
     },
     {
@@ -987,7 +992,8 @@ Dr. Rachel M.
 Bayside Physical Therapy`,
       replyFrom:'a.nguyen@pinellasspine.com',
       replyBody:'"Dr. Rachel — absolutely, we\'re always looking for quality PT partners in St. Pete. Next Wednesday morning works well."',
-      bookingTitle:'Dr. Alex Nguyen · Bayside Physical Therapy',
+      argusReplyFrom:'dr.rachel@baysidept.com',
+      argusReplyBody:'Dr. Nguyen — wonderful, really looking forward to it. Here\'s a link to grab a time that works best for you: calendly.com/bayside-rachel — Talk soon!',
       bookingTime:'Wed Mar 12 · 9:00 AM · Partnership intro call · Added to calendar'
     }
   ];
@@ -1017,7 +1023,8 @@ Bayside Physical Therapy`,
   const elReplyFrom = document.getElementById('reply-from');
   const elReplyBody = document.getElementById('reply-body');
   const elBooking = document.getElementById('booking-confirm');
-  const elBookingTitle = document.getElementById('booking-title');
+  const elArgusReplyFrom = document.getElementById('argus-reply-from');
+  const elArgusReplyBody = document.getElementById('argus-reply-body');
   const elBookingTime = document.getElementById('booking-time');
   const switchers = document.querySelectorAll('.dsw');
 
@@ -1065,7 +1072,8 @@ Bayside Physical Therapy`,
     elBooking.classList.remove('show');
     elReplyFrom.textContent = p.replyFrom;
     elReplyBody.textContent = p.replyBody;
-    elBookingTitle.textContent = p.bookingTitle;
+    elArgusReplyFrom.textContent = p.argusReplyFrom;
+    elArgusReplyBody.textContent = p.argusReplyBody;
     elBookingTime.textContent = p.bookingTime;
     elStatus.textContent = 'Analyzing prospect...';
 
@@ -1093,13 +1101,13 @@ Bayside Physical Therapy`,
           typingT = setTimeout(() => {
             if (!demoRunning) return;
             elReply.classList.add('show');
-            elStatus.textContent = 'Positive reply detected — booking meeting...';
+            elStatus.textContent = 'Positive reply detected — sending response...';
 
             // Phase 5: show booking
             typingT = setTimeout(() => {
               if (!demoRunning) return;
               elBooking.classList.add('show');
-              elStatus.textContent = 'Meeting booked ✓ — moving to next prospect';
+              elStatus.textContent = 'Response sent with booking link ✓ — meeting confirmed';
 
               // Phase 6: next
               typingT = setTimeout(() => {
