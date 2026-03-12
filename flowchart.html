@@ -414,7 +414,7 @@ h1 { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.04em; color: var(--
     </div>
     <div class="tool-card">
       <div class="tool-name">Calendly</div>
-      <div class="tool-role">Vito's booking link. Clients also use for prospect meetings.</div>
+      <div class="tool-role">Vito's booking link. Clients must also create their own free Calendly account, connect their Google Calendar, and share their booking link with Vito before launch. When prospects book, meetings land directly on the client's calendar — ArgusReach just provides the link.</div>
       <div class="tool-cost">Free</div>
     </div>
     <div class="tool-card">
@@ -424,8 +424,13 @@ h1 { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.04em; color: var(--
     </div>
     <div class="tool-card">
       <div class="tool-name">Apollo.io</div>
-      <div class="tool-role">Lead sourcing. Search by title, industry, geo. Export verified contacts.</div>
+      <div class="tool-role">Lead sourcing. Search by title, industry, geo. Export verified contacts. For government entity clients, supplemented with CAFR + EMMA public records for AUM sizing.</div>
       <div class="tool-cost">Free (50/mo)</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-name">CAFR + EMMA (Public Records)</div>
+      <div class="tool-role">Government entity AUM sizing. CAFR = Comprehensive Annual Financial Reports (investment balances by city/county). EMMA = MSRB bond database (bond proceeds by entity). Free, public, legal. Used for RIA/investment vertical to filter prospects by AUM range.</div>
+      <div class="tool-cost">Free</div>
     </div>
     <div class="tool-card">
       <div class="tool-name">Airtable</div>
@@ -436,6 +441,16 @@ h1 { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.04em; color: var(--
       <div class="tool-name">Claude API</div>
       <div class="tool-role">Powers reply monitor classification and response drafting.</div>
       <div class="tool-cost">~$0.10/day</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-name">dedupe.py</div>
+      <div class="tool-role">Relationship & DNC deduplication. Runs before every campaign. Cross-references prospect list against client's existing relationships (exact email + fuzzy name+company match) and DNC list. Removes matches automatically. Outputs clean CSV + removal log sent to client. Prevents cold emailing anyone the client already knows.</div>
+      <div class="tool-cost">Free (built-in)</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-name">personalize.py</div>
+      <div class="tool-role">AI icebreaker generator. Takes Apollo CSV → runs each prospect through Claude Haiku → outputs enriched CSV with unique custom_opening per row. ~$0.0003/prospect. Used before every campaign launch. Approve the template + spot-check 10-15 outputs. No per-email approval needed.</div>
+      <div class="tool-cost">~$0.03–0.30/campaign</div>
     </div>
     <div class="tool-card">
       <div class="tool-name">monitor.py v2</div>
@@ -460,6 +475,16 @@ h1 { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.04em; color: var(--
     <div class="tool-card">
       <div class="tool-name">argusreach.com/overview</div>
       <div class="tool-role">Client-facing one-pager. Human empowerment angle. Shareable link + prints clean as PDF. Send after strategy calls.</div>
+      <div class="tool-cost">Free</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-name">argusreach.com/pt</div>
+      <div class="tool-role">Vertical one-pager: Physical Therapy. Covers lapsed patient re-engagement + physician referral outreach. Share with PT/healthcare prospects.</div>
+      <div class="tool-cost">Free</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-name">argusreach.com/ria</div>
+      <div class="tool-role">Vertical one-pager: RIAs / Investment Advisors. Covers government entity pipeline building (cities, counties, fire/police depts), CAFR+EMMA data sourcing, compliance-approved outreach, AUM diversification play. Share with RIA or investment firm prospects.</div>
       <div class="tool-cost">Free</div>
     </div>
     <div class="tool-card">
@@ -515,10 +540,23 @@ h1 { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.04em; color: var(--
     <div class="df-arr">→</div>
     <div class="df-node" style="background:rgba(251,146,60,0.1);border:1px solid rgba(251,146,60,0.3);color:#fb923c;">CSV export</div>
     <div class="df-arr">→</div>
-    <div class="df-node" style="background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);color:#fbbf24;">Airtable (prospects)</div>
+    <div class="df-node" style="background:rgba(192,132,252,0.1);border:1px solid rgba(192,132,252,0.3);color:#c084fc;">personalize.py (Claude Haiku)</div>
+    <div class="df-arr">→</div>
+    <div class="df-node" style="background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);color:#fbbf24;">Enriched CSV (custom_opening)</div>
     <div class="df-arr">→</div>
     <div class="df-node" style="background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.3);color:#4ade80;">Client outreach Gmail</div>
-    <div class="df-note">Lead data flow</div>
+    <div class="df-note">Lead data flow (B2B) — unique icebreaker per prospect</div>
+  </div>
+
+  <div class="df-row">
+    <div class="df-node" style="background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.3);color:#60a5fa;">CAFR + EMMA (public records)</div>
+    <div class="df-arr">→</div>
+    <div class="df-node" style="background:rgba(251,146,60,0.1);border:1px solid rgba(251,146,60,0.3);color:#fb923c;">AUM-filtered entity list</div>
+    <div class="df-arr">→</div>
+    <div class="df-node" style="background:rgba(251,146,60,0.1);border:1px solid rgba(251,146,60,0.3);color:#fb923c;">Apollo contact lookup</div>
+    <div class="df-arr">→</div>
+    <div class="df-node" style="background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);color:#fbbf24;">Airtable (prospects)</div>
+    <div class="df-note">Lead data flow (RIA/gov entity)</div>
   </div>
 
   <div class="df-row">
@@ -553,11 +591,11 @@ h1 { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.04em; color: var(--
       <div style="display:flex;flex-direction:column;gap:8px;">
         <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
           <span style="color:#fb923c;font-size:0.7rem;flex-shrink:0;">→</span>
-          <div><div style="font-size:0.78rem;font-weight:600;color:#f0f0f0;">Apollo.io — create free account</div><div style="font-size:0.68rem;color:#777;margin-top:2px;">Use vito@argusreach.com. Needed for cold prospect sourcing.</div></div>
+          <div><div style="font-size:0.78rem;font-weight:600;color:#fb923c;">⚠ Reach out to Creekside Recovery Residences</div><div style="font-size:0.68rem;color:#777;margin-top:2px;">Friend (Carter Pope) owns sober living homes in Tampa + Atlanta. Atlanta down 25% YoY — referral pipeline is the fix. Go assessed fit: strong match. Message drafted. Send tomorrow morning.</div></div>
         </div>
         <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
           <span style="color:#fb923c;font-size:0.7rem;flex-shrink:0;">→</span>
-          <div><div style="font-size:0.78rem;font-weight:600;color:#f0f0f0;">Airtable — create free account</div><div style="font-size:0.68rem;color:#777;margin-top:2px;">CRM for clients, prospects, campaign metrics, outcomes.</div></div>
+          <div><div style="font-size:0.78rem;font-weight:600;color:#fb923c;">⚠ Calendly — decide free vs. paid before Mar 22</div><div style="font-size:0.68rem;color:#777;margin-top:2px;">Trial expires ~2026-03-22. Paid ($10/mo) recommended — needed for webhooks (meeting → Airtable auto-log).</div></div>
         </div>
         <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
           <span style="color:#fb923c;font-size:0.7rem;flex-shrink:0;">→</span>
@@ -569,15 +607,19 @@ h1 { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.04em; color: var(--
         </div>
         <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
           <span style="color:#fb923c;font-size:0.7rem;flex-shrink:0;">→</span>
-          <div><div style="font-size:0.78rem;font-weight:600;color:#f0f0f0;">Anthropic API key</div><div style="font-size:0.68rem;color:#777;margin-top:2px;">console.anthropic.com — needed for monitor.py reply classification.</div></div>
+          <div><div style="font-size:0.78rem;font-weight:600;color:#f0f0f0;">Send first 5 ArgusReach outreach messages</div><div style="font-size:0.68rem;color:#777;margin-top:2px;">Creekside is #1. Identify 4 more from your network. Use vito-first-outreach.md or linkedin-outreach-script.md.</div></div>
         </div>
         <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
-          <span style="color:#fb923c;font-size:0.7rem;flex-shrink:0;">→</span>
-          <div><div style="font-size:0.78rem;font-weight:600;color:#f0f0f0;">Proposal + service agreement → Google Docs</div><div style="font-size:0.68rem;color:#777;margin-top:2px;">Paste from argusreach.com/docs into two Google Docs. ~5 min each.</div></div>
+          <span style="color:#4ade80;font-size:0.7rem;flex-shrink:0;">✅</span>
+          <div><div style="font-size:0.78rem;font-weight:600;color:#4ade80;">✅ Monitor installed as systemd service — done 2026-03-12</div><div style="font-size:0.68rem;color:#777;margin-top:2px;">Running 24/7. Auto-restarts on reboot. Dry run completed — 3/3 scenarios passed.</div></div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+          <span style="color:#4ade80;font-size:0.7rem;flex-shrink:0;">✅</span>
+          <div><div style="font-size:0.78rem;font-weight:600;color:#4ade80;">✅ Apollo.io — free account created</div><div style="font-size:0.68rem;color:#777;margin-top:2px;">vito@argusreach.com. Sourcing only. Done 2026-03-11.</div></div>
         </div>
         <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 0;">
-          <span style="color:#fb923c;font-size:0.7rem;flex-shrink:0;">→</span>
-          <div><div style="font-size:0.78rem;font-weight:600;color:#f0f0f0;">Send first outreach messages</div><div style="font-size:0.68rem;color:#777;margin-top:2px;">5 emails or LinkedIn DMs using vito-first-outreach.md or linkedin-outreach-script.md.</div></div>
+          <span style="color:#4ade80;font-size:0.7rem;flex-shrink:0;">✅</span>
+          <div><div style="font-size:0.78rem;font-weight:600;color:#4ade80;">✅ Anthropic API key + Airtable + Instantly keys — all live</div><div style="font-size:0.68rem;color:#777;margin-top:2px;">All saved to monitor/.env. Tested and working. Done 2026-03-11.</div></div>
         </div>
       </div>
     </div>
@@ -587,16 +629,32 @@ h1 { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.04em; color: var(--
       <div style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.12em;text-transform:uppercase;color:#60a5fa;margin-bottom:14px;">⏳ Go — Build Backlog</div>
       <div style="display:flex;flex-direction:column;gap:8px;">
         <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
-          <span style="color:#3a3a3a;font-size:0.7rem;flex-shrink:0;font-family:'JetBrains Mono',monospace;">LOW</span>
-          <div><div style="font-size:0.78rem;font-weight:600;color:#f0f0f0;">CSV ingestion & cleaning script</div><div style="font-size:0.68rem;color:#777;margin-top:2px;">Normalize any client-provided contact list into standard format. Fuzzy column matching, email validation, deduplication. Back-burner until first client onboarded.</div></div>
+          <span style="color:#4ade80;font-size:0.7rem;flex-shrink:0;font-family:'JetBrains Mono',monospace;">✅</span>
+          <div><div style="font-size:0.78rem;font-weight:600;color:#4ade80;">✅ monitor.py v2.1 — complete + all tests passing</div><div style="font-size:0.68rem;color:#777;margin-top:2px;">AI model fixed. Instantly + Airtable wired. Telegram routing fixed. Subject bug fixed. Dry run 3/3. Done 2026-03-12.</div></div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+          <span style="color:#4ade80;font-size:0.7rem;flex-shrink:0;font-family:'JetBrains Mono',monospace;">✅</span>
+          <div><div style="font-size:0.78rem;font-weight:600;color:#4ade80;">✅ Prospect CSV import script — complete</div><div style="font-size:0.68rem;color:#777;margin-top:2px;">tools/import_prospects.py — fuzzy column matching, dedup, rate limited. Apollo or client CSV → Airtable in one command. Done 2026-03-12.</div></div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+          <span style="color:#4ade80;font-size:0.7rem;flex-shrink:0;font-family:'JetBrains Mono',monospace;">✅</span>
+          <div><div style="font-size:0.78rem;font-weight:600;color:#4ade80;">✅ Heartbeat pending check — live</div><div style="font-size:0.68rem;color:#777;margin-top:2px;">Go checks pending_approvals.json every heartbeat. Alerts Vito if drafts are waiting. Never miss a pending reply again. Done 2026-03-12.</div></div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+          <span style="color:#fb923c;font-size:0.7rem;flex-shrink:0;font-family:'JetBrains Mono',monospace;">NEXT</span>
+          <div><div style="font-size:0.78rem;font-weight:600;color:#fb923c;">Wire up first real client in clients.json</div><div style="font-size:0.68rem;color:#777;margin-top:2px;">When Creekside (or any client) signs: add to clients.json, test IMAP, import prospect list, confirm Instantly campaign has stop_on_reply=true.</div></div>
         </div>
         <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
           <span style="color:#3a3a3a;font-size:0.7rem;flex-shrink:0;font-family:'JetBrains Mono',monospace;">MED</span>
-          <div><div style="font-size:0.78rem;font-weight:600;color:#f0f0f0;">Airtable CRM setup</div><div style="font-size:0.68rem;color:#777;margin-top:2px;">Build bases/tables per airtable-crm-schema.md once Vito creates account.</div></div>
+          <div><div style="font-size:0.78rem;font-weight:600;color:#f0f0f0;">Calendly webhook → Airtable + Telegram</div><div style="font-size:0.68rem;color:#777;margin-top:2px;">Meeting booked → auto-update Prospect + alert Vito. Requires Calendly paid. Build on first client.</div></div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+          <span style="color:#3a3a3a;font-size:0.7rem;flex-shrink:0;font-family:'JetBrains Mono',monospace;">MED</span>
+          <div><div style="font-size:0.78rem;font-weight:600;color:#f0f0f0;">Instantly campaign creation script</div><div style="font-size:0.68rem;color:#777;margin-top:2px;">Create + configure Instantly campaigns via API. Go handles all setup, no dashboard needed. Build once first Instantly account is active.</div></div>
         </div>
         <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 0;">
-          <span style="color:#3a3a3a;font-size:0.7rem;flex-shrink:0;font-family:'JetBrains Mono',monospace;">MED</span>
-          <div><div style="font-size:0.78rem;font-weight:600;color:#f0f0f0;">monitor.py — wire Anthropic API key</div><div style="font-size:0.68rem;color:#777;margin-top:2px;">Once key is provided, plug into monitor config and run live test.</div></div>
+          <span style="color:#3a3a3a;font-size:0.7rem;flex-shrink:0;font-family:'JetBrains Mono',monospace;">FUTURE</span>
+          <div><div style="font-size:0.78rem;font-weight:600;color:#f0f0f0;">Client Portal + Monthly Report Auto-Gen</div><div style="font-size:0.68rem;color:#777;margin-top:2px;">Dashboard + automated reports. Build once revenue justifies investment.</div></div>
         </div>
       </div>
     </div>
