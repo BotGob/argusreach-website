@@ -27,8 +27,15 @@
 
     html { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
     @media (max-width: 1024px) {
-      .rv { opacity: 1 !important; transform: none !important; transition: none !important; }
-      .how-step { transition: none !important; }
+      /* Kill ALL animations and transitions on mobile */
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+      .rv { opacity: 1 !important; transform: none !important; }
+      .marquee-section { display: none; }
+      .demo-window { display: none; }
     }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
     ::-webkit-scrollbar { width: 2px; }
@@ -987,10 +994,14 @@
   window.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;});
   window.addEventListener('mouseleave',()=>{mouse.x=-9999;mouse.y=-9999;});
 
-  /* ── SCROLL REVEAL ── */
+  /* ── SCROLL REVEAL — desktop only ── */
   const rvEls = document.querySelectorAll('.rv');
-  const rvObs = new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');rvObs.unobserve(e.target);}});},{threshold:0.1});
-  rvEls.forEach(el=>rvObs.observe(el));
+  if (!isMobile) {
+    const rvObs = new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');rvObs.unobserve(e.target);}});},{threshold:0.1});
+    rvEls.forEach(el=>rvObs.observe(el));
+  } else {
+    rvEls.forEach(el=>el.classList.add('show'));
+  }
 
   /* ── HOW IT WORKS: SCROLL TRIGGER ── */
   const stepData = [
@@ -1236,9 +1247,9 @@ Gulf Coast Physical Therapy`,
     }, 1000);
   }
 
-  // Start when visible
+  // Only run demo on desktop — too heavy for mobile
   const demoWindow = document.querySelector('.demo-window');
-  if (demoWindow) {
+  if (demoWindow && !isMobile) {
     const demoObs = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) { demoObs.unobserve(e.target); runDemo(0); }
