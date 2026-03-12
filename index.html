@@ -642,7 +642,7 @@
   <div class="wrap">
     <div class="rv">
       <div class="ey">How it works</div>
-      <h2 class="sh">Five steps.<br />Your part is one call.</h2>
+      <h2 class="sh">Five steps.<br />Four are ours.</h2>
       <p class="sp">At onboarding you tell us your ICP, share your existing contacts, and approve the sequences. After that, your only job is showing up to the meetings we book.</p>
     </div>
 
@@ -1002,10 +1002,19 @@
     },200);
   }
 
-  const stepObs = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{if(e.isIntersecting){setStep(parseInt(e.target.dataset.step));}});
-  },{threshold:0, rootMargin:'-30% 0px -30% 0px'});
-  howSteps.forEach(s=>stepObs.observe(s));
+  function updateActiveStep() {
+    const mid = window.innerHeight / 2;
+    let closest = 0, closestDist = Infinity;
+    howSteps.forEach((s, i) => {
+      const rect = s.getBoundingClientRect();
+      const stepMid = rect.top + rect.height / 2;
+      const dist = Math.abs(stepMid - mid);
+      if (dist < closestDist) { closestDist = dist; closest = i; }
+    });
+    setStep(closest);
+  }
+  window.addEventListener('scroll', updateActiveStep, { passive: true });
+  updateActiveStep();
 
   /* ── NAV ── */
   const nav = document.getElementById('nav');
