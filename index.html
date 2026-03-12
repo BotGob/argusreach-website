@@ -197,9 +197,12 @@
     /* Footer */
     .demo-footer { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; border-top: 1px solid var(--border); background: var(--bg); }
     .demo-footer-lbl { font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; letter-spacing: 0.08em; color: var(--muted); }
-    .demo-switcher { display: flex; gap: 6px; }
-    .dsw { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.04em; color: var(--muted); padding: 4px 12px; border: 1px solid var(--border); border-radius: 3px; cursor: pointer; transition: all 0.2s; }
-    .dsw.active { color: var(--green); border-color: rgba(74,222,128,0.3); background: rgba(74,222,128,0.06); }
+    .demo-switcher-wrap { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+    .demo-switcher-label { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .demo-switcher { display: flex; gap: 8px; flex-wrap: wrap; }
+    .dsw { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.06em; color: #aaa; padding: 6px 16px; border: 1px solid #444; border-radius: 4px; cursor: pointer; transition: all 0.2s; background: rgba(255,255,255,0.04); }
+    .dsw:hover { color: #ddd; border-color: #666; background: rgba(255,255,255,0.08); }
+    .dsw.active { color: var(--green); border-color: rgba(74,222,128,0.5); background: rgba(74,222,128,0.1); font-weight: 600; }
 
     /* ── HOW IT WORKS ── */
     .how-bg { background: var(--bg2); }
@@ -628,10 +631,13 @@
 
       <div class="demo-footer">
         <span class="demo-footer-lbl">Active campaigns this session</span>
-        <div class="demo-switcher">
-          <div class="dsw active" data-idx="0">Webb · RIA</div>
-          <div class="dsw" data-idx="1">Okafor · Insurance</div>
-          <div class="dsw" data-idx="2">Dr. Nguyen · PT</div>
+        <div class="demo-switcher-wrap">
+          <div class="demo-switcher-label">▶ Try another industry</div>
+          <div class="demo-switcher">
+            <div class="dsw active" data-idx="0">Webb · RIA</div>
+            <div class="dsw" data-idx="1">Okafor · Insurance</div>
+            <div class="dsw" data-idx="2">Dr. Nguyen · PT</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1207,9 +1213,9 @@ Bayside Physical Therapy`,
               // Phase 6: next
               typingT = setTimeout(() => {
                 runDemo((demoIdx + 1) % prospects.length);
-              }, 4000);
-            }, 1500);
-          }, 2500);
+              }, 6000);
+            }, 3000);
+          }, 4000);
         });
       });
     }, 1000);
