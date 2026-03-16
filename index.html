@@ -348,10 +348,10 @@
     .email-cap-confirm { font-size: 0.8rem; color: #555; margin-top: 10px; display: none; }
 
     /* ── REVEAL ── */
-    .rv { opacity: 0; transform: translateY(24px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-    .rv.show { opacity: 1; transform: none; }
-    .d1{transition-delay:.07s} .d2{transition-delay:.14s} .d3{transition-delay:.21s}
-    .d4{transition-delay:.28s} .d5{transition-delay:.35s} .d6{transition-delay:.42s}
+    .rv { opacity: 0; transform: translateY(18px); will-change: opacity, transform; transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+    .rv.show { opacity: 1; transform: none; will-change: auto; }
+    .d1{transition-delay:.06s} .d2{transition-delay:.12s} .d3{transition-delay:.18s}
+    .d4{transition-delay:.24s} .d5{transition-delay:.30s} .d6{transition-delay:.36s}
     @keyframes heroUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:none} }
     .hero-inner { animation: heroUp 0.95s 0.1s both; }
 
@@ -877,7 +877,7 @@
 
   /* ── SCROLL REVEAL ── */
   const rvEls = document.querySelectorAll('.rv');
-  const rvObs = new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');rvObs.unobserve(e.target);}});},{threshold:0.1});
+  const rvObs = new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');rvObs.unobserve(e.target);}});},{threshold:0.05,rootMargin:'0px 0px -40px 0px'});
   rvEls.forEach(el=>rvObs.observe(el));
 
   /* ── HOW IT WORKS: SCROLL TRIGGER ── */
