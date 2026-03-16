@@ -867,6 +867,13 @@
   window.addEventListener('resize',()=>{cancelAnimationFrame(raf);resize();init();tick();});
   window.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;});
   window.addEventListener('mouseleave',()=>{mouse.x=-9999;mouse.y=-9999;});
+  // Pause canvas when hero is scrolled out of view — saves GPU/CPU on rest of page
+  const canvasObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { if (!raf) tick(); } else { cancelAnimationFrame(raf); raf = null; }
+    });
+  }, { threshold: 0 });
+  canvasObs.observe(canvas);
 
   /* ── SCROLL REVEAL ── */
   const rvEls = document.querySelectorAll('.rv');
@@ -914,15 +921,24 @@
     setStep(closest);
   }
   // Only run step highlighting on desktop — sticky panel is hidden on mobile
-  // and the opacity transitions cause scroll jank on phones
+  // Throttle via rAF to prevent layout thrashing on every scroll tick
   if (window.innerWidth >= 1024) {
-    window.addEventListener('scroll', updateActiveStep, { passive: true });
+    let rafPending = false;
+    window.addEventListener('scroll', () => {
+      if (!rafPending) {
+        rafPending = true;
+        requestAnimationFrame(() => { updateActiveStep(); rafPending = false; });
+      }
+    }, { passive: true });
     updateActiveStep();
   }
 
   /* ── NAV ── */
   const nav = document.getElementById('nav');
-  window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
+  let navRaf = false;
+  window.addEventListener('scroll', () => {
+    if (!navRaf) { navRaf = true; requestAnimationFrame(() => { nav.classList.toggle('scrolled', window.scrollY > 60); navRaf = false; }); }
+  }, { passive: true });
 
   /* ── LIVE DEMO ── */
   const prospects = [
