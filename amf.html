@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ArgusReach — Advanced Medical of Florida</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0a0a0a; --bg2: #111; --bg3: #181818;
+  --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.12);
+  --text: #f0f0f0; --sub: #888; --green: #4ade80; --white: #fff;
+}
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 700px; margin: 0 auto; padding: 64px 24px 96px; }
+
+/* Header */
+.logo-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 56px; flex-wrap: wrap; gap: 12px; }
+.logo { font-size: 0.85rem; font-weight: 800; letter-spacing: -0.02em; color: var(--white); }
+.logo span { color: var(--green); }
+.for-badge { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sub); background: var(--bg2); border: 1px solid var(--border2); padding: 5px 12px; border-radius: 20px; }
+
+/* Hero */
+.eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 18px; }
+h1 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.1; color: var(--white); margin-bottom: 20px; }
+h1 span { color: var(--green); }
+.hero-sub { font-size: 1rem; color: var(--sub); line-height: 1.75; margin-bottom: 48px; max-width: 580px; }
+.hero-sub b { color: var(--text); }
+
+/* Divider */
+.divider { border: none; border-top: 1px solid var(--border); margin: 44px 0; }
+
+/* Section label */
+.section-label { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sub); margin-bottom: 20px; }
+
+/* Pain */
+.pain-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 44px; }
+.pain-item { background: var(--bg2); border: 1px solid var(--border2); border-left: 3px solid #ef4444; border-radius: 6px; padding: 15px 18px; font-size: 0.875rem; color: var(--text); line-height: 1.6; }
+.pain-item b { color: var(--white); }
+
+/* Solution */
+.solution-list { display: flex; flex-direction: column; gap: 22px; margin-bottom: 44px; }
+.sol { display: flex; gap: 16px; align-items: flex-start; }
+.sol-num { width: 30px; height: 30px; border-radius: 50%; background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.3); color: var(--green); font-size: 0.72rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.sol-body h3 { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+.sol-body p { font-size: 0.85rem; color: var(--sub); line-height: 1.65; }
+.sol-body p b { color: var(--text); }
+
+/* Multi-location callout */
+.callout { background: rgba(74,222,128,0.05); border: 1px solid rgba(74,222,128,0.2); border-radius: 8px; padding: 20px 22px; margin-bottom: 44px; }
+.callout-label { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
+.callout p { font-size: 0.875rem; color: var(--sub); line-height: 1.7; }
+.callout p b { color: var(--text); }
+
+/* What you get */
+.result-bar { background: var(--bg2); border: 1px solid var(--border2); border-radius: 8px; padding: 26px; margin-bottom: 44px; }
+.result-bar h3 { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sub); margin-bottom: 20px; }
+.results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.result { text-align: center; }
+.result-num { font-size: 1rem; font-weight: 800; color: var(--green); letter-spacing: -0.02em; line-height: 1.3; margin-bottom: 6px; }
+.result-label { font-size: 0.7rem; color: var(--sub); line-height: 1.4; }
+
+/* Steps */
+.steps { display: flex; flex-direction: column; margin-bottom: 44px; }
+.step { display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--border); }
+.step:last-child { border-bottom: none; }
+.step-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); flex-shrink: 0; margin-top: 5px; }
+.step-body { font-size: 0.85rem; color: var(--sub); line-height: 1.6; }
+.step-body b { color: var(--white); display: block; margin-bottom: 3px; font-size: 0.875rem; }
+
+/* Pricing */
+.pricing { background: var(--bg2); border: 1px solid var(--border2); border-radius: 8px; padding: 26px; margin-bottom: 44px; }
+.pricing-header { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sub); margin-bottom: 16px; }
+.price-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
+.price-left p { font-size: 0.82rem; color: var(--sub); line-height: 1.65; max-width: 380px; }
+.price-left p b { color: var(--text); }
+.price-right { text-align: right; flex-shrink: 0; }
+.price-main { font-size: 1.9rem; font-weight: 900; color: var(--white); letter-spacing: -0.04em; }
+.price-sub { font-size: 0.72rem; color: var(--sub); margin-top: 4px; line-height: 1.5; }
+
+/* CTA */
+.cta-block { background: var(--bg2); border: 1px solid var(--border2); border-radius: 8px; padding: 32px; text-align: center; }
+.cta-block h2 { font-size: 1.2rem; font-weight: 800; color: var(--white); letter-spacing: -0.03em; margin-bottom: 10px; }
+.cta-block p { font-size: 0.875rem; color: var(--sub); margin-bottom: 24px; line-height: 1.6; }
+.btn { display: inline-block; background: var(--green); color: #000; font-weight: 800; font-size: 0.875rem; padding: 13px 30px; border-radius: 6px; text-decoration: none; letter-spacing: -0.01em; }
+.btn:hover { opacity: 0.9; }
+.cta-contact { font-size: 0.75rem; color: #555; margin-top: 14px; }
+.cta-contact a { color: #666; text-decoration: none; }
+
+/* Footer */
+footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--border); text-align: center; font-size: 0.7rem; color: #3a3a3a; }
+footer a { color: #444; text-decoration: none; }
+
+@media (max-width: 520px) {
+  .results { grid-template-columns: 1fr 1fr; }
+  .price-row { flex-direction: column; }
+  .price-right { text-align: left; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="logo-bar">
+    <div class="logo">Argus<span>Reach</span></div>
+    <div class="for-badge">Prepared for Advanced Medical of Florida</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="eyebrow">Physician Referral Outreach</div>
+  <h1>Your practice's reputation<br />should be <span>working harder</span><br />than it is.</h1>
+  <p class="hero-sub">
+    Advanced Medical of Florida has the clinical depth, the locations, and the track record. What most multi-specialty group practices are missing is a <b>systematic, consistent way to put that story in front of the physicians who can send them patients</b> — without pulling staff away from care to do it.
+  </p>
+
+  <!-- PAIN -->
+  <div class="section-label">The gap most practices don't address</div>
+  <div class="pain-list">
+    <div class="pain-item"><b>Word-of-mouth referrals are unpredictable.</b> Some months are strong. Others aren't. There's no consistent pipeline being built — and no way to change that without dedicated time and a system.</div>
+    <div class="pain-item"><b>The physicians who should be sending you patients don't all know you.</b> Orthopedic surgeons, PCPs, sports medicine doctors, neurologists — your practice is a natural referral destination for all of them. But across multiple locations and specialties, getting that message in front of every relevant physician in Tampa Bay consistently is a real operational challenge.</div>
+    <div class="pain-item"><b>Outreach works — when someone's doing it.</b> Most practices have tried some version of physician marketing. It stalls because it requires consistent time, follow-through, and a process that doesn't depend on any one person.</div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- WHAT WE DO -->
+  <div class="section-label">What ArgusReach does</div>
+  <div class="solution-list">
+
+    <div class="sol">
+      <div class="sol-num">1</div>
+      <div class="sol-body">
+        <h3>We build your physician contact list</h3>
+        <p>We identify every orthopedic surgeon, sports medicine doctor, PCP, neurologist, and other relevant specialist within your target geography — the physicians most likely to have patients who need exactly what AMF offers. <b>Comprehensive, deduplicated, and targeted.</b></p>
+      </div>
+    </div>
+
+    <div class="sol">
+      <div class="sol-num">2</div>
+      <div class="sol-body">
+        <h3>We write and run the outreach sequence</h3>
+        <p>A custom email sequence written in AMF's voice — a short, professional introduction to who you are, what you offer, and a request for a brief conversation. <b>You review and approve the copy before anything sends.</b> Emails go out automatically on a human-like schedule. Nothing is templated or generic.</p>
+      </div>
+    </div>
+
+    <div class="sol">
+      <div class="sol-num">3</div>
+      <div class="sol-body">
+        <h3>Replies are handled — interested physicians get booked</h3>
+        <p>Every reply gets classified automatically. Interested? A booking link goes back immediately. Not now? Politely noted and flagged for follow-up. Unsubscribe? Done immediately. <b>Your team only sees warm conversations.</b> Nothing cold reaches your desk.</p>
+      </div>
+    </div>
+
+    <div class="sol">
+      <div class="sol-num">4</div>
+      <div class="sol-body">
+        <h3>Every contact tracked — forever</h3>
+        <p>Every physician contacted, every reply received, every follow-up scheduled — all logged. <b>No spreadsheets, no tribal knowledge, no "I think we reached out to them last year."</b> Your entire physician outreach history, organized and searchable.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MULTI-LOCATION CALLOUT -->
+  <div class="callout">
+    <div class="callout-label">A note on multi-location practices</div>
+    <p>
+      AMF's multi-location footprint is actually an advantage here, not a complication. <b>We run one unified campaign representing the AMF brand across the entire Tampa Bay market</b> — not separate, fragmented campaigns by location. A physician near Clearwater and one near Largo get a single, consistent introduction to Advanced Medical of Florida as a regional practice. One voice, one brand, no risk of the same physician hearing from "multiple AMFs."
+    </p>
+  </div>
+
+  <!-- WHAT YOU GET -->
+  <div class="result-bar">
+    <h3>What the service delivers</h3>
+    <div class="results">
+      <div class="result">
+        <div class="result-num">Always On</div>
+        <div class="result-label">outreach runs on a consistent schedule — no staff involvement</div>
+      </div>
+      <div class="result">
+        <div class="result-num">Warm Only</div>
+        <div class="result-label">your team only speaks with physicians who already expressed interest</div>
+      </div>
+      <div class="result">
+        <div class="result-num">0 hrs</div>
+        <div class="result-label">of clinical or admin staff time spent on cold outreach</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="section-label">How it works</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-dot"></div>
+      <div class="step-body">
+        <b>Onboarding call (30 min)</b>
+        We learn your specialties, your tone, your strongest value propositions for each patient type, and which physicians are your ideal referral partners. This shapes everything.
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-dot"></div>
+      <div class="step-body">
+        <b>We write the sequence</b>
+        Custom email copy written in AMF's voice. Short, direct, professional. You review and approve before a single email sends.
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-dot"></div>
+      <div class="step-body">
+        <b>Outreach goes live</b>
+        Emails send automatically on a realistic schedule. Replies are monitored and routed in real time. You're notified when someone's interested.
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-dot"></div>
+      <div class="step-body">
+        <b>You take the meetings</b>
+        That's the only part that requires you. We handle everything before the conversation. You close.
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="pricing">
+    <div class="pricing-header">Investment</div>
+    <div class="price-row">
+      <div class="price-left">
+        <p>
+          <b>200 new physician contacts enrolled per month</b> — up to 600+ total touchpoints monthly as sequences compound across active contacts.<br /><br />
+          Full setup, list building, sequence writing, and reply handling included. 3-month minimum, cancel anytime after.<br /><br />
+          <b>Multi-location scope and volume are discussed on the strategy call.</b> Pricing reflects the market size and outreach volume that makes sense for your practice.
+        </p>
+      </div>
+      <div class="price-right">
+        <div class="price-main">$750<span style="font-size:0.9rem;font-weight:400;color:#888">/mo</span></div>
+        <div class="price-sub">starting at<br />+ $500 one-time setup</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>Let's talk about what this looks like for AMF</h2>
+    <p>A 30-minute call. No pitch deck, no pressure. We'll walk through exactly what a campaign for Advanced Medical of Florida would target, what the outreach would say, and what realistic results look like.</p>
+    <a href="https://calendly.com/vito-argusreach/30min" class="btn">Book a 30-Minute Call</a>
+    <div class="cta-contact">Or reach out directly: <a href="mailto:vito@argusreach.com">vito@argusreach.com</a></div>
+  </div>
+
+  <footer>
+    <a href="https://argusreach.com">argusreach.com</a> &nbsp;·&nbsp; vito@argusreach.com
+  </footer>
+
+</div>
+</body>
+</html>
