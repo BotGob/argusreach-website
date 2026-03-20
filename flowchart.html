@@ -123,7 +123,7 @@ h1 { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.04em; color: var(--
       <li class="role-li"><span class="role-dot dot-orange"></span>Fill intake form after signing</li>
       <li class="role-li"><span class="role-dot dot-orange"></span>Review & approve email sequences</li>
       <li class="role-li"><span class="role-dot dot-orange"></span>Purchase Google Workspace seat for outreach (~$7–12/mo)</li>
-      <li class="role-li"><span class="role-dot dot-orange"></span>Grant ArgusReach admin access (or join 30-min screen share)</li>
+      <li class="role-li"><span class="role-dot dot-orange"></span>Forward IT handoff instructions to IT team</li>
       <li class="role-li"><span class="role-dot dot-orange"></span>Show up to booked meetings</li>
     </ul>
   </div>
@@ -178,8 +178,8 @@ h1 { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.04em; color: var(--
       <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
         <td style="padding:14px;font-size:0.7rem;font-weight:700;color:#fff;vertical-align:top;">2. Onboarding &amp; Setup<br><span style="font-weight:400;color:#555;font-size:0.65rem;">~2 weeks</span></td>
         <td style="padding:14px;font-size:0.72rem;color:#888;vertical-align:top;line-height:1.7;">
-          <span style="color:#60a5fa;">●</span> 45-min onboarding call (ICP, voice, targets, DNC list)<br>
-          <span style="color:#60a5fa;">●</span> Access client's domain registrar (screen share or login)<br>
+          <span style="color:#60a5fa;">●</span> Intake form (ICP, voice, targets, DNC list — 10 min, async)<br>
+          <span style="color:#60a5fa;">●</span> Send IT handoff doc — IT adds DNS records (we verify remotely, no access needed)<br>
           <span style="color:#60a5fa;">●</span> Configure SPF / DKIM / DMARC DNS records<br>
           <span style="color:#60a5fa;">●</span> Create Gmail app password on client's sending account<br>
           <span style="color:#60a5fa;">●</span> Add sending email to Instantly + begin warmup<br>
@@ -198,7 +198,7 @@ h1 { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.04em; color: var(--
         <td style="padding:14px;font-size:0.72rem;color:#888;vertical-align:top;line-height:1.7;">
           <span style="color:#a78bfa;">●</span> Purchases secondary sending domain (e.g. outreach.theirfirm.com) — NOT their main domain<br>
           <span style="color:#a78bfa;">●</span> Purchases Google Workspace on that domain (~$7/mo)<br>
-          <span style="color:#a78bfa;">●</span> Provides domain registrar access OR joins 30-min screen share for DNS setup<br>
+          <span style="color:#a78bfa;">●</span> Forwards IT handoff doc to their IT team — IT adds 5 DNS records (~20 min)<br>
           <span style="color:#a78bfa;">●</span> Provides existing contact / relationship list (DNC cross-reference)<br>
           <span style="color:#a78bfa;">●</span> Reviews 3-touch email sequence — approves or requests one round of edits<br>
           <span style="color:#a78bfa;">●</span> Written approval to launch (email confirmation)
@@ -415,7 +415,7 @@ h1 { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.04em; color: var(--
       <div class="arrow">↓ APPROVED</div>
       <div class="auto">
         <div class="step-label">Client registered in system</div>
-        <div class="step-detail">Client record created in clients.json + SQLite DB. DNC file created. Welcome email auto-sent to client covering next steps: onboarding call, list build, sequence review, launch timeline.</div>
+        <div class="step-detail">Client record created in clients.json + SQLite DB. DNC file created. Welcome email auto-sent: intake form link, IT setup instructions, timeline overview. No onboarding call — intake form captures everything.</div>
         <span class="step-tool" style="background:#7c3aed22;color:#a78bfa;border:1px solid #7c3aed44">SQLite DB</span>
         <span class="step-tool t-blue">Gob (AI)</span>
       </div>
@@ -444,7 +444,7 @@ h1 { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.04em; color: var(--
       <div class="arrow">↓</div>
       <div class="step">
         <div class="step-label">Client sets up dedicated sending account</div>
-        <div class="step-detail">~$6–7/mo billed to client. Required for isolated outreach mailbox — keeps main business email completely separate. Subdomain approach: outreach.[clientdomain].com. Supports Google Workspace OR Microsoft 365 — confirm provider during onboarding call. Gob handles all technical configuration (DNS, SPF/DKIM/DMARC, Instantly connection) via screen share or temporary admin access.</div>
+        <div class="step-detail">~$6–7/mo billed to client. Required for isolated outreach mailbox — keeps main business email completely separate. Subdomain approach: outreach.[clientdomain].com. Supports Google Workspace OR Microsoft 365 — captured in intake form (email_provider field). Gob sends IT handoff doc with copy-paste DNS records. IT adds them, Gob verifies remotely (DNS is public — no access needed).</div>
         <span class="step-tool t-green">Google Workspace or Microsoft 365</span>
       </div>
       <div class="arrow">↓</div>
@@ -941,6 +941,30 @@ h1 { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.04em; color: var(--
 
 <!-- RECENT CHANGES LOG -->
 <div style="margin-bottom:40px;">
+  <h2 style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.14em;text-transform:uppercase;color:#777;margin-bottom:16px;">Recent Changes — 2026-03-19 (Go-Live Test + Full System Hardening)</h2>
+  <div style="background:#161616;border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:6px;">
+    <div style="font-size:0.72rem;color:#60a5fa;font-family:'JetBrains Mono',monospace;margin-bottom:8px;">Data Integrity</div>
+    <div style="font-size:0.75rem;color:#888;">• Campaign ID validation: portal and monitor now verify campaign ID against Instantly API before saving. Bad IDs rejected at save time. Monitor halts cycle + alerts Vito if mismatch detected at runtime.</div>
+    <div style="font-size:0.75rem;color:#888;">• Campaigns page: shows 🚨 Invalid Campaign ID vs ⚠️ Status Mismatch — clear distinction.</div>
+    <div style="font-size:0.75rem;color:#888;">• Warmup filter: Instantly warmup emails now silently skipped before they reach the approval queue or DB. Pattern: 7-char uppercase code in subject (e.g. 3WXDVXJ). No queue entry, no alert, no DB write.</div>
+    <div style="font-size:0.75rem;color:#888;">• Escalation classified events: escalated replies now correctly write a classified event to DB — previously missing, causing reply counts to undercount.</div>
+    <div style="font-size:0.72rem;color:#60a5fa;font-family:'JetBrains Mono',monospace;margin-top:10px;margin-bottom:8px;">Metrics — Single Source of Truth</div>
+    <div style="font-size:0.75rem;color:#888;">• get_client_metrics() — unified helper function used by all three views (dashboard, client detail, campaigns page). Change it once, correct everywhere.</div>
+    <div style="font-size:0.75rem;color:#888;">• Metric definitions locked: Sequence Sent (Instantly API) + Replies Sent (our DB reply_sent events) = Total Sent. Verified: 8 + 1 = 9 for test campaign.</div>
+    <div style="font-size:0.75rem;color:#888;">• Reply breakdown visible at all levels: ✅ positive / 🕐 not_now / ❌ negative / 🚨 escalated / 🚫 ignored.</div>
+    <div style="font-size:0.75rem;color:#888;">• reply_sent event now logged to DB on every approved draft send (was missing — approve.py fixed).</div>
+    <div style="font-size:0.75rem;color:#888;">• Dashboard, Client Detail, Campaigns page all show: Leads / Sequence Sent / Replies Sent / Total Sent / Reply Breakdown / Meetings / Revenue / Reply Rate.</div>
+    <div style="font-size:0.72rem;color:#60a5fa;font-family:'JetBrains Mono',monospace;margin-top:10px;margin-bottom:8px;">Campaign Launch Flow (Portal)</div>
+    <div style="font-size:0.75rem;color:#888;">• 🚀 Launch New Campaign section added to Client Detail page. Pre-launch checklist (4 required checkboxes), month + lead limit inputs, Launch button disabled until all boxes checked.</div>
+    <div style="font-size:0.75rem;color:#888;">• On launch: Apollo pull → DNC cross-ref → NeverBounce (when key configured) → create Instantly campaign as DRAFT → load leads → register campaign ID → Telegram alert to Vito. Live progress log streams in portal.</div>
+    <div style="font-size:0.75rem;color:#888;">• Vito reviews sequence and leads in Instantly UI, then manually activates. Monitor auto-detects within 10 min.</div>
+    <div style="font-size:0.72rem;color:#60a5fa;font-family:'JetBrains Mono',monospace;margin-top:10px;margin-bottom:8px;">UX + Timestamps</div>
+    <div style="font-size:0.75rem;color:#888;">• All timestamps across portal now display in Eastern Time (was UTC). Jinja to_et filter applied to event logs, intake page, dashboard generated time.</div>
+    <div style="font-size:0.75rem;color:#888;">• Heartbeat alert dedup: Gob now tracks alerted approval IDs — alerts once per new item, not every hourly cycle.</div>
+  </div>
+</div>
+
+<div style="margin-bottom:40px;">
   <h2 style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.14em;text-transform:uppercase;color:#777;margin-bottom:16px;">Recent Changes — 2026-03-18</h2>
   <div style="font-size:0.75rem;color:#888;margin-bottom:32px;display:flex;flex-direction:column;gap:6px;">
     <div>• <span style="color:#4ade80;font-weight:600;">monthly_cycle.py</span> — Full automated monthly campaign pipeline: Apollo search with auto-refill (never short of target), DB-driven exclusion list (never re-contacts same prospect), NeverBounce verify, DNC filter, new Instantly campaign created automatically, sequence pulled from live campaign (7-day minimum delays enforced), contacts loaded, pre-launch checklist sent to Vito</div>
@@ -952,6 +976,13 @@ h1 { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.04em; color: var(--
     <div>• <span style="color:#4ade80;font-weight:600;">Sending account — provider-agnostic</span> — Flowchart and welcome email updated. No longer Google-specific. Supports Google Workspace or Microsoft 365. Subdomain approach documented.</div>
     <div>• <span style="color:#4ade80;font-weight:600;">Intake Telegram bug fixed</span> — Admin portal was using wrong env var name (TELEGRAM_BOT_TOKEN vs ARGUSREACH_BOT_TOKEN). New intake submissions now alert Vito correctly.</div>
     <div>• <span style="color:#4ade80;font-weight:600;">AMF one-pager</span> — argusreach.com/amf — personalized sales page for Advanced Medical of Florida pitch to Dr. Brett (CGO). Accurate, consistent with what we actually deliver.</div>
+    <div style="margin-top:10px;font-size:0.72rem;color:#f59e0b;font-family:'JetBrains Mono',monospace;margin-bottom:6px;">⚠️ Known Gaps (open backlog items)</div>
+    <div style="font-size:0.75rem;color:#888;">• <span style="color:#f59e0b;">Month 1 sequence loading</span> — monthly_cycle.py creates Month 1 campaign empty if no existing Instantly campaign to pull from. Fix: save finalized sequence as sequence_template.json before launch so portal pre-loads it. Not yet built.</div>
+    <div style="font-size:0.75rem;color:#888;">• <span style="color:#f59e0b;">Warmup health gate</span> — portal Launch button does not verify sending account warmup score (must be 85%+) before creating campaign. Manual check required for now.</div>
+    <div style="font-size:0.72rem;color:#60a5fa;font-family:'JetBrains Mono',monospace;margin-top:10px;margin-bottom:6px;">Onboarding fixes (2026-03-19 evening)</div>
+    <div style="font-size:0.75rem;color:#888;">• Intake form: added email_provider (Google Workspace vs Microsoft 365) and dns_provider fields to Section 6 — required for subdomain DNS setup on new client onboarding.</div>
+    <div style="font-size:0.75rem;color:#888;">• Service agreement v1 drafted — ops/legal/service-agreement.md. Month-to-month, no outcome guarantee, liability capped at 30 days fees, client indemnifies for industry compliance.</div>
+    <div style="font-size:0.75rem;color:#888;">• Warmup filter fix: MIME-encoded subjects now decoded before regex matching. Known warmup domain blocklist added (successfactorconsulting.com, arcmailnetworkpro.com, etc.).</div>
   </div>
 
   <h2 style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.14em;text-transform:uppercase;color:#777;margin-bottom:16px;">Recent Changes — 2026-03-17</h2>
