@@ -288,32 +288,25 @@
 
     /* ── PRICING ── */
     .pricing-bg { background: var(--bg2); }
-    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--border); margin-top: 72px; }
-    .pc { padding: 52px 44px; border-right: 1px solid var(--border); transition: background 0.25s; }
-    .pc:last-child { border-right: none; }
-    .pc:not(.feat):hover { background: var(--bg3); }
-    .pc.feat { background: var(--white); color: #000; }
-    .pc-tier { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sub); margin-bottom: 20px; }
-    .pc.feat .pc-tier { color: #777; }
-    .pc-price { font-size: 3.5rem; font-weight: 900; letter-spacing: -0.05em; line-height: 1; color: var(--green); }
-    .pc.feat .pc-price { color: var(--green); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 56px; }
+    .pc { padding: 44px 36px; background: var(--bg3); border: 1px solid var(--border2); border-radius: 10px; transition: border-color 0.25s, background 0.25s; display: flex; flex-direction: column; }
+    .pc:hover { border-color: rgba(255,255,255,0.22); background: var(--bg4); }
+    .pc.feat { border-color: rgba(74,222,128,0.3); }
+    .pc.feat:hover { border-color: rgba(74,222,128,0.5); }
+    .pc-tier { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sub); margin-bottom: 24px; }
+    .pc.feat .pc-tier { color: var(--green); }
+    .pc-price { font-size: 3.75rem; font-weight: 900; letter-spacing: -0.05em; line-height: 1; color: var(--white); }
     .pc-price sup { font-size: 1.2rem; vertical-align: top; margin-top: 10px; display: inline-block; }
-    .pc-price sub { font-size: 0.875rem; font-weight: 400; color: var(--sub); }
-    .pc.feat .pc-price sub { color: #666; }
-    .pc-billing { font-size: 0.75rem; color: var(--muted); margin: 8px 0 36px; }
-    .pc.feat .pc-billing { color: #888; }
-    .pc-div { height: 1px; background: var(--border); margin-bottom: 28px; }
-    .pc.feat .pc-div { background: #e0e0e0; }
-    .pc-list { list-style: none; margin-bottom: 40px; }
-    .pc-li { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; color: var(--sub); padding: 10px 0; border-bottom: 1px solid var(--border); }
-    .pc.feat .pc-li { color: #444; border-bottom-color: #ebebeb; }
+    .pc-per { font-size: 0.8rem; color: var(--sub); margin-top: 8px; margin-bottom: 28px; }
+    .pc-highlight { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 16px; }
+    .pc-div { height: 1px; background: var(--border); margin-bottom: 20px; }
+    .pc-list { list-style: none; margin-bottom: 36px; flex: 1; }
+    .pc-li { font-size: 0.835rem; color: var(--sub); padding: 9px 0; border-bottom: 1px solid var(--border); line-height: 1.5; }
     .pc-li:last-child { border-bottom: none; }
-    .chk { width: 15px; height: 15px; color: var(--green); flex-shrink: 0; }
-    .pc.feat .chk { color: #000; }
-    .pc-btn { display: block; text-align: center; padding: 13px; border-radius: 5px; font-weight: 700; font-size: 0.875rem; text-decoration: none; transition: opacity 0.2s; }
-    .pc-btn.dark { background: #000; color: #fff; }
+    .pc-btn { display: block; text-align: center; padding: 13px; border-radius: 6px; font-weight: 700; font-size: 0.875rem; text-decoration: none; transition: opacity 0.2s, transform 0.15s; }
+    .pc-btn.green { background: var(--green); color: #000; }
     .pc-btn.outline { border: 1px solid var(--border2); color: var(--white); }
-    .pc-btn:hover { opacity: 0.78; }
+    .pc-btn:hover { opacity: 0.82; transform: translateY(-1px); }
 
     /* ── CTA ── */
     .cta-block { background: var(--white); padding: 160px 64px; text-align: center; }
@@ -384,8 +377,6 @@
       .rc { border-right: none; border-bottom: 1px solid var(--border); }
       .rc:last-child { border-bottom: none; }
       .pricing-grid { grid-template-columns: 1fr; }
-      .pc { border-right: none; border-bottom: 1px solid var(--border); }
-      .pc:last-child { border-bottom: none; }
       .stats-wrap .inner { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .stat-cell { border-right: none; border-bottom: 1px solid var(--border); padding: 36px 20px; overflow: hidden; }
       .stat-cell:nth-child(odd) { border-right: 1px solid var(--border); }
@@ -713,45 +704,35 @@
     <div class="pricing-grid">
       <div class="pc rv">
         <div class="pc-tier">Starter</div>
-        <div class="pc-price"><sup>$</sup>750<sub>/mo</sub></div>
-        <div class="pc-billing">$500 setup due at signing · Monthly billing starts at campaign launch · 3-month minimum</div>
+        <div class="pc-price"><sup>$</sup>750</div>
+        <div class="pc-per">per month</div>
+        <div class="pc-highlight">200 new contacts / month</div>
         <div class="pc-div"></div>
         <ul class="pc-list">
-          <li class="pc-li"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>200 prospects reached / month — each receives a 3-step sequence, totaling 600+ outreach emails monthly</li>
-          <li class="pc-li"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>1 personalized email sequence</li>
-          <li class="pc-li"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>3-touch automated follow-up</li>
-          <li class="pc-li"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Response monitoring &amp; routing</li>
-          <li class="pc-li"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Monthly performance report</li>
-          <li class="pc-li"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Intake form + sequence review</li>
+          <li class="pc-li">Up to 600+ total touchpoints as 3-step sequences compound</li>
+          <li class="pc-li">Full sequence management · Monthly reporting · Draft approval or automated</li>
         </ul>
         <a href="#book" class="pc-btn outline">Get Started</a>
       </div>
       <div class="pc feat rv d1">
         <div class="pc-tier">Growth — Most Popular</div>
-        <div class="pc-price"><sup>$</sup>1,500<sub>/mo</sub></div>
-        <div class="pc-billing">$500 setup due at signing · Monthly billing starts at campaign launch · 3-month minimum</div>
+        <div class="pc-price"><sup>$</sup>1,500</div>
+        <div class="pc-per">per month</div>
+        <div class="pc-highlight">500 contacts / month</div>
         <div class="pc-div"></div>
         <ul class="pc-list">
-          <li class="pc-li"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>500 prospects reached / month — up to 1,500+ outreach emails monthly</li>
-          <li class="pc-li"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>2 sequences — multiple ideal client profiles</li>
-          <li class="pc-li"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Response monitoring &amp; routing</li>
-          <li class="pc-li"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Monthly activity report</li>
-          <li class="pc-li"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Monthly strategy call</li>
+          <li class="pc-li">Priority support · Dedicated account management · Monthly strategy call</li>
         </ul>
-        <a href="#book" class="pc-btn dark">Get Started</a>
+        <a href="#book" class="pc-btn green">Get Started</a>
       </div>
       <div class="pc rv d2">
         <div class="pc-tier">Scale</div>
-        <div class="pc-price"><sup>$</sup>2,500<sub>/mo</sub></div>
-        <div class="pc-billing">$500 setup due at signing · Monthly billing starts at campaign launch · 3-month minimum</div>
+        <div class="pc-price"><sup>$</sup>2,500</div>
+        <div class="pc-per">per month</div>
+        <div class="pc-highlight">1,000+ contacts / month</div>
         <div class="pc-div"></div>
         <ul class="pc-list">
-          <li class="pc-li"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>1,000+ prospects reached / month — maximum market coverage</li>
-          <li class="pc-li"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>3 sequences — multiple verticals or ICPs</li>
-          <li class="pc-li"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Priority response handling</li>
-          <li class="pc-li"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Monthly activity report</li>
-          <li class="pc-li"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Monthly strategy call</li>
-          <li class="pc-li"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Dedicated account management</li>
+          <li class="pc-li">Multiple targeting tracks · Dedicated account management</li>
         </ul>
         <a href="#book" class="pc-btn outline">Get Started</a>
       </div>
