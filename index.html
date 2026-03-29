@@ -594,7 +594,7 @@
           <div class="prospect-data">
             <div class="pd-row"><span class="pd-k">Client</span><span class="pd-v" id="p-client">Bay Harbor Wealth Advisors</span></div>
             <div class="pd-row"><span class="pd-k">Industry</span><span class="pd-v" id="p-industry">Private Equity / Family Office</span></div>
-            <div class="pd-row"><span class="pd-k">Est. Net Worth</span><span class="pd-v" id="p-aum">$8M+</span></div>
+            <div class="pd-row"><span class="pd-k" id="p-aum-label">Est. Net Worth</span><span class="pd-v" id="p-aum">$8M+</span></div>
             <div class="pd-row"><span class="pd-k">Signal</span><span class="pd-v sig" id="p-signal">Recent business exit</span></div>
           </div>
 
@@ -666,7 +666,7 @@
         <div class="demo-switcher-wrap">
           <div class="demo-switcher-label">▶ Try another industry</div>
           <div class="demo-switcher">
-            <div class="dsw active" data-idx="0">Webb · Fin. Advisor</div>
+            <div class="dsw active" data-idx="0">Marcus · Wealth Mgmt</div>
             <div class="dsw" data-idx="1">Okafor · Insurance</div>
             <div class="dsw" data-idx="2">Dr. Nguyen · PT</div>
           </div>
@@ -948,7 +948,7 @@
   const prospects = [
     {
       initials:'MW', name:'Marcus W.', title:'CEO & Founder', company:'Aldren Capital Partners', loc:'Tampa, FL',
-      client:'Meridian Wealth Partners', industry:'Private Equity / Family Office', aum:'$8M+', signal:'Recent business exit',
+      client:'Meridian Wealth Partners', industry:'Private Equity / Family Office', aumLabel:'Est. Net Worth', aum:'$8M+', signal:'Recent business exit',
       fromName:'Daniel R.', fromCo:'Meridian Wealth Partners',
       to:'m.w@aldrencapital.example',
       subject:'Marcus - wealth planning after the Harborview exit?',
@@ -971,7 +971,7 @@ Meridian Wealth Partners`,
     },
     {
       initials:'CO', name:'Christine O.', title:'HR Director', company:'Caldwell Industrial Group', loc:'Lakeland, FL',
-      client:'Summit Benefits Advisors', industry:'Manufacturing (120 employees)', aum:'Q2 renewal', signal:'Group benefits up for renewal',
+      client:'Summit Benefits Advisors', industry:'Manufacturing (120 employees)', aumLabel:'Renewal Window', aum:'Q2 group benefits', signal:'Group benefits up for renewal',
       fromName:'Jennifer H.', fromCo:'Summit Benefits Advisors',
       to:'c.o@caldwellindustrial.example',
       subject:'Group benefits renewal coming up, Christine?',
@@ -994,7 +994,7 @@ Summit Benefits Advisors`,
     },
     {
       initials:'AN', name:'Dr. Alex N.', title:'Orthopedic Surgeon', company:'Northgate Orthopaedics', loc:'St. Petersburg, FL',
-      client:'Bayside Physical Therapy', industry:'Orthopedic Surgery', aum:'High referral volume', signal:'New St. Pete location opened',
+      client:'Bayside Physical Therapy', industry:'Orthopedic Surgery', aumLabel:'Referral Potential', aum:'High volume', signal:'New St. Pete location opened',
       fromName:'Dr. Rachel M.', fromCo:'Bayside Physical Therapy',
       to:'a.n@northgateortho.example',
       subject:'Referral partnership - Bayside PT & Suncoast Ortho',
@@ -1029,6 +1029,7 @@ Bayside Physical Therapy`,
   const elClient = document.getElementById('p-client');
   const elIndustry = document.getElementById('p-industry');
   const elAum = document.getElementById('p-aum');
+  const elAumLabel = document.getElementById('p-aum-label');
   const elSignal = document.getElementById('p-signal');
   const elFrom = document.getElementById('email-from');
   const elFromCo = document.getElementById('email-from-co');
@@ -1078,6 +1079,7 @@ Bayside Physical Therapy`,
     elLoc.textContent = p.loc;
     elClient.textContent = p.client;
     elIndustry.textContent = p.industry;
+    elAumLabel.textContent = p.aumLabel;
     elAum.textContent = p.aum;
     elSignal.textContent = p.signal;
     elFrom.textContent = p.fromName;
