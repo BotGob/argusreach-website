@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ArgusReach - Be Bold Performance & Wellness</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0f0f0f; --bg2: #161616; --bg3: #1d1d1d;
+  --border: rgba(255,255,255,0.08); --border2: rgba(255,255,255,0.14); --muted: #444;
+  --text: #f0f0f0; --sub: #888; --green: #4ade80; --white: #fff;
+}
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 700px; margin: 0 auto; padding: 64px 24px 96px; }
+
+/* Header */
+.logo-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 56px; flex-wrap: wrap; gap: 12px; }
+.logo { font-size: 0.85rem; font-weight: 800; letter-spacing: -0.02em; color: var(--white); }
+.logo span { color: var(--green); }
+.for-badge { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sub); background: var(--bg2); border: 1px solid var(--border2); padding: 5px 12px; border-radius: 20px; }
+
+/* Hero */
+.eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 18px; }
+h1 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.1; color: var(--white); margin-bottom: 20px; }
+h1 span { color: var(--green); }
+.hero-sub { font-size: 1rem; color: var(--sub); line-height: 1.75; margin-bottom: 48px; max-width: 580px; }
+.hero-sub b { color: var(--text); }
+
+/* Divider */
+.divider { border: none; border-top: 1px solid var(--border); margin: 44px 0; }
+
+/* Section label */
+.section-label { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sub); margin-bottom: 20px; }
+
+/* Pain */
+.pain-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 44px; }
+.pain-item { background: var(--bg2); border: 1px solid var(--border2); border-left: 3px solid #ef4444; border-radius: 6px; padding: 15px 18px; font-size: 0.875rem; color: var(--text); line-height: 1.6; }
+.pain-item b { color: var(--white); }
+
+/* Solution */
+.solution-list { display: flex; flex-direction: column; gap: 22px; margin-bottom: 44px; }
+.sol { display: flex; gap: 16px; align-items: flex-start; }
+.sol-num { width: 30px; height: 30px; border-radius: 50%; background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.3); color: var(--green); font-size: 0.72rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.sol-body h3 { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+.sol-body p { font-size: 0.85rem; color: var(--sub); line-height: 1.65; }
+.sol-body p b { color: var(--text); }
+
+/* Callout */
+.callout { background: rgba(74,222,128,0.05); border: 1px solid rgba(74,222,128,0.2); border-radius: 8px; padding: 20px 22px; margin-bottom: 44px; }
+.callout-label { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
+.callout p { font-size: 0.875rem; color: var(--sub); line-height: 1.7; }
+.callout p b { color: var(--text); }
+
+/* What you get */
+.result-bar { background: var(--bg2); border: 1px solid var(--border2); border-radius: 8px; padding: 26px; margin-bottom: 44px; }
+.result-bar h3 { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sub); margin-bottom: 20px; }
+.results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.result { text-align: center; }
+.result-num { font-size: 1rem; font-weight: 800; color: var(--green); letter-spacing: -0.02em; line-height: 1.3; margin-bottom: 6px; }
+.result-label { font-size: 0.7rem; color: var(--sub); line-height: 1.4; }
+
+/* Steps */
+.steps { display: flex; flex-direction: column; margin-bottom: 44px; }
+.step { display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--border); }
+.step:last-child { border-bottom: none; }
+.step-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); flex-shrink: 0; margin-top: 5px; }
+.step-body { font-size: 0.85rem; color: var(--sub); line-height: 1.6; }
+.step-body b { color: var(--white); display: block; margin-bottom: 3px; font-size: 0.875rem; }
+
+/* Pricing */
+.pricing { background: var(--bg2); border: 1px solid var(--border2); border-radius: 8px; padding: 26px; margin-bottom: 44px; }
+.pricing-header { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sub); margin-bottom: 16px; }
+.price-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
+.price-left p { font-size: 0.82rem; color: var(--sub); line-height: 1.65; max-width: 380px; }
+.price-left p b { color: var(--text); }
+.price-right { text-align: right; flex-shrink: 0; }
+.price-main { font-size: 1.9rem; font-weight: 900; color: var(--white); letter-spacing: -0.04em; }
+.price-sub { font-size: 0.72rem; color: var(--sub); margin-top: 4px; line-height: 1.5; }
+
+/* CTA */
+.cta-block { background: var(--bg2); border: 1px solid var(--border2); border-radius: 8px; padding: 32px; text-align: center; }
+.cta-block h2 { font-size: 1.2rem; font-weight: 800; color: var(--white); letter-spacing: -0.03em; margin-bottom: 10px; }
+.cta-block p { font-size: 0.875rem; color: var(--sub); margin-bottom: 24px; line-height: 1.6; }
+.btn { display: inline-block; background: var(--green); color: #000; font-weight: 800; font-size: 0.875rem; padding: 13px 30px; border-radius: 6px; text-decoration: none; letter-spacing: -0.01em; }
+.btn:hover { opacity: 0.9; }
+.cta-contact { font-size: 0.75rem; color: #555; margin-top: 14px; }
+.cta-contact a { color: #666; text-decoration: none; }
+
+/* Footer */
+footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--border); text-align: center; font-size: 0.7rem; color: #3a3a3a; }
+footer a { color: #444; text-decoration: none; }
+
+@media (max-width: 520px) {
+  .results { grid-template-columns: 1fr 1fr; }
+  .price-row { flex-direction: column; }
+  .price-right { text-align: left; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="logo-bar">
+    <div class="logo">Argus<span>Reach</span></div>
+    <div class="for-badge">Prepared for Be Bold Performance & Wellness</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="eyebrow">Physician Referral Outreach</div>
+  <h1>The physicians who should<br />be sending you patients<br /><span>don't know you exist yet.</span></h1>
+  <p class="hero-sub">
+    Be Bold is exactly the kind of practice referring physicians want to send their patients to - one-on-one, out-of-network, performance-focused care with real outcomes. <b>The gap isn't your clinical quality. It's that not enough of the right physicians know you're there.</b>
+  </p>
+
+  <!-- WHY OON IS AN ADVANTAGE -->
+  <div class="callout">
+    <div class="callout-label">Why your model is actually an advantage</div>
+    <p>Out-of-network practices are a <b>preferred referral destination</b> for a lot of physicians - no prior authorization delays, no insurance friction for the patient, and a provider who has the time to actually work with their patient one-on-one. The challenge isn't convincing physicians to refer to you. It's making sure they know you exist and understand what makes Be Bold different.</p>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- PAIN -->
+  <div class="section-label">The gap most practice owners recognize</div>
+  <div class="pain-list">
+    <div class="pain-item"><b>New patient flow is inconsistent.</b> Some months are strong. Others aren't. There's no systematic pipeline being built - referrals come in when they come in, and there's no reliable way to change that without a dedicated process.</div>
+    <div class="pain-item"><b>The right physicians are out there - but outreach never gets done.</b> Orthopedic surgeons, sports medicine doctors, PCPs, physiatrists - they have patients who need exactly what Be Bold offers. But reaching them consistently, following up, and managing every response takes time you don't have.</div>
+    <div class="pain-item"><b>You built the practice to treat patients, not to run a sales operation.</b> Cold outreach is a full-time job. It requires a process, consistency, and follow-through - and it competes directly with the work that actually matters.</div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- WHAT WE DO -->
+  <div class="section-label">What ArgusReach does for Be Bold</div>
+  <div class="solution-list">
+
+    <div class="sol">
+      <div class="sol-num">1</div>
+      <div class="sol-body">
+        <h3>We build your physician contact list</h3>
+        <p>We identify orthopedic surgeons, sports medicine doctors, PCPs, physiatrists, and other relevant specialists in the St. Pete area - the physicians most likely to have patients who are a strong fit for Be Bold's model. <b>Every contact is sourced and verified before a single email sends.</b></p>
+      </div>
+    </div>
+
+    <div class="sol">
+      <div class="sol-num">2</div>
+      <div class="sol-body">
+        <h3>We write the outreach in your voice</h3>
+        <p>A short, professional 3-email sequence built around what makes Be Bold different - the one-on-one approach, the performance focus, the out-of-network model that removes the insurance friction their patients deal with everywhere else. <b>Every email is personalized to the recipient's practice</b> so it reads like a real introduction. You review and approve the full sequence before anything sends.</p>
+      </div>
+    </div>
+
+    <div class="sol">
+      <div class="sol-num">3</div>
+      <div class="sol-body">
+        <h3>Every reply handled - you only hear from warm ones</h3>
+        <p>Every response is classified and routed automatically. A physician who's open to connecting gets a booking link immediately - they pick a time straight from your calendar. Not interested? Noted. Unsubscribe? Done. <b>You never touch a cold reply.</b> Every draft response is reviewed before it sends under your name. You only enter the conversation when someone is actually ready to talk.</p>
+      </div>
+    </div>
+
+    <div class="sol">
+      <div class="sol-num">4</div>
+      <div class="sol-body">
+        <h3>Every contact tracked - no more guessing</h3>
+        <p>Every physician reached, every reply received, every follow-up due - all logged. <b>No spreadsheets, no "I think we emailed them last year."</b> Your entire physician outreach history, organized and searchable, month after month.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- WHAT YOU GET -->
+  <div class="result-bar">
+    <h3>What the service delivers</h3>
+    <div class="results">
+      <div class="result">
+        <div class="result-num">Always On</div>
+        <div class="result-label">outreach runs every month on a consistent schedule - no time required from you</div>
+      </div>
+      <div class="result">
+        <div class="result-num">Warm Only</div>
+        <div class="result-label">you only speak with physicians who already replied and said they're open to connecting</div>
+      </div>
+      <div class="result">
+        <div class="result-num">0 hrs</div>
+        <div class="result-label">of your time spent on cold outreach, follow-up, or inbox management</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="section-label">How it works</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-dot"></div>
+      <div class="step-body">
+        <b>Onboarding</b>
+        A short intake form. We learn Be Bold's specialties, ideal referral partners, tone, and target physician market. This shapes the entire campaign - no call required.
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-dot"></div>
+      <div class="step-body">
+        <b>We write the sequence</b>
+        Custom email copy written for Be Bold. Short, direct, professional - built around your one-on-one model and what makes you different. You review and approve before a single email sends.
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-dot"></div>
+      <div class="step-body">
+        <b>Outreach goes live</b>
+        Emails send automatically on a realistic human schedule. Replies are monitored and routed in real time. You're notified when a physician is interested.
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-dot"></div>
+      <div class="step-body">
+        <b>You take the meetings</b>
+        That's the only part that requires you. We handle everything before the conversation. You build the relationship.
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="pricing">
+    <div class="pricing-header">Investment</div>
+    <div class="price-row">
+      <div class="price-left">
+        <p>
+          <b>200 physicians reached per month</b> - each enrolled in a 3-step email sequence, totaling 600+ outreach touchpoints monthly as active contacts compound.<br /><br />
+          Full setup, list building, sequence writing, and reply handling included. Monthly billing begins when your campaign launches - not before. 3-month minimum from launch, cancel anytime after.
+        </p>
+      </div>
+      <div class="price-right">
+        <div class="price-sub" style="margin-bottom:4px;">starting at</div>
+        <div class="price-main">$750<span style="font-size:0.9rem;font-weight:400;color:#888">/mo</span></div>
+        <div class="price-sub">+ $500 one-time setup fee</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>Let's talk about what this looks like for Be Bold</h2>
+    <p>A 30-minute conversation - no pitch deck, no pressure. We'll walk through exactly how the service works, what a campaign for Be Bold would target, and whether it's a fit for where the practice is right now.</p>
+    <a href="https://calendly.com/vito-argusreach/30min" class="btn">Book a 30-Minute Call</a>
+    <div class="cta-contact">Or reach out directly: <a href="mailto:vito@argusreach.com">vito@argusreach.com</a></div>
+    <div class="cta-contact" style="margin-top:6px;">argusreach.com/bebold</div>
+  </div>
+
+  <footer>
+    <a href="https://argusreach.com">argusreach.com</a> &nbsp;·&nbsp; vito@argusreach.com
+  </footer>
+
+</div>
+</body>
+</html>
