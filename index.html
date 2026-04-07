@@ -79,8 +79,8 @@
     @keyframes scrollBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
 
     .hero-badge { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 52px; }
-    .badge-live { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 3px; padding: 4px 12px; font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; }
-    .live-dot { width: 5px; height: 5px; background: #fff; border-radius: 50%; animation: blink 2.5s ease-in-out infinite; }
+    .badge-live { display: flex; align-items: center; gap: 6px; background: rgba(74,108,247,0.08); border: 1px solid rgba(74,108,247,0.25); border-radius: 3px; padding: 4px 12px; font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: #4a6cf7; }
+    .live-dot { width: 5px; height: 5px; background: #4a6cf7; border-radius: 50%; animation: blink 2.5s ease-in-out infinite; }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.15} }
     .badge-sep { width: 1px; height: 12px; background: var(--border2); }
     .badge-loc { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
@@ -237,16 +237,16 @@
     .step-content p { font-size: 0.875rem; color: var(--sub); line-height: 1.78; }
 
     .how-sticky { position: sticky; top: 96px; }
-    .visual-panel { background: var(--bg3); border: 1px solid var(--border2); border-radius: 12px; overflow: hidden; }
-    .vp-header { border-bottom: 1px solid var(--border); padding: 14px 20px; display: flex; align-items: center; gap: 8px; }
-    .vp-hd { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.08); }
+    .visual-panel { border: 1px solid rgba(0,0,0,0.12); border-radius: 4px; background: #fff; box-shadow: 0 2px 24px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04); overflow: hidden; }
+    .vp-header { border-bottom: 1px solid rgba(0,0,0,0.08); background: #f7f7f7; padding: 14px 20px; display: flex; align-items: center; gap: 8px; }
+    .vp-hd { width: 9px; height: 9px; border-radius: 50%; background: rgba(0,0,0,0.1); }
     .vp-body { padding: 40px; min-height: 340px; display: flex; flex-direction: column; justify-content: center; transition: opacity 0.2s ease, transform 0.2s ease; }
     .vp-body.fading { opacity: 0; transform: translateY(6px); }
-    .vp-big-num { font-family: 'JetBrains Mono', monospace; font-size: 5.5rem; font-weight: 900; letter-spacing: -0.05em; line-height: 1; color: rgba(255,255,255,0.04); margin-bottom: 16px; }
-    .vp-title { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.03em; color: var(--white); margin-bottom: 14px; line-height: 1.2; }
-    .vp-desc { font-size: 0.875rem; color: var(--sub); line-height: 1.8; margin-bottom: 28px; }
+    .vp-big-num { font-family: 'JetBrains Mono', monospace; font-size: 5.5rem; font-weight: 900; letter-spacing: -0.05em; line-height: 1; color: rgba(0,0,0,0.04); margin-bottom: 16px; }
+    .vp-title { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.03em; color: #111; margin-bottom: 14px; line-height: 1.2; }
+    .vp-desc { font-size: 0.875rem; color: #555; line-height: 1.8; margin-bottom: 28px; }
     .vp-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-    .vp-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; color: #555; background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.1); padding: 4px 12px; border-radius: 3px; }
+    .vp-tag { font-family: "JetBrains Mono", monospace; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; background: transparent; border: 1px solid rgba(0,0,0,0.15); padding: 4px 12px; border-radius: 2px; }
 
     /* ── PROBLEM / SOLUTION ── */
     .ps-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); margin-top: 72px; }
@@ -396,15 +396,55 @@
       border-top: 1px solid rgba(0,0,0,0.06);
       border-bottom: 1px solid rgba(0,0,0,0.06);
     }
-    /* Hardcoded light-on-dark fixes for light sections */
-    .how-bg .vp-hd { background: rgba(0,0,0,0.08); }
-    .how-bg .vp-big-num { color: rgba(0,0,0,0.05); }
-    .how-bg .vp-tag { color: #555; background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.1); }
+    /* Light section text — make sure everything is readable */
+    .light-section .ey,
+    .how-bg .ey,
+    .serve-bg .ey,
+    .pricing-bg .ey { color: #999; }
+
+    .light-section .sh,
+    .how-bg .sh,
+    .serve-bg .sh,
+    .pricing-bg .sh { color: #111; }
+
+    .light-section .sp,
+    .how-bg .sp,
+    .serve-bg .sp,
+    .pricing-bg .sp { color: #444; }
+
+    .how-bg .step-content h3 { color: #111; }
+    .how-bg .step-content p { color: #555; }
+    .how-bg .step-num { color: #bbb; }
+    .how-bg .how-step.active .step-num { color: #111; }
+
+    .light-section .ps-hdr.pos { color: #111; font-weight: 700; }
+    .light-section .ps-hdr.neg { color: #888; }
+    .light-section .ps-row p { color: #444; }
+    .light-section .ps-row p b { color: #111; }
+
+    .serve-bg .sc h3 { color: #111; }
+    .serve-bg .sc p { color: #555; }
+    .serve-bg .sc-pill { color: #888; border-color: rgba(0,0,0,0.15); }
+
+    .pricing-bg .pc-tier { color: #888; }
+    .pricing-bg .pc-price { color: #111; }
+    .pricing-bg .pc-per { color: #777; }
+    .pricing-bg .pc-highlight { color: #111; }
+    .pricing-bg .pc-li { color: #555; }
+    .pricing-bg .pc-btn.outline { color: #111; border-color: rgba(0,0,0,0.2); }
+    .pricing-bg .pc { background: #fff; border-color: rgba(0,0,0,0.12); }
+    .pricing-bg .pc:hover { border-color: rgba(0,0,0,0.25); background: #f7f7f7; }
+
     .serve-bg .sc-ico { stroke: rgba(0,0,0,0.35); }
-    .trust-bg .tc-ico { stroke: rgba(0,0,0,0.3); }
-    /* Pricing card hover fix for light bg */
-    .pricing-bg .pc:hover { border-color: rgba(0,0,0,0.18); }
-    .pricing-bg .pc-btn.outline { border-color: rgba(0,0,0,0.15); }
+
+    /* Trust section text contrast */
+    .trust-bg .tc h3 { color: #111; }
+    .trust-bg .tc p { color: #555; }
+    .trust-bg .tc-ico { stroke: rgba(0,0,0,0.4); }
+    .trust-bg .trust-note { color: #aaa; }
+    .trust-bg .ey { color: #aaa; }
+    .trust-bg .sh { color: #111; }
+    .trust-bg .sp { color: #555; }
     /* Marquee light (if used) */
     .marquee-section { background: #fff; border-top-color: rgba(0,0,0,0.08); border-bottom-color: rgba(0,0,0,0.08); }
     .marquee-tag { color: #555; border-right-color: rgba(0,0,0,0.08); }
@@ -507,7 +547,7 @@
       <div class="badge-sep"></div>
       <div class="badge-loc">Accepting New Clients</div>
     </div>
-    <p style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:20px;">For PT practices · Financial advisors · Insurance agencies · Law firms · Professional services</p>
+    <p style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:20px;">Built for professional services firms across every industry</p>
     <h1>AI-Powered Outreach.<span class="muted-line">On Autopilot.</span></h1>
     <p class="hero-desc">Argus finds your ideal prospects, researches each one, and sends personalized outreach in your name - by email and phone. Warm conversations routed straight to your calendar. No list-building, no cold calls, no inbox management.</p>
     <div class="hero-ctas">
