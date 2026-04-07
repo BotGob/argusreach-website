@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="cache-bust" content="20260312-1758" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ArgusReach - Your Pipeline. On Autopilot.</title>
+  <title>ArgusReach - AI-Powered Outreach, Done For You</title>
   <meta name="description" content="Argus finds your ideal prospects, reaches out in your voice, and books qualified meetings directly to your calendar. Done for you." />
   <link rel="canonical" href="https://argusreach.com/" />
   <meta property="og:type" content="website" />
@@ -70,7 +70,8 @@
 
     /* ── HERO ── */
     .hero { position: relative; height: 100vh; min-height: 720px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 56px 24px 80px; overflow: hidden; background: #000; }
-    .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+    .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0; transition: opacity 1.5s ease; }
+    .hero-video.active { opacity: 1; }
     .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.75) 100%); z-index: 1; }
     .hero-inner { position: relative; z-index: 2; max-width: 880px; margin: 0 auto; }
     .scroll-hint { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.5); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 64px; justify-content: center; }
@@ -480,7 +481,7 @@
 <nav id="nav">
   <a href="/" class="logo">
     <div class="logo-mark"><div class="logo-mark-dot"></div></div>
-    ArgusReach<span> · Done-For-You Outreach</span>
+    ArgusReach<span> · AI-Powered Pipeline</span>
   </a>
   <ul class="nav-links">
     <li><a href="#demo">Demo</a></li>
@@ -493,8 +494,11 @@
 
 <!-- ── HERO ── -->
 <section class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
+  <video class="hero-video active" id="heroVid1" autoplay muted playsinline>
     <source src="static/video/hero.mp4" type="video/mp4">
+  </video>
+  <video class="hero-video" id="heroVid2" muted playsinline>
+    <source src="static/video/hero2.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-inner">
@@ -504,8 +508,8 @@
       <div class="badge-loc">Accepting New Clients</div>
     </div>
     <p style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:20px;">For PT practices · Financial advisors · Insurance agencies · Law firms · Professional services</p>
-    <h1>More Clients.<span class="muted-line">Less Prospecting.</span></h1>
-    <p class="hero-desc">Argus finds your ideal prospects, reaches out by email in your name, and follows up with a personal phone call on your behalf - routing warm conversations straight to your calendar. No cold calls, no list-building, no inbox management - just qualified meetings with people who have already said yes.</p>
+    <h1>AI-Powered Outreach.<span class="muted-line">On Autopilot.</span></h1>
+    <p class="hero-desc">Argus finds your ideal prospects, researches each one, and sends personalized outreach in your name - by email and phone. Warm conversations routed straight to your calendar. No list-building, no cold calls, no inbox management.</p>
     <div class="hero-ctas">
       <a href="#how" class="btn-white">See How It Works <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       <a href="#demo" class="btn-ghost">Watch a live demo →</a>
@@ -1217,6 +1221,21 @@ async function submitCap() {
   document.querySelector('.email-cap-btn').style.display = 'none';
   document.getElementById('cap-confirm').style.display = 'block';
 }
+</script>
+<script>
+(function() {
+  const vids = [document.getElementById("heroVid1"), document.getElementById("heroVid2")];
+  let cur = 0;
+  vids[1].load();
+  setInterval(() => {
+    const next = (cur + 1) % 2;
+    vids[next].currentTime = 0;
+    vids[next].play();
+    vids[next].classList.add("active");
+    vids[cur].classList.remove("active");
+    cur = next;
+  }, 9000);
+})();
 </script>
 </body>
 </html>
