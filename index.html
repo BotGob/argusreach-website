@@ -1508,9 +1508,9 @@ async function submitCap() {
   }
 
   window.playVoiceDemo = function() {
-    audio.play();
     setPlaying(true);
     playBtn.classList.add("active");
+    setTimeout(() => { audio.play(); }, 900);
   };
 
   window.pauseVoiceDemo = function() {
