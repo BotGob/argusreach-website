@@ -255,9 +255,9 @@
     .ps-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); margin-top: 72px; }
     .ps-col { padding: 52px 48px; }
     .ps-col.right { background: var(--bg2); border-left: 1px solid var(--border); }
-    .ps-hdr { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; padding-bottom: 20px; margin-bottom: 4px; border-bottom: 1px solid var(--border); }
-    .ps-hdr.neg { color: var(--muted); }
-    .ps-hdr.pos { color: #333; }
+    .ps-hdr { font-family: "Inter", sans-serif; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; padding-bottom: 24px; margin-bottom: 8px; border-bottom: 2px solid rgba(0,0,0,0.1); }
+    .ps-hdr.pos { color: #111; border-bottom-color: #111; }
+    .ps-hdr.neg { color: #bbb; border-bottom-color: rgba(0,0,0,0.06); }
     .ps-row { display: flex; gap: 16px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid var(--border); }
     .ps-row:last-child { border-bottom: none; }
     .ps-ico { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; }
@@ -267,8 +267,8 @@
     /* ── WHO WE SERVE ── */
     .serve-bg { background: var(--bg2); }
     .serve-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--border); margin-top: 72px; }
-    .sc { padding: 44px 36px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); transition: background 0.25s; position: relative; overflow: hidden; background: #fff; }
-    .sc:hover { background: #f5f5f5; }
+    .sc { padding: 44px 36px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); border-left: 3px solid transparent; transition: background 0.25s, border-color 0.25s; position: relative; overflow: hidden; background: #fff; }
+    .sc:hover { background: #f5f5f5; border-left-color: #111; }
     .sc::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #111; transition: width 0.35s ease; }
     .sc:hover::after { width: 100%; }
     .sc:nth-child(3n) { border-right: none; }
@@ -380,6 +380,24 @@
       background-size: 24px 24px;
     }
 
+    /* ── SECTION ENTRY ACCENT LINE ── */
+    .light-section,
+    .how-bg,
+    .serve-bg,
+    .pricing-bg {
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+    .light-section::before,
+    .how-bg::before,
+    .serve-bg::before,
+    .pricing-bg::before {
+      content: "";
+      display: block;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(0,0,0,0.12) 20%, rgba(0,0,0,0.12) 80%, transparent);
+      margin-bottom: -1px;
+    }
+
     /* ── LIGHT SECTION OVERRIDES ── */
     .light-section,
     .how-bg,
@@ -433,8 +451,8 @@
     .how-bg .step-num { color: #bbb; }
     .how-bg .how-step.active .step-num { color: #111; }
 
-    .light-section .ps-hdr.pos { color: #111; font-weight: 700; letter-spacing: 0.08em; font-size: 0.62rem; border-bottom-color: rgba(0,0,0,0.1); }
-    .light-section .ps-hdr.neg { color: #999; font-weight: 500; letter-spacing: 0.08em; font-size: 0.62rem; border-bottom-color: rgba(0,0,0,0.06); }
+    .light-section .ps-hdr.pos { color: #111; font-weight: 800; letter-spacing: 0.2em; font-size: 0.7rem; border-bottom-color: #111; }
+    .light-section .ps-hdr.neg { color: #bbb; font-weight: 800; letter-spacing: 0.2em; font-size: 0.7rem; border-bottom-color: rgba(0,0,0,0.06); }
     .light-section .ps-col.right { background: #f9f9f9; }
     .light-section .ps-grid { border-color: rgba(0,0,0,0.1); border-radius: 6px; overflow: hidden; }
     .light-section .ps-row p { color: #444; }
@@ -611,14 +629,14 @@
     </div>
     <div class="ps-grid rv">
       <div class="ps-col">
-        <div class="ps-hdr pos">// With Argus</div>
+        <div class="ps-hdr pos">WITH ARGUS</div>
         <div class="ps-row"><svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg><p><b>Consistent, predictable pipeline</b> - outbound runs every month whether you think about it or not.</p></div>
         <div class="ps-row"><svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg><p><b>You focus on the work that actually matters</b> - Argus handles the top of the funnel so you spend your time on conversations, not cold outreach.</p></div>
         <div class="ps-row"><svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg><p><b>Every message written for that specific person</b> - their company, their role, their context. Not a template blast. It reads like you wrote it yourself.</p></div>
         <div class="ps-row"><svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg><p><b>Your calendar only fills with people who've already said yes</b> - every meeting is warm before you walk in the door.</p></div>
       </div>
       <div class="ps-col right">
-        <div class="ps-hdr neg">// Without Argus</div>
+        <div class="ps-hdr neg">WITHOUT ARGUS</div>
         <div class="ps-row"><svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p><b>No consistent way to generate new business</b> - you're at the mercy of whoever happens to find you. Unpredictable, unscalable, always uncertain.</p></div>
         <div class="ps-row"><svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p><b>You end up doing it yourself</b> - researching contacts, writing cold emails, chasing follow-ups. That's time you don't have and work that never ends.</p></div>
         <div class="ps-row"><svg class="ps-ico" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p><b>Generic blasts get deleted</b> - mass email reads like spam, gets treated like spam.</p></div>
