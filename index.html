@@ -550,56 +550,85 @@
       .stat-n { font-size: 2.5rem; }
     }
     /* ── VOICE DEMO PLAYER ── */
-    .voice-demo-wrap { margin-top: 48px; max-width: 580px; }
-    .vd-label { font-family: "JetBrains Mono", monospace; font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: #666; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-    .vd-dot { width: 6px; height: 6px; background: #fff; border-radius: 50%; opacity: 0.5; animation: blink 2s infinite; }
-    .vd-player { background: #111; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 20px 24px; display: flex; flex-direction: column; gap: 16px; }
-    .vd-left { display: flex; align-items: center; gap: 16px; }
-    .vd-btn { width: 42px; height: 42px; border-radius: 50%; background: #fff; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #000; flex-shrink: 0; transition: opacity 0.2s, transform 0.15s; }
-    .vd-btn:hover { opacity: 0.85; transform: scale(1.05); }
-    .vd-title { font-size: 0.875rem; font-weight: 700; color: #fff; letter-spacing: -0.01em; margin-bottom: 3px; }
-    .vd-sub { font-family: "JetBrains Mono", monospace; font-size: 0.6rem; color: #555; letter-spacing: 0.04em; }
-    .vd-waveform { display: flex; align-items: center; height: 32px; }
-    .vd-bars { display: flex; align-items: center; gap: 3px; height: 100%; }
-    .vd-bars span { display: block; width: 3px; border-radius: 2px; background: rgba(255,255,255,0.15); transition: height 0.1s ease; }
-    .vd-bars span:nth-child(1)  { height: 40%; }
-    .vd-bars span:nth-child(2)  { height: 65%; }
-    .vd-bars span:nth-child(3)  { height: 80%; }
-    .vd-bars span:nth-child(4)  { height: 55%; }
-    .vd-bars span:nth-child(5)  { height: 90%; }
-    .vd-bars span:nth-child(6)  { height: 45%; }
-    .vd-bars span:nth-child(7)  { height: 70%; }
-    .vd-bars span:nth-child(8)  { height: 85%; }
-    .vd-bars span:nth-child(9)  { height: 50%; }
-    .vd-bars span:nth-child(10) { height: 75%; }
-    .vd-bars span:nth-child(11) { height: 60%; }
-    .vd-bars span:nth-child(12) { height: 95%; }
-    .vd-bars span:nth-child(13) { height: 40%; }
-    .vd-bars span:nth-child(14) { height: 70%; }
-    .vd-bars span:nth-child(15) { height: 55%; }
-    .vd-bars span:nth-child(16) { height: 85%; }
-    .vd-bars span:nth-child(17) { height: 65%; }
-    .vd-bars span:nth-child(18) { height: 45%; }
-    .vd-bars span:nth-child(19) { height: 80%; }
-    .vd-bars span:nth-child(20) { height: 70%; }
-    .vd-bars span:nth-child(21) { height: 50%; }
-    .vd-bars span:nth-child(22) { height: 90%; }
-    .vd-bars span:nth-child(23) { height: 60%; }
-    .vd-bars span:nth-child(24) { height: 75%; }
-    .vd-bars span:nth-child(25) { height: 40%; }
-    .vd-bars span:nth-child(26) { height: 65%; }
-    .vd-bars span:nth-child(27) { height: 85%; }
-    .vd-bars span:nth-child(28) { height: 55%; }
-    .vd-bars span:nth-child(29) { height: 70%; }
-    .vd-bars span:nth-child(30) { height: 45%; }
-    .vd-bars.playing span { animation: waveAnim 0.8s ease-in-out infinite alternate; }
-    .vd-bars.playing span:nth-child(odd) { animation-delay: 0.1s; }
-    .vd-bars.playing span:nth-child(3n) { animation-delay: 0.2s; }
-    @keyframes waveAnim { from { opacity: 0.2; transform: scaleY(0.4); } to { opacity: 1; transform: scaleY(1); } }
-    .vd-progress-wrap { cursor: pointer; padding: 4px 0; }
-    .vd-progress-bg { height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; position: relative; }
-    .vd-progress-fill { height: 100%; background: #fff; border-radius: 2px; width: 0%; transition: width 0.1s linear; }
-    .vd-note { font-size: 0.68rem; color: #444; margin-top: 10px; font-style: italic; }
+    .vd-wrap { margin-top: 48px; max-width: 640px; }
+    .vd-terminal { background: #0a0a0a; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; }
+    .vd-terminal-header { display: flex; align-items: center; gap: 12px; padding: 10px 16px; background: #111; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .vd-terminal-dots { display: flex; gap: 6px; }
+    .vd-td { width: 10px; height: 10px; border-radius: 50%; }
+    .vd-td.r { background: #ff5f57; }
+    .vd-td.y { background: #febc2e; }
+    .vd-td.g { background: #28c840; }
+    .vd-terminal-title { font-family: "JetBrains Mono", monospace; font-size: 0.55rem; letter-spacing: 0.15em; color: #555; flex: 1; text-align: center; }
+    .vd-status { font-family: "JetBrains Mono", monospace; font-size: 0.55rem; letter-spacing: 0.12em; color: #555; }
+    .vd-status.playing { color: #4ade80; }
+    .vd-terminal-body { padding: 20px 20px 16px; display: flex; flex-direction: column; gap: 16px; }
+    .vd-wave-area { height: 56px; display: flex; align-items: center; justify-content: center; }
+    .vd-wave-bars { display: flex; align-items: center; gap: 3px; height: 100%; }
+    .vd-wave-bars span { display: block; width: 4px; border-radius: 3px; background: rgba(74,222,128,0.15); transition: height 0.15s ease; }
+    .vd-wave-bars span:nth-child(1)  { height: 20%; }
+    .vd-wave-bars span:nth-child(2)  { height: 45%; }
+    .vd-wave-bars span:nth-child(3)  { height: 70%; }
+    .vd-wave-bars span:nth-child(4)  { height: 35%; }
+    .vd-wave-bars span:nth-child(5)  { height: 85%; }
+    .vd-wave-bars span:nth-child(6)  { height: 50%; }
+    .vd-wave-bars span:nth-child(7)  { height: 65%; }
+    .vd-wave-bars span:nth-child(8)  { height: 90%; }
+    .vd-wave-bars span:nth-child(9)  { height: 40%; }
+    .vd-wave-bars span:nth-child(10) { height: 75%; }
+    .vd-wave-bars span:nth-child(11) { height: 30%; }
+    .vd-wave-bars span:nth-child(12) { height: 95%; }
+    .vd-wave-bars span:nth-child(13) { height: 55%; }
+    .vd-wave-bars span:nth-child(14) { height: 70%; }
+    .vd-wave-bars span:nth-child(15) { height: 40%; }
+    .vd-wave-bars span:nth-child(16) { height: 80%; }
+    .vd-wave-bars span:nth-child(17) { height: 60%; }
+    .vd-wave-bars span:nth-child(18) { height: 45%; }
+    .vd-wave-bars span:nth-child(19) { height: 75%; }
+    .vd-wave-bars span:nth-child(20) { height: 55%; }
+    .vd-wave-bars span:nth-child(21) { height: 85%; }
+    .vd-wave-bars span:nth-child(22) { height: 35%; }
+    .vd-wave-bars span:nth-child(23) { height: 65%; }
+    .vd-wave-bars span:nth-child(24) { height: 50%; }
+    .vd-wave-bars span:nth-child(25) { height: 90%; }
+    .vd-wave-bars span:nth-child(26) { height: 40%; }
+    .vd-wave-bars span:nth-child(27) { height: 70%; }
+    .vd-wave-bars span:nth-child(28) { height: 25%; }
+    .vd-wave-bars span:nth-child(29) { height: 80%; }
+    .vd-wave-bars span:nth-child(30) { height: 60%; }
+    .vd-wave-bars span:nth-child(31) { height: 45%; }
+    .vd-wave-bars span:nth-child(32) { height: 85%; }
+    .vd-wave-bars span:nth-child(33) { height: 55%; }
+    .vd-wave-bars span:nth-child(34) { height: 70%; }
+    .vd-wave-bars span:nth-child(35) { height: 30%; }
+    .vd-wave-bars span:nth-child(36) { height: 95%; }
+    .vd-wave-bars span:nth-child(37) { height: 50%; }
+    .vd-wave-bars span:nth-child(38) { height: 65%; }
+    .vd-wave-bars span:nth-child(39) { height: 40%; }
+    .vd-wave-bars span:nth-child(40) { height: 75%; }
+    .vd-wave-bars span:nth-child(41) { height: 20%; }
+    .vd-wave-bars span:nth-child(42) { height: 85%; }
+    .vd-wave-bars span:nth-child(43) { height: 60%; }
+    .vd-wave-bars span:nth-child(44) { height: 45%; }
+    .vd-wave-bars span:nth-child(45) { height: 80%; }
+    .vd-wave-bars span:nth-child(46) { height: 35%; }
+    .vd-wave-bars span:nth-child(47) { height: 70%; }
+    .vd-wave-bars span:nth-child(48) { height: 55%; }
+    .vd-wave-bars span:nth-child(49) { height: 90%; }
+    .vd-wave-bars span:nth-child(50) { height: 40%; }
+    .vd-wave-bars.playing span { background: #4ade80; animation: vdWave 0.6s ease-in-out infinite alternate; }
+    .vd-wave-bars.playing span:nth-child(2n) { animation-delay: 0.08s; animation-duration: 0.5s; }
+    .vd-wave-bars.playing span:nth-child(3n) { animation-delay: 0.16s; animation-duration: 0.7s; }
+    .vd-wave-bars.playing span:nth-child(5n) { animation-delay: 0.24s; animation-duration: 0.45s; }
+    @keyframes vdWave { from { transform: scaleY(0.3); opacity: 0.4; } to { transform: scaleY(1); opacity: 1; } }
+    .vd-controls { display: flex; align-items: center; gap: 14px; }
+    .vd-play-btn { display: flex; align-items: center; gap: 8px; background: transparent; border: 1px solid rgba(74,222,128,0.4); border-radius: 4px; color: #4ade80; padding: 7px 16px; cursor: pointer; font-family: "JetBrains Mono", monospace; font-size: 0.62rem; letter-spacing: 0.12em; transition: all 0.2s; flex-shrink: 0; }
+    .vd-play-btn:hover { background: rgba(74,222,128,0.08); border-color: #4ade80; }
+    .vd-play-btn.playing { background: rgba(74,222,128,0.08); border-color: #4ade80; }
+    .vd-progress-area { flex: 1; cursor: pointer; padding: 8px 0; }
+    .vd-progress-track { height: 2px; background: rgba(255,255,255,0.08); border-radius: 2px; }
+    .vd-progress-fill { height: 100%; background: #4ade80; border-radius: 2px; width: 0%; transition: width 0.1s linear; }
+    .vd-time { font-family: "JetBrains Mono", monospace; font-size: 0.58rem; color: #444; flex-shrink: 0; letter-spacing: 0.04em; }
+    .vd-note { font-size: 0.68rem; color: #555; margin-top: 12px; line-height: 1.65; font-style: italic; }
   </style>
 </head>
 <body>
@@ -779,35 +808,44 @@
       <p style="font-size:0.7rem;color:var(--sub);margin-top:-4px;font-style:italic;">All names, companies, and scenarios shown are fictional and for illustrative purposes only.</p>
 
       <!-- Voice Demo -->
-      <div class="rv voice-demo-wrap">
-        <div class="vd-label">
-          <span class="vd-dot"></span>
-          AI Voice Follow-up · Sample Call
-        </div>
-        <div class="vd-player" id="vd-player">
-          <div class="vd-left">
-            <button class="vd-btn" id="vd-btn" onclick="toggleVoiceDemo()">
-              <svg id="vd-play-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              <svg id="vd-pause-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-            </button>
-            <div class="vd-info">
-              <div class="vd-title">AI Follow-up Call</div>
-              <div class="vd-sub" id="vd-time">0:00 / 0:28</div>
+      <div class="rv vd-wrap">
+        <div class="vd-terminal">
+          <div class="vd-terminal-header">
+            <div class="vd-terminal-dots">
+              <span class="vd-td r"></span>
+              <span class="vd-td y"></span>
+              <span class="vd-td g"></span>
             </div>
+            <div class="vd-terminal-title">ARGUS · AI VOICE AGENT · SAMPLE CALL</div>
+            <div class="vd-status" id="vd-status">READY</div>
           </div>
-          <div class="vd-waveform" id="vd-waveform">
-            <div class="vd-bars">
-              <span></span><span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span><span></span>
+          <div class="vd-terminal-body">
+            <div class="vd-wave-area" id="vd-wave-area">
+              <div class="vd-wave-bars" id="vd-wave-bars">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
             </div>
-          </div>
-          <div class="vd-progress-wrap" onclick="seekVoiceDemo(event)" id="vd-progress-wrap">
-            <div class="vd-progress-bg">
-              <div class="vd-progress-fill" id="vd-fill"></div>
+            <div class="vd-controls">
+              <button class="vd-play-btn" id="vd-btn" onclick="toggleVoiceDemo()">
+                <svg id="vd-play-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <svg id="vd-pause-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                <span id="vd-btn-label">PLAY</span>
+              </button>
+              <div class="vd-progress-area" onclick="seekVoiceDemo(event)" id="vd-progress-wrap">
+                <div class="vd-progress-track">
+                  <div class="vd-progress-fill" id="vd-fill"></div>
+                </div>
+              </div>
+              <div class="vd-time" id="vd-time">0:00 / 0:10</div>
             </div>
           </div>
         </div>
@@ -1411,12 +1449,14 @@ async function submitCap() {
 /* ── VOICE DEMO PLAYER ── */
 (function() {
   const audio = document.getElementById("vd-audio");
-  const btn = document.getElementById("vd-btn");
   const playIcon = document.getElementById("vd-play-icon");
   const pauseIcon = document.getElementById("vd-pause-icon");
+  const btnLabel = document.getElementById("vd-btn-label");
+  const btn = document.getElementById("vd-btn");
   const fill = document.getElementById("vd-fill");
   const timeEl = document.getElementById("vd-time");
-  const bars = document.querySelector(".vd-bars");
+  const bars = document.getElementById("vd-wave-bars");
+  const status = document.getElementById("vd-status");
   if (!audio) return;
 
   function fmt(s) {
@@ -1430,19 +1470,27 @@ async function submitCap() {
       audio.play();
       playIcon.style.display = "none";
       pauseIcon.style.display = "block";
+      btnLabel.textContent = "PAUSE";
+      btn.classList.add("playing");
       bars.classList.add("playing");
+      status.textContent = "LIVE";
+      status.classList.add("playing");
     } else {
       audio.pause();
       playIcon.style.display = "block";
       pauseIcon.style.display = "none";
+      btnLabel.textContent = "PLAY";
+      btn.classList.remove("playing");
       bars.classList.remove("playing");
+      status.textContent = "PAUSED";
+      status.classList.remove("playing");
     }
   };
 
   window.seekVoiceDemo = function(e) {
     const wrap = document.getElementById("vd-progress-wrap");
     const rect = wrap.getBoundingClientRect();
-    const pct = (e.clientX - rect.left) / rect.width;
+    const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
     if (audio.duration) audio.currentTime = pct * audio.duration;
   };
 
@@ -1456,9 +1504,12 @@ async function submitCap() {
   audio.addEventListener("ended", function() {
     playIcon.style.display = "block";
     pauseIcon.style.display = "none";
+    btnLabel.textContent = "PLAY";
+    btn.classList.remove("playing");
     bars.classList.remove("playing");
     fill.style.width = "0%";
-    timeEl.textContent = "0:00 / " + fmt(audio.duration || 0);
+    status.textContent = "READY";
+    status.classList.remove("playing");
   });
 })();
 </script>
