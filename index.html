@@ -576,6 +576,9 @@
   <video class="hero-video" id="heroVid2" muted playsinline>
     <source src="static/video/hero_office.mp4" type="video/mp4">
   </video>
+  <video class="hero-video" id="heroVid3" muted playsinline>
+    <source src="static/video/hero_cables.mp4" type="video/mp4">
+  </video>
   <div class="hero-overlay"></div>
   <div class="hero-inner">
     <div class="hero-badge">
@@ -1301,11 +1304,11 @@ async function submitCap() {
 </script>
 <script>
 (function() {
-  const vids = [document.getElementById("heroVid1"), document.getElementById("heroVid2")];
+  const vids = [document.getElementById("heroVid1"), document.getElementById("heroVid2"), document.getElementById("heroVid3")];
   let cur = 0;
-  vids[1].load();
+  vids[1].load(); vids[2].load();
   setInterval(() => {
-    const next = (cur + 1) % 2;
+    const next = (cur + 1) % 3;
     vids[next].currentTime = 0;
     vids[next].play();
     vids[next].classList.add("active");
