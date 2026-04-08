@@ -226,7 +226,9 @@
     .how-bg { background: var(--bg2); }
     .how-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 72px; align-items: start; }
     .how-steps-col { position: relative; }
-    .how-step { display: flex; gap: 28px; align-items: flex-start; padding: 48px 0; border-bottom: 1px solid var(--border); border-bottom-color: rgba(0,0,0,0.08); opacity: 0.25; transition: opacity 0.5s ease; }
+    .how-step { display: flex; gap: 28px; align-items: flex-start; padding: 48px 0; border-bottom: 1px solid var(--border); border-bottom-color: rgba(0,0,0,0.08); opacity: 0.25; transition: opacity 0.5s ease; position: relative; }
+    .how-step::before { content: attr(data-step-label); position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 8rem; font-weight: 900; letter-spacing: -0.05em; color: rgba(0,0,0,0.04); font-family: "Inter", sans-serif; line-height: 1; pointer-events: none; z-index: 0; }
+    .how-step > * { position: relative; z-index: 1; }
     .how-step:first-child { padding-top: 0; }
     .how-step:last-child { border-bottom: none; padding-bottom: 0; }
     .how-step.active { opacity: 1; background: rgba(0,0,0,0.02); border-radius: 6px; padding-left: 16px; padding-right: 16px; margin-left: -16px; margin-right: -16px; }
@@ -237,17 +239,17 @@
     .step-content p { font-size: 0.875rem; color: var(--sub); line-height: 1.78; }
 
     .how-sticky { position: sticky; top: 96px; }
-    .visual-panel { border: 1px solid rgba(0,0,0,0.14); border-radius: 4px; background: #fff; box-shadow: 0 4px 40px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06); overflow: hidden; }
+    .visual-panel { border: 1px solid rgba(0,0,0,0.14); border-left: 3px solid #111; border-radius: 4px; background: #fff; box-shadow: 0 4px 40px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06); overflow: hidden; }
     .vp-body { background: linear-gradient(135deg, #fff 0%, #f7f8fa 100%); }
     .vp-header { border-bottom: 1px solid rgba(0,0,0,0.08); background: #f7f7f7; padding: 14px 20px; display: flex; align-items: center; gap: 8px; }
     .vp-hd { width: 9px; height: 9px; border-radius: 50%; background: rgba(0,0,0,0.1); }
-    .vp-body { padding: 40px; min-height: 340px; display: flex; flex-direction: column; justify-content: center; transition: opacity 0.2s ease, transform 0.2s ease; }
+    .vp-body { padding: 48px; min-height: 420px; display: flex; flex-direction: column; justify-content: center; transition: opacity 0.2s ease, transform 0.2s ease; }
     .vp-body.fading { opacity: 0; transform: translateY(6px); }
-    .vp-big-num { font-family: 'JetBrains Mono', monospace; font-size: 5.5rem; font-weight: 900; letter-spacing: -0.05em; line-height: 1; color: rgba(0,0,0,0.04); margin-bottom: 16px; }
-    .vp-title { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.03em; color: #111; margin-bottom: 14px; line-height: 1.2; }
-    .vp-desc { font-size: 0.875rem; color: #555; line-height: 1.8; margin-bottom: 28px; }
+    .vp-big-num { font-family: 'JetBrains Mono', monospace; font-size: 7rem; font-weight: 900; letter-spacing: -0.05em; line-height: 1; color: rgba(0,0,0,0.05); margin-bottom: 20px; }
+    .vp-title { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.04em; color: #111; margin-bottom: 16px; line-height: 1.2; }
+    .vp-desc { font-size: 0.9rem; color: #555; line-height: 1.85; margin-bottom: 32px; }
     .vp-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-    .vp-tag { font-family: "JetBrains Mono", monospace; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; background: transparent; border: 1px solid rgba(0,0,0,0.15); padding: 4px 12px; border-radius: 2px; }
+    .vp-tag { font-family: "JetBrains Mono", monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; background: transparent; border: 1px solid rgba(0,0,0,0.15); padding: 5px 14px; border-radius: 2px; }
 
     /* ── PROBLEM / SOLUTION ── */
     .ps-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); margin-top: 72px; }
@@ -551,7 +553,7 @@
 <!-- ── HERO ── -->
 <section class="hero">
   <video class="hero-video active" id="heroVid1" autoplay muted playsinline>
-    <source src="static/video/hero4.mp4" type="video/mp4">
+    <source src="static/video/hero_bluish.mp4" type="video/mp4">
   </video>
   <video class="hero-video" id="heroVid2" muted playsinline>
     <source src="static/video/hero_office.mp4" type="video/mp4">
@@ -638,35 +640,35 @@
 
     <div class="how-layout">
       <div class="how-steps-col" id="how-steps-col">
-        <div class="how-step active" data-step="0">
+        <div class="how-step active" data-step="0" data-step-label="01">
           <div class="step-num-box"><span class="step-num">01</span></div>
           <div class="step-content">
             <h3>Define Your Ideal Customer</h3>
             <p>An intake form. We learn your business, your best clients, your deal size - and build the precise targeting blueprint that drives every decision we make on your behalf.</p>
           </div>
         </div>
-        <div class="how-step" data-step="1">
+        <div class="how-step" data-step="1" data-step-label="02">
           <div class="step-num-box"><span class="step-num">02</span></div>
           <div class="step-content">
             <h3>Build the List. Protect Your Relationships.</h3>
             <p>We source verified contacts matched to your ideal client profile. Share a do-not-contact list at intake - existing clients, partners, anyone off-limits - and they're automatically excluded before a single email goes out.</p>
           </div>
         </div>
-        <div class="how-step" data-step="2">
+        <div class="how-step" data-step="2" data-step-label="03">
           <div class="step-num-box"><span class="step-num">03</span></div>
           <div class="step-content">
             <h3>Write Personalized Outreach</h3>
             <p>Argus researches each prospect and writes every email for that specific person - their company, their role, their market context. AI-generated personalization at the opening of every message, at scale. Not a template. Not a mail merge. Messages that read like you wrote them yourself.</p>
           </div>
         </div>
-        <div class="how-step" data-step="3">
+        <div class="how-step" data-step="3" data-step-label="04">
           <div class="step-num-box"><span class="step-num">04</span></div>
           <div class="step-content">
             <h3>We Run the Full Sequence</h3>
             <p>Most outreach stops after one or two emails. We run a complete multi-touch sequence - personalized emails spaced over two weeks, followed by a personal phone follow-up for contacts who haven't replied. Every touchpoint references the last. When someone responds, their reply is reviewed and approved before anything sends back - so your name is never at risk.</p>
           </div>
         </div>
-        <div class="how-step" data-step="4">
+        <div class="how-step" data-step="4" data-step-label="05">
           <div class="step-num-box"><span class="step-num">05</span></div>
           <div class="step-content">
             <h3>Deliver Qualified Meetings</h3>
