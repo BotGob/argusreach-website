@@ -549,6 +549,57 @@
       .stat-cell:nth-child(odd) { border-right: none; }
       .stat-n { font-size: 2.5rem; }
     }
+    /* ── VOICE DEMO PLAYER ── */
+    .voice-demo-wrap { margin-top: 48px; max-width: 580px; }
+    .vd-label { font-family: "JetBrains Mono", monospace; font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: #666; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+    .vd-dot { width: 6px; height: 6px; background: #fff; border-radius: 50%; opacity: 0.5; animation: blink 2s infinite; }
+    .vd-player { background: #111; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 20px 24px; display: flex; flex-direction: column; gap: 16px; }
+    .vd-left { display: flex; align-items: center; gap: 16px; }
+    .vd-btn { width: 42px; height: 42px; border-radius: 50%; background: #fff; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #000; flex-shrink: 0; transition: opacity 0.2s, transform 0.15s; }
+    .vd-btn:hover { opacity: 0.85; transform: scale(1.05); }
+    .vd-title { font-size: 0.875rem; font-weight: 700; color: #fff; letter-spacing: -0.01em; margin-bottom: 3px; }
+    .vd-sub { font-family: "JetBrains Mono", monospace; font-size: 0.6rem; color: #555; letter-spacing: 0.04em; }
+    .vd-waveform { display: flex; align-items: center; height: 32px; }
+    .vd-bars { display: flex; align-items: center; gap: 3px; height: 100%; }
+    .vd-bars span { display: block; width: 3px; border-radius: 2px; background: rgba(255,255,255,0.15); transition: height 0.1s ease; }
+    .vd-bars span:nth-child(1)  { height: 40%; }
+    .vd-bars span:nth-child(2)  { height: 65%; }
+    .vd-bars span:nth-child(3)  { height: 80%; }
+    .vd-bars span:nth-child(4)  { height: 55%; }
+    .vd-bars span:nth-child(5)  { height: 90%; }
+    .vd-bars span:nth-child(6)  { height: 45%; }
+    .vd-bars span:nth-child(7)  { height: 70%; }
+    .vd-bars span:nth-child(8)  { height: 85%; }
+    .vd-bars span:nth-child(9)  { height: 50%; }
+    .vd-bars span:nth-child(10) { height: 75%; }
+    .vd-bars span:nth-child(11) { height: 60%; }
+    .vd-bars span:nth-child(12) { height: 95%; }
+    .vd-bars span:nth-child(13) { height: 40%; }
+    .vd-bars span:nth-child(14) { height: 70%; }
+    .vd-bars span:nth-child(15) { height: 55%; }
+    .vd-bars span:nth-child(16) { height: 85%; }
+    .vd-bars span:nth-child(17) { height: 65%; }
+    .vd-bars span:nth-child(18) { height: 45%; }
+    .vd-bars span:nth-child(19) { height: 80%; }
+    .vd-bars span:nth-child(20) { height: 70%; }
+    .vd-bars span:nth-child(21) { height: 50%; }
+    .vd-bars span:nth-child(22) { height: 90%; }
+    .vd-bars span:nth-child(23) { height: 60%; }
+    .vd-bars span:nth-child(24) { height: 75%; }
+    .vd-bars span:nth-child(25) { height: 40%; }
+    .vd-bars span:nth-child(26) { height: 65%; }
+    .vd-bars span:nth-child(27) { height: 85%; }
+    .vd-bars span:nth-child(28) { height: 55%; }
+    .vd-bars span:nth-child(29) { height: 70%; }
+    .vd-bars span:nth-child(30) { height: 45%; }
+    .vd-bars.playing span { animation: waveAnim 0.8s ease-in-out infinite alternate; }
+    .vd-bars.playing span:nth-child(odd) { animation-delay: 0.1s; }
+    .vd-bars.playing span:nth-child(3n) { animation-delay: 0.2s; }
+    @keyframes waveAnim { from { opacity: 0.2; transform: scaleY(0.4); } to { opacity: 1; transform: scaleY(1); } }
+    .vd-progress-wrap { cursor: pointer; padding: 4px 0; }
+    .vd-progress-bg { height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; position: relative; }
+    .vd-progress-fill { height: 100%; background: #fff; border-radius: 2px; width: 0%; transition: width 0.1s linear; }
+    .vd-note { font-size: 0.68rem; color: #444; margin-top: 10px; font-style: italic; }
   </style>
 </head>
 <body>
@@ -728,13 +779,42 @@
       <p style="font-size:0.7rem;color:var(--sub);margin-top:-4px;font-style:italic;">All names, companies, and scenarios shown are fictional and for illustrative purposes only.</p>
 
       <!-- Voice Demo -->
-      <div class="rv" style="margin-top:48px;border:1px solid var(--border2);border-radius:8px;padding:24px 28px;background:var(--bg3);max-width:600px;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:#aaa;margin-bottom:12px;display:flex;align-items:center;gap:8px;"><span style="width:6px;height:6px;background:#fff;border-radius:50%;display:inline-block;opacity:0.6;"></span>AI Voice Follow-up · Sample Call</div>
-        <p style="font-size:0.82rem;color:#aaa;line-height:1.6;margin-bottom:16px;">Hear what a follow-up call sounds like. This is the same AI voice that calls prospects on your behalf when they haven't replied to the email sequence.</p>
-        <audio controls style="width:100%;accent-color:#fff;" preload="none">
+      <div class="rv voice-demo-wrap">
+        <div class="vd-label">
+          <span class="vd-dot"></span>
+          AI Voice Follow-up · Sample Call
+        </div>
+        <div class="vd-player" id="vd-player">
+          <div class="vd-left">
+            <button class="vd-btn" id="vd-btn" onclick="toggleVoiceDemo()">
+              <svg id="vd-play-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <svg id="vd-pause-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+            </button>
+            <div class="vd-info">
+              <div class="vd-title">AI Follow-up Call</div>
+              <div class="vd-sub" id="vd-time">0:00 / 0:28</div>
+            </div>
+          </div>
+          <div class="vd-waveform" id="vd-waveform">
+            <div class="vd-bars">
+              <span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="vd-progress-wrap" onclick="seekVoiceDemo(event)" id="vd-progress-wrap">
+            <div class="vd-progress-bg">
+              <div class="vd-progress-fill" id="vd-fill"></div>
+            </div>
+          </div>
+        </div>
+        <audio id="vd-audio" preload="none">
           <source src="static/voice-demo.mp3" type="audio/mpeg">
         </audio>
-        <p style="font-size:0.68rem;color:#555;margin-top:10px;font-style:italic;">Fictional scenario for demonstration purposes only.</p>
+        <p class="vd-note">Same AI voice that calls prospects on your behalf. Fictional scenario — for demonstration only.</p>
       </div>
     </div>
 
@@ -1325,6 +1405,61 @@ async function submitCap() {
     vids[cur].classList.remove("active");
     cur = next;
   }, 9000);
+})();
+</script>
+<script>
+/* ── VOICE DEMO PLAYER ── */
+(function() {
+  const audio = document.getElementById("vd-audio");
+  const btn = document.getElementById("vd-btn");
+  const playIcon = document.getElementById("vd-play-icon");
+  const pauseIcon = document.getElementById("vd-pause-icon");
+  const fill = document.getElementById("vd-fill");
+  const timeEl = document.getElementById("vd-time");
+  const bars = document.querySelector(".vd-bars");
+  if (!audio) return;
+
+  function fmt(s) {
+    const m = Math.floor(s / 60);
+    const sec = Math.floor(s % 60);
+    return m + ":" + (sec < 10 ? "0" : "") + sec;
+  }
+
+  window.toggleVoiceDemo = function() {
+    if (audio.paused) {
+      audio.play();
+      playIcon.style.display = "none";
+      pauseIcon.style.display = "block";
+      bars.classList.add("playing");
+    } else {
+      audio.pause();
+      playIcon.style.display = "block";
+      pauseIcon.style.display = "none";
+      bars.classList.remove("playing");
+    }
+  };
+
+  window.seekVoiceDemo = function(e) {
+    const wrap = document.getElementById("vd-progress-wrap");
+    const rect = wrap.getBoundingClientRect();
+    const pct = (e.clientX - rect.left) / rect.width;
+    if (audio.duration) audio.currentTime = pct * audio.duration;
+  };
+
+  audio.addEventListener("timeupdate", function() {
+    if (!audio.duration) return;
+    const pct = (audio.currentTime / audio.duration) * 100;
+    fill.style.width = pct + "%";
+    timeEl.textContent = fmt(audio.currentTime) + " / " + fmt(audio.duration);
+  });
+
+  audio.addEventListener("ended", function() {
+    playIcon.style.display = "block";
+    pauseIcon.style.display = "none";
+    bars.classList.remove("playing");
+    fill.style.width = "0%";
+    timeEl.textContent = "0:00 / " + fmt(audio.duration || 0);
+  });
 })();
 </script>
 </body>
