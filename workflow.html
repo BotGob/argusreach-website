@@ -4,322 +4,301 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>How ArgusReach Works - Step by Step</title>
-<meta name="description" content="A clear picture of every step - from intake form to first meeting booked. Who does what, when, and what you can expect." />
-  <link rel="canonical" href="https://argusreach.com/workflow" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://argusreach.com/workflow" />
-  <meta property="og:title" content="How ArgusReach Works - Step by Step" />
-  <meta property="og:description" content="From onboarding to your first meeting booked - here's exactly how ArgusReach works." />
-  <meta property="og:site_name" content="ArgusReach" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="How ArgusReach Works - Step by Step" />
-  <meta name="twitter:description" content="From onboarding to your first meeting booked - here's exactly how ArgusReach works." />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<meta name="description" content="From strategy call to live campaign, here is exactly how ArgusReach works, what happens when, and what you can expect along the way." />
+<link rel="canonical" href="https://argusreach.com/workflow" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://argusreach.com/workflow" />
+<meta property="og:title" content="How ArgusReach Works - Step by Step" />
+<meta property="og:description" content="A clear picture of what happens when, who does what, and what to expect from intake to launch." />
+<meta property="og:site_name" content="ArgusReach" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How ArgusReach Works - Step by Step" />
+<meta name="twitter:description" content="A clear picture of what happens when, who does what, and what to expect from intake to launch." />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --bg: #0a0a0a; --bg2: #111; --bg3: #181818;
-  --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.12);
-  --text: #f0f0f0; --sub: #888; --green: #4ade80; --white: #fff;
+  --bg: #0f0f0f;
+  --bg2: #161616;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.13);
+  --text: #f5f5f5;
+  --sub: #888;
+  --muted: #444;
+  --white: #ffffff;
+  --light: #fafafa;
+  --light-border: #e5e5e5;
+  --light-text: #111;
+  --light-sub: #555;
 }
 body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
-.wrap { max-width: 700px; margin: 0 auto; padding: 64px 24px 96px; }
-
-.eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 20px; }
-h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.1; color: var(--white); margin-bottom: 16px; }
-h1 span { color: var(--green); }
-.hero-sub { font-size: 1rem; color: var(--sub); line-height: 1.7; margin-bottom: 56px; max-width: 540px; }
-
-/* Timeline */
-.timeline { display: flex; flex-direction: column; gap: 0; position: relative; }
-.timeline::before { content: ''; position: absolute; left: 20px; top: 8px; bottom: 8px; width: 2px; background: var(--border2); }
-
-.tl-item { display: flex; gap: 20px; padding-bottom: 40px; position: relative; }
-.tl-item:last-child { padding-bottom: 0; }
-
-.tl-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 42px; }
-.tl-dot { width: 42px; height: 42px; border-radius: 50%; background: rgba(74,222,128,0.1); border: 2px solid var(--green); color: var(--green); font-size: 0.8rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; z-index: 1; position: relative; }
-.tl-dot.client { background: rgba(96,165,250,0.1); border-color: #60a5fa; color: #60a5fa; }
-.tl-dot.auto { background: rgba(74,222,128,0.1); border-color: var(--green); color: var(--green); }
-
-.tl-body { flex: 1; padding-top: 8px; }
-.tl-tag { display: inline-block; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; margin-bottom: 10px; }
-.tl-tag.you { background: rgba(96,165,250,0.1); color: #60a5fa; border: 1px solid rgba(96,165,250,0.25); }
-.tl-tag.argus { background: rgba(74,222,128,0.1); color: var(--green); border: 1px solid rgba(74,222,128,0.25); }
-.tl-tag.both { background: rgba(251,191,36,0.1); color: #fbbf24; border: 1px solid rgba(251,191,36,0.25); }
-
-.tl-body h3 { font-size: 1rem; font-weight: 800; color: var(--white); margin-bottom: 8px; letter-spacing: -0.02em; }
-.tl-body p { font-size: 0.875rem; color: var(--sub); line-height: 1.65; }
-.tl-body p b { color: var(--text); }
-.tl-body .note { margin-top: 10px; font-size: 0.78rem; color: #555; font-style: italic; }
-
-/* Time badge */
-.tl-time { display: inline-block; font-size: 0.7rem; color: #555; margin-top: 8px; font-family: monospace; }
-
-/* Divider */
-.phase-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #444; margin: 40px 0 24px 62px; }
-
-/* Summary box */
-.summary { background: var(--bg2); border: 1px solid var(--border2); border-radius: 8px; padding: 24px 28px; margin: 56px 0 48px; }
-.summary h3 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sub); margin-bottom: 18px; }
-.summary-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.summary-col h4 { font-size: 0.8rem; font-weight: 700; margin-bottom: 12px; }
-.summary-col h4.you { color: #60a5fa; }
-.summary-col h4.argus { color: var(--green); }
-.summary-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-.summary-col li { font-size: 0.82rem; color: var(--sub); display: flex; gap: 8px; align-items: flex-start; line-height: 1.4; }
-.summary-col li::before { content: '→'; flex-shrink: 0; margin-top: 1px; }
-.summary-col.you li::before { color: #60a5fa; }
-.summary-col.argus li::before { color: var(--green); }
-
-/* CTA */
-.cta-block { text-align: center; }
-.cta-block p { font-size: 0.9rem; color: var(--sub); margin-bottom: 20px; }
-.btn { display: inline-block; background: var(--green); color: #000; font-weight: 800; font-size: 0.9rem; padding: 14px 32px; border-radius: 6px; text-decoration: none; }
-.cta-sub { font-size: 0.75rem; color: var(--sub); margin-top: 12px; }
-.back-link { display: inline-block; margin-bottom: 40px; font-size: 0.8rem; color: var(--sub); text-decoration: none; }
-.back-link:hover { color: var(--text); }
-
-footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; font-size: 0.72rem; color: #444; }
-footer a { color: #555; text-decoration: none; }
-
-@media (max-width: 600px) {
-  .summary-cols { grid-template-columns: 1fr; }
+a { color: inherit; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px; height: 56px;
+  background: rgba(15,15,15,0.94); backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+.logo { font-size: 0.95rem; font-weight: 800; letter-spacing: -0.02em; color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+.logo-mark { width: 22px; height: 22px; border: 1.5px solid rgba(255,255,255,0.25); border-radius: 5px; display: grid; place-items: center; }
+.logo-mark-dot { width: 6px; height: 6px; background: var(--white); border-radius: 50%; }
+.logo span { color: var(--sub); font-weight: 300; }
+.nav-cta { background: var(--white); color: #000; padding: 7px 18px; border-radius: 4px; font-weight: 700; font-size: 0.8rem; text-decoration: none; }
+.hero { padding: 88px 0 72px; background: var(--bg); border-bottom: 1px solid var(--border); }
+.hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 42px; align-items: end; }
+.eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 20px; }
+h1 { font-size: clamp(2.8rem, 7vw, 5rem); font-weight: 900; letter-spacing: -0.05em; line-height: 0.95; color: var(--white); margin-bottom: 24px; }
+h1 span { display: block; color: rgba(255,255,255,0.38); font-weight: 300; }
+.hero-sub { font-size: 1.02rem; color: rgba(255,255,255,0.82); line-height: 1.9; max-width: 650px; }
+.hero-card { background: #fff; color: #111; border: 1px solid rgba(255,255,255,0.06); padding: 28px; border-radius: 10px; }
+.hero-card-label { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: #666; margin-bottom: 16px; }
+.hero-card h3 { font-size: 1.18rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 12px; }
+.hero-card p { font-size: 0.9rem; line-height: 1.75; color: #555; }
+.hero-card ul { margin-top: 18px; list-style: none; display: grid; gap: 10px; }
+.hero-card li { font-size: 0.82rem; color: #222; line-height: 1.5; padding-left: 18px; position: relative; }
+.hero-card li::before { content: "•"; position: absolute; left: 0; color: #777; }
+.light-section { background: var(--light); color: var(--light-text); padding: 88px 0; }
+.dark-section { background: var(--bg); color: var(--text); padding: 88px 0; }
+.section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+.section-title { font-size: clamp(2.1rem, 5vw, 3.7rem); font-weight: 900; letter-spacing: -0.04em; line-height: 0.98; margin-bottom: 16px; }
+.section-sub { font-size: 0.98rem; line-height: 1.85; max-width: 700px; color: var(--light-sub); }
+.phase-grid { display: grid; gap: 16px; margin-top: 34px; }
+.phase-card { background: #fff; border: 1px solid var(--light-border); border-radius: 10px; padding: 24px; }
+.phase-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: #666; margin-bottom: 10px; }
+.phase-card h3 { font-size: 1.08rem; font-weight: 800; color: #111; margin-bottom: 10px; }
+.phase-card p { font-size: 0.9rem; line-height: 1.7; color: #555; }
+.phase-card ul { margin-top: 14px; list-style: none; display: grid; gap: 10px; }
+.phase-card li { font-size: 0.86rem; line-height: 1.65; color: #444; padding-left: 18px; position: relative; }
+.phase-card li::before { content: "•"; position: absolute; left: 0; color: #777; }
+.steps { display: grid; gap: 16px; margin-top: 36px; }
+.step { display: grid; grid-template-columns: 48px 1fr; gap: 18px; padding: 22px 0; border-bottom: 1px solid var(--border); }
+.step:last-child { border-bottom: none; }
+.step-num { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--border2); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--white); }
+.step h3 { font-size: 1.02rem; font-weight: 700; margin-bottom: 6px; color: var(--white); }
+.step p { font-size: 0.92rem; line-height: 1.75; color: var(--sub); }
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 36px; }
+.summary-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
+.summary-card h3 { font-size: 0.9rem; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+.summary-card ul { list-style: none; display: grid; gap: 10px; }
+.summary-card li { font-size: 0.84rem; color: var(--sub); line-height: 1.6; padding-left: 18px; position: relative; }
+.summary-card li::before { content: "•"; position: absolute; left: 0; color: #999; }
+.cta-section { padding: 88px 0 96px; text-align: center; background: var(--bg); }
+.cta-section h2 { font-size: clamp(2rem, 5vw, 3.1rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1; color: var(--white); margin-bottom: 16px; }
+.cta-section p { font-size: 0.96rem; color: var(--sub); line-height: 1.8; max-width: 680px; margin: 0 auto 28px; }
+.btn-white { background: var(--white); color: #000; padding: 14px 28px; border-radius: 4px; font-size: 0.88rem; font-weight: 700; text-decoration: none; display: inline-block; }
+.footer { border-top: 1px solid var(--border); padding-top: 24px; margin-top: 56px; font-size: 0.74rem; color: #666; }
+@media (max-width: 900px) {
+  .hero-grid, .summary-grid { grid-template-columns: 1fr; }
+  h1 span { display: inline; }
 }
 </style>
 </head>
 <body>
-<div class="wrap">
+<nav>
+  <a href="/" class="logo">
+    <div class="logo-mark"><div class="logo-mark-dot"></div></div>
+    ArgusReach<span> · Workflow</span>
+  </a>
+  <a href="https://calendly.com/vito-argusreach/30min" class="nav-cta">Book a Call</a>
+</nav>
 
-  <a href="https://www.argusreach.com" class="back-link">← argusreach.com</a>
-
-  <div class="eyebrow">ArgusReach · How It Works</div>
-  <h1>From first call to first meeting -<br /><span>here's every step.</span></h1>
-  <p class="hero-sub">A clear picture of what happens when, who does what, and what you can expect. Two colors: <span style="color:#60a5fa;font-weight:600;">blue is you</span>, <span style="color:#4ade80;font-weight:600;">green is Argus</span>.</p>
-
-  <!-- PHASE 0 -->
-  <div class="phase-label">Phase 0 - Getting Started</div>
-  <div class="timeline">
-
-    <div class="tl-item">
-      <div class="tl-left"><div class="tl-dot client">1</div></div>
-      <div class="tl-body">
-        <div class="tl-tag both">You + Us</div>
-        <h3>Agreement &amp; Setup Fee</h3>
-        <p>After your strategy call, we send a simple service agreement covering scope, pricing, and term. Once signed and the $500 setup fee is paid, we send you an intake form and get started.</p>
-        <div class="tl-time">⏱ ~5 min to sign and pay</div>
-      </div>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">ArgusReach · Workflow</div>
+      <h1>From first call to live campaign.<span>Here is exactly how it works.</span></h1>
+      <p class="hero-sub">A clear picture of what happens when, what we handle for you, and what you can expect from strategy call through launch. This reflects the current ArgusReach process, not an old draft.</p>
     </div>
-
-    <div class="tl-item">
-      <div class="tl-left"><div class="tl-dot client">2</div></div>
-      <div class="tl-body">
-        <div class="tl-tag you">You</div>
-        <h3>Fill Out Your Intake Form</h3>
-        <p>We learn your business through a short form - who your best clients are, who you want to reach, your target market, and how you communicate. No call required. Everything after this is handled for you.</p>
-        <div class="tl-time">⏱ ~10 min, one time</div>
-      </div>
+    <div class="hero-card">
+      <div class="hero-card-label">What to expect</div>
+      <h3>You are not buying software you have to manage.</h3>
+      <p>ArgusReach is done for you. We handle the operational side, but there are a few key approvals and setup items on your side before outreach goes live.</p>
+      <ul>
+        <li>Agreement, setup fee, and intake come first</li>
+        <li>Dedicated outreach email and calendar connection happen during setup</li>
+        <li>Launch happens only after all pre-launch gates are green</li>
+      </ul>
     </div>
-
-    <div class="tl-item">
-      <div class="tl-left"><div class="tl-dot client">3</div></div>
-      <div class="tl-body">
-        <div class="tl-tag you">You</div>
-        <h3>Share Your Do-Not-Contact List - Optional</h3>
-        <p>Anyone you already work with, have an active relationship with, or never want contacted. We scrub the entire list before anything sends. Can be a spreadsheet, a CSV, or a rough list of names - we take care of it.</p>
-        <div class="tl-time">⏱ ~10 min if you have one - no rush</div>
-      </div>
-    </div>
-
   </div>
+</section>
 
-  <!-- PHASE 1 -->
-  <div class="phase-label">Phase 1 - Setup · Weeks 1–2</div>
-  <div class="timeline">
+<section class="light-section">
+  <div class="wrap">
+    <div class="section-label">Phase 1</div>
+    <h2 class="section-title">Sales and intake</h2>
+    <p class="section-sub">This is the front-end onboarding phase. Nothing launches yet. The goal here is to make sure the agreement is signed, the setup fee is paid, and your intake information is captured correctly.</p>
 
-    <div class="tl-item">
-      <div class="tl-left"><div class="tl-dot auto">4</div></div>
-      <div class="tl-body">
-        <div class="tl-tag argus">Argus</div>
-        <h3>We Build Your Prospect List</h3>
-        <p>We source verified contacts matched to the ideal client profile from your intake form - name, company, title, and email confirmed through our sourcing process. Your do-not-contact list is cross-referenced automatically.</p>
-        <div class="tl-time">⏱ 1–2 business days</div>
-      </div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-left"><div class="tl-dot auto">5</div></div>
-      <div class="tl-body">
-        <div class="tl-tag argus">Argus</div>
-        <h3>We Write Your Outreach Sequences</h3>
-        <p>A 3-touch email sequence written in your voice. <b>Each email's opening is personalized to that specific prospect</b> - referencing their company or context so it reads like it was written for them, not copied from a template. Short, direct, and easy to respond to.</p>
-        <p class="note"><b>What's a sequence?</b> A short series of timed follow-up emails sent automatically over a few weeks. Most people don't respond to the first email - not because they're uninterested, but because they're busy. The sequence follows up naturally so no opportunity slips through.</p>
-        <div class="tl-time">⏱ 1–2 business days</div>
-      </div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-left"><div class="tl-dot client">6</div></div>
-      <div class="tl-body">
-        <div class="tl-tag both">You + Us</div>
-        <h3>You Review and Approve</h3>
-        <p>We share the full sequence before a single email sends. Read through it, adjust the tone, change anything - it's your name on every email. <b>Nothing goes out without your approval.</b></p>
-        <div class="tl-time">⏱ ~15–20 min</div>
-      </div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-left"><div class="tl-dot client">7</div></div>
-      <div class="tl-body">
-        <div class="tl-tag you">You</div>
-        <h3>Set Up Your Outreach Email</h3>
-        <p>You create a dedicated sending address on your domain - something like <b>outreach@yourfirm.com</b> - using Google Workspace or Microsoft 365. This keeps your main inbox completely separate and is the address all outreach sends from.</p>
-        <p class="note">We send you the exact DNS records to forward to whoever manages your domain. Most IT teams add them in under 20 minutes. Once they're in, we verify everything and confirm you're good to go.</p>
-        <div class="tl-time">⏱ ~10 min to create the address - IT adds DNS records separately</div>
-      </div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-left"><div class="tl-dot client">8</div></div>
-      <div class="tl-body">
-        <div class="tl-tag you">You</div>
-        <h3>Connect Your Calendar</h3>
-        <p>We set up a dedicated booking link for you - no extra accounts needed on your end. You connect your existing Google or Outlook calendar. Prospects see your real availability and pick a time directly. You choose how you meet: phone, video, in-person at your office, or you go to them.</p>
-        <div class="tl-time">⏱ ~2 min to connect</div>
-      </div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-left"><div class="tl-dot auto">9</div></div>
-      <div class="tl-body">
-        <div class="tl-tag argus">Argus</div>
-        <h3>Warmup Period - Runs in the Background</h3>
-        <p>Before any outreach sends, your new email address spends 2–3 weeks building its sending reputation automatically. This is what ensures your emails land in the inbox - not spam - from day one. <b>You don't do anything during this window.</b> It runs entirely in the background while everything else is being finalized.</p>
-        <div class="tl-time">⏱ 2–3 weeks, fully automated</div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- PHASE 2 -->
-  <div class="phase-label">Phase 2 - Live · Week 3–5 Onward</div>
-  <div class="timeline">
-
-    <div class="tl-item">
-      <div class="tl-left"><div class="tl-dot auto">10</div></div>
-      <div class="tl-body">
-        <div class="tl-tag argus">Argus</div>
-        <h3>Campaign Goes Live</h3>
-        <p>Once warmup is complete and everything is verified, outreach begins. Emails send on a natural human schedule - not a bulk blast. Follow-ups go out automatically to non-responders at timed intervals. Every email looks like it came directly from you. <b>Monthly billing begins on this date.</b></p>
-        <div class="tl-time">⏱ Runs automatically, 24/7</div>
-      </div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-left"><div class="tl-dot auto">11</div></div>
-      <div class="tl-body">
-        <div class="tl-tag argus">Argus</div>
-        <h3>Every Reply Is Handled</h3>
-        <p>Argus monitors and classifies every reply in real time:<br /><br />
-        <b>Interested</b> → a reply draft is prepared and reviewed before it sends. The prospect receives a response with your booking link, picks a time from your live calendar, and books. You get a notification with their name, company, and meeting details.<br /><br />
-        <b>Not now</b> → logged and re-queued for a future touchpoint.<br /><br />
-        <b>Unsubscribe</b> → honored instantly, permanently removed from all future outreach.<br /><br />
-        <b>Anything sensitive</b> → flagged to you directly before any response goes out.</p>
-        <div class="tl-time">⏱ Typically within the hour</div>
-      </div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-left"><div class="tl-dot auto">12</div></div>
-      <div class="tl-body">
-        <div class="tl-tag argus">Argus</div>
-        <h3>Every Touchpoint Logged</h3>
-        <p>Every contact is tracked: when we reached out, what was sent, what they replied, what the next action is. <b>No more guessing who's been contacted or when.</b> Your entire outreach history - organized and always current.</p>
-        <div class="tl-time">⏱ Updated in real time</div>
-      </div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-left"><div class="tl-dot client">13</div></div>
-      <div class="tl-body">
-        <div class="tl-tag you">You</div>
-        <h3>Show Up to the Meeting</h3>
-        <p>The prospect already knows who you are - they responded to your email. You walk in warm, not cold. The meeting is already on your calendar with context on who they are and what they said.</p>
-        <div class="tl-time">⏱ Your only recurring commitment</div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- PHASE 3 -->
-  <div class="phase-label">Phase 3 - Ongoing · Every Month</div>
-  <div class="timeline">
-
-    <div class="tl-item">
-      <div class="tl-left"><div class="tl-dot auto">14</div></div>
-      <div class="tl-body">
-        <div class="tl-tag argus">Argus</div>
-        <h3>Monthly Report</h3>
-        <p>Every month you get a clear summary - contacts reached, replies received, and meetings booked. No jargon. Just the numbers that matter and a plain-English read on your pipeline. If anything needs to change in the approach, we reach out directly.</p>
-        <div class="tl-time">⏱ ~5 min to read</div>
-      </div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-left"><div class="tl-dot auto">15</div></div>
-      <div class="tl-body">
-        <div class="tl-tag argus">Argus</div>
-        <h3>Pipeline Refreshes Automatically</h3>
-        <p>As contacts work through the sequence, we source new prospects to keep volume consistent. Your pipeline never goes quiet. You never have to think about it.</p>
-        <div class="tl-time">⏱ Automatic, every month</div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- SUMMARY -->
-  <div class="summary">
-    <h3>The full picture at a glance</h3>
-    <div class="summary-cols">
-      <div class="summary-col you">
-        <h4 class="you">What you do</h4>
+    <div class="phase-grid">
+      <div class="phase-card">
+        <div class="phase-kicker">What happens</div>
+        <h3>Discovery call, agreement, setup fee, intake</h3>
+        <p>After the discovery call, Vito sends the service agreement, the $500 setup fee link, and your intake form. Once those are complete, the intake can be approved in the portal.</p>
         <ul>
-          <li>Sign the agreement and pay the setup fee</li>
-          <li>Fill out the intake form (~10 min, one time)</li>
-          <li>Share your do-not-contact list (optional)</li>
-          <li>Review and approve your email sequences (~20 min)</li>
-          <li>Set up a dedicated outreach email on your domain (~10 min)</li>
-          <li>Connect your calendar (~2 min)</li>
-          <li>Show up to the meetings</li>
-          <li>Read the monthly report (~5 min)</li>
-        </ul>
-      </div>
-      <div class="summary-col argus">
-        <h4 class="argus">What Argus handles</h4>
-        <ul>
-          <li>Build and verify your prospect list</li>
-          <li>Write personalized outreach in your voice</li>
-          <li>Send and manage all email sequences</li>
-          <li>Handle every reply and follow-up</li>
-          <li>Book meetings directly to your calendar</li>
-          <li>Log every touchpoint automatically</li>
-          <li>Monthly reporting and pipeline refresh</li>
+          <li>You sign the agreement</li>
+          <li>You pay the $500 setup fee</li>
+          <li>You submit the intake form</li>
+          <li>Argus gets the information needed to build your campaign</li>
         </ul>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- CTA -->
-  <div class="cta-block">
-    <p>Ready to see what this looks like for your business specifically?</p>
-    <a href="https://calendly.com/vito-argusreach/30min" class="btn">Book a Free Strategy Call</a>
-    <div class="cta-sub">30 minutes. We'll map out your target market, walk through the process, and answer every question.</div>
+<section class="dark-section">
+  <div class="wrap">
+    <div class="section-label">Phase 2</div>
+    <h2 class="section-title">Intake approval and setup</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div>
+          <h3>Intake gets approved</h3>
+          <p>After payment and signature are verified, the intake is approved. That approval automatically creates your client record, writes your DNC information, generates your unique subscription link, creates your secure credential link, sends your welcome email, and generates your first outreach sequence draft.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div>
+          <h3>You set up your outreach email and submit credentials</h3>
+          <p>You create a dedicated outreach email account, generate an app password, and submit both through the secure one-time credential link. This is how Argus gets access to the sending mailbox safely.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div>
+          <h3>Warmup and DNS setup begin</h3>
+          <p>Once credentials are received, Argus links them to your client record, starts Instantly warmup immediately, generates DNS records for your sending domain, and starts DNS verification polling in the background.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div>
+          <h3>Sequence review and follow-up email</h3>
+          <p>Vito reviews and edits your generated sequence draft if needed, then sends the follow-up email with your DNS records, your sequence draft, your Calendly link, and warmup timing expectations.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div>
+          <h3>Client-side setup runs in parallel</h3>
+          <p>While warmup runs, your side handles the remaining setup steps: IT adds DNS records, you review and approve the sequence, and you connect your calendar to Calendly.</p>
+        </div>
+      </div>
+    </div>
   </div>
+</section>
 
-  <footer>
-    <a href="https://www.argusreach.com">argusreach.com</a> &nbsp;·&nbsp; vito@argusreach.com
-  </footer>
+<section class="light-section">
+  <div class="wrap">
+    <div class="section-label">Phase 3</div>
+    <h2 class="section-title">Pre-launch gates</h2>
+    <p class="section-sub">Nothing launches early. ArgusReach checks all six launch gates before the campaign is considered ready.</p>
 
-</div>
+    <div class="phase-grid">
+      <div class="phase-card">
+        <div class="phase-kicker">All 6 required</div>
+        <h3>Your campaign is only ready when these are green</h3>
+        <ul>
+          <li>ICP configured</li>
+          <li>Sequence approved</li>
+          <li>DNS verified</li>
+          <li>Warmup score at or above 85%</li>
+          <li>Subscription payment confirmed</li>
+          <li>Calendar connected</li>
+        </ul>
+        <p>When all six are green, the portal marks the client ready to launch and alerts Vito. Vito then sends the ready-to-launch email with your unique subscription link.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark-section">
+  <div class="wrap">
+    <div class="section-label">Phase 4</div>
+    <h2 class="section-title">Launch and active campaign</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div>
+          <h3>Subscription payment is confirmed</h3>
+          <p>After the client pays the monthly subscription, Vito confirms payment and creates the campaign once all six gates are satisfied.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div>
+          <h3>Argus builds the campaign draft automatically</h3>
+          <p>The launch pipeline pulls leads from Apollo using your ICP, filters DNC contacts, replaces removed leads when needed, personalizes the outreach with company-level context, and creates the Instantly campaign as a draft with your approved sequence and lead set loaded.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div>
+          <h3>Vito reviews and activates in Instantly</h3>
+          <p>Argus does not auto-activate. Vito reviews the draft in Instantly first. Once activated, Gob marks the client active and the monitor goes live.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div>
+          <h3>Reply handling and booking run automatically</h3>
+          <p>Instantly sends during business hours. The monitor filters warmup traffic, classifies genuine replies, alerts Vito when attention is needed, drafts replies for approval, logs outcomes, and routes booked meetings through Calendly alerts.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div>
+          <h3>Voice follow-up activates for Growth and Scale</h3>
+          <p>For Growth and Scale clients, AI voice follow-up can engage prospects who have not replied after the email sequence, using the approved positioning and context from the email campaign.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="summary-grid">
+      <div class="summary-card">
+        <h3>What Argus handles</h3>
+        <ul>
+          <li>Client record creation and setup automation</li>
+          <li>Sequence generation and campaign drafting</li>
+          <li>Warmup, DNS polling, and checklist monitoring</li>
+          <li>Reply classification, drafting, and DNC handling</li>
+          <li>Monthly campaign refresh and reporting</li>
+        </ul>
+      </div>
+      <div class="summary-card">
+        <h3>What the client still does</h3>
+        <ul>
+          <li>Create the dedicated outreach email</li>
+          <li>Provide the app password securely</li>
+          <li>Have IT add DNS records</li>
+          <li>Approve the sequence and connect the calendar</li>
+          <li>Show up to warm conversations and close</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light-section">
+  <div class="wrap">
+    <div class="section-label">Phase 5</div>
+    <h2 class="section-title">Monthly cycle</h2>
+    <p class="section-sub">On the first of each month, Argus refreshes the campaign automatically. New leads are pulled, exclusions are respected, personalization runs again, and new leads are loaded into the active campaign. A monthly report is generated in the portal for Vito to review and send manually.</p>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="wrap">
+    <h2>Want to walk through the process live?</h2>
+    <p>We can show you exactly where your setup would fit, what happens on your side, and how the launch timeline works before you commit to anything.</p>
+    <a href="https://calendly.com/vito-argusreach/30min" class="btn-white">Book a Free Strategy Call</a>
+    <div class="footer">
+      <a href="https://www.argusreach.com">argusreach.com</a> &nbsp;·&nbsp; vito@argusreach.com
+    </div>
+  </div>
+</section>
 </body>
 </html>
