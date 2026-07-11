@@ -159,17 +159,18 @@
       object-fit: cover;
       opacity: 0;
       transition: opacity 1.5s ease;
-      filter: saturate(0.85) contrast(1.08);
+      filter: saturate(1.18) contrast(1.1) brightness(1.06);
     }
-    .hero-video.active { opacity: 0.5; }
+    .hero-video.active { opacity: 0.78; }
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 16% 16%, rgba(154,230,255,0.2), transparent 30%),
-        linear-gradient(90deg, rgba(2,3,4,0.98) 0%, rgba(2,3,4,0.78) 45%, rgba(2,3,4,0.92) 100%),
-        linear-gradient(to bottom, rgba(2,3,4,0.15), #08090a 94%);
+        radial-gradient(circle at 16% 16%, rgba(154,230,255,0.28), transparent 30%),
+        radial-gradient(circle at 76% 46%, rgba(154,230,255,0.12), transparent 34%),
+        linear-gradient(90deg, rgba(2,3,4,0.86) 0%, rgba(2,3,4,0.58) 46%, rgba(2,3,4,0.78) 100%),
+        linear-gradient(to bottom, rgba(2,3,4,0.08), #08090a 96%);
       z-index: 1;
     }
     .hero::after {
@@ -178,8 +179,8 @@
       inset: 0;
       z-index: 2;
       background-image:
-        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+        linear-gradient(rgba(154,230,255,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(154,230,255,0.065) 1px, transparent 1px);
       background-size: 72px 72px;
       mask-image: linear-gradient(to bottom, black, transparent 78%);
       pointer-events: none;
@@ -248,7 +249,7 @@
       background: linear-gradient(145deg, rgba(255,255,255,0.11), rgba(255,255,255,0.045));
       border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 26px 80px rgba(0,0,0,0.48), inset 0 1px 0 rgba(255,255,255,0.08);
+      box-shadow: 0 26px 80px rgba(0,0,0,0.48), 0 0 54px rgba(154,230,255,0.1), inset 0 1px 0 rgba(255,255,255,0.08);
       backdrop-filter: blur(18px);
     }
     .panel-top {
@@ -579,10 +580,10 @@
       <source src="static/video/hero_bluish.mp4" type="video/mp4" />
     </video>
     <video class="hero-video" id="heroVid2" muted playsinline>
-      <source src="static/video/hero_office.mp4" type="video/mp4" />
+      <source src="static/video/hero_drone.mp4" type="video/mp4" />
     </video>
     <video class="hero-video" id="heroVid3" muted playsinline>
-      <source src="static/video/hero_cables.mp4" type="video/mp4" />
+      <source src="static/video/hero.mp4" type="video/mp4" />
     </video>
 
     <div class="wrap hero-grid">
@@ -596,7 +597,7 @@
           </a>
           <a href="#demo" class="btn btn-ghost">View System Preview</a>
         </div>
-        <p class="hero-note mono">No generic chatbot. No software theater. Useful systems shipped around real work.</p>
+        <p class="hero-note mono">No generic chatbot. No shelfware. Production-minded systems around real work.</p>
       </div>
 
       <div class="control-panel">
