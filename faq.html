@@ -4,240 +4,115 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FAQ - ArgusReach</title>
-  <meta name="description" content="Frequently asked questions about ArgusReach AI-powered sales development for professional services firms." />
+  <meta name="description" content="Frequently asked questions about ArgusReach AI agents, dashboards, reporting systems, and workflow builds." />
   <link rel="canonical" href="https://argusreach.com/faq" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://argusreach.com/faq" />
   <meta property="og:title" content="FAQ - ArgusReach" />
-  <meta property="og:description" content="Common questions about how ArgusReach works, pricing, and what to expect." />
+  <meta property="og:description" content="Common questions about ArgusReach AI systems, workflow builds, dashboards, and reporting automation." />
   <meta property="og:site_name" content="ArgusReach" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="FAQ - ArgusReach" />
-  <meta name="twitter:description" content="Common questions about how ArgusReach works, pricing, and what to expect." />
+  <meta name="twitter:description" content="Common questions about ArgusReach AI systems and workflow builds." />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --bg: #0f0f0f; --bg2: #161616; --bg3: #1d1d1d; --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.13); --text: #f0f0f0; --sub: #888; --muted: #444; --green: #4ade80; --white: #fff; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
-    nav { display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 52px; border-bottom: 1px solid var(--border2); background: rgba(15,15,15,0.97); position: sticky; top: 0; z-index: 100; }
-    .logo { font-size: 0.9rem; font-weight: 800; letter-spacing: -0.02em; color: var(--white); text-decoration: none; }
-    .logo span { color: var(--sub); font-weight: 300; }
-    .btn-book { background: var(--green); color: #000; font-size: 0.8rem; font-weight: 700; padding: 8px 20px; border-radius: 4px; text-decoration: none; }
-
-    .page { max-width: 720px; margin: 0 auto; padding: 64px 24px 100px; }
-    .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
-    .eyebrow::before { content: ''; width: 18px; height: 1px; background: var(--muted); }
-    h1 { font-size: 2.5rem; font-weight: 900; letter-spacing: -0.04em; color: var(--white); margin-bottom: 12px; }
-    .page-sub { font-size: 0.925rem; color: var(--sub); line-height: 1.75; margin-bottom: 56px; }
-
-    .faq-section { margin-bottom: 48px; }
-    .section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
-
-    .faq-item { border-bottom: 1px solid var(--border); }
-    .faq-q { width: 100%; text-align: left; background: none; border: none; padding: 20px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
-    .faq-q-text { font-size: 0.925rem; font-weight: 600; color: var(--white); line-height: 1.4; text-align: left; }
-    .faq-icon { font-size: 1.1rem; color: var(--green); flex-shrink: 0; margin-top: 2px; transition: transform 0.2s; font-family: 'JetBrains Mono', monospace; }
+    :root { --bg:#08090a; --bg2:#101216; --line:rgba(255,255,255,.11); --text:#f6f7f8; --sub:rgba(246,247,248,.66); --muted:rgba(246,247,248,.4); --accent:#9ae6ff; }
+    body { font-family: Inter, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+    nav { position: sticky; top: 0; z-index: 5; display:flex; align-items:center; justify-content:space-between; height:58px; padding:0 40px; background:rgba(8,9,10,.94); border-bottom:1px solid var(--line); backdrop-filter: blur(18px); }
+    .logo { color:#fff; text-decoration:none; font-size:.95rem; font-weight:850; letter-spacing:-.025em; }
+    .logo span { color:var(--muted); font-weight:400; }
+    .btn { background:#fff; color:#050607; padding:8px 18px; border-radius:5px; text-decoration:none; font-size:.82rem; font-weight:800; }
+    .page { max-width: 780px; margin:0 auto; padding:76px 24px 110px; }
+    .ey { font-family:"JetBrains Mono", monospace; font-size:.62rem; letter-spacing:.17em; text-transform:uppercase; color:var(--muted); margin-bottom:22px; }
+    h1 { font-size:clamp(2.8rem, 8vw, 5rem); font-weight:920; letter-spacing:-.06em; line-height:.92; margin-bottom:20px; }
+    .lead { color:var(--sub); line-height:1.85; font-size:1rem; margin-bottom:54px; max-width:680px; }
+    .section-label { font-family:"JetBrains Mono", monospace; font-size:.56rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); padding-bottom:13px; border-bottom:1px solid var(--line); margin:42px 0 8px; }
+    .faq-item { border-bottom:1px solid var(--line); }
+    .faq-q { width:100%; border:0; background:none; color:#fff; text-align:left; cursor:pointer; padding:22px 0; display:flex; justify-content:space-between; gap:18px; }
+    .faq-q-text { font-size:.96rem; font-weight:750; letter-spacing:-.02em; line-height:1.35; }
+    .faq-icon { color:var(--accent); font-family:"JetBrains Mono", monospace; transition: transform .2s; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
-    .faq-a { display: none; padding: 0 0 20px; font-size: 0.875rem; color: var(--sub); line-height: 1.8; }
-    .faq-item.open .faq-a { display: block; }
-    .faq-a strong { color: rgba(255,255,255,0.7); }
-    .faq-a a { color: var(--green); text-decoration: none; }
-
-    .cta { background: var(--bg2); border: 1px solid var(--border2); border-radius: 8px; padding: 40px; text-align: center; margin-top: 64px; }
-    .cta h2 { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.03em; color: var(--white); margin-bottom: 10px; }
-    .cta p { font-size: 0.875rem; color: var(--sub); margin-bottom: 24px; line-height: 1.7; }
-    .btn-white { background: var(--white); color: #000; font-size: 0.875rem; font-weight: 700; padding: 12px 28px; border-radius: 5px; text-decoration: none; display: inline-block; }
-
-    @media (max-width: 640px) { nav { padding: 0 16px; } h1 { font-size: 1.75rem; } .page { padding: 40px 16px 80px; } }
+    .faq-a { display:none; color:var(--sub); font-size:.9rem; line-height:1.85; padding:0 0 22px; }
+    .faq-item.open .faq-a { display:block; }
+    .faq-a strong { color:#fff; }
+    .cta { margin-top:64px; border:1px solid var(--line); background:var(--bg2); border-radius:12px; padding:36px; text-align:center; }
+    .cta h2 { font-size:1.45rem; letter-spacing:-.035em; margin-bottom:10px; }
+    .cta p { color:var(--sub); line-height:1.75; font-size:.9rem; margin-bottom:24px; }
+    a.inline { color:var(--accent); text-decoration:none; }
+    @media (max-width:640px) { nav { padding:0 18px; } .logo span { display:none; } .page { padding-top:48px; } .cta { padding:28px 22px; } }
   </style>
 </head>
 <body>
 <nav>
-  <a href="/" class="logo">ArgusReach<span> · Done-For-You Outreach</span></a>
-  <a href="https://calendly.com/vito-argusreach/30min" class="btn-book" target="_blank">Book a Call</a>
+  <a href="/" class="logo">ArgusReach<span> · AI Systems</span></a>
+  <a href="https://calendly.com/vito-argusreach/30min" class="btn" target="_blank" rel="noopener">Book a Call</a>
 </nav>
 
-<div class="page">
-  <div class="eyebrow">FAQ</div>
+<main class="page">
+  <div class="ey">FAQ</div>
   <h1>Common questions.</h1>
-  <p class="page-sub">Everything you want to know before the strategy call. If something isn't here, just email us at <a href="mailto:vito@argusreach.com" style="color:var(--green)">vito@argusreach.com</a>.</p>
+  <p class="lead">A short version of how ArgusReach approaches AI agents, dashboards, management reporting, internal tools, and workflow systems.</p>
 
-  <!-- HOW IT WORKS -->
-  <div class="faq-section">
-    <div class="section-label">How It Works</div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        <span class="faq-q-text">What exactly does ArgusReach do?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">We build and run a done-for-you outbound system for your firm. That means: finding your ideal prospects, writing personalized emails in your voice, sending them from your email address, managing follow-up, handling replies, and routing interested prospects to your calendar. You fill out a 10-minute intake form and then show up to the meetings we book.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        <span class="faq-q-text">Will prospects know this is outsourced?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">No. Everything goes out from your name, your email address, your firm. The emails are written in your voice after we learn how you communicate. ArgusReach is never mentioned. As far as the prospect is concerned, they received a thoughtful email from you personally.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        <span class="faq-q-text">How long until I start seeing meetings on my calendar?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">After your intake form is submitted, we handle everything - ICP research, list build, sequence writing, and setup. Before any emails send, your outreach address goes through a 2–3 week warmup period that builds its sending reputation so emails land in the inbox, not spam. This runs automatically in the background while everything else is being finalized. Most clients are live within 2-4 weeks, with first replies and meetings following shortly after launch. The 3-month minimum exists because that's how long it takes to see real, optimized results - not because setup is slow.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        <span class="faq-q-text">How much of my time does this actually require?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">Here's everything you'll actually need to do:<br /><br /><strong>One time at the start:</strong><br />• Fill out the intake form (~10 minutes) - defines your target market and voice<br />• Create a dedicated outreach email on your domain, e.g. james.k@yourfirm.com (~10 minutes)<br />• Forward DNS setup instructions to whoever manages your domain - they add 3 records, usually done in under 20 minutes<br />• Provide an app password for the new inbox via a secure one-time link (~5 minutes)<br />• Connect your calendar to your booking page (~5 minutes)<br />• Review your email sequences before launch (~20–30 minutes)<br /><br /><strong>Ongoing:</strong><br />Show up to the meetings we book. Review the monthly performance report (~5 minutes). That's it.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        <span class="faq-q-text">Can I see the emails before they go out?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a"><strong>Yes - always.</strong> We share every sequence with you for review before launch. You can edit anything. The sequence doesn't launch until you sign off on it.<br /><br />For replies: every response we draft goes to you for approval before it sends. We never reply on your behalf without your explicit confirmation. You review the draft, approve it, and it goes out. This is how we work with every client - not an optional add-on.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        <span class="faq-q-text">What happens when a prospect replies?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">We classify every reply. Interested prospects get routed to your booking link automatically. "Not now" replies get logged with a follow-up date. Unsubscribe requests are honored immediately and the contact is added to your do-not-contact list. You get notified of hot replies within the hour. Anything unusual or sensitive gets escalated to you directly - no auto-response in those cases.</div>
-    </div>
+  <div class="section-label">What We Do</div>
+  <div class="faq-item open">
+    <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">What exactly does ArgusReach build?</span><span class="faq-icon">+</span></button>
+    <div class="faq-a">We build useful AI systems around real business workflows. That can mean an AI agent, interactive dashboard, recurring management report, internal portal, document extraction flow, CRM/reporting system, or automation layer that reduces manual work.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">Is this AI consulting or software development?</span><span class="faq-icon">+</span></button>
+    <div class="faq-a">It is both, but with a practical bias. We help identify the workflow, then build the system. The goal is not to deliver a slide deck. The goal is to ship something useful that saves time, improves reporting, or makes a recurring process easier to run.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">Do you only build outreach systems?</span><span class="faq-icon">+</span></button>
+    <div class="faq-a">No. Outreach was the first ArgusReach wedge, but the business has expanded into AI agents, dashboards, reporting systems, workflow automations, and internal tools. Outreach can still be part of the work when it fits the client need.</div>
   </div>
 
-  <!-- COMPLIANCE -->
-  <div class="faq-section">
-    <div class="section-label">Compliance &amp; Legal</div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        <span class="faq-q-text">Is this compliant for RIAs? My compliance team will ask.</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">We don't make any investment performance claims, mention specific securities, or make any regulated representations in the outreach. Every email is a professional introduction - equivalent to a cold call or a referral introduction, which are both compliant for RIAs. You review and approve all content before it goes out, which means you're in control of what's said under your name. We also recommend running the sequence templates by your compliance team before launch - we make this easy by providing a clean document for review.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        <span class="faq-q-text">Is email outreach legal? What about CAN-SPAM?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">Yes. B2B email outreach to business professionals is legal and standard practice. We build CAN-SPAM compliance into every sequence: every email includes a clear way to opt out, we honor unsubscribe requests immediately, every email identifies the sender, and no deceptive subject lines are used. Our service agreement outlines compliance responsibilities in detail.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        <span class="faq-q-text">What if some prospects are people I already know or work with?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">We never let that happen. During intake, you provide a do-not-contact list - existing clients, referral partners, competitors, anyone off-limits. You can list individual email addresses or entire domains (e.g. smithlaw.com to block everyone at that company). Before any campaign launches, your prospect list is automatically cross-referenced against this list and any matches are removed. You will never accidentally send a cold "let me introduce myself" email to someone you already work with.</div>
-    </div>
+  <div class="section-label">Workflow</div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">What is a good first project?</span><span class="faq-icon">+</span></button>
+    <div class="faq-a">A good first project is painful, repeatable, and clear enough to inspect. Examples include monthly management reporting, spreadsheet-to-dashboard workflows, recurring data collection, document extraction, CRM/pipeline reporting, finance/admin reviews, or operational status reporting.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">Do employees need to adopt a new app?</span><span class="faq-icon">+</span></button>
+    <div class="faq-a">Not by default. The best builds usually work around the tools and files already in use: spreadsheets, shared folders, PDFs, CRMs, email, portals, or existing databases. If a lightweight interface is needed, we build one around the workflow.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">How much access do you need?</span><span class="faq-icon">+</span></button>
+    <div class="faq-a">It depends on the workflow. We may start with sample files, screenshots, exports, or a walkthrough before touching any live system. For production systems, access should be scoped, permissioned, and limited to what the build actually requires.</div>
   </div>
 
-  <!-- RESULTS -->
-  <div class="faq-section">
-    <div class="section-label">Results &amp; Expectations</div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        <span class="faq-q-text">What results can I realistically expect?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">Results vary by vertical, offer quality, and market - and we won't fabricate numbers here. What we can tell you: every month, you'll get a full activity summary showing exactly how many contacts were reached, how many replied positively, and how many meetings were booked. We optimize based on real performance, not projections. If something isn't working, we tell you and change it.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        <span class="faq-q-text">I've tried cold email before and it didn't work.</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">That's the most common thing we hear - and it almost always comes down to execution, not the channel. Generic email blasts don't work. What works is precise targeting, genuine personalization, a well-structured sequence, and professional copy that doesn't sound like a template. Cold email sent correctly still delivers some of the highest returns of any outbound channel. We've built the execution from the ground up to do it right.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        <span class="faq-q-text">How do you measure success?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">Monthly activity summaries include: contacts reached, positive replies, meetings booked, and unsubscribes. The ultimate metric is meetings on your calendar - that's what we optimize for. If something needs to change in the approach, we'll reach out directly.</div>
-    </div>
+  <div class="section-label">Timing & Pricing</div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">How long does a build take?</span><span class="faq-icon">+</span></button>
+    <div class="faq-a">The timeline depends on complexity, data quality, access, and review cycles. We usually start by scoping one focused workflow first, then estimate the build after we understand the systems, files, and business rules involved.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">How does pricing work?</span><span class="faq-icon">+</span></button>
+    <div class="faq-a">Pricing depends on the scope of the workflow, the systems involved, the amount of custom build work, and whether ongoing hosting, refreshes, or maintenance are needed. We discuss pricing after the workflow is understood.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">Can you maintain the system after launch?</span><span class="faq-icon">+</span></button>
+    <div class="faq-a">Yes. Some systems are one-time builds. Others need recurring data refreshes, hosting, validation, reporting changes, or ongoing support. We define the maintenance path before launch so the system is not fragile.</div>
   </div>
 
-  <!-- PRICING & LOGISTICS -->
-  <div class="faq-section">
-    <div class="section-label">Pricing &amp; Logistics</div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        <span class="faq-q-text">What's the onboarding for?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">The initial onboarding covers everything required to get your campaign live: email sequence writing (all 3 touches, written specifically for your firm and voice), DNS record generation for your sending domain, and full systems configuration. Your prospect list is built fresh each month from your target ICP using verified data - that's included in your monthly plan.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        <span class="faq-q-text">When does billing start?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">You complete onboarding when you sign - that's what kicks off the work. <strong>Monthly billing doesn't start until your campaign goes live.</strong> That means the 2–3 week warmup period, DNS setup, and any back-and-forth on sequences happen before the clock starts on your subscription. You're never paying a monthly fee for time spent waiting on technical setup. Once your campaign launches, billing begins and your 3-month term starts.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        <span class="faq-q-text">Why a 3-month minimum?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">Outbound takes time to compound. Month 1 is full-volume launch. Month 2 generates real performance data. Month 3 is optimized based on what's actually working. Clients who quit after 30 days leave before the system has had time to work - and we've both wasted the setup investment.<br /><br />Two things worth knowing: First, the 3-month term starts from your <strong>campaign launch date</strong> - not from when you paid the onboarding. The warmup period doesn't count against your term. Second, monthly billing doesn't start until your campaign is live - so you're never paying for time spent waiting on DNS or warmup. After the initial term, it's month-to-month with 30 days notice.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        <span class="faq-q-text">Do I need to set up a new email account?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">Yes - a dedicated outreach email on your domain (e.g., james.k@yourfirm.com). This keeps outreach volume separate from your main inbox and protects your primary email's deliverability. You create the address yourself (takes about 10 minutes), and we send you the DNS records to forward to whoever manages your domain - most IT teams add them in under 20 minutes. Your main inbox is never accessed or affected.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        <span class="faq-q-text">What happens after you've contacted everyone in my area?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">Local markets don't get exhausted as quickly as you'd expect. A few reasons: fresh contacts enter your target market every month - new practices open, staff changes happen, people move into roles that fit your ICP. We pull a fresh verified list each month, so you're always reaching new people.<br /><br />As the campaign matures, we also expand targeting if needed - additional titles, adjacent industries, or wider geography. And the people who said "not now" in month one are a different conversation in month six. We track reply history and flag re-engagement opportunities in your monthly report.</div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggle(this)">
-        <span class="faq-q-text">Can I upgrade or downgrade plans?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-a">Yes. After the initial 3-month term, you can adjust your plan at any monthly renewal with 7 days notice. Most clients start on Starter and upgrade to Growth once they see the system working.</div>
-    </div>
+  <div class="section-label">Security</div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">How do you handle sensitive data?</span><span class="faq-icon">+</span></button>
+    <div class="faq-a">We keep data access as narrow as possible. Live client data should not be placed in public repos or casual shared documents. For recurring systems, we define where files live, how they are ingested, what gets validated, and who is responsible for updates.</div>
   </div>
 
   <div class="cta">
-    <h2>Still have questions?</h2>
-    <p>Book a free 15-minute strategy call. We'll answer anything and show you exactly what ArgusReach would look like for your firm - no obligation.</p>
-    <a href="https://calendly.com/vito-argusreach/30min" class="btn-white" target="_blank">Book a Free Call →</a>
+    <h2>Have a workflow in mind?</h2>
+    <p>Bring the report, spreadsheet, folder, dashboard, or recurring process that keeps eating time. We will talk through whether it is a good fit.</p>
+    <a href="https://calendly.com/vito-argusreach/30min" class="btn" target="_blank" rel="noopener">Book a Workflow Call</a>
   </div>
-</div>
+</main>
 
 <script>
 function toggle(btn) {
-  const item = btn.parentElement;
-  item.classList.toggle('open');
+  btn.parentElement.classList.toggle("open");
 }
 </script>
 </body>
