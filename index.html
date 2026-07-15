@@ -584,22 +584,29 @@
       margin-bottom: 14px;
     }
     .example-nav { display: grid; gap: 8px; list-style: none; }
-    .example-nav li {
+    .example-tab {
+      width: 100%;
+      border: 0;
       display: flex;
       align-items: center;
       gap: 10px;
       min-height: 44px;
       padding: 0 11px;
       border-radius: 8px;
+      background: transparent;
       color: #8390a5;
       font-size: 0.84rem;
+      font-family: inherit;
+      text-align: left;
+      cursor: pointer;
     }
-    .example-nav li:first-child {
+    .example-tab.active,
+    .example-tab:hover {
       color: var(--ink);
       background: #edf2f7;
       font-weight: 750;
     }
-    .example-nav b {
+    .example-tab b {
       width: 24px;
       height: 24px;
       border-radius: 7px;
@@ -611,6 +618,7 @@
       font-family: "JetBrains Mono", monospace;
       font-weight: 500;
     }
+    .example-tab:not(.active) b { background: #cbd5e1; }
     .example-main {
       min-width: 0;
       padding: 26px 34px 32px;
@@ -884,7 +892,9 @@
       .mosaic-card.large { grid-row: auto; }
       .agent-step, .process-card { border-right: 0; border-bottom: 1px solid var(--line); min-height: 150px; }
       .agent-step:last-child, .process-card:last-child { border-bottom: 0; }
-      .example-side { display: none; }
+      .example-side { border-right: 0; border-bottom: 1px solid var(--line); }
+      .example-nav { grid-template-columns: repeat(5, minmax(126px, 1fr)); overflow-x: auto; padding-bottom: 4px; }
+      .example-tab { min-height: 42px; white-space: nowrap; }
     }
     @media (max-width: 680px) {
       section { padding: 74px 0; }
@@ -1051,35 +1061,35 @@
             <div class="example-brand"><span>A</span>Agent Example</div>
             <div class="example-nav-label">Workflow audit</div>
             <ul class="example-nav">
-              <li><b>01</b>Discovery</li>
-              <li><b>02</b>Inputs</li>
-              <li><b>03</b>Agent Logic</li>
-              <li><b>04</b>Review Map</li>
-              <li><b>05</b>Rollout</li>
+              <li><button class="example-tab active" type="button" data-example-tab="discovery"><b>01</b>Discovery</button></li>
+              <li><button class="example-tab" type="button" data-example-tab="inputs"><b>02</b>Inputs</button></li>
+              <li><button class="example-tab" type="button" data-example-tab="logic"><b>03</b>Agent Logic</button></li>
+              <li><button class="example-tab" type="button" data-example-tab="review"><b>04</b>Review Map</button></li>
+              <li><button class="example-tab" type="button" data-example-tab="rollout"><b>05</b>Rollout</button></li>
             </ul>
           </aside>
           <div class="example-main">
             <div class="example-top">
               <div>
-                <h3>Sample finance reporting workflow</h3>
-                <p>An example audit for a recurring reporting process: where data comes from, what gets checked, where time is lost, and which pieces an agent could support first.</p>
+                <h3 id="example-title">Sample finance reporting workflow</h3>
+                <p id="example-copy">An example audit for a recurring reporting process: where data comes from, what gets checked, where time is lost, and which pieces an agent could support first.</p>
               </div>
-              <div class="example-badge">Illustrative only</div>
+              <div class="example-badge" id="example-badge">Illustrative only</div>
             </div>
-            <div class="system-cards">
+            <div class="system-cards" id="example-sources">
               <div class="source-card"><small>Mapped</small><div class="icon">S</div><b>SharePoint</b><span>Source files and monthly folders</span></div>
               <div class="source-card"><small>Mapped</small><div class="icon">X</div><b>Excel</b><span>Workbook cleanup and checks</span></div>
               <div class="source-card"><small>Mapped</small><div class="icon">P</div><b>PDFs</b><span>Statements and supporting documents</span></div>
               <div class="source-card"><small>Mapped</small><div class="icon">A</div><b>Agent</b><span>Review-ready output layer</span></div>
             </div>
-            <div class="example-stats">
+            <div class="example-stats" id="example-stats">
               <div class="example-stat"><div><b>4</b><span>Inputs mapped</span></div></div>
               <div class="example-stat"><div><b>12</b><span>Workflow steps</span></div></div>
               <div class="example-stat"><div><b>5</b><span>Review points</span></div></div>
               <div class="example-stat"><div><b>3</b><span>Agent candidates</span></div></div>
             </div>
-            <div class="chart-title"><b>Where time is being spent</b><span>Example heatmap</span></div>
-            <div class="heatmap">
+            <div class="chart-title"><b id="example-chart-title">Where time is being spent</b><span id="example-chart-label">Example heatmap</span></div>
+            <div class="heatmap" id="example-heatmap">
               <div class="heat-row"><span>File collection</span><div class="track"><div class="fill red" style="width: 74%;"></div></div><span>High</span></div>
               <div class="heat-row"><span>Workbook cleanup</span><div class="track"><div class="fill gold" style="width: 58%;"></div></div><span>Med</span></div>
               <div class="heat-row"><span>Manual checks</span><div class="track"><div class="fill" style="width: 46%;"></div></div><span>Med</span></div>
@@ -1087,14 +1097,14 @@
             </div>
             <div class="opportunity-card">
               <div class="opportunity-top">
-                <div class="chart-title" style="margin:0;"><b>Agent opportunity map</b><span>Prioritized by effort and usefulness</span></div>
+                <div class="chart-title" style="margin:0;"><b id="example-table-title">Agent opportunity map</b><span id="example-table-label">Prioritized by effort and usefulness</span></div>
                 <div class="bar-stack" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
               </div>
               <table class="example-table">
                 <thead>
-                  <tr><th>#</th><th>Workflow Piece</th><th>Agent Fit</th><th>First Build</th><th>Review</th></tr>
+                  <tr id="example-table-head"><th>#</th><th>Workflow Piece</th><th>Agent Fit</th><th>First Build</th><th>Review</th></tr>
                 </thead>
-                <tbody>
+                <tbody id="example-table-body">
                   <tr><td>P1</td><td>Input collection and validation</td><td><div class="mini-line"><span style="width:82%;"></span></div></td><td>Ingestion agent</td><td>Human approval</td></tr>
                   <tr><td>P2</td><td>Report packet assembly</td><td><div class="mini-line"><span style="width:68%;"></span></div></td><td>Draft report agent</td><td>Reviewer edits</td></tr>
                   <tr><td>P3</td><td>Dashboard refresh</td><td><div class="mini-line"><span style="width:61%;"></span></div></td><td>Operating view</td><td>Monthly sign-off</td></tr>
@@ -1156,5 +1166,135 @@
     </div>
     <div>© 2026 ArgusReach</div>
   </footer>
+  <script>
+    const examplePanels = {
+      discovery: {
+        title: "Sample finance reporting workflow",
+        copy: "An example audit for a recurring reporting process: where data comes from, what gets checked, where time is lost, and which pieces an agent could support first.",
+        badge: "Illustrative only",
+        sources: [
+          ["S", "SharePoint", "Source files and monthly folders", "Mapped"],
+          ["X", "Excel", "Workbook cleanup and checks", "Mapped"],
+          ["P", "PDFs", "Statements and supporting documents", "Mapped"],
+          ["A", "Agent", "Review-ready output layer", "Mapped"]
+        ],
+        stats: [["4", "Inputs mapped"], ["12", "Workflow steps"], ["5", "Review points"], ["3", "Agent candidates"]],
+        chartTitle: "Where time is being spent",
+        chartLabel: "Example heatmap",
+        heat: [["File collection", 74, "High", "red"], ["Workbook cleanup", 58, "Med", "gold"], ["Manual checks", 46, "Med", ""], ["Summary writing", 38, "Low", "green"]],
+        tableTitle: "Agent opportunity map",
+        tableLabel: "Prioritized by effort and usefulness",
+        head: ["#", "Workflow Piece", "Agent Fit", "First Build", "Review"],
+        rows: [["P1", "Input collection and validation", 82, "Ingestion agent", "Human approval"], ["P2", "Report packet assembly", 68, "Draft report agent", "Reviewer edits"], ["P3", "Dashboard refresh", 61, "Operating view", "Monthly sign-off"]]
+      },
+      inputs: {
+        title: "Inputs the agent needs to see",
+        copy: "This view maps the files, exports, folders, documents, and systems that feed the workflow so the build starts with clean source ownership.",
+        badge: "Input map",
+        sources: [
+          ["F", "Folder drop", "Monthly source files", "Source"],
+          ["C", "CRM export", "Account and contact fields", "Source"],
+          ["D", "Documents", "Statements and PDFs", "Source"],
+          ["M", "Manual notes", "Review comments and context", "Source"]
+        ],
+        stats: [["6", "Input types"], ["3", "Owners"], ["2", "Formats"], ["1", "Source checklist"]],
+        chartTitle: "Input readiness",
+        chartLabel: "Example source quality",
+        heat: [["Required fields", 82, "High", "green"], ["File consistency", 64, "Med", ""], ["Naming rules", 54, "Med", "gold"], ["Missing context", 36, "Low", "red"]],
+        tableTitle: "Input cleanup plan",
+        tableLabel: "Before build starts",
+        head: ["#", "Input Area", "Readiness", "Fix", "Owner"],
+        rows: [["I1", "Monthly source folder", 82, "Lock folder pattern", "Operations"], ["I2", "Workbook tabs", 64, "Standardize labels", "Analyst"], ["I3", "PDF statements", 54, "Define upload rule", "Reviewer"]]
+      },
+      logic: {
+        title: "Agent logic and decision rules",
+        copy: "This view shows the rules the agent would follow: what gets checked, what gets summarized, what gets routed, and what should stop for review.",
+        badge: "Agent logic",
+        sources: [
+          ["R", "Rules", "Calculations and checks", "Defined"],
+          ["E", "Exceptions", "What needs escalation", "Defined"],
+          ["T", "Tools", "Files, dashboards, and alerts", "Scoped"],
+          ["L", "Logs", "Traceable agent activity", "Scoped"]
+        ],
+        stats: [["9", "Rules drafted"], ["4", "Stop points"], ["3", "Tool actions"], ["100%", "Logged actions"]],
+        chartTitle: "Agent decision path",
+        chartLabel: "Example logic coverage",
+        heat: [["Validation checks", 78, "High", "green"], ["Draft generation", 66, "Med", ""], ["Exception routing", 58, "Med", "gold"], ["Auto-send actions", 12, "Low", "red"]],
+        tableTitle: "Logic map",
+        tableLabel: "Human controls included",
+        head: ["#", "Agent Rule", "Coverage", "Action", "Control"],
+        rows: [["L1", "Validate source files", 78, "Flag missing fields", "Logged"], ["L2", "Draft report notes", 66, "Prepare summary", "Review"], ["L3", "Route exceptions", 58, "Notify owner", "Approval"]]
+      },
+      review: {
+        title: "Human review and approval map",
+        copy: "This view identifies where humans stay in the workflow: approvals, edits, exceptions, sign-off, and places where judgment matters.",
+        badge: "Review map",
+        sources: [
+          ["A", "Approver", "Final sign-off owner", "Mapped"],
+          ["Q", "QA checks", "Review checklist", "Mapped"],
+          ["N", "Notes", "Reviewer edits", "Mapped"],
+          ["H", "History", "Audit trail", "Mapped"]
+        ],
+        stats: [["5", "Review gates"], ["2", "Approvers"], ["4", "Escalations"], ["0", "Blind sends"]],
+        chartTitle: "Review load",
+        chartLabel: "Example oversight map",
+        heat: [["Final approval", 70, "High", "green"], ["Exception review", 62, "Med", "gold"], ["Draft edits", 42, "Med", ""], ["Routine checks", 24, "Low", "red"]],
+        tableTitle: "Review queue",
+        tableLabel: "What stays human",
+        head: ["#", "Review Point", "Load", "Agent Prep", "Human Action"],
+        rows: [["R1", "Final report sign-off", 70, "Prepare packet", "Approve"], ["R2", "Exceptions", 62, "Summarize issue", "Decide"], ["R3", "Draft edits", 42, "Suggest wording", "Edit"]]
+      },
+      rollout: {
+        title: "Rollout and maintenance path",
+        copy: "This view turns the build into an operating plan: cadence, ownership, monitoring, support, and what happens when files or rules change.",
+        badge: "Rollout plan",
+        sources: [
+          ["C", "Cadence", "Monthly or weekly refresh", "Planned"],
+          ["O", "Owner", "Who provides new inputs", "Planned"],
+          ["M", "Monitor", "Failures and exceptions", "Planned"],
+          ["S", "Support", "Change requests", "Planned"]
+        ],
+        stats: [["1", "Pilot workflow"], ["30", "Day review"], ["4", "Runbook steps"], ["2", "Support paths"]],
+        chartTitle: "Rollout readiness",
+        chartLabel: "Example launch plan",
+        heat: [["Pilot scope", 86, "High", "green"], ["Runbook", 68, "Med", ""], ["Monitoring", 52, "Med", "gold"], ["Expansion", 28, "Later", "red"]],
+        tableTitle: "Rollout checklist",
+        tableLabel: "Keep it maintainable",
+        head: ["#", "Launch Area", "Readiness", "Next Step", "Owner"],
+        rows: [["O1", "Pilot workflow", 86, "Run first cycle", "ArgusReach"], ["O2", "Runbook", 68, "Document process", "Shared"], ["O3", "Monitoring", 52, "Define alerts", "ArgusReach"]]
+      }
+    };
+
+    function renderExamplePanel(key) {
+      const panel = examplePanels[key] || examplePanels.discovery;
+      document.querySelectorAll("[data-example-tab]").forEach((tab) => {
+        tab.classList.toggle("active", tab.dataset.exampleTab === key);
+      });
+      document.getElementById("example-title").textContent = panel.title;
+      document.getElementById("example-copy").textContent = panel.copy;
+      document.getElementById("example-badge").textContent = panel.badge;
+      document.getElementById("example-chart-title").textContent = panel.chartTitle;
+      document.getElementById("example-chart-label").textContent = panel.chartLabel;
+      document.getElementById("example-table-title").textContent = panel.tableTitle;
+      document.getElementById("example-table-label").textContent = panel.tableLabel;
+      document.getElementById("example-sources").innerHTML = panel.sources.map(([icon, title, copy, label]) =>
+        `<div class="source-card"><small>${label}</small><div class="icon">${icon}</div><b>${title}</b><span>${copy}</span></div>`
+      ).join("");
+      document.getElementById("example-stats").innerHTML = panel.stats.map(([value, label]) =>
+        `<div class="example-stat"><div><b>${value}</b><span>${label}</span></div></div>`
+      ).join("");
+      document.getElementById("example-heatmap").innerHTML = panel.heat.map(([label, width, rating, color]) =>
+        `<div class="heat-row"><span>${label}</span><div class="track"><div class="fill ${color}" style="width: ${width}%;"></div></div><span>${rating}</span></div>`
+      ).join("");
+      document.getElementById("example-table-head").innerHTML = panel.head.map((heading) => `<th>${heading}</th>`).join("");
+      document.getElementById("example-table-body").innerHTML = panel.rows.map(([id, label, width, firstBuild, review]) =>
+        `<tr><td>${id}</td><td>${label}</td><td><div class="mini-line"><span style="width:${width}%;"></span></div></td><td>${firstBuild}</td><td>${review}</td></tr>`
+      ).join("");
+    }
+
+    document.querySelectorAll("[data-example-tab]").forEach((tab) => {
+      tab.addEventListener("click", () => renderExamplePanel(tab.dataset.exampleTab));
+    });
+  </script>
 </body>
 </html>
