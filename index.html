@@ -321,6 +321,263 @@
       font-size: 0.9rem;
       line-height: 1.62;
     }
+    .example-shell {
+      display: grid;
+      grid-template-columns: 236px 1fr;
+      border: 1px solid rgba(11,13,15,0.12);
+      background: #f8f8f4;
+      box-shadow: 0 28px 80px rgba(8,10,12,0.12);
+    }
+    .example-side {
+      border-right: 1px solid rgba(11,13,15,0.1);
+      padding: 24px 18px;
+      background: linear-gradient(180deg, #fff, #f3f2ec);
+    }
+    .example-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #132744;
+      font-weight: 850;
+      margin-bottom: 34px;
+    }
+    .example-brand span {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: #132744;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+    }
+    .example-nav-label {
+      color: rgba(19,39,68,0.48);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .example-nav { display: grid; gap: 8px; list-style: none; }
+    .example-nav li {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      min-height: 46px;
+      padding: 0 12px;
+      border-radius: 8px;
+      color: rgba(19,39,68,0.48);
+      font-size: 0.86rem;
+    }
+    .example-nav li:first-child {
+      color: #132744;
+      background: #eceef2;
+      font-weight: 750;
+    }
+    .example-nav b {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: #132744;
+      font-size: 0.68rem;
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 500;
+    }
+    .example-main {
+      min-width: 0;
+      color: #132744;
+      padding: 28px 38px 34px;
+      background:
+        linear-gradient(90deg, rgba(19,39,68,0.035) 1px, transparent 1px),
+        linear-gradient(#fff, #f8f8f4);
+      background-size: 78px 78px, auto;
+    }
+    .example-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding-bottom: 22px;
+      border-bottom: 1px solid rgba(19,39,68,0.12);
+      margin-bottom: 28px;
+    }
+    .example-top h3 {
+      font-size: clamp(2rem, 3.2vw, 3.4rem);
+      line-height: 0.95;
+      letter-spacing: 0;
+      margin-bottom: 12px;
+    }
+    .example-top p {
+      color: rgba(19,39,68,0.66);
+      line-height: 1.6;
+      max-width: 720px;
+      font-size: 0.94rem;
+    }
+    .example-badge {
+      align-self: start;
+      border: 1px solid rgba(19,39,68,0.14);
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: rgba(19,39,68,0.68);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      background: rgba(255,255,255,0.72);
+    }
+    .system-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .source-card {
+      min-height: 112px;
+      padding: 16px;
+      border: 1px solid rgba(19,39,68,0.14);
+      border-radius: 9px;
+      background: rgba(255,255,255,0.74);
+    }
+    .source-card .icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: #132744;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      margin-bottom: 14px;
+    }
+    .source-card b { display: block; font-size: 0.92rem; margin-bottom: 5px; }
+    .source-card span { color: rgba(19,39,68,0.52); font-size: 0.76rem; line-height: 1.35; }
+    .source-card small {
+      float: right;
+      color: #0b9b67;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .example-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 30px 0;
+    }
+    .example-stat {
+      min-height: 88px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border-radius: 9px;
+      background: rgba(19,39,68,0.05);
+    }
+    .example-stat b { display: block; font-size: 2rem; line-height: 1; margin-bottom: 8px; }
+    .example-stat span { color: rgba(19,39,68,0.58); font-size: 0.76rem; }
+    .chart-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin: 26px 0 14px;
+      color: #132744;
+    }
+    .chart-title b { font-size: 0.96rem; }
+    .chart-title span {
+      color: rgba(19,39,68,0.48);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .heatmap { display: grid; gap: 12px; }
+    .heat-row {
+      display: grid;
+      grid-template-columns: 170px 1fr 42px;
+      gap: 14px;
+      align-items: center;
+      color: rgba(19,39,68,0.78);
+      font-size: 0.82rem;
+    }
+    .track {
+      height: 30px;
+      border-radius: 7px;
+      overflow: hidden;
+      background: rgba(19,39,68,0.06);
+    }
+    .fill {
+      height: 100%;
+      border-radius: 7px;
+      background: linear-gradient(90deg, #c9ff6a, #a7d7ff);
+    }
+    .fill.red { background: linear-gradient(90deg, #ff6f61, #f4c2bb); }
+    .fill.gold { background: linear-gradient(90deg, #f7a72c, #f6dfaa); }
+    .fill.blue { background: linear-gradient(90deg, #4f8cff, #c9dcff); }
+    .opportunity-card {
+      margin-top: 30px;
+      border: 1px solid rgba(19,39,68,0.14);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.72);
+      overflow: hidden;
+    }
+    .opportunity-top {
+      padding: 18px 20px 16px;
+      border-bottom: 1px solid rgba(19,39,68,0.1);
+    }
+    .bar-stack {
+      height: 14px;
+      display: grid;
+      grid-template-columns: 42% 28% 18% 12%;
+      overflow: hidden;
+      border-radius: 999px;
+      margin-top: 12px;
+      background: rgba(19,39,68,0.08);
+    }
+    .bar-stack span:nth-child(1) { background: #132744; }
+    .bar-stack span:nth-child(2) { background: #16c784; }
+    .bar-stack span:nth-child(3) { background: #f7a72c; }
+    .bar-stack span:nth-child(4) { background: #a7d7ff; }
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+    .example-table th {
+      color: rgba(19,39,68,0.48);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: left;
+      padding: 13px 18px;
+      border-bottom: 1px solid rgba(19,39,68,0.1);
+      font-weight: 500;
+    }
+    .example-table td {
+      padding: 15px 18px;
+      border-bottom: 1px solid rgba(19,39,68,0.08);
+      color: rgba(19,39,68,0.78);
+    }
+    .mini-line {
+      width: 80px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(19,39,68,0.12);
+      overflow: hidden;
+    }
+    .mini-line span {
+      display: block;
+      height: 100%;
+      background: #132744;
+      border-radius: inherit;
+    }
     .build-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -448,9 +705,10 @@
       .nav-links { display: none; }
       .wrap { width: min(100% - 38px, 1180px); }
       .hero { min-height: auto; padding: 96px 0 44px; }
-      .hero-grid, .section-head, .systems, .faq-grid { grid-template-columns: 1fr; }
+      .hero-grid, .section-head, .systems, .faq-grid, .example-shell { grid-template-columns: 1fr; }
       .hero-panel { max-width: 560px; }
-      .metric-strip, .process { grid-template-columns: 1fr; }
+      .example-side { display: none; }
+      .metric-strip, .process, .system-cards, .example-stats { grid-template-columns: 1fr; }
       .metric, .process-card { border-right: 0; border-bottom: 1px solid var(--line); min-height: 170px; }
       .process-card { border-bottom-color: var(--line-dark); }
       .metric:last-child, .process-card:last-child { border-bottom: 0; }
@@ -464,6 +722,10 @@
       .btn { width: 100%; }
       .hero-panel { display: none; }
       .section-title, .cta h2 { font-size: clamp(2.85rem, 14vw, 4.8rem); }
+      .example-main { padding: 24px 18px 26px; }
+      .heat-row { grid-template-columns: 1fr; gap: 6px; }
+      .example-table { min-width: 620px; }
+      .opportunity-card { overflow-x: auto; }
       .build-grid { grid-template-columns: 1fr; }
       .system-row { grid-template-columns: 1fr; gap: 8px; }
       footer { padding: 26px 20px; flex-direction: column; }
@@ -475,6 +737,7 @@
     <a href="/" class="brand"><span class="brand-mark"></span>ArgusReach</a>
     <ul class="nav-links">
       <li><a href="#process">How It Works</a></li>
+      <li><a href="#example">Example</a></li>
       <li><a href="#build">What We Build</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="https://calendly.com/vito-argusreach/30min" class="nav-cta" target="_blank" rel="noopener">Book a Call</a></li>
@@ -545,6 +808,79 @@
           <div class="process-card">
             <div class="num">STEP 4</div>
             <div><h3>Deploy and maintain</h3><p>We define refresh cadence, ownership, support, and what happens when inputs change.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="example" class="light">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Generic example</div>
+            <h2 class="section-title">What a workflow breakdown can look like.</h2>
+          </div>
+          <p class="section-copy">This is an illustrative example, not proof of past work. The point is to show the kind of mapping, charts, and prioritization a real workflow audit can produce before anything gets built.</p>
+        </div>
+        <div class="example-shell">
+          <aside class="example-side">
+            <div class="example-brand"><span>A</span>Argus Example</div>
+            <div class="example-nav-label">Workflow audit</div>
+            <ul class="example-nav">
+              <li><b>01</b>Discovery</li>
+              <li><b>02</b>Inputs</li>
+              <li><b>03</b>Review Points</li>
+              <li><b>04</b>Build Map</li>
+              <li><b>05</b>Rollout</li>
+            </ul>
+          </aside>
+          <div class="example-main">
+            <div class="example-top">
+              <div>
+                <h3>Sample finance reporting workflow</h3>
+                <p>An example audit for a recurring reporting process: where data comes from, what gets checked, where time is lost, and which pieces are worth automating first.</p>
+              </div>
+              <div class="example-badge">Illustrative only</div>
+            </div>
+
+            <div class="system-cards">
+              <div class="source-card"><small>Mapped</small><div class="icon">S</div><b>SharePoint</b><span>Source files and monthly folders</span></div>
+              <div class="source-card"><small>Mapped</small><div class="icon">X</div><b>Excel</b><span>Workbook cleanup and checks</span></div>
+              <div class="source-card"><small>Mapped</small><div class="icon">P</div><b>PDFs</b><span>Statements and supporting documents</span></div>
+              <div class="source-card"><small>Mapped</small><div class="icon">D</div><b>Dashboard</b><span>Review-ready output layer</span></div>
+            </div>
+
+            <div class="example-stats">
+              <div class="example-stat"><div><b>4</b><span>Inputs mapped</span></div></div>
+              <div class="example-stat"><div><b>12</b><span>Workflow steps</span></div></div>
+              <div class="example-stat"><div><b>5</b><span>Review points</span></div></div>
+              <div class="example-stat"><div><b>3</b><span>Build candidates</span></div></div>
+            </div>
+
+            <div class="chart-title"><b>Where time is being spent</b><span>Example heatmap</span></div>
+            <div class="heatmap">
+              <div class="heat-row"><span>File collection</span><div class="track"><div class="fill red" style="width: 74%;"></div></div><span>High</span></div>
+              <div class="heat-row"><span>Workbook cleanup</span><div class="track"><div class="fill gold" style="width: 58%;"></div></div><span>Med</span></div>
+              <div class="heat-row"><span>Manual checks</span><div class="track"><div class="fill blue" style="width: 46%;"></div></div><span>Med</span></div>
+              <div class="heat-row"><span>Summary writing</span><div class="track"><div class="fill" style="width: 38%;"></div></div><span>Low</span></div>
+            </div>
+
+            <div class="opportunity-card">
+              <div class="opportunity-top">
+                <div class="chart-title" style="margin:0;"><b>Opportunity map</b><span>Prioritized by effort and usefulness</span></div>
+                <div class="bar-stack" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+              </div>
+              <table class="example-table">
+                <thead>
+                  <tr><th>#</th><th>Workflow Piece</th><th>Automation Fit</th><th>First Build</th><th>Review</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>P1</td><td>Input collection and validation</td><td><div class="mini-line"><span style="width:82%;"></span></div></td><td>Ingestion checklist</td><td>Human approval</td></tr>
+                  <tr><td>P2</td><td>Report packet assembly</td><td><div class="mini-line"><span style="width:68%;"></span></div></td><td>Draft report engine</td><td>Reviewer edits</td></tr>
+                  <tr><td>P3</td><td>Dashboard refresh</td><td><div class="mini-line"><span style="width:61%;"></span></div></td><td>Operating view</td><td>Monthly sign-off</td></tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
