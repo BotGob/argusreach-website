@@ -29,12 +29,12 @@
       --soft2: #edf2f7;
       --line: #dbe3ee;
       --line2: rgba(16,35,63,0.12);
-      --blue: #1f6feb;
+      --blue: #104cff;
       --green: #11b981;
       --gold: #f3a51d;
       --red: #f05d5e;
-      --dark: #07111f;
-      --dark2: #0d1b2d;
+      --dark: #07132a;
+      --dark2: #0b2a83;
       --white: #ffffff;
     }
     html { scroll-behavior: smooth; }
@@ -110,7 +110,8 @@
       overflow: hidden;
       border-bottom: 1px solid var(--line);
       background:
-        radial-gradient(circle at 78% 15%, rgba(31,111,235,0.16), transparent 34%),
+        radial-gradient(circle at 78% 15%, rgba(16,76,255,0.16), transparent 34%),
+        radial-gradient(circle at 12% 82%, rgba(17,185,129,0.12), transparent 30%),
         linear-gradient(180deg, #fff, var(--soft));
     }
     .hero::before {
@@ -176,12 +177,42 @@
     .btn-primary { background: var(--ink); color: #fff; }
     .btn-secondary { color: var(--ink); background: #fff; border-color: var(--line); }
 
+    .micro-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      margin-top: 34px;
+      max-width: 620px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--line);
+    }
+    .micro-strip span {
+      min-height: 52px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.72);
+      color: #64748b;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 0 8px;
+    }
     .agent-board {
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.82);
       box-shadow: 0 28px 80px rgba(16,35,63,0.14);
       border-radius: 8px;
       overflow: hidden;
+    }
+    .agent-board::before {
+      content: "";
+      display: block;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blue), #84c5ff, var(--green));
     }
     .board-top {
       display: flex;
@@ -369,6 +400,111 @@
       line-height: 1.62;
       font-size: 0.9rem;
     }
+
+    .mosaic {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-rows: 260px 260px;
+      gap: 12px;
+    }
+    .mosaic-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.14);
+      padding: 28px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02)),
+        var(--dark2);
+      color: #fff;
+      isolation: isolate;
+    }
+    .mosaic-card::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      z-index: -2;
+      background:
+        radial-gradient(circle at 72% 20%, rgba(132,197,255,0.46), transparent 30%),
+        radial-gradient(circle at 20% 90%, rgba(17,185,129,0.2), transparent 25%);
+    }
+    .mosaic-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 38px 38px;
+      mask-image: linear-gradient(135deg, black, transparent 78%);
+    }
+    .mosaic-card.large { grid-row: span 2; }
+    .mosaic-card.light {
+      color: var(--ink);
+      background: #fff;
+      border-color: var(--line);
+    }
+    .mosaic-card.light::before {
+      background:
+        radial-gradient(circle at 72% 28%, rgba(16,76,255,0.12), transparent 32%),
+        linear-gradient(180deg, #fff, #f4f7fb);
+    }
+    .mosaic-card.light::after {
+      background-image:
+        linear-gradient(rgba(16,35,63,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16,35,63,0.05) 1px, transparent 1px);
+    }
+    .mosaic-card small {
+      display: block;
+      color: rgba(255,255,255,0.66);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .mosaic-card.light small { color: var(--blue); }
+    .mosaic-card h3 {
+      max-width: 360px;
+      font-size: clamp(1.55rem, 2.7vw, 2.55rem);
+      line-height: 1;
+      letter-spacing: 0;
+      margin-bottom: 14px;
+    }
+    .mosaic-card p {
+      max-width: 430px;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.62;
+      font-size: 0.9rem;
+    }
+    .mosaic-card.light p { color: #5f6f87; }
+    .mini-ui {
+      position: absolute;
+      right: 26px;
+      bottom: 24px;
+      width: min(270px, 42%);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(12px);
+      padding: 14px;
+      display: grid;
+      gap: 9px;
+    }
+    .mosaic-card.light .mini-ui {
+      border-color: var(--line);
+      background: rgba(255,255,255,0.78);
+    }
+    .mini-ui span {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.36);
+    }
+    .mosaic-card.light .mini-ui span { background: #dbe3ee; }
+    .mini-ui span:nth-child(1) { width: 92%; }
+    .mini-ui span:nth-child(2) { width: 72%; background: #84c5ff; }
+    .mini-ui span:nth-child(3) { width: 58%; background: var(--green); }
 
     .process {
       display: grid;
@@ -743,7 +879,9 @@
       .wrap { width: min(100% - 38px, 1180px); }
       .hero { padding: 64px 0 44px; }
       .hero-grid, .section-head, .faq-grid, .example-shell { grid-template-columns: 1fr; }
-      .agent-grid, .process, .system-cards, .example-stats, .signal-grid, .agent-steps { grid-template-columns: 1fr; }
+      .agent-grid, .process, .system-cards, .example-stats, .signal-grid, .agent-steps, .mosaic { grid-template-columns: 1fr; }
+      .mosaic { grid-template-rows: auto; }
+      .mosaic-card.large { grid-row: auto; }
       .agent-step, .process-card { border-right: 0; border-bottom: 1px solid var(--line); min-height: 150px; }
       .agent-step:last-child, .process-card:last-child { border-bottom: 0; }
       .example-side { display: none; }
@@ -754,7 +892,10 @@
       .hero-copy { font-size: 0.98rem; }
       .hero-actions { flex-direction: column; align-items: stretch; }
       .btn { width: 100%; }
+      .micro-strip { grid-template-columns: 1fr; }
       .section-title, .cta h2 { font-size: clamp(2.35rem, 11vw, 3.7rem); }
+      .mosaic-card { min-height: 250px; }
+      .mini-ui { position: static; width: 100%; margin-top: 24px; }
       .agent-board { margin-top: 8px; }
       .board-top { align-items: flex-start; flex-direction: column; }
       .workflow-row { grid-template-columns: 1fr; gap: 7px; }
@@ -789,6 +930,13 @@
           <div class="hero-actions">
             <a href="https://calendly.com/vito-argusreach/30min" class="btn btn-primary" target="_blank" rel="noopener">Book a Workflow Call</a>
             <a href="#example" class="btn btn-secondary">View Example Breakdown</a>
+          </div>
+          <div class="micro-strip" aria-label="Agent workflow path">
+            <span>Files</span>
+            <span>Rules</span>
+            <span>Agent</span>
+            <span>Review</span>
+            <span>Output</span>
           </div>
         </div>
 
@@ -836,6 +984,37 @@
           <div class="agent-card"><small>Reporting</small><div><h3>Reporting agents</h3><p>Collect files, validate data, prepare summaries, and assemble recurring reports for review.</p></div></div>
           <div class="agent-card"><small>Operations</small><div><h3>Workflow agents</h3><p>Track inputs, flag exceptions, route approvals, draft updates, and keep the process moving.</p></div></div>
           <div class="agent-card"><small>Dashboards</small><div><h3>Decision layers</h3><p>Turn exports, spreadsheets, and shared folders into clean views leaders can actually use.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Agent interface</div>
+            <h2 class="section-title">A cleaner operating layer for recurring work.</h2>
+          </div>
+          <p class="section-copy">The system should feel like a controlled workflow surface: clear inputs, visible checks, review points, output status, and a practical path to maintenance.</p>
+        </div>
+        <div class="mosaic">
+          <div class="mosaic-card large">
+            <small>Opportunity audit</small>
+            <h3>Find the workflow worth building first.</h3>
+            <p>Map the work, identify repeated checks, and prioritize the agent that can make the process easier to run.</p>
+            <div class="mini-ui" aria-hidden="true"><span></span><span></span><span></span></div>
+          </div>
+          <div class="mosaic-card">
+            <small>Agent architecture</small>
+            <h3>Design the logic before the build.</h3>
+            <p>Inputs, rules, tools, review gates, and outputs are defined before the agent touches real work.</p>
+          </div>
+          <div class="mosaic-card light">
+            <small>Production workflow</small>
+            <h3>Ship with controls.</h3>
+            <p>Human approvals, logs, refresh cadence, and exception handling stay visible from day one.</p>
+            <div class="mini-ui" aria-hidden="true"><span></span><span></span><span></span></div>
+          </div>
         </div>
       </div>
     </section>
