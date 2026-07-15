@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="cache-bust" content="20260715-agent-categories" />
+  <meta name="cache-bust" content="20260715-premium-ai-layer" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ArgusReach - AI Agents for Business Workflows</title>
-  <meta name="description" content="ArgusReach builds focused AI agents for executive, research, reporting, revenue, and operations workflows." />
+  <meta name="description" content="ArgusReach builds model-agnostic AI agents for executive, research, reporting, revenue, and operations workflows." />
   <link rel="canonical" href="https://argusreach.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://argusreach.com/" />
   <meta property="og:title" content="ArgusReach - AI Agents for Business Workflows" />
-  <meta property="og:description" content="Focused AI agents for executive, research, reporting, revenue, and operations workflows." />
+  <meta property="og:description" content="Model-agnostic AI agents for executive, research, reporting, revenue, and operations workflows." />
   <meta property="og:site_name" content="ArgusReach" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="ArgusReach - AI Agents for Business Workflows" />
-  <meta name="twitter:description" content="Focused AI agents for repeatable business workflows across the stack you already use." />
+  <meta name="twitter:description" content="Model-agnostic AI agents for repeatable business workflows across the stack you already use." />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -113,16 +113,41 @@
       background: #fff;
     }
     .hero-shell {
+      position: relative;
       min-height: 76vh;
       border-radius: 24px;
-      background: var(--soft);
+      background:
+        linear-gradient(120deg, rgba(255,255,255,0.72), transparent 34%),
+        linear-gradient(180deg, #f7f7f6 0%, #eeeeec 100%);
       overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       border: 1px solid #ececec;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.86);
+    }
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(10,10,10,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10,10,10,0.045) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.54), transparent 68%);
+      pointer-events: none;
+    }
+    .hero-shell::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, transparent 0%, transparent 43%, rgba(255,255,255,0.7) 50%, transparent 58%, transparent 100%);
+      opacity: 0.58;
+      pointer-events: none;
     }
     .hero-copy {
+      position: relative;
+      z-index: 1;
       max-width: 1080px;
       margin: 0 auto;
       padding: 70px 24px 34px;
@@ -179,6 +204,8 @@
     .btn-secondary { background: #fff; color: var(--ink); border-color: var(--line); }
     .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(10,10,10,0.08); }
     .artifact-row {
+      position: relative;
+      z-index: 1;
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
@@ -187,10 +214,10 @@
     }
     .artifact {
       min-height: 322px;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(10,10,10,0.09);
       border-radius: 12px;
       background: #fff;
-      box-shadow: var(--shadow);
+      box-shadow: 0 20px 56px rgba(10, 10, 10, 0.095);
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -204,7 +231,11 @@
     .artifact-visual {
       height: 190px;
       padding: 14px;
-      background: linear-gradient(180deg, #fbfbfb, #f3f3f3);
+      background:
+        linear-gradient(rgba(10,10,10,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10,10,10,0.035) 1px, transparent 1px),
+        linear-gradient(180deg, #fbfbfb, #f1f1ef);
+      background-size: 22px 22px, 22px 22px, 100% 100%;
       border-bottom: 1px solid var(--line);
     }
     .mini-window {
@@ -217,7 +248,7 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 12px 30px rgba(10,10,10,0.055);
     }
     .mini-window::after {
       content: attr(data-status);
@@ -1027,9 +1058,9 @@
     <section class="hero">
       <div class="hero-shell">
         <div class="hero-copy">
-          <div class="eyebrow">AI agents for small business operations</div>
-          <h1>AI agents for work still run by hand.</h1>
-          <p>Executive, research, reporting, revenue, and operations agents - built around your current tools.</p>
+          <div class="eyebrow">AI operating layer for SMBs</div>
+          <h1>AI agents for modern business operations.</h1>
+          <p>Executive, research, reporting, revenue, and operations agents built across Claude, ChatGPT, Perplexity, APIs, and your current tools.</p>
           <div class="hero-actions">
             <a href="https://calendly.com/vito-argusreach/30min" class="btn btn-primary" target="_blank" rel="noopener">Book a Call</a>
             <a href="#example" class="btn btn-secondary">View Example</a>
@@ -1048,7 +1079,7 @@
                 </div>
               </div>
             </div>
-            <div class="artifact-body"><span class="artifact-label">Agent 01</span><h3>Executive Agents</h3><p>Prepare briefs, surface priorities, and route decisions.</p><div class="tags"><span class="tag green">Briefs</span><span class="tag">Decisions</span></div></div>
+            <div class="artifact-body"><span class="artifact-label">Agent 01</span><h3>Executive Agents</h3><p>Turn scattered inputs into priorities, briefs, and decisions.</p><div class="tags"><span class="tag green">Briefs</span><span class="tag">Decisions</span></div></div>
           </article>
           <article class="artifact">
             <div class="artifact-visual">
@@ -1061,7 +1092,7 @@
                 </div>
               </div>
             </div>
-            <div class="artifact-body"><span class="artifact-label">Agent 02</span><h3>Research Agents</h3><p>Track sources, summarize changes, and flag what matters.</p><div class="tags"><span class="tag amber">Research</span><span class="tag">Signals</span></div></div>
+            <div class="artifact-body"><span class="artifact-label">Agent 02</span><h3>Research Agents</h3><p>Monitor sources, summarize signals, and keep teams ahead.</p><div class="tags"><span class="tag amber">Research</span><span class="tag">Signals</span></div></div>
           </article>
           <article class="artifact">
             <div class="artifact-visual">
@@ -1075,7 +1106,7 @@
                 </div>
               </div>
             </div>
-            <div class="artifact-body"><span class="artifact-label">Agent 03</span><h3>Reporting Agents</h3><p>Collect files, check numbers, and assemble review-ready output.</p><div class="tags"><span class="tag red">Reports</span><span class="tag">QA</span></div></div>
+            <div class="artifact-body"><span class="artifact-label">Agent 03</span><h3>Reporting Agents</h3><p>Check files, reconcile numbers, and ship review-ready output.</p><div class="tags"><span class="tag red">Reports</span><span class="tag">QA</span></div></div>
           </article>
           <article class="artifact">
             <div class="artifact-visual">
@@ -1085,7 +1116,7 @@
                 <div class="mini-kpis"><div class="mini-kpi"><b></b><span></span></div><div class="mini-kpi"><b></b><span></span></div><div class="mini-kpi"><b></b><span></span></div></div>
               </div>
             </div>
-            <div class="artifact-body"><span class="artifact-label">Agent 04</span><h3>Operations Agents</h3><p>Handle handoffs, exceptions, approvals, and recurring admin.</p><div class="tags"><span class="tag blue">Ops</span><span class="tag">Routing</span></div></div>
+            <div class="artifact-body"><span class="artifact-label">Agent 04</span><h3>Operations Agents</h3><p>Coordinate handoffs, exceptions, approvals, and admin.</p><div class="tags"><span class="tag blue">Ops</span><span class="tag">Routing</span></div></div>
           </article>
         </div>
       </div>
@@ -1094,17 +1125,17 @@
     <section>
       <div class="wrap">
         <div class="section-head">
-          <h2>Audit the workflow. Build the agent.</h2>
+          <h2>Design the workflow. Deploy the agent.</h2>
           <p>Inputs. Rules. Review. Output.</p>
         </div>
         <div class="brief-grid">
           <article class="brief-card">
             <div>
-              <h3>Find the manual chain.</h3>
+              <h3>Find the hidden process.</h3>
               <p>What people collect, check, rewrite, approve, and send.</p>
             </div>
             <div>
-              <div class="prompt-box">Track the inputs, validate the file, draft the brief, and route anything that needs a decision.</div>
+              <div class="prompt-box">Monitor the sources, validate the file, draft the brief, and route anything that needs a decision.</div>
               <div class="chip-row">
                 <span class="chip">Source files</span>
                 <span class="chip">Rules</span>
@@ -1131,12 +1162,12 @@
     <section id="agents">
       <div class="wrap">
         <div class="section-head">
-          <h2>Agent systems for the work that repeats.</h2>
+          <h2>Agent systems by business function.</h2>
           <p>No generic chatbot. One workflow, one clean operating surface.</p>
         </div>
         <div class="agent-grid">
           <article class="agent-card">
-            <div><h3>Front-office agents.</h3><p>Executive, research, and revenue work that needs speed and judgment.</p></div>
+            <div><h3>Front-office agents.</h3><p>Executive, research, and revenue workflows that need speed, context, and judgment.</p></div>
             <div class="agent-ui">
               <div class="agent-ui-row"><span class="dot green"></span><b>Executive Brief Agent</b><span>active</span></div>
               <div class="agent-ui-row"><span class="dot amber"></span><b>Research Watch Agent</b><span>review</span></div>
@@ -1144,7 +1175,7 @@
             </div>
           </article>
           <article class="agent-card">
-            <div><h3>Back-office agents.</h3><p>Reporting, finance, admin, and operations workflows with clear controls.</p></div>
+            <div><h3>Back-office agents.</h3><p>Reporting, finance, admin, and operations workflows with audit-ready controls.</p></div>
             <div class="agent-ui">
               <div class="agent-ui-row"><span class="dot green"></span><b>Reporting Agent</b><span>ready</span></div>
               <div class="agent-ui-row"><span class="dot amber"></span><b>Finance Ops Agent</b><span>review</span></div>
@@ -1152,7 +1183,7 @@
             </div>
           </article>
           <article class="agent-card">
-            <div><h3>Harness agnostic.</h3><p>Use the right model, app, automation, or API for the job.</p></div>
+            <div><h3>Model and harness agnostic.</h3><p>Use the right model, app, automation, or API for the job.</p></div>
             <div class="agent-ui">
               <div class="agent-ui-row"><span class="dot blue"></span><b>Claude / ChatGPT</b><span>model</span></div>
               <div class="agent-ui-row"><span class="dot amber"></span><b>Perplexity / search</b><span>research</span></div>
@@ -1232,8 +1263,8 @@
     <section id="tools">
       <div class="wrap">
         <div class="section-head">
-          <h2>Works with the stack already in place.</h2>
-          <p>Agent-harness agnostic. Tools first, model second.</p>
+          <h2>Model-agnostic by design.</h2>
+          <p>Claude, ChatGPT, Perplexity, APIs, automations, or whatever fits the workflow.</p>
         </div>
         <div class="tool-grid">
           <div class="tool-card"><small>Models</small><b>Claude, ChatGPT, OpenAI</b></div>
@@ -1254,7 +1285,7 @@
         <div class="faq-grid">
           <div class="faq-item"><h3>What should we start with?</h3><p>One repeatable workflow with clear inputs and output.</p></div>
           <div class="faq-item"><h3>Is this just a chatbot?</h3><p>No. Useful agents work through files, rules, dashboards, approvals, and systems.</p></div>
-          <div class="faq-item"><h3>Do we need one AI platform?</h3><p>No. We can build around Claude, ChatGPT, Perplexity, APIs, or your current stack.</p></div>
+          <div class="faq-item"><h3>Do we need one AI platform?</h3><p>No. The system can use Claude, ChatGPT, Perplexity, APIs, or your current stack.</p></div>
           <div class="faq-item"><h3>Where does review stay?</h3><p>Where judgment matters. The agent prepares, checks, routes, and logs the work.</p></div>
         </div>
       </div>
