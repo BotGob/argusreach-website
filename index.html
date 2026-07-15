@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="cache-bust" content="20260715-premium-varick-pass" />
+  <meta name="cache-bust" content="20260715-hyperagent-pass" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ArgusReach - AI Agents for Business Workflows</title>
-  <meta name="description" content="ArgusReach designs and builds focused AI agents for reporting, operations, approvals, dashboards, and recurring business workflows." />
+  <meta name="description" content="ArgusReach designs and builds AI agents that ship real business work around your data, tools, approvals, and recurring workflows." />
   <link rel="canonical" href="https://argusreach.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://argusreach.com/" />
   <meta property="og:title" content="ArgusReach - AI Agents for Business Workflows" />
-  <meta property="og:description" content="Focused AI agents for the workflows still run by hand." />
+  <meta property="og:description" content="AI agents that ship real business work around your data, tools, approvals, and recurring workflows." />
   <meta property="og:site_name" content="ArgusReach" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="ArgusReach - AI Agents for Business Workflows" />
-  <meta name="twitter:description" content="AI agents for the workflows still run by hand." />
+  <meta name="twitter:description" content="AI agents that ship real business work around your data, tools, approvals, and recurring workflows." />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -440,6 +440,176 @@
       text-transform: uppercase;
     }
     .path-step b { font-size: 0.92rem; }
+    .brief-section {
+      padding: 96px 0;
+      background: #fff;
+    }
+    .brief-head {
+      display: grid;
+      justify-items: center;
+      gap: 12px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .brief-head h2 {
+      max-width: 760px;
+      color: var(--ink);
+      font-size: clamp(2.2rem, 4.4vw, 4.15rem);
+      line-height: 1;
+      letter-spacing: 0;
+      font-weight: 850;
+    }
+    .brief-head p {
+      max-width: 620px;
+      color: #65758c;
+      line-height: 1.62;
+      font-size: 0.98rem;
+    }
+    .brief-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .brief-card {
+      position: relative;
+      min-height: 390px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 22px 70px rgba(9,23,47,0.08);
+      overflow: hidden;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .brief-card.muted-card {
+      background:
+        radial-gradient(circle at 78% 15%, rgba(47,107,255,0.08), transparent 34%),
+        #f6f8fb;
+      color: rgba(9,23,47,0.5);
+    }
+    .brief-card h3 {
+      max-width: 430px;
+      color: var(--ink);
+      font-size: 1.34rem;
+      line-height: 1.16;
+      margin-bottom: 9px;
+    }
+    .brief-card p {
+      max-width: 480px;
+      color: #687890;
+      font-size: 0.88rem;
+      line-height: 1.58;
+    }
+    .prompt-box {
+      min-height: 142px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #f8fbff;
+      padding: 18px;
+      color: #77859a;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .prompt-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .prompt-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      padding: 0 11px;
+      color: #66758c;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .build-feed {
+      display: grid;
+      gap: 10px;
+    }
+    .build-step {
+      display: grid;
+      grid-template-columns: 34px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.72);
+      padding: 13px;
+    }
+    .build-step i {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.62rem;
+      font-style: normal;
+    }
+    .build-step b {
+      display: block;
+      color: var(--ink);
+      font-size: 0.86rem;
+      margin-bottom: 2px;
+    }
+    .build-step span {
+      color: #7a879a;
+      font-size: 0.72rem;
+    }
+    .build-step small {
+      color: var(--green);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.56rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .artifact-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .artifact-card {
+      min-height: 124px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      padding: 15px;
+      box-shadow: 0 16px 44px rgba(9,23,47,0.06);
+    }
+    .artifact-thumb {
+      height: 42px;
+      border-radius: 10px;
+      background:
+        linear-gradient(90deg, rgba(47,107,255,0.9), rgba(94,215,255,0.8)),
+        var(--paper-2);
+      margin-bottom: 12px;
+    }
+    .artifact-card:nth-child(2) .artifact-thumb { background: linear-gradient(90deg, #09172f, #35d39f); }
+    .artifact-card:nth-child(3) .artifact-thumb { background: linear-gradient(90deg, #7867ff, #5ed7ff); }
+    .artifact-card:nth-child(4) .artifact-thumb { background: linear-gradient(90deg, #f5b43d, #35d39f); }
+    .artifact-card b {
+      display: block;
+      color: var(--ink);
+      font-size: 0.84rem;
+      line-height: 1.15;
+      margin-bottom: 5px;
+    }
+    .artifact-card span {
+      color: #738197;
+      font-size: 0.72rem;
+      line-height: 1.32;
+    }
     section { padding: 102px 0; }
     .section-head {
       display: grid;
@@ -1052,12 +1222,12 @@
     .foot-links a:hover { color: #fff; }
     @media (max-width: 1060px) {
       .nav-links { display: none; }
-      .hero-grid, .section-head, .agent-grid, .deliverables, .example-shell, .faq-grid { grid-template-columns: 1fr; }
+      .hero-grid, .section-head, .agent-grid, .deliverables, .example-shell, .faq-grid, .brief-grid { grid-template-columns: 1fr; }
       .product-stage { min-height: 0; }
       .float-a, .float-b { display: none; }
       .screen-body { grid-template-columns: 1fr; }
       .screen-rail { border-right: 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-      .hero-bottom, .process-grid, .system-cards, .example-stats, .tool-grid { grid-template-columns: 1fr; }
+      .hero-bottom, .process-grid, .system-cards, .example-stats, .tool-grid, .artifact-strip { grid-template-columns: 1fr; }
       .agent-types, .deliverable-grid, .metrics, .proof-strip { grid-template-columns: 1fr; }
       .process-card { border-right: 0; border-bottom: 1px solid var(--line); min-height: 190px; }
       .process-card:last-child { border-bottom: 0; }
@@ -1078,7 +1248,12 @@
       .flow-row { grid-template-columns: 1fr; gap: 7px; }
       .activity div { grid-template-columns: 1fr; gap: 4px; }
       section { padding: 76px 0; }
+      .brief-section { padding: 72px 0; }
       .section-title, .cta h2 { font-size: clamp(2.28rem, 11vw, 3.65rem); }
+      .brief-head h2 { font-size: clamp(2.18rem, 10vw, 3.45rem); }
+      .brief-card { min-height: 330px; padding: 22px; }
+      .build-step { grid-template-columns: 30px 1fr; }
+      .build-step small { grid-column: 2; }
       .panel-pad, .deliverable-lede { padding: 24px; }
       .stack-card { margin: 22px; }
       .stack-row { grid-template-columns: 30px 1fr; }
@@ -1108,8 +1283,8 @@
       <div class="wrap hero-grid">
         <div>
           <div class="eyebrow">AI agent systems</div>
-          <h1>Agents for the work still run by hand.</h1>
-          <p class="hero-copy">ArgusReach builds focused AI agents around real business workflows: reports, approvals, dashboards, file reviews, CRM cleanup, and recurring operating work.</p>
+          <h1>AI agents that ship real business work.</h1>
+          <p class="hero-copy">Brief the workflow once. We design the agent around your data, tools, rules, and review path so the output can stay useful as the work changes.</p>
           <div class="hero-actions">
             <a href="https://calendly.com/vito-argusreach/30min" class="btn btn-primary" target="_blank" rel="noopener">Book a Workflow Call</a>
             <a href="#example" class="btn btn-secondary">View Example Breakdown</a>
@@ -1172,21 +1347,64 @@
       </div>
     </section>
 
+    <section class="brief-section" aria-label="Brief once agent execution">
+      <div class="wrap">
+        <div class="brief-head">
+          <h2>Brief once. Keep the workflow alive.</h2>
+          <p>Agents should produce something usable: a dashboard, a report packet, a review queue, a cleanup pass, a draft, or an alerting workflow that fits how the team already operates.</p>
+        </div>
+        <div class="brief-grid">
+          <article class="brief-card">
+            <div>
+              <h3>Tell the agent system what needs to happen.</h3>
+              <p>We turn the workflow into clear instructions, source rules, output formats, and review gates before anything touches production work.</p>
+            </div>
+            <div>
+              <div class="prompt-box">Build an agent that checks the monthly source folder, validates the workbook, prepares a dashboard refresh, and routes exceptions before final review.</div>
+              <div class="prompt-actions">
+                <span class="prompt-chip">Source files</span>
+                <span class="prompt-chip">Rules</span>
+                <span class="prompt-chip">Review queue</span>
+                <span class="prompt-chip">Output</span>
+              </div>
+            </div>
+          </article>
+          <article class="brief-card muted-card">
+            <div>
+              <h3>The system gets building.</h3>
+              <p>Each build gets the pieces needed to run: agent logic, interface, logs, approvals, and a runbook for maintenance.</p>
+            </div>
+            <div class="build-feed">
+              <div class="build-step"><i>01</i><div><b>Map inputs</b><span>Files, systems, owners, and refresh cadence.</span></div><small>ready</small></div>
+              <div class="build-step"><i>02</i><div><b>Define agent actions</b><span>Read, check, draft, route, log, and stop.</span></div><small>ready</small></div>
+              <div class="build-step"><i>03</i><div><b>Ship operating surface</b><span>Dashboard, workflow panel, or review queue.</span></div><small>review</small></div>
+            </div>
+          </article>
+        </div>
+        <div class="artifact-strip" aria-label="Agent output examples">
+          <div class="artifact-card"><div class="artifact-thumb"></div><b>Reporting agent</b><span>Prepare packets and summaries for review.</span></div>
+          <div class="artifact-card"><div class="artifact-thumb"></div><b>Approval command center</b><span>Track status, exceptions, and owners.</span></div>
+          <div class="artifact-card"><div class="artifact-thumb"></div><b>Cleanup workflow</b><span>Validate exports, fields, and source files.</span></div>
+          <div class="artifact-card"><div class="artifact-thumb"></div><b>Dashboard refresh</b><span>Turn recurring files into a usable view.</span></div>
+        </div>
+      </div>
+    </section>
+
     <section id="agents" class="light-band">
       <div class="wrap">
         <div class="section-head">
           <div>
             <div class="eyebrow">What we build</div>
-            <h2 class="section-title">Agent systems with a narrow job and a real interface.</h2>
+            <h2 class="section-title">A focused fleet of agents, built one workflow at a time.</h2>
           </div>
-          <p class="section-copy">We do not sell generic AI magic. We map a workflow, define what the agent should read and do, then build the interface, controls, and support path around it.</p>
+          <p class="section-copy">We do not sell generic AI magic. We map a workflow, define what each agent should read and do, then build the interface, controls, and support path around it.</p>
         </div>
         <div class="agent-grid">
           <div class="feature-panel">
             <div class="panel-pad">
               <div class="panel-kicker">Agent categories</div>
-              <h3 class="panel-title">Start where the manual work is easiest to define.</h3>
-              <p class="panel-copy">The best first agent usually lives inside a repeated workflow with known inputs, clear rules, and a human owner who already reviews the output.</p>
+              <h3 class="panel-title">Start where the output is clear.</h3>
+              <p class="panel-copy">The best first agent usually lives inside a repeated workflow with known inputs, clear rules, and a deliverable people already recognize.</p>
               <div class="agent-types">
                 <div class="agent-type"><small>Reporting</small><b>Reporting agents</b><p>Collect inputs, check data, and prepare recurring report packets.</p></div>
                 <div class="agent-type"><small>Operations</small><b>Workflow agents</b><p>Track status, route exceptions, and prepare approvals.</p></div>
