@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="cache-bust" content="20260715-agent-polish" />
+  <meta name="cache-bust" content="20260715-expert-polish" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ArgusReach - AI Agents for Business Workflows</title>
   <meta name="description" content="ArgusReach builds focused AI agents, dashboards, reporting systems, and internal tools around real business workflows." />
@@ -201,6 +201,28 @@
       text-align: center;
       padding: 0 8px;
     }
+    .hero-notes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      max-width: 620px;
+      margin-top: 14px;
+    }
+    .hero-note {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.78);
+      padding: 13px 14px;
+      color: #50617b;
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+    .hero-note b {
+      display: block;
+      color: var(--ink);
+      font-size: 0.84rem;
+      margin-bottom: 4px;
+    }
     .agent-board {
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.82);
@@ -290,6 +312,27 @@
       padding: 18px;
       background: linear-gradient(180deg, #fff, #f8fafc);
     }
+    .agent-log {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #08172d;
+      color: rgba(255,255,255,0.78);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.68rem;
+    }
+    .agent-log div {
+      display: grid;
+      grid-template-columns: 72px 1fr auto;
+      gap: 12px;
+      padding: 11px 13px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      align-items: center;
+    }
+    .agent-log div:last-child { border-bottom: 0; }
+    .agent-log b { color: #83c5ff; font-weight: 500; }
+    .agent-log span:last-child { color: #7be6bb; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.56rem; }
     .workflow-row {
       display: grid;
       grid-template-columns: 150px 1fr 44px;
@@ -540,6 +583,87 @@
       color: #61728a;
       font-size: 0.88rem;
       line-height: 1.62;
+    }
+
+    .ship-section {
+      padding-top: 0;
+      background: var(--soft);
+    }
+    .ship-shell {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+    .ship-lede {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 80% 18%, rgba(16,76,255,0.12), transparent 34%),
+        linear-gradient(180deg, #fff, #f7fafc);
+      padding: 30px;
+      min-height: 370px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .ship-lede h3 {
+      color: var(--ink);
+      font-size: clamp(2rem, 3.3vw, 3.3rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+      margin-top: 16px;
+    }
+    .ship-lede p {
+      color: #5c6c84;
+      line-height: 1.68;
+      font-size: 0.94rem;
+      max-width: 420px;
+    }
+    .ship-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .ship-card {
+      position: relative;
+      min-height: 178px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 22px;
+      overflow: hidden;
+    }
+    .ship-card::after {
+      content: "";
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 20px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), #9fd2ff, var(--green));
+      opacity: 0.72;
+    }
+    .ship-card small {
+      color: var(--blue);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .ship-card h4 {
+      margin-top: 24px;
+      color: var(--ink);
+      font-size: 1.08rem;
+      line-height: 1.12;
+    }
+    .ship-card p {
+      margin-top: 8px;
+      color: #64748b;
+      line-height: 1.55;
+      font-size: 0.84rem;
+      padding-bottom: 20px;
     }
 
     .example-shell {
@@ -888,6 +1012,7 @@
       .hero { padding: 64px 0 44px; }
       .hero-grid, .section-head, .faq-grid, .example-shell { grid-template-columns: 1fr; }
       .agent-grid, .process, .system-cards, .example-stats, .signal-grid, .agent-steps, .mosaic { grid-template-columns: 1fr; }
+      .hero-notes, .ship-shell, .ship-grid { grid-template-columns: 1fr; }
       .mosaic { grid-template-rows: auto; }
       .mosaic-card.large { grid-row: auto; }
       .agent-step, .process-card { border-right: 0; border-bottom: 1px solid var(--line); min-height: 150px; }
@@ -912,6 +1037,7 @@
       .example-main { padding: 22px 16px 24px; }
       .heat-row { grid-template-columns: 1fr; gap: 6px; }
       .opportunity-card { overflow-x: auto; }
+      .agent-log div { grid-template-columns: 1fr; gap: 4px; }
       .example-table { min-width: 620px; }
       .tool-row { grid-template-columns: 1fr; gap: 7px; }
       footer { padding: 26px 20px; flex-direction: column; }
@@ -936,7 +1062,7 @@
         <div>
           <div class="kicker">AI agent systems</div>
           <h1>AI agents for real business workflows.</h1>
-          <p class="hero-copy">ArgusReach designs and builds focused agents that help teams collect inputs, check work, prepare reports, route reviews, and keep recurring processes moving.</p>
+          <p class="hero-copy">ArgusReach designs and builds focused AI agents that collect inputs, check rules, prepare outputs, route reviews, and make recurring work easier to operate.</p>
           <div class="hero-actions">
             <a href="https://calendly.com/vito-argusreach/30min" class="btn btn-primary" target="_blank" rel="noopener">Book a Workflow Call</a>
             <a href="#example" class="btn btn-secondary">View Example Breakdown</a>
@@ -947,6 +1073,11 @@
             <span>Agent</span>
             <span>Review</span>
             <span>Output</span>
+          </div>
+          <div class="hero-notes" aria-label="Agent build principles">
+            <div class="hero-note"><b>Scoped first</b>One workflow before a broad platform.</div>
+            <div class="hero-note"><b>Reviewable</b>Human approval where judgment matters.</div>
+            <div class="hero-note"><b>Maintainable</b>Clear cadence, ownership, and support path.</div>
           </div>
         </div>
 
@@ -969,6 +1100,11 @@
               <div class="workflow-row"><span>Data cleanup</span><div class="bar gold"><span style="width:58%;"></span></div><b>Med</b></div>
               <div class="workflow-row"><span>Report draft</span><div class="bar green"><span style="width:48%;"></span></div><b>Med</b></div>
               <div class="workflow-row"><span>Final review</span><div class="bar"><span style="width:36%;"></span></div><b>Low</b></div>
+            </div>
+            <div class="agent-log" aria-label="Agent activity log preview">
+              <div><b>09:14</b><span>Source files checked against rules</span><span>logged</span></div>
+              <div><b>09:16</b><span>Draft packet prepared for reviewer</span><span>ready</span></div>
+              <div><b>09:18</b><span>Exception routed to human owner</span><span>review</span></div>
             </div>
           </div>
           <div class="agent-steps">
@@ -1043,6 +1179,24 @@
           <div class="process-card"><div class="num">Step 2</div><div><h3>Agent design</h3><p>We define what the agent should observe, check, draft, route, or prepare for approval.</p></div></div>
           <div class="process-card"><div class="num">Step 3</div><div><h3>Build and validate</h3><p>We build against real examples and test the output before it becomes part of the workflow.</p></div></div>
           <div class="process-card"><div class="num">Step 4</div><div><h3>Deploy and maintain</h3><p>We define refresh cadence, ownership, support, and what happens when inputs change.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ship-section">
+      <div class="wrap ship-shell">
+        <div class="ship-lede">
+          <div>
+            <div class="kicker">What ships</div>
+            <h3>A working agent system, not a slide deck.</h3>
+          </div>
+          <p>The first build should have a narrow job, a clear interface, visible controls, and a maintenance path. That is how we keep the offer premium without exaggerating what the agent does.</p>
+        </div>
+        <div class="ship-grid">
+          <div class="ship-card"><small>01 Logic</small><h4>Agent instructions and rules</h4><p>What the agent reads, checks, drafts, routes, logs, and stops for review.</p></div>
+          <div class="ship-card"><small>02 Interface</small><h4>Dashboard or workflow surface</h4><p>A clean place to view inputs, status, exceptions, outputs, and approvals.</p></div>
+          <div class="ship-card"><small>03 Controls</small><h4>Human review and audit trail</h4><p>Review gates, owner handoffs, logs, and practical failure handling.</p></div>
+          <div class="ship-card"><small>04 Support</small><h4>Runbook and maintenance path</h4><p>Refresh cadence, source ownership, support expectations, and change process.</p></div>
         </div>
       </div>
     </section>
