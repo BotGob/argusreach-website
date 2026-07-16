@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="cache-bust" content="20260716-mobile-premium-fix" />
+  <meta name="cache-bust" content="20260716-desktop-premium-fix" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ArgusReach - AI Agents for Business Workflows</title>
   <meta name="description" content="ArgusReach builds model-agnostic AI agents for executive, research, reporting, revenue, and operations workflows." />
@@ -332,43 +332,203 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-      padding: 0 54px 52px;
-      width: 100%;
+      grid-template-columns: 1.05fr 1.5fr 1.05fr;
+      gap: 14px;
+      width: min(1080px, calc(100% - 64px));
+      margin: 0 auto 42px;
+      padding: 14px;
+      border: 1px solid rgba(10,10,10,0.1);
+      border-radius: 18px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.66), rgba(255,255,255,0.86)),
+        rgba(255,255,255,0.72);
+      box-shadow: 0 28px 76px rgba(10,10,10,0.11);
+      backdrop-filter: blur(14px);
     }
-    .artifact {
-      min-height: 342px;
-      border: 1px solid rgba(10,10,10,0.09);
-      border-radius: 12px;
+    .system-panel {
+      min-height: 324px;
+      border: 1px solid #e1e1e1;
+      border-radius: 13px;
       background: #fff;
-      box-shadow: 0 20px 56px rgba(10, 10, 10, 0.095);
-      overflow: hidden;
+      padding: 15px;
       display: flex;
       flex-direction: column;
-      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+      overflow: hidden;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
     }
-    .artifact:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 22px 56px rgba(10, 10, 10, 0.11);
-      border-color: #d9d9d9;
-    }
-    .artifact:nth-child(2) { transform: translateY(12px); }
-    .artifact:nth-child(3) { transform: translateY(4px); }
-    .artifact:nth-child(4) { transform: translateY(18px); }
-    .artifact:nth-child(2):hover,
-    .artifact:nth-child(3):hover,
-    .artifact:nth-child(4):hover { transform: translateY(0); }
-    .artifact-visual {
-      height: 208px;
-      padding: 14px;
+    .system-panel.dark {
+      border-color: rgba(255,255,255,0.12);
       background:
-        linear-gradient(rgba(10,10,10,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(10,10,10,0.035) 1px, transparent 1px),
-        linear-gradient(135deg, transparent 0 58%, rgba(10,10,10,0.04) 58% 59%, transparent 59% 100%),
-        linear-gradient(180deg, #fbfbfb, #f1f1ef);
-      background-size: 22px 22px, 22px 22px, 44px 44px, 100% 100%;
-      border-bottom: 1px solid var(--line);
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        #121315;
+      background-size: 24px 24px;
+      color: #fff;
+    }
+    .panel-kicker {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: #777;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.56rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .system-panel.dark .panel-kicker { color: #9199a3; }
+    .status-light {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 4px rgba(24,182,109,0.11);
+    }
+    .status-light.amber { background: var(--amber); box-shadow: 0 0 0 4px rgba(217,151,37,0.12); }
+    .status-light.blue { background: var(--blue); box-shadow: 0 0 0 4px rgba(66,107,255,0.12); }
+    .stack-list {
+      display: grid;
+      gap: 9px;
+    }
+    .stack-item {
+      display: grid;
+      grid-template-columns: 32px 1fr auto;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid #ececec;
+      border-radius: 10px;
+      background: #fafafa;
+      padding: 10px;
+    }
+    .stack-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: #111;
+      color: #fff;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.62rem;
+    }
+    .stack-item b,
+    .queue-row b,
+    .logic-card b {
+      display: block;
+      font-size: 0.82rem;
+      line-height: 1.16;
+    }
+    .stack-item span,
+    .queue-row span,
+    .logic-card span {
+      display: block;
+      margin-top: 3px;
+      color: #737373;
+      font-size: 0.68rem;
+      line-height: 1.25;
+    }
+    .stack-tag {
+      min-height: 22px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 999px;
+      border: 1px solid #dedede;
+      color: #666;
+      background: #fff;
+      padding: 0 7px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.5rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .logic-map {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      align-content: stretch;
+    }
+    .logic-card {
+      min-height: 100px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.055);
+      padding: 13px;
+      position: relative;
+      overflow: hidden;
+    }
+    .logic-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--green), transparent);
+    }
+    .logic-card:nth-child(2)::before { background: linear-gradient(90deg, var(--blue), transparent); }
+    .logic-card:nth-child(3)::before { background: linear-gradient(90deg, var(--amber), transparent); }
+    .logic-card:nth-child(4)::before { background: linear-gradient(90deg, var(--cyan), transparent); }
+    .logic-card b { color: #fff; }
+    .logic-card span { color: #aeb6bf; }
+    .logic-meter {
+      height: 8px;
+      margin-top: 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+    }
+    .logic-meter i {
+      display: block;
+      height: 100%;
+      width: var(--w, 70%);
+      border-radius: inherit;
+      background: linear-gradient(90deg, #fff, rgba(255,255,255,0.22));
+    }
+    .queue-list {
+      display: grid;
+      gap: 10px;
+    }
+    .queue-row {
+      border: 1px solid #ececec;
+      border-radius: 10px;
+      background: #fafafa;
+      padding: 11px;
+    }
+    .queue-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+    .queue-pill {
+      min-height: 22px;
+      border-radius: 999px;
+      padding: 0 7px;
+      display: inline-grid;
+      place-items: center;
+      background: #f0f7f3;
+      color: #147647;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.5rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .queue-pill.amber { background: #fff7e7; color: #8a5f12; }
+    .queue-pill.blue { background: #f1f4ff; color: #3656b8; }
+    .queue-track {
+      height: 7px;
+      margin-top: 10px;
+      border-radius: 999px;
+      background: #ededed;
+      overflow: hidden;
+    }
+    .queue-track i {
+      display: block;
+      height: 100%;
+      width: var(--w, 64%);
+      border-radius: inherit;
+      background: #111;
     }
     .mini-window {
       position: relative;
@@ -1342,15 +1502,12 @@
       .nav-links { display: none; }
       .hero-copy { padding-top: 52px; }
       .artifact-row {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: 1fr;
+        width: calc(100% - 32px);
+        margin-bottom: 34px;
         overflow: visible;
-        padding: 0 24px 38px;
-        scroll-snap-type: none;
       }
-      .artifact { scroll-snap-align: unset; }
-      .artifact:nth-child(2),
-      .artifact:nth-child(3),
-      .artifact:nth-child(4) { transform: none; }
+      .system-panel { min-height: auto; }
       .hero-console { width: calc(100% - 32px); }
       .console-grid { grid-template-columns: repeat(2, 1fr); }
       .console-cell:nth-child(2) { border-right: 0; }
@@ -1457,39 +1614,22 @@
       .console-cell span { font-size: 0.68rem; }
       .artifact-row {
         grid-template-columns: 1fr;
-        gap: 12px;
-        padding: 0 12px 24px;
-      }
-      .artifact {
-        min-height: 0;
-        border-radius: 13px;
-        box-shadow: 0 16px 38px rgba(10,10,10,0.09);
-      }
-      .artifact-visual {
-        height: 170px;
-        padding: 12px;
-      }
-      .mini-window {
-        border-radius: 9px;
+        width: calc(100% - 24px);
+        gap: 10px;
         padding: 10px;
+        margin-bottom: 24px;
+        border-radius: 14px;
+      }
+      .system-panel {
+        border-radius: 11px;
+        padding: 12px;
         gap: 8px;
       }
-      .mini-window::after,
-      .mini-window::before {
-        bottom: 9px;
-        font-size: 0.48rem;
+      .logic-map {
+        grid-template-columns: 1fr;
       }
-      .mini-window::before { left: 10px; }
-      .mini-window::after { right: 10px; }
-      .artifact-body { padding: 16px; }
-      .artifact-label {
-        min-height: 20px;
-        font-size: 0.5rem;
-        margin-bottom: 9px;
-      }
-      .artifact h3 { font-size: 1rem; margin-bottom: 6px; }
-      .artifact p { font-size: 0.8rem; }
-      .tags { margin-top: 12px; }
+      .stack-item { grid-template-columns: 30px 1fr; }
+      .stack-tag { grid-column: 2; justify-self: start; }
       section { padding: 68px 0; }
       .deploy-section { padding: 10px 0; }
       .deploy-shell { border-radius: 18px; padding: 58px 18px; }
@@ -1588,59 +1728,33 @@
             <div class="console-cell"><small>04</small><b>Support path</b><span>Updates, QA, maintenance if needed</span></div>
           </div>
         </div>
-        <div class="artifact-row" aria-label="Agent output examples">
-          <article class="artifact">
-            <div class="artifact-visual">
-              <div class="mini-window" data-accent="green" data-status="ready" data-agent="brief engine">
-                <div class="mini-toolbar"><span class="mini-title"></span><span class="mini-meta"><span></span><span></span><span></span></span></div>
-                <div class="mini-kpis"><div class="mini-kpi"><b></b><span></span></div><div class="mini-kpi"><b></b><span></span></div><div class="mini-kpi"><b></b><span></span></div></div>
-                <div class="mini-list">
-                  <div class="mini-list-row"><i></i><span></span><b></b></div>
-                  <div class="mini-list-row"><i></i><span></span><b></b></div>
-                  <div class="mini-list-row"><i></i><span></span><b></b></div>
-                </div>
-              </div>
+        <div class="artifact-row" aria-label="ArgusReach workflow operating system preview">
+          <div class="system-panel">
+            <div class="panel-kicker"><span>Approved stack</span><i class="status-light"></i></div>
+            <div class="stack-list">
+              <div class="stack-item"><span class="stack-icon">C</span><div><b>Claude / ChatGPT</b><span>Client-owned AI workspace</span></div><span class="stack-tag">tool</span></div>
+              <div class="stack-item"><span class="stack-icon">P</span><div><b>Perplexity / search</b><span>Research and source review</span></div><span class="stack-tag">source</span></div>
+              <div class="stack-item"><span class="stack-icon">M</span><div><b>Microsoft / files</b><span>SharePoint, Excel, PDFs</span></div><span class="stack-tag">data</span></div>
+              <div class="stack-item"><span class="stack-icon">A</span><div><b>Project tool</b><span>Scoped dashboard or queue when needed</span></div><span class="stack-tag">build</span></div>
             </div>
-            <div class="artifact-body"><span class="artifact-label">Executive layer</span><h3>Executive Agents</h3><p>Summarize signals, surface exceptions, and prepare decision briefs.</p><div class="tags"><span class="tag green">Briefs</span><span class="tag">Decisions</span></div></div>
-          </article>
-          <article class="artifact">
-            <div class="artifact-visual">
-              <div class="mini-window" data-accent="amber" data-status="review" data-agent="source graph">
-                <div class="mini-toolbar"><span class="mini-title"></span><span class="mini-meta"><span></span><span></span><span></span></span></div>
-                <div class="mini-flow"><span></span><span></span><span></span><span></span></div>
-                <div class="mini-code"><span></span><span></span><span></span><span></span></div>
-                <div class="mini-list">
-                  <div class="mini-list-row"><i></i><span></span><b></b></div>
-                  <div class="mini-list-row"><i></i><span></span><b></b></div>
-                </div>
-              </div>
+          </div>
+          <div class="system-panel dark">
+            <div class="panel-kicker"><span>Workflow logic</span><i class="status-light blue"></i></div>
+            <div class="logic-map">
+              <div class="logic-card"><b>Map inputs</b><span>Files, owners, cadence, review points</span><div class="logic-meter"><i style="--w: 86%;"></i></div></div>
+              <div class="logic-card"><b>Define rules</b><span>What the agent checks, drafts, routes, and logs</span><div class="logic-meter"><i style="--w: 72%;"></i></div></div>
+              <div class="logic-card"><b>Keep review visible</b><span>Approvals, exceptions, human decisions</span><div class="logic-meter"><i style="--w: 64%;"></i></div></div>
+              <div class="logic-card"><b>Ship the output</b><span>Report, dashboard, queue, or operating runbook</span><div class="logic-meter"><i style="--w: 78%;"></i></div></div>
             </div>
-            <div class="artifact-body"><span class="artifact-label">Research layer</span><h3>Research Agents</h3><p>Track sources, compare evidence, and route findings for review.</p><div class="tags"><span class="tag amber">Research</span><span class="tag">Signals</span></div></div>
-          </article>
-          <article class="artifact">
-            <div class="artifact-visual">
-              <div class="mini-window" data-accent="red" data-status="flagged" data-agent="qa ruleset">
-                <div class="mini-toolbar"><span class="mini-title"></span><span class="mini-meta"><span></span><span></span><span></span></span></div>
-                <div class="mini-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                <div class="mini-list">
-                  <div class="mini-list-row"><i></i><span></span><b></b></div>
-                  <div class="mini-list-row"><i></i><span></span><b></b></div>
-                  <div class="mini-list-row"><i></i><span></span><b></b></div>
-                </div>
-              </div>
+          </div>
+          <div class="system-panel">
+            <div class="panel-kicker"><span>Review queue</span><i class="status-light amber"></i></div>
+            <div class="queue-list">
+              <div class="queue-row"><div class="queue-head"><b>Executive brief</b><span class="queue-pill">ready</span></div><span>Signals summarized for review</span><div class="queue-track"><i style="--w: 92%;"></i></div></div>
+              <div class="queue-row"><div class="queue-head"><b>Report check</b><span class="queue-pill amber">review</span></div><span>Numbers reconciled, issue flagged</span><div class="queue-track"><i style="--w: 68%;"></i></div></div>
+              <div class="queue-row"><div class="queue-head"><b>Ops handoff</b><span class="queue-pill blue">logged</span></div><span>Next step and owner captured</span><div class="queue-track"><i style="--w: 76%;"></i></div></div>
             </div>
-            <div class="artifact-body"><span class="artifact-label">Reporting layer</span><h3>Reporting Agents</h3><p>Validate files, reconcile numbers, and flag issues before output ships.</p><div class="tags"><span class="tag red">Reports</span><span class="tag">QA</span></div></div>
-          </article>
-          <article class="artifact">
-            <div class="artifact-visual">
-              <div class="mini-window" data-accent="blue" data-status="live" data-agent="ops router">
-                <div class="mini-toolbar"><span class="mini-title"></span><span class="mini-meta"><span></span><span></span><span></span></span></div>
-                <div class="mini-bars"><div class="mini-bar"><span style="width: 88%;"></span></div><div class="mini-bar"><span style="width: 64%;"></span></div><div class="mini-bar"><span style="width: 72%;"></span></div></div>
-                <div class="mini-kpis"><div class="mini-kpi"><b></b><span></span></div><div class="mini-kpi"><b></b><span></span></div><div class="mini-kpi"><b></b><span></span></div></div>
-              </div>
-            </div>
-            <div class="artifact-body"><span class="artifact-label">Operations layer</span><h3>Operations Agents</h3><p>Coordinate handoffs, exceptions, approvals, logs, and recurring admin.</p><div class="tags"><span class="tag blue">Ops</span><span class="tag">Routing</span></div></div>
-          </article>
+          </div>
         </div>
       </div>
     </section>
