@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="cache-bust" content="20260716-deployment-honesty" />
+  <meta name="cache-bust" content="20260716-premium-harness-ui" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ArgusReach - AI Agents for Business Workflows</title>
   <meta name="description" content="ArgusReach builds model-agnostic AI agents for executive, research, reporting, revenue, and operations workflows." />
@@ -36,11 +36,15 @@
       --cyan: #00a7a7;
       --radius: 12px;
       --shadow: 0 18px 48px rgba(10, 10, 10, 0.075);
+      --shadow-strong: 0 28px 70px rgba(10, 10, 10, 0.12);
     }
     html { scroll-behavior: smooth; }
     body {
       font-family: Geist, Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #fff;
+      background:
+        linear-gradient(90deg, rgba(10,10,10,0.018) 1px, transparent 1px),
+        #fff;
+      background-size: 120px 100%;
       color: var(--ink);
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
@@ -53,16 +57,16 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      height: 72px;
+      height: 74px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
       padding: 0 32px;
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.86);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--line);
-      box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+      box-shadow: 0 12px 34px rgba(10,10,10,0.035);
     }
     .brand {
       display: inline-flex;
@@ -118,14 +122,15 @@
       min-height: 76vh;
       border-radius: 24px;
       background:
-        linear-gradient(120deg, rgba(255,255,255,0.78), transparent 34%),
+        linear-gradient(120deg, rgba(255,255,255,0.82), transparent 34%),
+        linear-gradient(155deg, transparent 0 62%, rgba(66,107,255,0.06) 62% 64%, transparent 64% 100%),
         linear-gradient(180deg, #f8f8f7 0%, #eeeeec 100%);
       overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       border: 1px solid #ececec;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.86);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 18px 56px rgba(10,10,10,0.055);
     }
     .hero-shell::before {
       content: "";
@@ -134,8 +139,9 @@
       background-image:
         linear-gradient(rgba(10,10,10,0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(10,10,10,0.05) 1px, transparent 1px),
-        linear-gradient(135deg, transparent 0 46%, rgba(10,10,10,0.035) 46% 47%, transparent 47% 100%);
-      background-size: 34px 34px;
+        linear-gradient(135deg, transparent 0 46%, rgba(10,10,10,0.035) 46% 47%, transparent 47% 100%),
+        linear-gradient(30deg, transparent 0 72%, rgba(0,167,167,0.05) 72% 73%, transparent 73% 100%);
+      background-size: 34px 34px, 34px 34px, 34px 34px, 110px 110px;
       mask-image: linear-gradient(180deg, rgba(0,0,0,0.54), transparent 68%);
       pointer-events: none;
     }
@@ -203,12 +209,12 @@
       gap: 7px;
       border: 1px solid rgba(10,10,10,0.1);
       border-radius: 999px;
-      background: rgba(255,255,255,0.72);
+      background: rgba(255,255,255,0.82);
       color: #575757;
       padding: 0 10px;
       font-size: 0.72rem;
       font-weight: 650;
-      box-shadow: 0 8px 18px rgba(10,10,10,0.035);
+      box-shadow: 0 10px 24px rgba(10,10,10,0.045);
     }
     .proof-chip::before {
       content: "";
@@ -262,14 +268,21 @@
       box-shadow: 0 22px 56px rgba(10, 10, 10, 0.11);
       border-color: #d9d9d9;
     }
+    .artifact:nth-child(2) { transform: translateY(12px); }
+    .artifact:nth-child(3) { transform: translateY(4px); }
+    .artifact:nth-child(4) { transform: translateY(18px); }
+    .artifact:nth-child(2):hover,
+    .artifact:nth-child(3):hover,
+    .artifact:nth-child(4):hover { transform: translateY(0); }
     .artifact-visual {
       height: 208px;
       padding: 14px;
       background:
         linear-gradient(rgba(10,10,10,0.035) 1px, transparent 1px),
         linear-gradient(90deg, rgba(10,10,10,0.035) 1px, transparent 1px),
+        linear-gradient(135deg, transparent 0 58%, rgba(10,10,10,0.04) 58% 59%, transparent 59% 100%),
         linear-gradient(180deg, #fbfbfb, #f1f1ef);
-      background-size: 22px 22px, 22px 22px, 100% 100%;
+      background-size: 22px 22px, 22px 22px, 44px 44px, 100% 100%;
       border-bottom: 1px solid var(--line);
     }
     .mini-window {
@@ -542,6 +555,96 @@
       max-width: 1100px;
       margin: 0 auto;
     }
+    .deploy-section {
+      padding: 16px 0;
+    }
+    .deploy-shell {
+      position: relative;
+      border-radius: 24px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        #101010;
+      background-size: 42px 42px;
+      color: #fff;
+      padding: 72px 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow-strong);
+    }
+    .deploy-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(115deg, transparent 0 44%, rgba(255,255,255,0.1) 44% 45%, transparent 45% 100%),
+        linear-gradient(155deg, transparent 0 66%, rgba(24,182,109,0.16) 66% 67%, transparent 67% 100%);
+      pointer-events: none;
+    }
+    .deploy-shell .section-head {
+      position: relative;
+      z-index: 1;
+    }
+    .deploy-shell .section-head p { color: #bcbcbc; }
+    .deploy-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .deploy-card {
+      min-height: 300px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.055);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+    .deploy-card small {
+      color: #9c9c9c;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .deploy-card h3 {
+      margin-top: 14px;
+      font-size: 1.28rem;
+      line-height: 1.12;
+    }
+    .deploy-card p {
+      margin-top: 10px;
+      color: #c9c9c9;
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+    .deploy-visual {
+      display: grid;
+      gap: 8px;
+      margin-top: 28px;
+    }
+    .deploy-visual span {
+      height: 32px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .deploy-visual span::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: var(--w, 54%);
+      background: linear-gradient(90deg, var(--green), rgba(24,182,109,0.22));
+    }
+    .deploy-card:nth-child(2) .deploy-visual span::before { background: linear-gradient(90deg, var(--blue), rgba(66,107,255,0.22)); }
+    .deploy-card:nth-child(3) .deploy-visual span::before { background: linear-gradient(90deg, var(--amber), rgba(217,151,37,0.22)); }
     .brief-card {
       min-height: 390px;
       border: 1px solid var(--line);
@@ -1126,7 +1229,10 @@
         scroll-snap-type: x mandatory;
       }
       .artifact { scroll-snap-align: center; }
-      .brief-grid, .agent-grid, .example-shell, .faq-grid, .tool-grid { grid-template-columns: 1fr; }
+      .artifact:nth-child(2),
+      .artifact:nth-child(3),
+      .artifact:nth-child(4) { transform: none; }
+      .brief-grid, .agent-grid, .example-shell, .faq-grid, .tool-grid, .deploy-grid { grid-template-columns: 1fr; }
       .example-side { border-right: 0; border-bottom: 1px solid var(--line); }
       .example-nav {
         grid-template-columns: repeat(5, minmax(126px, 1fr));
@@ -1144,6 +1250,8 @@
       .hero-actions { flex-direction: column; align-items: stretch; }
       .btn { width: 100%; }
       section { padding: 68px 0; }
+      .deploy-section { padding: 10px 0; }
+      .deploy-shell { border-radius: 18px; padding: 58px 18px; }
       .section-head h2 { font-size: clamp(2rem, 10vw, 3.2rem); }
       .brief-card, .agent-card { min-height: 320px; padding: 22px; }
       .build-step { grid-template-columns: 30px 1fr; }
@@ -1282,6 +1390,55 @@
       </div>
     </section>
 
+    <section class="deploy-section">
+      <div class="wrap">
+        <div class="deploy-shell">
+          <div class="section-head">
+            <h2>Choose the right harness.</h2>
+            <p>Client-owned tools first. Project-specific builds when the workflow needs more.</p>
+          </div>
+          <div class="deploy-grid">
+            <article class="deploy-card">
+              <div>
+                <small>Path 01</small>
+                <h3>Client-owned AI workspace.</h3>
+                <p>Claude, ChatGPT, Microsoft, Perplexity, or approved internal tools owned and paid for by the client.</p>
+              </div>
+              <div class="deploy-visual" aria-hidden="true">
+                <span style="--w: 78%;"></span>
+                <span style="--w: 52%;"></span>
+                <span style="--w: 66%;"></span>
+              </div>
+            </article>
+            <article class="deploy-card">
+              <div>
+                <small>Path 02</small>
+                <h3>Project-specific workflow tool.</h3>
+                <p>When the work needs a dashboard, review queue, report builder, or lightweight internal surface.</p>
+              </div>
+              <div class="deploy-visual" aria-hidden="true">
+                <span style="--w: 62%;"></span>
+                <span style="--w: 84%;"></span>
+                <span style="--w: 48%;"></span>
+              </div>
+            </article>
+            <article class="deploy-card">
+              <div>
+                <small>Path 03</small>
+                <h3>Support and iteration path.</h3>
+                <p>Updates, troubleshooting, refreshes, and maintenance are scoped after the first useful workflow ships.</p>
+              </div>
+              <div class="deploy-visual" aria-hidden="true">
+                <span style="--w: 70%;"></span>
+                <span style="--w: 58%;"></span>
+                <span style="--w: 76%;"></span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="agents">
       <div class="wrap">
         <div class="section-head">
@@ -1347,7 +1504,7 @@
               <div class="source-card" data-tone="blue"><small>Mapped</small><div class="icon">S</div><b>SharePoint</b><span>Source files and monthly folders</span></div>
               <div class="source-card" data-tone="amber"><small>Checked</small><div class="icon">X</div><b>Excel</b><span>Workbook cleanup and checks</span></div>
               <div class="source-card" data-tone="red"><small>Review</small><div class="icon">P</div><b>PDFs</b><span>Statements and supporting documents</span></div>
-              <div class="source-card" data-tone="green"><small>Output</small><div class="icon">A</div><b>Agent layer</b><span>Review-ready workflow surface</span></div>
+              <div class="source-card" data-tone="green"><small>Output</small><div class="icon">A</div><b>Review panel</b><span>Output ready for human review</span></div>
             </div>
             <div class="example-stats" id="example-stats">
               <div class="example-stat"><div><b>4</b><span>Inputs mapped</span></div></div>
@@ -1441,7 +1598,7 @@
         title: "Sample finance reporting workflow",
         copy: "Map sources, checks, time sinks, and first agent opportunities.",
         badge: "Illustrative only",
-        sources: [["S", "SharePoint", "Source files and monthly folders", "Mapped", "blue"], ["X", "Excel", "Workbook cleanup and checks", "Checked", "amber"], ["P", "PDFs", "Statements and supporting documents", "Review", "red"], ["A", "Agent layer", "Review-ready workflow surface", "Output", "green"]],
+        sources: [["S", "SharePoint", "Source files and monthly folders", "Mapped", "blue"], ["X", "Excel", "Workbook cleanup and checks", "Checked", "amber"], ["P", "PDFs", "Statements and supporting documents", "Review", "red"], ["A", "Review panel", "Output ready for human review", "Output", "green"]],
         stats: [["4", "Inputs mapped"], ["12", "Workflow steps"], ["5", "Review points"], ["3", "Agent candidates"]],
         chartTitle: "Where time is being spent",
         chartLabel: "Example heatmap",
