@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="cache-bust" content="20260716-data-console-polish" />
+  <meta name="cache-bust" content="20260716-mobile-premium-fix" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ArgusReach - AI Agents for Business Workflows</title>
   <meta name="description" content="ArgusReach builds model-agnostic AI agents for executive, research, reporting, revenue, and operations workflows." />
@@ -1342,14 +1342,12 @@
       .nav-links { display: none; }
       .hero-copy { padding-top: 52px; }
       .artifact-row {
-        grid-template-columns: repeat(4, 280px);
-        overflow-x: auto;
-        width: 100%;
-        transform: none;
-        padding: 0 16px 34px;
-        scroll-snap-type: x mandatory;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        overflow: visible;
+        padding: 0 24px 38px;
+        scroll-snap-type: none;
       }
-      .artifact { scroll-snap-align: center; }
+      .artifact { scroll-snap-align: unset; }
       .artifact:nth-child(2),
       .artifact:nth-child(3),
       .artifact:nth-child(4) { transform: none; }
@@ -1371,19 +1369,127 @@
     }
     @media (max-width: 680px) {
       .wrap { width: min(100% - 30px, 1248px); }
-      .hero { padding: 10px; }
-      .hero-shell { min-height: auto; border-radius: 18px; }
-      h1 { font-size: clamp(2.55rem, 12vw, 3.75rem); }
+      .nav {
+        height: 64px;
+        padding: 0 22px;
+        position: sticky;
+        top: 0;
+      }
+      .brand { font-size: 1.02rem; }
+      .brand-mark { width: 28px; height: 28px; }
+      .hero { padding: 8px; }
+      .hero-shell {
+        min-height: auto;
+        border-radius: 18px;
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.9), transparent 38%),
+          linear-gradient(180deg, #f8f8f7 0%, #eeeeec 100%);
+      }
+      .hero-shell::before {
+        background-size: 28px 28px, 28px 28px, 56px 56px, 96px 96px;
+        mask-image: linear-gradient(180deg, rgba(0,0,0,0.34), transparent 54%);
+      }
+      .hero-shell::after { opacity: 0.34; }
+      .hero-copy {
+        padding: 46px 18px 22px;
+      }
+      .eyebrow {
+        font-size: 0.58rem;
+        margin-bottom: 14px;
+      }
+      h1 {
+        max-width: 360px;
+        font-size: clamp(2.35rem, 11vw, 3.2rem);
+        line-height: 1.01;
+      }
+      .hero-copy p {
+        max-width: 340px;
+        font-size: 0.96rem;
+        line-height: 1.48;
+      }
       .hero-actions { flex-direction: column; align-items: stretch; }
       .btn { width: 100%; }
-      .hero-console { margin: 6px auto 24px; }
-      .console-grid { grid-template-columns: 1fr; }
+      .hero-proof {
+        justify-content: flex-start;
+        gap: 7px;
+        margin-top: 16px;
+      }
+      .proof-chip {
+        min-height: 26px;
+        font-size: 0.66rem;
+        padding: 0 9px;
+      }
+      .hero-console {
+        width: calc(100% - 24px);
+        margin: 2px auto 18px;
+        border-radius: 12px;
+        box-shadow: 0 18px 44px rgba(10,10,10,0.16);
+      }
+      .console-top {
+        min-height: 36px;
+        padding: 0 12px;
+        font-size: 0.5rem;
+        letter-spacing: 0.09em;
+      }
+      .console-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .console-cell,
       .console-cell:nth-child(2) {
-        border-right: 0;
+        min-height: 104px;
+        padding: 13px 14px 18px;
+        border-right: 1px solid rgba(255,255,255,0.1);
         border-bottom: 1px solid rgba(255,255,255,0.1);
       }
-      .console-cell:last-child { border-bottom: 0; }
+      .console-cell:nth-child(2),
+      .console-cell:nth-child(4) { border-right: 0; }
+      .console-cell:nth-child(3),
+      .console-cell:nth-child(4) { border-bottom: 0; }
+      .console-cell::after {
+        left: 14px;
+        right: 14px;
+        bottom: 10px;
+        height: 3px;
+      }
+      .console-cell small {
+        font-size: 0.5rem;
+        margin-bottom: 8px;
+      }
+      .console-cell b { font-size: 0.84rem; margin-bottom: 4px; }
+      .console-cell span { font-size: 0.68rem; }
+      .artifact-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 0 12px 24px;
+      }
+      .artifact {
+        min-height: 0;
+        border-radius: 13px;
+        box-shadow: 0 16px 38px rgba(10,10,10,0.09);
+      }
+      .artifact-visual {
+        height: 170px;
+        padding: 12px;
+      }
+      .mini-window {
+        border-radius: 9px;
+        padding: 10px;
+        gap: 8px;
+      }
+      .mini-window::after,
+      .mini-window::before {
+        bottom: 9px;
+        font-size: 0.48rem;
+      }
+      .mini-window::before { left: 10px; }
+      .mini-window::after { right: 10px; }
+      .artifact-body { padding: 16px; }
+      .artifact-label {
+        min-height: 20px;
+        font-size: 0.5rem;
+        margin-bottom: 9px;
+      }
+      .artifact h3 { font-size: 1rem; margin-bottom: 6px; }
+      .artifact p { font-size: 0.8rem; }
+      .tags { margin-top: 12px; }
       section { padding: 68px 0; }
       .deploy-section { padding: 10px 0; }
       .deploy-shell { border-radius: 18px; padding: 58px 18px; }
@@ -1394,7 +1500,29 @@
       .example-shell,
       .example-side,
       .example-main { min-width: 0; }
+      .example-shell {
+        border-radius: 14px;
+        box-shadow: 0 24px 58px rgba(10,10,10,0.16);
+      }
+      .example-side { padding: 16px 12px; }
+      .example-brand { margin-bottom: 18px; }
       .example-main { padding: 22px 16px 24px; }
+      .system-cards { gap: 8px; }
+      .source-card {
+        min-height: 104px;
+        padding: 12px;
+      }
+      .example-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .example-stat { min-height: 72px; }
+      .example-stat b { font-size: 1.38rem; }
+      .chart-title {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+      }
       .heat-row { grid-template-columns: 1fr; gap: 6px; }
       .opportunity-card { overflow: hidden; }
       .example-table { min-width: 0; table-layout: fixed; font-size: 0.66rem; }
