@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="cache-bust" content="20260716-premium-harness-ui" />
+  <meta name="cache-bust" content="20260716-advanced-ai-hero" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ArgusReach - AI Agents for Business Workflows</title>
   <meta name="description" content="ArgusReach builds model-agnostic AI agents for executive, research, reporting, revenue, and operations workflows." />
@@ -226,6 +226,91 @@
     .proof-chip:nth-child(2)::before { background: var(--blue); }
     .proof-chip:nth-child(3)::before { background: var(--amber); }
     .proof-chip:nth-child(4)::before { background: var(--cyan); }
+    .hero-console {
+      position: relative;
+      z-index: 1;
+      width: min(950px, calc(100% - 64px));
+      margin: 8px auto 28px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 14px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+        #111;
+      background-size: 28px 28px;
+      color: #fff;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(10,10,10,0.18);
+    }
+    .console-top {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      color: #b8b8b8;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+    }
+    .console-top strong {
+      margin-left: 6px;
+      font-weight: 600;
+    }
+    .console-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+    .console-dot.amber { background: var(--amber); }
+    .console-dot.blue { background: var(--blue); }
+    .console-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .console-cell {
+      min-height: 116px;
+      padding: 18px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    .console-cell:last-child { border-right: 0; }
+    .console-cell::after {
+      content: "";
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 14px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--green), transparent);
+      opacity: 0.82;
+    }
+    .console-cell:nth-child(2)::after { background: linear-gradient(90deg, var(--blue), transparent); }
+    .console-cell:nth-child(3)::after { background: linear-gradient(90deg, var(--amber), transparent); }
+    .console-cell:nth-child(4)::after { background: linear-gradient(90deg, var(--cyan), transparent); }
+    .console-cell small {
+      display: block;
+      color: #8d8d8d;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+    .console-cell b {
+      display: block;
+      font-size: 0.92rem;
+      margin-bottom: 7px;
+    }
+    .console-cell span {
+      display: block;
+      color: #bdbdbd;
+      font-size: 0.72rem;
+      line-height: 1.4;
+    }
     .btn {
       min-height: 44px;
       display: inline-flex;
@@ -1232,6 +1317,11 @@
       .artifact:nth-child(2),
       .artifact:nth-child(3),
       .artifact:nth-child(4) { transform: none; }
+      .hero-console { width: calc(100% - 32px); }
+      .console-grid { grid-template-columns: repeat(2, 1fr); }
+      .console-cell:nth-child(2) { border-right: 0; }
+      .console-cell:nth-child(1),
+      .console-cell:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.1); }
       .brief-grid, .agent-grid, .example-shell, .faq-grid, .tool-grid, .deploy-grid { grid-template-columns: 1fr; }
       .example-side { border-right: 0; border-bottom: 1px solid var(--line); }
       .example-nav {
@@ -1249,6 +1339,14 @@
       h1 { font-size: clamp(2.55rem, 12vw, 3.75rem); }
       .hero-actions { flex-direction: column; align-items: stretch; }
       .btn { width: 100%; }
+      .hero-console { margin: 6px auto 24px; }
+      .console-grid { grid-template-columns: 1fr; }
+      .console-cell,
+      .console-cell:nth-child(2) {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+      .console-cell:last-child { border-bottom: 0; }
       section { padding: 68px 0; }
       .deploy-section { padding: 10px 0; }
       .deploy-shell { border-radius: 18px; padding: 58px 18px; }
@@ -1282,7 +1380,7 @@
     <section class="hero">
       <div class="hero-shell">
         <div class="hero-copy">
-          <div class="eyebrow">AI operating layer for SMBs</div>
+          <div class="eyebrow">AI workflow systems for SMBs</div>
           <h1>AI agents for modern business operations.</h1>
           <p>We map the workflow, choose the right AI workspace or tools, then build a reviewable system your team can actually run.</p>
           <div class="hero-actions">
@@ -1294,6 +1392,20 @@
             <span class="proof-chip">Approved tools</span>
             <span class="proof-chip">Review gates</span>
             <span class="proof-chip">Activity logs</span>
+          </div>
+        </div>
+        <div class="hero-console" aria-label="Workflow system model">
+          <div class="console-top">
+            <span class="console-dot"></span>
+            <span class="console-dot amber"></span>
+            <span class="console-dot blue"></span>
+            <strong>ARGUS WORKFLOW MODEL</strong>
+          </div>
+          <div class="console-grid">
+            <div class="console-cell"><small>01</small><b>Client tool</b><span>Claude, ChatGPT, Microsoft, Perplexity</span></div>
+            <div class="console-cell"><small>02</small><b>Workflow logic</b><span>Instructions, rules, checks, handoffs</span></div>
+            <div class="console-cell"><small>03</small><b>Review path</b><span>Approval points and visible outputs</span></div>
+            <div class="console-cell"><small>04</small><b>Support path</b><span>Updates, QA, maintenance if needed</span></div>
           </div>
         </div>
         <div class="artifact-row" aria-label="Agent output examples">
