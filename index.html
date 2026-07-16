@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="cache-bust" content="20260715-premium-ai-layer" />
+  <meta name="cache-bust" content="20260716-premium-technical-layer" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ArgusReach - AI Agents for Business Workflows</title>
   <meta name="description" content="ArgusReach builds model-agnostic AI agents for executive, research, reporting, revenue, and operations workflows." />
@@ -29,10 +29,11 @@
       --soft: #f6f6f6;
       --soft-2: #fafafa;
       --white: #ffffff;
-      --green: #39c47f;
-      --amber: #f3b23f;
-      --red: #f06d6d;
-      --blue: #4f7cff;
+      --green: #18b66d;
+      --amber: #d99725;
+      --red: #dc5b5b;
+      --blue: #426bff;
+      --cyan: #00a7a7;
       --radius: 12px;
       --shadow: 0 18px 48px rgba(10, 10, 10, 0.075);
     }
@@ -117,8 +118,8 @@
       min-height: 76vh;
       border-radius: 24px;
       background:
-        linear-gradient(120deg, rgba(255,255,255,0.72), transparent 34%),
-        linear-gradient(180deg, #f7f7f6 0%, #eeeeec 100%);
+        linear-gradient(120deg, rgba(255,255,255,0.78), transparent 34%),
+        linear-gradient(180deg, #f8f8f7 0%, #eeeeec 100%);
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -131,8 +132,9 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(10,10,10,0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(10,10,10,0.045) 1px, transparent 1px);
+        linear-gradient(rgba(10,10,10,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10,10,10,0.05) 1px, transparent 1px),
+        linear-gradient(135deg, transparent 0 46%, rgba(10,10,10,0.035) 46% 47%, transparent 47% 100%);
       background-size: 34px 34px;
       mask-image: linear-gradient(180deg, rgba(0,0,0,0.54), transparent 68%);
       pointer-events: none;
@@ -186,6 +188,38 @@
       gap: 10px;
       margin-top: 26px;
     }
+    .hero-proof {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      max-width: 760px;
+      margin: 18px auto 0;
+    }
+    .proof-chip {
+      min-height: 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(10,10,10,0.1);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      color: #575757;
+      padding: 0 10px;
+      font-size: 0.72rem;
+      font-weight: 650;
+      box-shadow: 0 8px 18px rgba(10,10,10,0.035);
+    }
+    .proof-chip::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+    .proof-chip:nth-child(2)::before { background: var(--blue); }
+    .proof-chip:nth-child(3)::before { background: var(--amber); }
+    .proof-chip:nth-child(4)::before { background: var(--cyan); }
     .btn {
       min-height: 44px;
       display: inline-flex;
@@ -213,7 +247,7 @@
       width: 100%;
     }
     .artifact {
-      min-height: 322px;
+      min-height: 342px;
       border: 1px solid rgba(10,10,10,0.09);
       border-radius: 12px;
       background: #fff;
@@ -229,7 +263,7 @@
       border-color: #d9d9d9;
     }
     .artifact-visual {
-      height: 190px;
+      height: 208px;
       padding: 14px;
       background:
         linear-gradient(rgba(10,10,10,0.035) 1px, transparent 1px),
@@ -241,14 +275,14 @@
     .mini-window {
       position: relative;
       height: 100%;
-      border: 1px solid #d9d9d9;
+      border: 1px solid #d7d7d7;
       border-radius: 10px;
       background: #fff;
       padding: 12px;
       display: flex;
       flex-direction: column;
       gap: 10px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 12px 30px rgba(10,10,10,0.055);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 14px 32px rgba(10,10,10,0.06);
     }
     .mini-window::after {
       content: attr(data-status);
@@ -265,6 +299,17 @@
       text-transform: uppercase;
       padding: 4px 7px;
     }
+    .mini-window::before {
+      content: attr(data-agent);
+      position: absolute;
+      left: 12px;
+      bottom: 11px;
+      color: #8a8a8a;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.52rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
     .mini-window[data-accent="green"]::after { color: #0f8f54; border-color: rgba(57,196,127,0.35); background: #f2fbf6; }
     .mini-window[data-accent="amber"]::after { color: #9a690f; border-color: rgba(243,178,63,0.45); background: #fff9eb; }
     .mini-window[data-accent="red"]::after { color: #b53e3e; border-color: rgba(240,109,109,0.38); background: #fff4f4; }
@@ -279,7 +324,7 @@
     }
     .mini-title {
       height: 10px;
-      width: 42%;
+      width: 48%;
       border-radius: 99px;
       background: #111;
     }
@@ -296,9 +341,9 @@
       gap: 7px;
     }
     .mini-kpi {
-      height: 42px;
+      height: 46px;
       border-radius: 7px;
-      background: #eeeeee;
+      background: linear-gradient(180deg, #f9f9f9, #efefef);
       border: 1px solid #dedede;
       padding: 8px;
     }
@@ -358,6 +403,42 @@
     .mini-flow span:nth-child(2) { border-left: 4px solid var(--amber); }
     .mini-flow span:nth-child(3) { border-left: 4px solid var(--blue); }
     .mini-flow span:nth-child(4) { border-left: 4px solid var(--red); }
+    .mini-code {
+      display: grid;
+      gap: 6px;
+      padding: 10px;
+      border: 1px solid #e6e6e6;
+      border-radius: 8px;
+      background: #fbfbfb;
+    }
+    .mini-code span {
+      height: 6px;
+      border-radius: 999px;
+      background: #d7d7d7;
+    }
+    .mini-code span:nth-child(1) { width: 72%; background: #111; }
+    .mini-code span:nth-child(2) { width: 86%; }
+    .mini-code span:nth-child(3) { width: 58%; }
+    .mini-code span:nth-child(4) { width: 78%; }
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 5px;
+    }
+    .mini-grid span {
+      aspect-ratio: 1;
+      border-radius: 5px;
+      background: #eeeeee;
+      border: 1px solid #e0e0e0;
+    }
+    .mini-window[data-accent="green"] .mini-grid span:nth-child(3n),
+    .mini-window[data-accent="green"] .mini-code span:nth-child(1) { background: var(--green); }
+    .mini-window[data-accent="amber"] .mini-grid span:nth-child(2n),
+    .mini-window[data-accent="amber"] .mini-code span:nth-child(1) { background: var(--amber); }
+    .mini-window[data-accent="red"] .mini-grid span:nth-child(4n),
+    .mini-window[data-accent="red"] .mini-code span:nth-child(1) { background: var(--red); }
+    .mini-window[data-accent="blue"] .mini-grid span:nth-child(5n),
+    .mini-window[data-accent="blue"] .mini-code span:nth-child(1) { background: var(--blue); }
     .mini-bars {
       display: grid;
       gap: 8px;
@@ -401,7 +482,7 @@
       padding: 18px;
     }
     .artifact h3 {
-      font-size: 1rem;
+      font-size: 1.04rem;
       line-height: 1.2;
       margin-bottom: 8px;
     }
@@ -473,6 +554,9 @@
       justify-content: space-between;
       transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
     }
+    .brief-card::selection,
+    .artifact::selection,
+    .agent-card::selection { background: #111; color: #fff; }
     .brief-card.faded {
       background: #fbfbfb;
       box-shadow: none;
@@ -503,6 +587,7 @@
       color: #666;
       font-size: 0.9rem;
       line-height: 1.5;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
     }
     .chip-row {
       display: flex;
@@ -565,7 +650,9 @@
     .agent-card {
       min-height: 360px;
       border-radius: 12px;
-      background: var(--soft);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.74), transparent),
+        var(--soft);
       padding: 28px;
       display: flex;
       flex-direction: column;
@@ -599,6 +686,7 @@
       padding: 14px;
       display: grid;
       gap: 10px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
     }
     .agent-ui-row {
       display: grid;
@@ -632,6 +720,7 @@
       overflow: hidden;
       box-shadow: var(--shadow);
     }
+    .example-shell::selection { background: #111; color: #fff; }
     .example-side {
       border-right: 1px solid var(--line);
       background: #fafafa;
@@ -748,6 +837,12 @@
       padding: 14px;
       position: relative;
       overflow: hidden;
+      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+    }
+    .source-card:hover {
+      transform: translateY(-1px);
+      border-color: #d8d8d8;
+      box-shadow: 0 12px 28px rgba(10,10,10,0.055);
     }
     .source-card::before {
       content: "";
@@ -798,8 +893,8 @@
       place-items: center;
       text-align: center;
       border-radius: 10px;
-      background: #f3f3f3;
-      border: 1px solid #e7e7e7;
+      background: linear-gradient(180deg, #fafafa, #f1f1f1);
+      border: 1px solid #e5e5e5;
     }
     .example-stat b { display: block; font-size: 1.7rem; line-height: 1; margin-bottom: 6px; }
     .example-stat span { color: #777; font-size: 0.72rem; }
@@ -821,7 +916,7 @@
     .heatmap { display: grid; gap: 10px; }
     .heat-row {
       display: grid;
-      grid-template-columns: 168px 1fr 42px;
+      grid-template-columns: 168px 1fr 52px;
       gap: 12px;
       align-items: center;
       color: #555;
@@ -831,7 +926,10 @@
       height: 26px;
       border-radius: 7px;
       overflow: hidden;
-      background: #eeeeee;
+      background:
+        linear-gradient(90deg, rgba(10,10,10,0.04) 1px, transparent 1px),
+        #eeeeee;
+      background-size: 20% 100%;
     }
     .fill { height: 100%; border-radius: 7px; background: #111; }
     .fill.red { background: var(--red); }
@@ -856,6 +954,7 @@
       border-radius: 999px;
       margin-top: 12px;
       background: #eeeeee;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.04);
     }
     .bar-stack span:nth-child(1) { background: #111; }
     .bar-stack span:nth-child(2) { background: var(--green); }
@@ -876,12 +975,14 @@
       padding: 12px 15px;
       border-bottom: 1px solid var(--line);
       font-weight: 500;
+      background: #fbfbfb;
     }
     .example-table td {
       padding: 14px 15px;
       border-bottom: 1px solid #eeeeee;
       color: #555;
     }
+    .example-table tr:hover td { background: #fafafa; }
     .score-line {
       width: 78px;
       height: 8px;
@@ -920,7 +1021,22 @@
       padding: 18px;
       background: #fff;
       transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+      position: relative;
+      overflow: hidden;
     }
+    .tool-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #111;
+    }
+    .tool-card:nth-child(2)::before { background: var(--amber); }
+    .tool-card:nth-child(3)::before { background: var(--green); }
+    .tool-card:nth-child(4)::before { background: var(--blue); }
+    .tool-card:nth-child(5)::before { background: var(--red); }
     .tool-card:hover {
       transform: translateY(-2px);
       border-color: #d9d9d9;
@@ -1060,16 +1176,22 @@
         <div class="hero-copy">
           <div class="eyebrow">AI operating layer for SMBs</div>
           <h1>AI agents for modern business operations.</h1>
-          <p>Executive, research, reporting, revenue, and operations agents built across Claude, ChatGPT, Perplexity, APIs, and your current tools.</p>
+          <p>We map the workflow, wire the right models and APIs, then ship a reviewable operating surface your team can actually run.</p>
           <div class="hero-actions">
             <a href="https://calendly.com/vito-argusreach/30min" class="btn btn-primary" target="_blank" rel="noopener">Book a Call</a>
             <a href="#example" class="btn btn-secondary">View Example</a>
+          </div>
+          <div class="hero-proof" aria-label="System capabilities">
+            <span class="proof-chip">Source adapters</span>
+            <span class="proof-chip">Model routing</span>
+            <span class="proof-chip">Review gates</span>
+            <span class="proof-chip">Audit logs</span>
           </div>
         </div>
         <div class="artifact-row" aria-label="Agent output examples">
           <article class="artifact">
             <div class="artifact-visual">
-              <div class="mini-window" data-accent="green" data-status="ready">
+              <div class="mini-window" data-accent="green" data-status="ready" data-agent="brief engine">
                 <div class="mini-toolbar"><span class="mini-title"></span><span class="mini-meta"><span></span><span></span><span></span></span></div>
                 <div class="mini-kpis"><div class="mini-kpi"><b></b><span></span></div><div class="mini-kpi"><b></b><span></span></div><div class="mini-kpi"><b></b><span></span></div></div>
                 <div class="mini-list">
@@ -1079,44 +1201,45 @@
                 </div>
               </div>
             </div>
-            <div class="artifact-body"><span class="artifact-label">Agent 01</span><h3>Executive Agents</h3><p>Turn scattered inputs into priorities, briefs, and decisions.</p><div class="tags"><span class="tag green">Briefs</span><span class="tag">Decisions</span></div></div>
+            <div class="artifact-body"><span class="artifact-label">Executive layer</span><h3>Executive Agents</h3><p>Summarize signals, surface exceptions, and prepare decision briefs.</p><div class="tags"><span class="tag green">Briefs</span><span class="tag">Decisions</span></div></div>
           </article>
           <article class="artifact">
             <div class="artifact-visual">
-              <div class="mini-window" data-accent="amber" data-status="review">
+              <div class="mini-window" data-accent="amber" data-status="review" data-agent="source graph">
                 <div class="mini-toolbar"><span class="mini-title"></span><span class="mini-meta"><span></span><span></span><span></span></span></div>
                 <div class="mini-flow"><span></span><span></span><span></span><span></span></div>
+                <div class="mini-code"><span></span><span></span><span></span><span></span></div>
                 <div class="mini-list">
                   <div class="mini-list-row"><i></i><span></span><b></b></div>
                   <div class="mini-list-row"><i></i><span></span><b></b></div>
                 </div>
               </div>
             </div>
-            <div class="artifact-body"><span class="artifact-label">Agent 02</span><h3>Research Agents</h3><p>Monitor sources, summarize signals, and keep teams ahead.</p><div class="tags"><span class="tag amber">Research</span><span class="tag">Signals</span></div></div>
+            <div class="artifact-body"><span class="artifact-label">Research layer</span><h3>Research Agents</h3><p>Track sources, compare evidence, and route findings for review.</p><div class="tags"><span class="tag amber">Research</span><span class="tag">Signals</span></div></div>
           </article>
           <article class="artifact">
             <div class="artifact-visual">
-              <div class="mini-window" data-accent="red" data-status="flagged">
+              <div class="mini-window" data-accent="red" data-status="flagged" data-agent="qa ruleset">
                 <div class="mini-toolbar"><span class="mini-title"></span><span class="mini-meta"><span></span><span></span><span></span></span></div>
+                <div class="mini-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
                 <div class="mini-list">
-                  <div class="mini-list-row"><i></i><span></span><b></b></div>
                   <div class="mini-list-row"><i></i><span></span><b></b></div>
                   <div class="mini-list-row"><i></i><span></span><b></b></div>
                   <div class="mini-list-row"><i></i><span></span><b></b></div>
                 </div>
               </div>
             </div>
-            <div class="artifact-body"><span class="artifact-label">Agent 03</span><h3>Reporting Agents</h3><p>Check files, reconcile numbers, and ship review-ready output.</p><div class="tags"><span class="tag red">Reports</span><span class="tag">QA</span></div></div>
+            <div class="artifact-body"><span class="artifact-label">Reporting layer</span><h3>Reporting Agents</h3><p>Validate files, reconcile numbers, and flag issues before output ships.</p><div class="tags"><span class="tag red">Reports</span><span class="tag">QA</span></div></div>
           </article>
           <article class="artifact">
             <div class="artifact-visual">
-              <div class="mini-window" data-accent="blue" data-status="live">
+              <div class="mini-window" data-accent="blue" data-status="live" data-agent="ops router">
                 <div class="mini-toolbar"><span class="mini-title"></span><span class="mini-meta"><span></span><span></span><span></span></span></div>
                 <div class="mini-bars"><div class="mini-bar"><span style="width: 88%;"></span></div><div class="mini-bar"><span style="width: 64%;"></span></div><div class="mini-bar"><span style="width: 72%;"></span></div></div>
                 <div class="mini-kpis"><div class="mini-kpi"><b></b><span></span></div><div class="mini-kpi"><b></b><span></span></div><div class="mini-kpi"><b></b><span></span></div></div>
               </div>
             </div>
-            <div class="artifact-body"><span class="artifact-label">Agent 04</span><h3>Operations Agents</h3><p>Coordinate handoffs, exceptions, approvals, and admin.</p><div class="tags"><span class="tag blue">Ops</span><span class="tag">Routing</span></div></div>
+            <div class="artifact-body"><span class="artifact-label">Operations layer</span><h3>Operations Agents</h3><p>Coordinate handoffs, exceptions, approvals, logs, and recurring admin.</p><div class="tags"><span class="tag blue">Ops</span><span class="tag">Routing</span></div></div>
           </article>
         </div>
       </div>
@@ -1126,16 +1249,16 @@
       <div class="wrap">
         <div class="section-head">
           <h2>Design the workflow. Deploy the agent.</h2>
-          <p>Inputs. Rules. Review. Output.</p>
+          <p>Connect the sources, define the rules, keep review visible, and ship the output.</p>
         </div>
         <div class="brief-grid">
           <article class="brief-card">
             <div>
               <h3>Find the hidden process.</h3>
-              <p>What people collect, check, rewrite, approve, and send.</p>
+              <p>We isolate the recurring work people collect, check, rewrite, approve, and send.</p>
             </div>
             <div>
-              <div class="prompt-box">Monitor the sources, validate the file, draft the brief, and route anything that needs a decision.</div>
+              <div class="prompt-box">Monitor the sources, validate the file, draft the brief, route anything that needs a decision, and log every handoff.</div>
               <div class="chip-row">
                 <span class="chip">Source files</span>
                 <span class="chip">Rules</span>
@@ -1147,11 +1270,11 @@
           <article class="brief-card faded">
             <div>
               <h3>Ship the operating layer.</h3>
-              <p>Agent logic, interface, logs, approvals, and support.</p>
+              <p>Agent instructions, interface, logs, approvals, monitoring, and support.</p>
             </div>
             <div class="build-feed">
               <div class="build-step"><i>01</i><div><b>Map the process</b><span>Inputs, owners, systems, and cadence.</span></div><small>ready</small></div>
-              <div class="build-step"><i>02</i><div><b>Define the agent</b><span>Read, check, draft, route, log, and stop.</span></div><small>ready</small></div>
+              <div class="build-step"><i>02</i><div><b>Define the agent</b><span>Read, check, draft, route, log, and stop when needed.</span></div><small>ready</small></div>
               <div class="build-step"><i>03</i><div><b>Ship the surface</b><span>Dashboard, review queue, or workflow panel.</span></div><small>review</small></div>
             </div>
           </article>
@@ -1163,7 +1286,7 @@
       <div class="wrap">
         <div class="section-head">
           <h2>Agent systems by business function.</h2>
-          <p>No generic chatbot. One workflow, one clean operating surface.</p>
+          <p>No generic chatbot. One scoped workflow, one clean operating surface.</p>
         </div>
         <div class="agent-grid">
           <article class="agent-card">
