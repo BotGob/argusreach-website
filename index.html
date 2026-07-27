@@ -2,49 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="cache-bust" content="20260718-agent-positioning" />
+  <meta name="cache-bust" content="20260726-premium-system-b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ArgusReach - Custom AI Agents for Business Workflows</title>
-  <meta name="description" content="ArgusReach builds custom AI agents and AI-assisted workflows for small and mid-sized businesses with real manual processes to improve." />
+  <title>ArgusReach - AI Systems for Real Business Work</title>
+  <meta name="description" content="ArgusReach designs and builds AI systems for reporting, research, operations, and recurring business workflows." />
   <link rel="canonical" href="https://argusreach.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://argusreach.com/" />
-  <meta property="og:title" content="ArgusReach - Custom AI Agents for Business Workflows" />
-  <meta property="og:description" content="Custom AI agents and assisted workflows for small and mid-sized businesses with manual work to improve." />
+  <meta property="og:title" content="ArgusReach - AI Systems for Real Business Work" />
+  <meta property="og:description" content="AI systems for reporting, research, operations, and recurring business workflows." />
   <meta property="og:site_name" content="ArgusReach" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="ArgusReach - Custom AI Agents for Business Workflows" />
-  <meta name="twitter:description" content="Custom AI agents for recurring workflows across the tools your team already uses." />
+  <meta name="twitter:title" content="ArgusReach - AI Systems for Real Business Work" />
+  <meta name="twitter:description" content="AI systems for reporting, research, operations, and recurring workflows." />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --ink: #0a0a0a;
-      --muted: #555555;
-      --muted-2: #777777;
-      --line: #e7e7e7;
-      --soft: #f6f6f6;
+      --ink: #090909;
+      --muted: #4f5661;
+      --muted-2: #747b86;
+      --line: #d8dde5;
+      --soft: #f3f4f6;
       --soft-2: #fafafa;
       --white: #ffffff;
-      --green: #18b66d;
-      --amber: #d99725;
-      --red: #dc5b5b;
-      --blue: #426bff;
-      --cyan: #00a7a7;
+      --green: #1b9a63;
+      --amber: #b5872b;
+      --red: #c65c5c;
+      --blue: #5f6f86;
+      --cyan: #7b8ea8;
       --radius: 12px;
-      --shadow: 0 18px 48px rgba(10, 10, 10, 0.075);
-      --shadow-strong: 0 28px 70px rgba(10, 10, 10, 0.12);
+      --navy: #121317;
+      --navy-soft: #f2f4f7;
+      --shadow: 0 22px 56px rgba(15, 18, 24, 0.08);
+      --shadow-strong: 0 32px 82px rgba(15, 18, 24, 0.12);
+      --shadow-premium: 0 36px 96px rgba(15, 18, 24, 0.15);
     }
     html { scroll-behavior: smooth; }
     body {
-      font-family: Geist, Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: Geist, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
+        radial-gradient(circle at top left, rgba(17,17,17,0.045), transparent 22%),
+        radial-gradient(circle at 82% 18%, rgba(110,122,138,0.06), transparent 20%),
+        radial-gradient(circle at 60% 100%, rgba(130,140,154,0.05), transparent 24%),
         linear-gradient(90deg, rgba(10,10,10,0.018) 1px, transparent 1px),
-        #fff;
-      background-size: 120px 100%;
+        linear-gradient(180deg, #ffffff 0%, #f3f4f6 100%);
+      background-size: auto, auto, 120px 100%, auto;
       color: var(--ink);
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
@@ -68,8 +74,8 @@
       inset: 0;
       z-index: -1;
       background:
-        linear-gradient(115deg, transparent 0 34%, rgba(66,107,255,0.035) 34% 34.4%, transparent 34.4% 100%),
-        linear-gradient(65deg, transparent 0 63%, rgba(24,182,109,0.035) 63% 63.35%, transparent 63.35% 100%),
+        linear-gradient(115deg, transparent 0 34%, rgba(17,17,17,0.03) 34% 34.4%, transparent 34.4% 100%),
+        linear-gradient(65deg, transparent 0 63%, rgba(95,111,134,0.03) 63% 63.35%, transparent 63.35% 100%),
         linear-gradient(90deg, rgba(10,10,10,0.018) 1px, transparent 1px);
       background-size: 100% 100%, 100% 100%, 120px 100%;
       pointer-events: none;
@@ -89,10 +95,10 @@
       justify-content: space-between;
       gap: 24px;
       padding: 0 32px;
-      background: rgba(255,255,255,0.86);
+      background: rgba(255,255,255,0.82);
       backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--line);
-      box-shadow: 0 12px 34px rgba(10,10,10,0.035);
+      border-bottom: 1px solid rgba(12, 23, 48, 0.08);
+      box-shadow: 0 16px 34px rgba(18,30,68,0.05);
     }
     .brand {
       display: inline-flex;
@@ -148,15 +154,15 @@
       min-height: 76vh;
       border-radius: 24px;
       background:
-        linear-gradient(120deg, rgba(255,255,255,0.82), transparent 34%),
-        linear-gradient(155deg, transparent 0 62%, rgba(66,107,255,0.06) 62% 64%, transparent 64% 100%),
-        linear-gradient(180deg, #f8f8f7 0%, #eeeeec 100%);
+        linear-gradient(120deg, rgba(255,255,255,0.88), transparent 34%),
+        linear-gradient(155deg, transparent 0 62%, rgba(12,12,12,0.04) 62% 64%, transparent 64% 100%),
+        linear-gradient(180deg, #fbfbfb 0%, #eef1f4 100%);
       overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      border: 1px solid #ececec;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 18px 56px rgba(10,10,10,0.055);
+      border: 1px solid rgba(12,23,48,0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 24px 68px rgba(18,30,68,0.08);
       isolation: isolate;
     }
     .hero-shell::before {
@@ -289,13 +295,13 @@
       font-size: clamp(3rem, 5.8vw, 5.35rem);
       line-height: 0.98;
       letter-spacing: 0;
-      font-weight: 760;
+      font-weight: 780;
       text-wrap: balance;
     }
     .hero-copy p {
       max-width: 620px;
       margin: 18px auto 0;
-      color: var(--muted);
+      color: #4f6178;
       font-size: clamp(1rem, 1.5vw, 1.22rem);
       line-height: 1.5;
       font-weight: 520;
@@ -320,14 +326,14 @@
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      border: 1px solid rgba(10,10,10,0.1);
+      border: 1px solid rgba(12,23,48,0.08);
       border-radius: 999px;
-      background: rgba(255,255,255,0.82);
-      color: #575757;
+      background: rgba(255,255,255,0.84);
+      color: #42536a;
       padding: 0 10px;
       font-size: 0.72rem;
       font-weight: 650;
-      box-shadow: 0 10px 24px rgba(10,10,10,0.045);
+      box-shadow: 0 12px 26px rgba(18,30,68,0.06);
     }
     .proof-chip::before {
       content: "";
@@ -465,7 +471,7 @@
       background:
         linear-gradient(90deg, rgba(255,255,255,0.66), rgba(255,255,255,0.86)),
         rgba(255,255,255,0.72);
-      box-shadow: 0 28px 76px rgba(10,10,10,0.11);
+      box-shadow: 0 32px 84px rgba(18,30,68,0.12);
       backdrop-filter: blur(14px);
       overflow: hidden;
       transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
@@ -483,8 +489,8 @@
     }
     .artifact-row:hover {
       transform: translateY(-2px);
-      box-shadow: 0 34px 88px rgba(10,10,10,0.13);
-      border-color: rgba(10,10,10,0.14);
+      box-shadow: 0 36px 94px rgba(18,30,68,0.14);
+      border-color: rgba(12,23,48,0.12);
     }
     .system-panel {
       min-height: 324px;
@@ -547,15 +553,15 @@
       grid-template-columns: 32px 1fr auto;
       gap: 10px;
       align-items: center;
-      border: 1px solid #ececec;
+      border: 1px solid rgba(12,23,48,0.08);
       border-radius: 10px;
-      background: #fafafa;
+      background: linear-gradient(180deg, #fbfdff, #f4f8fc);
       padding: 10px;
       transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
     }
     .stack-item:hover {
       transform: translateX(2px);
-      border-color: #dadada;
+      border-color: rgba(12,23,48,0.12);
       background: #fff;
     }
     .stack-icon {
@@ -581,7 +587,7 @@
     .logic-card span {
       display: block;
       margin-top: 3px;
-      color: #737373;
+      color: #6f7d8f;
       font-size: 0.68rem;
       line-height: 1.25;
     }
@@ -652,15 +658,15 @@
       gap: 10px;
     }
     .queue-row {
-      border: 1px solid #ececec;
+      border: 1px solid rgba(12,23,48,0.08);
       border-radius: 10px;
-      background: #fafafa;
+      background: linear-gradient(180deg, #fbfdff, #f4f8fc);
       padding: 11px;
       transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
     }
     .queue-row:hover {
       transform: translateX(2px);
-      border-color: #dadada;
+      border-color: rgba(12,23,48,0.12);
       background: #fff;
     }
     .queue-head {
@@ -947,6 +953,14 @@
       gap: 12px;
       margin-bottom: 38px;
     }
+    .section-head::before {
+      content: "";
+      width: 88px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(66,107,255,0.18), rgba(24,182,109,0.22), rgba(66,107,255,0.08));
+      box-shadow: inset 0 0 0 1px rgba(66,107,255,0.08);
+    }
     .section-head h2 {
       max-width: 760px;
       font-size: clamp(2.1rem, 4.5vw, 4rem);
@@ -983,7 +997,7 @@
       color: #fff;
       padding: 72px 28px;
       overflow: hidden;
-      box-shadow: var(--shadow-strong);
+      box-shadow: 0 34px 92px rgba(10,14,24,0.24);
     }
     .deploy-shell::before {
       content: "";
@@ -1018,6 +1032,13 @@
       flex-direction: column;
       justify-content: space-between;
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+    .deploy-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.22);
     }
     .deploy-card small {
       color: #9c9c9c;
@@ -1063,7 +1084,7 @@
       min-height: 390px;
       border: 1px solid var(--line);
       border-radius: 14px;
-      background: #fff;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,249,252,0.96));
       box-shadow: var(--shadow);
       padding: 26px;
       display: flex;
@@ -1075,8 +1096,8 @@
     .artifact::selection,
     .agent-card::selection { background: #111; color: #fff; }
     .brief-card.faded {
-      background: #fbfbfb;
-      box-shadow: none;
+      background: linear-gradient(180deg, rgba(251,251,251,0.98), rgba(244,246,250,0.96));
+      box-shadow: 0 14px 34px rgba(10,10,10,0.045);
     }
     .brief-card:hover {
       transform: translateY(-2px);
@@ -1099,12 +1120,12 @@
       min-height: 132px;
       border: 1px solid var(--line);
       border-radius: 12px;
-      background: #fafafa;
+      background: linear-gradient(180deg, #fbfcff, #f4f7fb);
       padding: 16px;
       color: #666;
       font-size: 0.9rem;
       line-height: 1.5;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.85), 0 10px 24px rgba(18,30,68,0.04);
     }
     .chip-row {
       display: flex;
@@ -1135,8 +1156,9 @@
       align-items: center;
       border: 1px solid var(--line);
       border-radius: 10px;
-      background: #fff;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,250,253,0.96));
       padding: 12px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.86);
     }
     .build-step i {
       width: 28px;
@@ -1168,7 +1190,8 @@
       min-height: 360px;
       border-radius: 12px;
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.74), transparent),
+        linear-gradient(180deg, rgba(255,255,255,0.88), transparent),
+        linear-gradient(145deg, rgba(66,107,255,0.05), rgba(24,182,109,0.035)),
         var(--soft);
       padding: 28px;
       display: flex;
@@ -1199,7 +1222,7 @@
       margin-top: 36px;
       border: 1px solid #dddddd;
       border-radius: 12px;
-      background: #fff;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,250,254,0.97));
       padding: 14px;
       display: grid;
       gap: 10px;
@@ -1572,7 +1595,7 @@
       border: 1px solid var(--line);
       border-radius: 12px;
       padding: 18px;
-      background: #fff;
+      background: linear-gradient(180deg, rgba(255,255,255,0.99), rgba(246,248,252,0.98));
       transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
       position: relative;
       overflow: hidden;
@@ -1609,33 +1632,183 @@
       line-height: 1.15;
     }
     .faq {
-      background: #0f0f0f;
+      background:
+        radial-gradient(circle at 16% 0%, rgba(66,107,255,0.14), transparent 24%),
+        radial-gradient(circle at 86% 14%, rgba(24,182,109,0.1), transparent 20%),
+        #0f1628;
       color: #fff;
     }
-    .faq .section-head p { color: #b3b3b3; }
+    .faq .section-head p { color: #bfc8d8; }
     .faq-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 0 48px;
+      gap: 14px;
       max-width: 980px;
       margin: 0 auto;
-      border-top: 1px solid #2b2b2b;
+      border-top: 0;
     }
     .faq-item {
-      padding: 22px 0;
-      border-bottom: 1px solid #2b2b2b;
+      padding: 22px 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.045);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
     }
-    .faq-item h3 { font-size: 1rem; margin-bottom: 7px; }
-    .faq-item p { color: #b3b3b3; line-height: 1.55; font-size: 0.88rem; }
+    .faq-item:first-child {
+      padding-top: 22px;
+    }
+    .faq-item h3 { font-size: 1rem; margin-bottom: 8px; }
+    .faq-item p { color: #bfc8d8; line-height: 1.62; font-size: 0.88rem; }
+    .reliability-section {
+      padding-top: 20px;
+    }
+    .reliability-shell {
+      position: relative;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 30px;
+      border: 1px solid rgba(12,20,48,0.08);
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(66,107,255,0.11), transparent 28%),
+        radial-gradient(circle at 100% 100%, rgba(24,182,109,0.08), transparent 24%),
+        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(245,248,252,0.98));
+      box-shadow: var(--shadow-premium);
+      overflow: hidden;
+    }
+    .reliability-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(12,20,48,0.035) 1px, transparent 1px),
+        linear-gradient(rgba(12,20,48,0.035) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .reliability-grid,
+    .reliability-rail {
+      position: relative;
+      z-index: 1;
+    }
+    .reliability-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .reliability-card {
+      min-height: 220px;
+      border: 1px solid rgba(12,20,48,0.08);
+      border-radius: 18px;
+      padding: 18px;
+      background: rgba(255,255,255,0.82);
+      box-shadow: 0 18px 42px rgba(18,30,68,0.08);
+      backdrop-filter: blur(12px);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+    .reliability-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 24px 52px rgba(18,30,68,0.12);
+      border-color: rgba(66,107,255,0.18);
+    }
+    .reliability-card small {
+      color: #5b6a8f;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+    .reliability-card h3 {
+      margin-top: 14px;
+      font-size: 1.1rem;
+      line-height: 1.14;
+    }
+    .reliability-card p {
+      margin-top: 9px;
+      color: #56606f;
+      font-size: 0.84rem;
+      line-height: 1.55;
+    }
+    .reliability-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .reliability-list span {
+      min-height: 30px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(12,20,48,0.08);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.86);
+      padding: 0 10px;
+      color: #25324b;
+      font-size: 0.72rem;
+      font-weight: 650;
+    }
+    .reliability-list span::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--blue);
+      margin-right: 8px;
+      box-shadow: 0 0 0 5px rgba(66,107,255,0.08);
+      flex-shrink: 0;
+    }
+    .reliability-list span:nth-child(2)::before { background: var(--green); box-shadow: 0 0 0 5px rgba(24,182,109,0.08); }
+    .reliability-list span:nth-child(3)::before { background: var(--amber); box-shadow: 0 0 0 5px rgba(217,151,37,0.1); }
+    .reliability-rail {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .rail-pill {
+      min-height: 84px;
+      border-radius: 16px;
+      border: 1px solid rgba(12,20,48,0.08);
+      background: rgba(12,20,48,0.92);
+      color: #edf2ff;
+      padding: 14px 16px;
+      box-shadow: 0 16px 36px rgba(12,20,48,0.16);
+    }
+    .rail-pill small {
+      display: block;
+      color: rgba(237,242,255,0.56);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.56rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .rail-pill b {
+      display: block;
+      font-size: 0.92rem;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .rail-pill span {
+      display: block;
+      color: rgba(237,242,255,0.76);
+      font-size: 0.74rem;
+      line-height: 1.4;
+    }
     .cta {
       padding: 16px;
       background: #fff;
     }
     .cta-shell {
       border-radius: 24px;
-      background: var(--soft);
+      background:
+        radial-gradient(circle at 18% 18%, rgba(66,107,255,0.1), transparent 24%),
+        radial-gradient(circle at 82% 72%, rgba(24,182,109,0.1), transparent 22%),
+        linear-gradient(180deg, #f7faff, #edf3fa);
       padding: 96px 24px;
       text-align: center;
+      box-shadow: 0 28px 72px rgba(18,30,68,0.09);
     }
     .cta h2 {
       max-width: 760px;
@@ -1750,7 +1923,7 @@
       .console-cell:nth-child(2) { border-right: 0; }
       .console-cell:nth-child(1),
       .console-cell:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.1); }
-      .brief-grid, .agent-grid, .example-shell, .faq-grid, .tool-grid, .deploy-grid { grid-template-columns: 1fr; }
+      .brief-grid, .agent-grid, .example-shell, .faq-grid, .tool-grid, .deploy-grid, .reliability-grid, .reliability-rail { grid-template-columns: 1fr; }
       .example-side { border-right: 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
       .example-nav {
         display: flex;
@@ -1951,18 +2124,18 @@
           <span class="motion-packet three"></span>
         </div>
         <div class="hero-copy">
-          <div class="eyebrow">Custom AI agents for small and mid-sized businesses</div>
-          <h1>Build AI Around the Work You Already Do</h1>
-          <p>We learn your workflow, map the data and decisions behind it, then build agents, dashboards, and AI-assisted processes that make the work easier to run.</p>
+          <div class="eyebrow">AI systems for reporting, research, and operations</div>
+          <h1>Build the system behind the work.</h1>
+          <p>ArgusReach designs AI systems for recurring business work: reports, research, data pulls, review queues, dashboards, and internal workflows that still depend on manual effort.</p>
           <div class="hero-actions">
             <a href="https://calendly.com/vito-argusreach/30min" class="btn btn-primary" target="_blank" rel="noopener">Book a Call</a>
-            <a href="#example" class="btn btn-secondary">View Example</a>
+            <a href="#example" class="btn btn-secondary">See a Build Map</a>
           </div>
           <div class="hero-proof" aria-label="System capabilities">
-            <span class="proof-chip">Workflow discovery</span>
-            <span class="proof-chip">Agent build</span>
-            <span class="proof-chip">Human review</span>
-            <span class="proof-chip">Ongoing support</span>
+            <span class="proof-chip">Workflow mapping</span>
+            <span class="proof-chip">Agent logic</span>
+            <span class="proof-chip">Human controls</span>
+            <span class="proof-chip">Production support</span>
           </div>
         </div>
         <div class="hero-console" aria-label="Workflow system model">
@@ -1973,37 +2146,37 @@
             <strong>ARGUS WORKFLOW MODEL</strong>
           </div>
           <div class="console-grid">
-            <div class="console-cell"><small>01</small><b>Business workflow</b><span>Where time, data, and judgment get stuck</span></div>
-            <div class="console-cell"><small>02</small><b>Agent logic</b><span>Instructions, rules, checks, handoffs</span></div>
-            <div class="console-cell"><small>03</small><b>Human review</b><span>Approval points and visible outputs</span></div>
-            <div class="console-cell"><small>04</small><b>Support path</b><span>Updates, QA, maintenance if needed</span></div>
+            <div class="console-cell"><small>01</small><b>Workflow</b><span>Where the work starts, stalls, and gets checked</span></div>
+            <div class="console-cell"><small>02</small><b>System logic</b><span>Rules, routing, calculations, and stop points</span></div>
+            <div class="console-cell"><small>03</small><b>Review layer</b><span>Approvals, flags, visibility, and handoffs</span></div>
+            <div class="console-cell"><small>04</small><b>Operating path</b><span>Support, monitoring, and maintenance</span></div>
           </div>
         </div>
         <div class="artifact-row" aria-label="ArgusReach workflow system preview">
           <div class="system-panel">
             <div class="panel-kicker"><span>Approved stack</span><i class="status-light"></i></div>
             <div class="stack-list">
-              <div class="stack-item"><span class="stack-icon">C</span><div><b>Claude / ChatGPT</b><span>Client-owned AI workspace</span></div><span class="stack-tag">tool</span></div>
-              <div class="stack-item"><span class="stack-icon">P</span><div><b>Perplexity / search</b><span>Research and source review</span></div><span class="stack-tag">source</span></div>
-              <div class="stack-item"><span class="stack-icon">M</span><div><b>Microsoft / files</b><span>SharePoint, Excel, PDFs</span></div><span class="stack-tag">data</span></div>
-              <div class="stack-item"><span class="stack-icon">A</span><div><b>Project tool</b><span>Scoped dashboard or queue when needed</span></div><span class="stack-tag">build</span></div>
+              <div class="stack-item"><span class="stack-icon">C</span><div><b>Claude / ChatGPT</b><span>Model layer when it belongs in the workflow</span></div><span class="stack-tag">model</span></div>
+              <div class="stack-item"><span class="stack-icon">P</span><div><b>Search / source review</b><span>Research, monitoring, and evidence checks</span></div><span class="stack-tag">source</span></div>
+              <div class="stack-item"><span class="stack-icon">M</span><div><b>Microsoft / files</b><span>SharePoint, Excel, PDFs, and folders</span></div><span class="stack-tag">data</span></div>
+              <div class="stack-item"><span class="stack-icon">A</span><div><b>Internal tool</b><span>Queue, dashboard, panel, or report surface</span></div><span class="stack-tag">build</span></div>
             </div>
           </div>
           <div class="system-panel dark">
             <div class="panel-kicker"><span>Workflow logic</span><i class="status-light blue"></i></div>
             <div class="logic-map">
-              <div class="logic-card"><b>Map inputs</b><span>Files, owners, cadence, review points</span><div class="logic-meter"><i style="--w: 86%;"></i></div></div>
-              <div class="logic-card"><b>Define rules</b><span>What the agent checks, drafts, routes, and logs</span><div class="logic-meter"><i style="--w: 72%;"></i></div></div>
-              <div class="logic-card"><b>Keep review visible</b><span>Approvals, exceptions, human decisions</span><div class="logic-meter"><i style="--w: 64%;"></i></div></div>
-              <div class="logic-card"><b>Ship the output</b><span>Report, dashboard, queue, or operating runbook</span><div class="logic-meter"><i style="--w: 78%;"></i></div></div>
+              <div class="logic-card"><b>Map inputs</b><span>Files, sources, owners, cadence</span><div class="logic-meter"><i style="--w: 86%;"></i></div></div>
+              <div class="logic-card"><b>Define the logic</b><span>Checks, calculations, summaries, routing</span><div class="logic-meter"><i style="--w: 72%;"></i></div></div>
+              <div class="logic-card"><b>Keep judgment visible</b><span>Approvals, edits, exceptions, stop points</span><div class="logic-meter"><i style="--w: 64%;"></i></div></div>
+              <div class="logic-card"><b>Deliver the output</b><span>Report, dashboard, queue, or operating layer</span><div class="logic-meter"><i style="--w: 78%;"></i></div></div>
             </div>
           </div>
           <div class="system-panel">
             <div class="panel-kicker"><span>Review queue</span><i class="status-light amber"></i></div>
             <div class="queue-list">
-              <div class="queue-row"><div class="queue-head"><b>Executive brief</b><span class="queue-pill">ready</span></div><span>Signals summarized for review</span><div class="queue-track"><i style="--w: 92%;"></i></div></div>
-              <div class="queue-row"><div class="queue-head"><b>Report check</b><span class="queue-pill amber">review</span></div><span>Numbers reconciled, issue flagged</span><div class="queue-track"><i style="--w: 68%;"></i></div></div>
-              <div class="queue-row"><div class="queue-head"><b>Ops handoff</b><span class="queue-pill blue">logged</span></div><span>Next step and owner captured</span><div class="queue-track"><i style="--w: 76%;"></i></div></div>
+              <div class="queue-row"><div class="queue-head"><b>Executive brief</b><span class="queue-pill">ready</span></div><span>Draft complete and waiting for approval</span><div class="queue-track"><i style="--w: 92%;"></i></div></div>
+              <div class="queue-row"><div class="queue-head"><b>Report exception</b><span class="queue-pill amber">review</span></div><span>Mismatch flagged before output is released</span><div class="queue-track"><i style="--w: 68%;"></i></div></div>
+              <div class="queue-row"><div class="queue-head"><b>Ops handoff</b><span class="queue-pill blue">logged</span></div><span>Owner, next step, and status captured</span><div class="queue-track"><i style="--w: 76%;"></i></div></div>
             </div>
           </div>
         </div>
@@ -2013,17 +2186,17 @@
     <section>
       <div class="wrap">
         <div class="section-head">
-          <h2>Learn the workflow. Build the agent.</h2>
-          <p>We start with how your team actually works, then design the AI-assisted system around the real inputs, rules, decisions, and outputs.</p>
+          <h2>Map the work. Build the system.</h2>
+          <p>We start with the real process, not a generic AI use case. Then we build the system around the inputs, rules, exceptions, review points, and outputs that already define the job.</p>
         </div>
         <div class="brief-grid">
           <article class="brief-card">
             <div>
               <h3>Find the expensive manual loop.</h3>
-              <p>We isolate the recurring work people collect, check, rewrite, approve, explain, and send.</p>
+              <p>We isolate the recurring work people collect, check, rewrite, reconcile, approve, and resend every week or every month.</p>
             </div>
             <div>
-              <div class="prompt-box">Monitor the sources, validate the file, draft the brief, route anything that needs a decision, and log every handoff.</div>
+              <div class="prompt-box">Watch the sources, validate the inputs, assemble the draft, route exceptions, and log every handoff.</div>
               <div class="chip-row">
                 <span class="chip">Source files</span>
                 <span class="chip">Rules</span>
@@ -2034,13 +2207,13 @@
           </article>
           <article class="brief-card faded">
             <div>
-              <h3>Build the agent system.</h3>
-              <p>Agent instructions, automations, dashboards, review paths, logs, approvals, and support plan.</p>
+              <h3>Build the operating layer.</h3>
+              <p>Agent logic, automations, dashboards, queues, review steps, logs, approvals, and support path.</p>
             </div>
             <div class="build-feed">
               <div class="build-step"><i>01</i><div><b>Map the process</b><span>Inputs, owners, systems, and cadence.</span></div><small>ready</small></div>
               <div class="build-step"><i>02</i><div><b>Define the agent</b><span>Read, check, draft, route, log, and stop when needed.</span></div><small>ready</small></div>
-              <div class="build-step"><i>03</i><div><b>Build the workflow</b><span>Client-owned workspace or project-specific tool.</span></div><small>review</small></div>
+              <div class="build-step"><i>03</i><div><b>Ship the workflow</b><span>Internal tool, report layer, or client-owned workspace.</span></div><small>review</small></div>
             </div>
           </article>
         </div>
@@ -2051,15 +2224,15 @@
       <div class="wrap">
         <div class="deploy-shell">
           <div class="section-head">
-            <h2>Pick the right implementation path.</h2>
-            <p>Sometimes the answer is better Claude or ChatGPT usage. Sometimes it is a custom agent, automation, dashboard, report builder, or hosted internal tool.</p>
+            <h2>Choose the right build path.</h2>
+            <p>Sometimes the right answer is better AI usage and process design. Sometimes it is a custom agent, dashboard, reporting engine, automation, or internal tool.</p>
           </div>
           <div class="deploy-grid">
             <article class="deploy-card">
               <div>
                 <small>Path 01</small>
-                <h3>AI setup and enablement.</h3>
-                <p>Claude, ChatGPT, Microsoft, Perplexity, custom instructions, prompts, and firm-specific ways to use AI responsibly.</p>
+                <h3>AI setup and operating model.</h3>
+                <p>Claude, ChatGPT, Microsoft, search, prompt systems, and firm-specific AI usage that people can actually follow.</p>
               </div>
               <div class="deploy-visual" aria-hidden="true">
                 <span style="--w: 78%;"></span>
@@ -2070,8 +2243,8 @@
             <article class="deploy-card">
               <div>
                 <small>Path 02</small>
-                <h3>Custom agent build.</h3>
-                <p>When the work needs a repeatable agent, automation, dashboard, review queue, report builder, or lightweight internal tool.</p>
+                <h3>Custom system build.</h3>
+                <p>For workflows that need a repeatable agent, automation, review queue, report builder, dashboard, or lightweight internal tool.</p>
               </div>
               <div class="deploy-visual" aria-hidden="true">
                 <span style="--w: 62%;"></span>
@@ -2082,8 +2255,8 @@
             <article class="deploy-card">
               <div>
                 <small>Path 03</small>
-                <h3>Support or retainer path.</h3>
-                <p>Updates, troubleshooting, refreshes, new workflows, and maintenance can continue after the first useful system ships.</p>
+                <h3>Support and expansion.</h3>
+                <p>Updates, fixes, refreshes, new workflows, and maintenance continue after the first useful system is live.</p>
               </div>
               <div class="deploy-visual" aria-hidden="true">
                 <span style="--w: 70%;"></span>
@@ -2096,15 +2269,74 @@
       </div>
     </section>
 
+    <section class="reliability-section">
+      <div class="wrap">
+        <div class="reliability-shell">
+          <div class="section-head">
+            <h2>What makes the system trustworthy.</h2>
+            <p>The useful part is not the AI headline. It is the structure underneath: rules, visibility, approvals, logs, and a clear maintenance path.</p>
+          </div>
+          <div class="reliability-grid">
+            <article class="reliability-card">
+              <small>01 / Context</small>
+              <h3>Rules and memory stay attached to the workflow.</h3>
+              <p>The system keeps business rules, source expectations, exception handling, and reviewer notes attached to the job instead of re-learning them every run.</p>
+              <div class="reliability-list">
+                <span>Source rules</span>
+                <span>Rulings log</span>
+                <span>Reviewer notes</span>
+              </div>
+            </article>
+            <article class="reliability-card">
+              <small>02 / Controls</small>
+              <h3>High-blast-radius actions stay gated.</h3>
+              <p>Drafting can move fast. Sensitive actions, client-facing outputs, and business decisions stay visible and reviewable on purpose.</p>
+              <div class="reliability-list">
+                <span>Approval points</span>
+                <span>Exception routing</span>
+                <span>No blind sends</span>
+              </div>
+            </article>
+            <article class="reliability-card">
+              <small>03 / Visibility</small>
+              <h3>Logs, queues, and review panels make work inspectable.</h3>
+              <p>The output should be easy to inspect. Reports, dashboards, queues, and issue flags keep the workflow visible instead of turning it into a black box.</p>
+              <div class="reliability-list">
+                <span>Review queues</span>
+                <span>Output logs</span>
+                <span>Audit trail</span>
+              </div>
+            </article>
+            <article class="reliability-card">
+              <small>04 / Rollout</small>
+              <h3>One workflow first. Expand after it proves itself.</h3>
+              <p>We scope the first useful lane, validate it, support it, and widen only after the system proves it can run cleanly and repeatedly.</p>
+              <div class="reliability-list">
+                <span>Pilot workflow</span>
+                <span>30-day review</span>
+                <span>Support path</span>
+              </div>
+            </article>
+          </div>
+          <div class="reliability-rail" aria-label="Reliability process">
+            <div class="rail-pill"><small>Input</small><b>Map the workflow</b><span>Files, owners, cadence, approvals.</span></div>
+            <div class="rail-pill"><small>Logic</small><b>Define the rules</b><span>Checks, routes, summaries, and stop points.</span></div>
+            <div class="rail-pill"><small>Review</small><b>Keep judgment visible</b><span>Edits, approvals, and exceptions stay human.</span></div>
+            <div class="rail-pill"><small>Support</small><b>Maintain the lane</b><span>Logs, monitoring, and updates keep it healthy.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="agents">
       <div class="wrap">
         <div class="section-head">
-          <h2>Agent systems by business function.</h2>
-          <p>No generic chatbot. We build around the work that matters inside each business.</p>
+          <h2>Systems by business function.</h2>
+          <p>No generic chatbot pitch. We build around the actual work that matters inside the business.</p>
         </div>
         <div class="agent-grid">
           <article class="agent-card">
-            <div><h3>Front-office agents.</h3><p>Executive, research, marketing, and revenue workflows that need speed, context, and judgment.</p></div>
+            <div><h3>Front-office systems.</h3><p>Executive, research, marketing, and revenue workflows that need speed, context, and judgment.</p></div>
             <div class="agent-ui">
               <div class="agent-ui-row"><span class="dot green"></span><b>Executive Brief Agent</b><span>active</span></div>
               <div class="agent-ui-row"><span class="dot amber"></span><b>Policy Watch Agent</b><span>review</span></div>
@@ -2112,7 +2344,7 @@
             </div>
           </article>
           <article class="agent-card">
-            <div><h3>Back-office agents.</h3><p>Reporting, data collection, admin, and operations workflows with reviewable controls.</p></div>
+            <div><h3>Back-office systems.</h3><p>Reporting, data collection, admin, and operations workflows with reviewable controls.</p></div>
             <div class="agent-ui">
               <div class="agent-ui-row"><span class="dot green"></span><b>Reporting Engine</b><span>ready</span></div>
               <div class="agent-ui-row"><span class="dot amber"></span><b>Data Pull Agent</b><span>review</span></div>
@@ -2120,7 +2352,7 @@
             </div>
           </article>
           <article class="agent-card">
-            <div><h3>Tool and model agnostic.</h3><p>Use the right model, app, automation, or API for the job.</p></div>
+            <div><h3>Model and tool agnostic.</h3><p>Use the right model, app, automation, or API for the job rather than forcing one stack everywhere.</p></div>
             <div class="agent-ui">
               <div class="agent-ui-row"><span class="dot blue"></span><b>Claude / ChatGPT</b><span>model</span></div>
               <div class="agent-ui-row"><span class="dot amber"></span><b>Perplexity / search</b><span>research</span></div>
@@ -2135,7 +2367,7 @@
       <div class="wrap">
         <div class="section-head">
           <h2>Map the workflow before you build.</h2>
-          <p>Example projects prospects can immediately picture.</p>
+          <p>Examples that make the process concrete fast.</p>
         </div>
         <div class="example-shell">
           <aside class="example-side">
@@ -2153,7 +2385,7 @@
             <div class="example-top">
               <div>
                 <h3 id="example-title">Daily competitor data agent</h3>
-                <p id="example-copy">Pulls from 15 websites, tracks changes, and produces a clean daily update.</p>
+                <p id="example-copy">Pull from 15 websites, track changes, and produce a clean daily update.</p>
               </div>
               <div class="example-badge" id="example-badge">Illustrative only</div>
             </div>
@@ -2200,8 +2432,8 @@
     <section id="tools">
       <div class="wrap">
         <div class="section-head">
-          <h2>Built around the tools you use.</h2>
-          <p>Claude, ChatGPT, Perplexity, Microsoft, SharePoint, Excel, APIs, automations, or a custom project-specific tool.</p>
+          <h2>Built around the tools you already use.</h2>
+          <p>Claude, ChatGPT, search, Microsoft, SharePoint, Excel, APIs, automations, or a custom tool when the workflow needs one.</p>
         </div>
         <div class="tool-grid">
           <div class="tool-card"><small>Models</small><b>Claude, ChatGPT, OpenAI</b></div>
@@ -2220,10 +2452,12 @@
           <p>Short answers.</p>
         </div>
         <div class="faq-grid">
-          <div class="faq-item"><h3>Who is this for?</h3><p>Small and mid-sized businesses with real workflows that are still too manual.</p></div>
-          <div class="faq-item"><h3>Is this just a chatbot?</h3><p>No. Useful agents work through files, rules, dashboards, approvals, and systems.</p></div>
-          <div class="faq-item"><h3>Do you replace employees?</h3><p>No. The goal is AI-assisted work with human judgment where it matters.</p></div>
-          <div class="faq-item"><h3>How do we start?</h3><p>One practical workflow audit, then a scoped build if there is a clear fit.</p></div>
+          <div class="faq-item"><h3>Who is this for?</h3><p>Businesses with recurring work that is still too manual.</p></div>
+          <div class="faq-item"><h3>Is this just a chatbot?</h3><p>No. Useful systems work through files, rules, dashboards, reviews, and operating logic.</p></div>
+          <div class="faq-item"><h3>Do you replace employees?</h3><p>No. The point is AI-assisted work with human judgment where it matters.</p></div>
+          <div class="faq-item"><h3>Is this autopilot?</h3><p>No. Drafts can move fast, but approvals, exceptions, and sensitive actions stay visible.</p></div>
+          <div class="faq-item"><h3>How do you keep it reliable?</h3><p>Rules, review points, logs, ownership, and support are defined before the workflow is trusted.</p></div>
+          <div class="faq-item"><h3>How do we start?</h3><p>Start with one real workflow, then scope the first build around it.</p></div>
         </div>
       </div>
     </section>
@@ -2231,8 +2465,8 @@
     <section id="book" class="cta">
       <div class="cta-shell">
         <div class="wrap">
-          <h2>Start with one useful agent.</h2>
-          <p>Bring the recurring process. We map what the agent should do, where people stay involved, and what the first build should prove.</p>
+          <h2>Start with one real workflow.</h2>
+          <p>Bring the report, process, dashboard, spreadsheet, or recurring task. We map what the system should do, where people stay involved, and what the first build needs to prove.</p>
           <a href="https://calendly.com/vito-argusreach/30min" class="btn btn-primary" target="_blank" rel="noopener">Book a Call</a>
         </div>
       </div>

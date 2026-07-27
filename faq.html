@@ -2,119 +2,602 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="cache-bust" content="20260726-premium-system-b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FAQ - ArgusReach</title>
-  <meta name="description" content="Frequently asked questions about ArgusReach custom AI agents, dashboards, reporting systems, and AI-assisted workflows for small and mid-sized businesses." />
+  <meta name="description" content="Short answers about how ArgusReach designs AI systems for reporting, research, operations, and recurring business workflows." />
   <link rel="canonical" href="https://argusreach.com/faq" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://argusreach.com/faq" />
   <meta property="og:title" content="FAQ - ArgusReach" />
-  <meta property="og:description" content="Common questions about ArgusReach custom AI agents, dashboards, reporting, and practical workflow builds." />
+  <meta property="og:description" content="Short answers about ArgusReach AI systems, workflow builds, controls, and support." />
   <meta property="og:site_name" content="ArgusReach" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="FAQ - ArgusReach" />
-  <meta name="twitter:description" content="Common questions about ArgusReach custom AI agents and workflow builds." />
+  <meta name="twitter:description" content="Short answers about ArgusReach AI systems and workflow builds." />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --bg:#08090a; --bg2:#101216; --line:rgba(255,255,255,.11); --text:#f6f7f8; --sub:rgba(246,247,248,.66); --muted:rgba(246,247,248,.4); --accent:#9ae6ff; }
-    body { font-family: Inter, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
-    nav { position: sticky; top: 0; z-index: 5; display:flex; align-items:center; justify-content:space-between; height:58px; padding:0 40px; background:rgba(8,9,10,.94); border-bottom:1px solid var(--line); backdrop-filter: blur(18px); }
-    .logo { color:#fff; text-decoration:none; font-size:.95rem; font-weight:850; letter-spacing:-.025em; }
-    .logo span { color:var(--muted); font-weight:400; }
-    .btn { background:#fff; color:#050607; padding:8px 18px; border-radius:5px; text-decoration:none; font-size:.82rem; font-weight:800; }
-    .page { max-width: 780px; margin:0 auto; padding:76px 24px 110px; }
-    .ey { font-family:"JetBrains Mono", monospace; font-size:.62rem; letter-spacing:.17em; text-transform:uppercase; color:var(--muted); margin-bottom:22px; }
-    h1 { font-size:clamp(2.8rem, 8vw, 5rem); font-weight:920; letter-spacing:-.06em; line-height:.92; margin-bottom:20px; }
-    .lead { color:var(--sub); line-height:1.85; font-size:1rem; margin-bottom:54px; max-width:680px; }
-    .section-label { font-family:"JetBrains Mono", monospace; font-size:.56rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); padding-bottom:13px; border-bottom:1px solid var(--line); margin:42px 0 8px; }
-    .faq-item { border-bottom:1px solid var(--line); }
-    .faq-q { width:100%; border:0; background:none; color:#fff; text-align:left; cursor:pointer; padding:22px 0; display:flex; justify-content:space-between; gap:18px; }
-    .faq-q-text { font-size:.96rem; font-weight:750; letter-spacing:-.02em; line-height:1.35; }
-    .faq-icon { color:var(--accent); font-family:"JetBrains Mono", monospace; transition: transform .2s; }
-    .faq-item.open .faq-icon { transform: rotate(45deg); }
-    .faq-a { display:none; color:var(--sub); font-size:.9rem; line-height:1.85; padding:0 0 22px; }
-    .faq-item.open .faq-a { display:block; }
-    .faq-a strong { color:#fff; }
-    .cta { margin-top:64px; border:1px solid var(--line); background:var(--bg2); border-radius:12px; padding:36px; text-align:center; }
-    .cta h2 { font-size:1.45rem; letter-spacing:-.035em; margin-bottom:10px; }
-    .cta p { color:var(--sub); line-height:1.75; font-size:.9rem; margin-bottom:24px; }
-    a.inline { color:var(--accent); text-decoration:none; }
-    @media (max-width:640px) { nav { padding:0 18px; } .logo span { display:none; } .page { padding-top:48px; } .cta { padding:28px 22px; } }
+    :root {
+      --ink: #0b0c0f;
+      --muted: #565d68;
+      --muted-2: #787f89;
+      --line: rgba(11, 12, 15, 0.1);
+      --line-strong: rgba(11, 12, 15, 0.16);
+      --blue: #6b7786;
+      --cyan: #88919d;
+      --green: #1b9a63;
+      --gold: #b5872b;
+      --shadow: 0 28px 84px rgba(15, 18, 24, 0.09);
+      --shadow-strong: 0 36px 112px rgba(15, 18, 24, 0.14);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Geist, system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(15,18,24,0.06), transparent 25%),
+        radial-gradient(circle at 100% 8%, rgba(110,122,138,0.07), transparent 18%),
+        linear-gradient(90deg, rgba(9,17,31,0.03) 1px, transparent 1px),
+        linear-gradient(180deg, #fcfcfc 0%, #f1f3f5 100%);
+      background-size: auto, auto, 120px 100%, auto;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(120deg, transparent 0 26%, rgba(15,18,24,0.03) 26% 26.25%, transparent 26.25% 100%),
+        linear-gradient(60deg, transparent 0 72%, rgba(118,126,136,0.03) 72% 72.2%, transparent 72.2% 100%);
+    }
+    a { color: inherit; }
+    .wrap { width: min(1160px, calc(100% - 32px)); margin: 0 auto; }
+    .mono { font-family: "JetBrains Mono", monospace; }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 0 28px;
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(10,22,43,0.08);
+      box-shadow: 0 18px 34px rgba(13,26,54,0.05);
+    }
+    .brand {
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 760;
+      letter-spacing: -0.02em;
+    }
+    .brand-mark {
+      width: 30px;
+      height: 28px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, #0c1730, #173054);
+      color: #fff;
+      font-size: 0.62rem;
+      font-family: "JetBrains Mono", monospace;
+      box-shadow: 0 14px 30px rgba(12,23,48,0.16);
+    }
+    .brand small {
+      color: var(--muted-2);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-link {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 650;
+    }
+    .btn {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0 18px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 750;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+    .btn-dark {
+      color: #fff;
+      background: linear-gradient(135deg, #0c1730, #17294b);
+      box-shadow: 0 18px 34px rgba(12,23,48,0.18);
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .hero {
+      padding: 16px 0 34px;
+    }
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      border: 1px solid rgba(10,22,43,0.08);
+      background:
+        linear-gradient(120deg, rgba(255,255,255,0.9), rgba(255,255,255,0.58)),
+        linear-gradient(180deg, #f8fbff 0%, #eef4fb 100%);
+      box-shadow: var(--shadow-strong);
+      padding: 78px 40px 40px;
+    }
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(9,17,31,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(9,17,31,0.04) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.7), transparent 74%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.06fr 0.94fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .eyebrow {
+      color: #5f7690;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    h1 {
+      max-width: 760px;
+      font-size: clamp(3.1rem, 5.8vw, 5.6rem);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      font-weight: 780;
+    }
+    h1 span {
+      display: block;
+      font-family: "Instrument Serif", serif;
+      font-style: italic;
+      font-weight: 400;
+      color: #35527d;
+      letter-spacing: -0.02em;
+    }
+    .lead {
+      max-width: 620px;
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.76;
+    }
+    .hero-card {
+      border-radius: 24px;
+      border: 1px solid rgba(10,22,43,0.08);
+      background: rgba(255,255,255,0.74);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+    .hero-card h3 {
+      font-size: 1.08rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+    .hero-card p {
+      color: var(--muted);
+      line-height: 1.72;
+      font-size: 0.92rem;
+    }
+    .hero-pills {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .hero-pill {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(10,22,43,0.08);
+      box-shadow: 0 12px 22px rgba(13,26,54,0.05);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #223653;
+    }
+    .hero-pill::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 10px;
+      background: var(--blue);
+      box-shadow: 0 0 0 5px rgba(52,104,255,0.1);
+    }
+    .hero-pill:nth-child(2)::before { background: var(--green); box-shadow: 0 0 0 5px rgba(29,184,121,0.1); }
+    .hero-pill:nth-child(3)::before { background: var(--gold); box-shadow: 0 0 0 5px rgba(213,155,44,0.1); }
+    .hero-pill:nth-child(4)::before { background: var(--cyan); box-shadow: 0 0 0 5px rgba(18,169,199,0.1); }
+    .faq-shell {
+      padding: 10px 0 110px;
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .sidebar {
+      position: sticky;
+      top: 100px;
+      display: grid;
+      gap: 18px;
+    }
+    .side-card {
+      border-radius: 24px;
+      border: 1px solid rgba(10,22,43,0.08);
+      background: rgba(255,255,255,0.76);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+    .side-card h3 {
+      font-size: 1.08rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+    .side-card p {
+      color: var(--muted);
+      line-height: 1.72;
+      font-size: 0.92rem;
+    }
+    .side-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .side-item {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 12px;
+      border-radius: 18px;
+      background: rgba(244,248,253,0.9);
+      border: 1px solid rgba(10,22,43,0.06);
+    }
+    .side-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, #0c1730, #18315e);
+      color: #fff;
+      font-size: 0.66rem;
+      letter-spacing: 0.08em;
+      box-shadow: 0 14px 24px rgba(12,23,48,0.14);
+    }
+    .side-item b {
+      display: block;
+      font-size: 0.88rem;
+      margin-bottom: 4px;
+    }
+    .side-item span {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+    .section-label {
+      color: #637791;
+      font-size: 0.66rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin: 0 0 16px;
+    }
+    .faq-group {
+      margin-bottom: 24px;
+      border-radius: 28px;
+      border: 1px solid rgba(10,22,43,0.08);
+      background: rgba(255,255,255,0.76);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .group-head {
+      padding: 22px 22px 16px;
+      border-bottom: 1px solid rgba(10,22,43,0.07);
+      background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(245,249,253,0.7));
+    }
+    .group-head h2 {
+      font-size: 1.28rem;
+      letter-spacing: -0.04em;
+    }
+    .faq-item {
+      border-top: 1px solid rgba(10,22,43,0.07);
+    }
+    .faq-item:first-child { border-top: 0; }
+    .faq-q {
+      width: 100%;
+      border: 0;
+      background: none;
+      cursor: pointer;
+      text-align: left;
+      padding: 20px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 20px;
+    }
+    .faq-q-text {
+      font-size: 0.97rem;
+      font-weight: 740;
+      line-height: 1.38;
+      letter-spacing: -0.02em;
+    }
+    .faq-icon {
+      flex: 0 0 auto;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(244,248,253,0.94);
+      border: 1px solid rgba(10,22,43,0.08);
+      color: #35527d;
+      font-family: "JetBrains Mono", monospace;
+      transition: transform 180ms ease, background 180ms ease;
+    }
+    .faq-a {
+      display: none;
+      padding: 0 22px 20px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.78;
+      max-width: 90%;
+    }
+    .faq-item.open .faq-a { display: block; }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+      background: rgba(52,104,255,0.08);
+    }
+    .cta {
+      margin-top: 8px;
+      border-radius: 30px;
+      border: 1px solid rgba(10,22,43,0.08);
+      background:
+        radial-gradient(circle at 8% 12%, rgba(52,104,255,0.12), transparent 24%),
+        radial-gradient(circle at 88% 88%, rgba(29,184,121,0.11), transparent 20%),
+        linear-gradient(180deg, rgba(255,255,255,0.92), rgba(242,247,252,0.96));
+      box-shadow: var(--shadow-strong);
+      padding: 42px 32px;
+      text-align: center;
+    }
+    .cta h2 {
+      font-size: clamp(2.3rem, 4.8vw, 4.4rem);
+      letter-spacing: -0.06em;
+      line-height: 0.95;
+      font-weight: 770;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .cta h2 span {
+      font-family: "Instrument Serif", serif;
+      font-style: italic;
+      font-weight: 400;
+      color: #35527d;
+    }
+    .cta p {
+      max-width: 620px;
+      margin: 16px auto 26px;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.78;
+    }
+    @media (max-width: 980px) {
+      .hero-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: static;
+      }
+    }
+    @media (max-width: 720px) {
+      .nav {
+        height: 66px;
+        padding: 0 16px;
+      }
+      .brand small,
+      .nav-link {
+        display: none;
+      }
+      .wrap {
+        width: min(100% - 20px, 1160px);
+      }
+      .hero-shell {
+        padding: 62px 18px 24px;
+      }
+      .faq-q,
+      .group-head,
+      .side-card,
+      .cta {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+      .faq-a {
+        max-width: 100%;
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+    }
   </style>
 </head>
 <body>
-<nav>
-  <a href="/" class="logo">ArgusReach<span> · AI Systems</span></a>
-  <a href="https://calendly.com/vito-argusreach/30min" class="btn" target="_blank" rel="noopener">Book a Call</a>
+<nav class="nav">
+  <a href="/" class="brand"><span class="brand-mark">AR</span>ArgusReach<small>Common questions</small></a>
+  <div class="nav-links">
+    <a class="nav-link" href="/">Home</a>
+    <a class="nav-link" href="/workflow">Workflow</a>
+    <a class="btn btn-dark" href="https://calendly.com/vito-argusreach/30min" target="_blank" rel="noopener">Book a Call</a>
+  </div>
 </nav>
 
-<main class="page">
-  <div class="ey">FAQ</div>
-  <h1>Common questions.</h1>
-  <p class="lead">The short version of how ArgusReach approaches custom AI agents, dashboards, reporting, and AI-assisted workflow implementation.</p>
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-shell">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow mono">FAQ</div>
+          <h1>Clear questions.<span>Direct answers.</span></h1>
+          <p class="lead">What ArgusReach builds, how the work starts, where human review stays in place, and what a serious AI workflow project should actually look like.</p>
+        </div>
+        <div class="hero-card">
+          <h3>The through-line</h3>
+          <p>We build around real work, not AI theater. The system has to be inspectable, reviewable, maintainable, and worth using after the first demo.</p>
+          <div class="hero-pills">
+            <span class="hero-pill">Workflow first</span>
+            <span class="hero-pill">Human controls</span>
+            <span class="hero-pill">Visible logic</span>
+            <span class="hero-pill">Support after launch</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <div class="section-label">What We Do</div>
-  <div class="faq-item open">
-    <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">What exactly does ArgusReach build?</span><span class="faq-icon">+</span></button>
-    <div class="faq-a">We build focused AI agents and AI-assisted workflows around real business processes. That can mean an agent, dashboard, recurring report, internal portal, document extraction flow, CRM/reporting tool, data cleanup tool, SharePoint/Excel workflow, or automation that makes manual work easier to run.</div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">Is this AI consulting or software development?</span><span class="faq-icon">+</span></button>
-    <div class="faq-a">It is both, with a practical bias. We help identify the workflow, then build the agent, dashboard, automation, or assisted process. The goal is not to deliver a slide deck. The goal is to ship something useful that improves reporting, reduces friction, or makes a recurring process easier to run.</div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">Who is the ideal client?</span><span class="faq-icon">+</span></button>
-    <div class="faq-a">Small and mid-sized businesses with workflows that are still too manual. We are not locked to one industry. The fit is strongest when the business has recurring reports, research, data pulls, admin processes, client communication, or operational workflows that people keep rebuilding by hand.</div>
-  </div>
+<main class="faq-shell">
+  <div class="wrap faq-grid">
+    <aside class="sidebar">
+      <div class="side-card">
+        <div class="section-label mono">What to bring</div>
+        <h3>Start with the messy workflow.</h3>
+        <p>The best first conversation starts with something concrete: a report, spreadsheet process, dashboard update, folder structure, research loop, or approval-heavy workflow.</p>
+        <div class="side-list">
+          <div class="side-item"><div class="side-num mono">01</div><div><b>Show the current process</b><span>Files, systems, exports, checks, and decision points.</span></div></div>
+          <div class="side-item"><div class="side-num mono">02</div><div><b>Identify the friction</b><span>Where people keep rebuilding the same work by hand.</span></div></div>
+          <div class="side-item"><div class="side-num mono">03</div><div><b>Scope one lane first</b><span>Prove the first useful build before expanding.</span></div></div>
+        </div>
+      </div>
+      <div class="side-card">
+        <div class="section-label mono">Important note</div>
+        <h3>This is not autopilot.</h3>
+        <p>Drafts, checks, summaries, and routing can move fast. Sensitive actions and judgment calls stay visible.</p>
+      </div>
+    </aside>
 
-  <div class="section-label">Workflow</div>
-  <div class="faq-item">
-    <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">What is a good first project?</span><span class="faq-icon">+</span></button>
-    <div class="faq-a">A good first project is painful, repeatable, and clear enough to inspect. Examples include a daily competitor-data pull from 15 websites, weekly government policy monitoring, monthly management reporting, spreadsheet-to-dashboard workflows, recurring research briefs, document extraction, CRM/pipeline reporting, or executive dashboards.</div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">Do employees need to adopt a new app?</span><span class="faq-icon">+</span></button>
-    <div class="faq-a">Not by default. The best builds usually work around the tools and files already in use: spreadsheets, shared folders, PDFs, CRMs, email, portals, or existing databases. If a lightweight interface is needed, we build one around the workflow.</div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">Do you help firms that are behind on AI?</span><span class="faq-icon">+</span></button>
-    <div class="faq-a">Yes. Some clients need a custom agent build. Others first need practical AI implementation: tool setup, custom instructions, prompt workflows, training around specific business use cases, and a clear line between what AI can assist with and what still needs human review.</div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">How much access do you need?</span><span class="faq-icon">+</span></button>
-    <div class="faq-a">It depends on the workflow. We may start with sample files, screenshots, exports, or a walkthrough before touching any live system. For production systems, access should be scoped, permissioned, and limited to what the build actually requires.</div>
-  </div>
+    <div>
+      <div class="faq-group">
+        <div class="group-head">
+          <div class="section-label mono">What We Do</div>
+          <h2>What ArgusReach actually builds</h2>
+        </div>
+        <div class="faq-item open">
+          <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">What exactly does ArgusReach build?</span><span class="faq-icon">+</span></button>
+          <div class="faq-a">We build focused AI systems around real business processes. That can mean an agent, dashboard, recurring report, internal portal, document extraction flow, CRM/reporting tool, data cleanup tool, SharePoint/Excel workflow, or automation that removes manual drag from the work.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">Is this AI consulting or software development?</span><span class="faq-icon">+</span></button>
+          <div class="faq-a">It is both, with a build bias. We identify the workflow, then build the system. The goal is not a strategy deck. The goal is a useful operating layer that improves reporting, reduces friction, or makes a recurring process easier to run.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">Who is the ideal client?</span><span class="faq-icon">+</span></button>
+          <div class="faq-a">Small and mid-sized businesses with workflows that are still too manual. The fit is strongest when the business has recurring reports, research, data pulls, admin processes, client communication, or operational work that people keep rebuilding by hand.</div>
+        </div>
+      </div>
 
-  <div class="section-label">Timing & Pricing</div>
-  <div class="faq-item">
-    <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">How long does a build take?</span><span class="faq-icon">+</span></button>
-    <div class="faq-a">The timeline depends on complexity, data quality, access, and review cycles. We scope one focused workflow first, then estimate the build after we understand the systems, files, and business rules involved.</div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">How does pricing work?</span><span class="faq-icon">+</span></button>
-    <div class="faq-a">Pricing depends on the workflow, the systems involved, the amount of custom build work, and whether hosting, refreshes, or maintenance are needed. Some work is project-based. Some clients add ongoing support or a retainer once the first useful system is live.</div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">Can you maintain the system after launch?</span><span class="faq-icon">+</span></button>
-    <div class="faq-a">Yes. Some systems are one-time builds. Others need recurring data refreshes, hosting, validation, reporting changes, or ongoing support. We define the maintenance path before launch so the system is not fragile.</div>
-  </div>
+      <div class="faq-group">
+        <div class="group-head">
+          <div class="section-label mono">Workflow</div>
+          <h2>How the work usually starts</h2>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">What is a good first project?</span><span class="faq-icon">+</span></button>
+          <div class="faq-a">A good first project is painful, repeatable, and easy to inspect. Examples include a daily competitor-data pull from many websites, weekly policy monitoring, monthly management reporting, spreadsheet-to-dashboard workflows, recurring research briefs, document extraction, CRM reporting, or executive dashboards.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">Do employees need to adopt a new app?</span><span class="faq-icon">+</span></button>
+          <div class="faq-a">Not by default. The best builds usually work around the tools and files already in use: spreadsheets, shared folders, PDFs, CRMs, email, portals, or existing databases. If a lightweight interface is needed, we build it around the workflow.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">Is this autopilot?</span><span class="faq-icon">+</span></button>
+          <div class="faq-a">No. Drafts, checks, summaries, and routing can move quickly, but approvals, sensitive actions, and exceptions stay visible.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">Do you help firms that are behind on AI?</span><span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. Some clients need a custom build. Others first need practical AI implementation: tool setup, prompt systems, custom instructions, use-case training, and a clear line between AI assistance and human review.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">How much access do you need?</span><span class="faq-icon">+</span></button>
+          <div class="faq-a">It depends on the workflow. We may start with sample files, screenshots, exports, or a walkthrough before touching any live system. For production systems, access should be scoped and limited to what the build actually requires.</div>
+        </div>
+      </div>
 
-  <div class="section-label">Security</div>
-  <div class="faq-item">
-    <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">What do you avoid promising?</span><span class="faq-icon">+</span></button>
-    <div class="faq-a">We do not position AI as replacing staff, guarantee exact time savings, promise fully autonomous agents, or pretend every process should run without review. The work is AI-assisted: agents prepare, check, draft, summarize, route, and report while humans stay involved where judgment matters.</div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">How do you handle sensitive data?</span><span class="faq-icon">+</span></button>
-    <div class="faq-a">We keep data access as narrow as possible. Live client data should not be placed in public repos or casual shared documents. For recurring systems, we define where files live, how they are ingested, what gets validated, and who is responsible for updates.</div>
-  </div>
+      <div class="faq-group">
+        <div class="group-head">
+          <div class="section-label mono">Timing &amp; Pricing</div>
+          <h2>How the build is scoped</h2>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">How long does a build take?</span><span class="faq-icon">+</span></button>
+          <div class="faq-a">The timeline depends on complexity, data quality, access, and review cycles. We scope one focused workflow first, then estimate the build after we understand the systems, files, and rules involved.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">How does pricing work?</span><span class="faq-icon">+</span></button>
+          <div class="faq-a">Pricing depends on the workflow, the systems involved, the amount of custom build work, and whether hosting, refreshes, or maintenance are needed. Some work is project-based. Some clients add ongoing support once the first useful system is live.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">Can you maintain the system after launch?</span><span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. Some systems are one-time builds. Others need recurring data refreshes, hosting, validation, reporting changes, or ongoing support. We define the maintenance path before launch so the system is not fragile.</div>
+        </div>
+      </div>
 
-  <div class="cta">
-    <h2>Have a workflow in mind?</h2>
-    <p>Bring the report, spreadsheet, folder, dashboard, recurring research task, or process that keeps eating time. We will talk through whether it is a good fit.</p>
-    <a href="https://calendly.com/vito-argusreach/30min" class="btn" target="_blank" rel="noopener">Book a Workflow Call</a>
+      <div class="faq-group">
+        <div class="group-head">
+          <div class="section-label mono">Security &amp; Reliability</div>
+          <h2>How the system stays trustworthy</h2>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">What do you avoid promising?</span><span class="faq-icon">+</span></button>
+          <div class="faq-a">We do not position AI as replacing staff, promise exact time savings, sell fully autonomous agents, or pretend every process should run without review. The work is AI-assisted while humans stay involved where judgment matters.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">How do you keep outputs reliable?</span><span class="faq-icon">+</span></button>
+          <div class="faq-a">We define rules, review points, logs, source expectations, and a maintenance path before a workflow is trusted with recurring work. The system should be inspectable, not mysterious.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggle(this)"><span class="faq-q-text">How do you handle sensitive data?</span><span class="faq-icon">+</span></button>
+          <div class="faq-a">We keep data access as narrow as possible. Live client data should not be placed in public repos or casual shared documents. For recurring systems, we define where files live, how they are ingested, what gets validated, and who owns updates.</div>
+        </div>
+      </div>
+
+      <div class="cta">
+        <h2>Have a workflow in mind?<span> Bring the real process.</span></h2>
+        <p>Bring the report, spreadsheet, dashboard, recurring research task, or process that keeps eating time. We will talk through whether it is a good fit.</p>
+        <a href="https://calendly.com/vito-argusreach/30min" class="btn btn-dark" target="_blank" rel="noopener">Book a Workflow Call</a>
+      </div>
+    </div>
   </div>
 </main>
 
