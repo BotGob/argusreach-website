@@ -2,2208 +2,741 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="cache-bust" content="20260726-premium-system-b" />
+  <meta name="cache-bust" content="20260727-simplified-home-a" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ArgusReach - AI Systems for Real Business Work</title>
-  <meta name="description" content="ArgusReach designs and builds AI systems for reporting, research, operations, and recurring business workflows." />
+  <meta name="description" content="ArgusReach builds practical AI systems for reporting, research, operations, and internal workflows." />
   <link rel="canonical" href="https://argusreach.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://argusreach.com/" />
   <meta property="og:title" content="ArgusReach - AI Systems for Real Business Work" />
-  <meta property="og:description" content="AI systems for reporting, research, operations, and recurring business workflows." />
+  <meta property="og:description" content="Practical AI systems for reporting, research, operations, and internal workflows." />
   <meta property="og:site_name" content="ArgusReach" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="ArgusReach - AI Systems for Real Business Work" />
-  <meta name="twitter:description" content="AI systems for reporting, research, operations, and recurring workflows." />
+  <meta name="twitter:description" content="Practical AI systems for reporting, research, operations, and internal workflows." />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --ink: #090909;
-      --muted: #4f5661;
-      --muted-2: #747b86;
-      --line: #d8dde5;
-      --soft: #f3f4f6;
-      --soft-2: #fafafa;
+      --ink: #0b0b0c;
+      --muted: #565d66;
+      --muted-2: #7c838b;
+      --line: rgba(11, 11, 12, 0.10);
+      --line-strong: rgba(11, 11, 12, 0.16);
+      --panel: rgba(255, 255, 255, 0.78);
+      --panel-strong: #ffffff;
+      --soft: #f3f5f7;
+      --soft-2: #eceff2;
       --white: #ffffff;
-      --green: #1b9a63;
-      --amber: #b5872b;
-      --red: #c65c5c;
-      --blue: #5f6f86;
-      --cyan: #7b8ea8;
-      --radius: 12px;
-      --navy: #121317;
-      --navy-soft: #f2f4f7;
-      --shadow: 0 22px 56px rgba(15, 18, 24, 0.08);
-      --shadow-strong: 0 32px 82px rgba(15, 18, 24, 0.12);
-      --shadow-premium: 0 36px 96px rgba(15, 18, 24, 0.15);
+      --green: #1c9b63;
+      --steel: #718092;
+      --shadow: 0 22px 60px rgba(14, 17, 22, 0.08);
+      --shadow-strong: 0 34px 92px rgba(14, 17, 22, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
     }
     html { scroll-behavior: smooth; }
     body {
       font-family: Geist, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(17,17,17,0.045), transparent 22%),
-        radial-gradient(circle at 82% 18%, rgba(110,122,138,0.06), transparent 20%),
-        radial-gradient(circle at 60% 100%, rgba(130,140,154,0.05), transparent 24%),
-        linear-gradient(90deg, rgba(10,10,10,0.018) 1px, transparent 1px),
-        linear-gradient(180deg, #ffffff 0%, #f3f4f6 100%);
-      background-size: auto, auto, 120px 100%, auto;
       color: var(--ink);
-      overflow-x: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(12, 12, 12, 0.05), transparent 24%),
+        radial-gradient(circle at 84% 8%, rgba(113, 128, 146, 0.08), transparent 16%),
+        linear-gradient(90deg, rgba(12, 12, 12, 0.03) 1px, transparent 1px),
+        linear-gradient(180deg, #fdfdfd 0%, #f1f4f7 100%);
+      background-size: auto, auto, 96px 100%, auto;
       -webkit-font-smoothing: antialiased;
       text-rendering: geometricPrecision;
-      --scroll-y: 0px;
+      overflow-x: hidden;
     }
-    .scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 60;
-      width: 100%;
-      height: 2px;
-      transform-origin: 0 50%;
-      transform: scaleX(0);
-      background: linear-gradient(90deg, var(--ink), var(--green), var(--blue));
-      pointer-events: none;
-    }
-    .site-bg {
+    body::before {
+      content: "";
       position: fixed;
       inset: 0;
-      z-index: -1;
-      background:
-        linear-gradient(115deg, transparent 0 34%, rgba(17,17,17,0.03) 34% 34.4%, transparent 34.4% 100%),
-        linear-gradient(65deg, transparent 0 63%, rgba(95,111,134,0.03) 63% 63.35%, transparent 63.35% 100%),
-        linear-gradient(90deg, rgba(10,10,10,0.018) 1px, transparent 1px);
-      background-size: 100% 100%, 100% 100%, 120px 100%;
       pointer-events: none;
-      transform: translateY(calc(var(--scroll-y) * -0.035));
-      transition: transform 80ms linear;
+      background:
+        linear-gradient(125deg, transparent 0 32%, rgba(12, 12, 12, 0.03) 32% 32.25%, transparent 32.25% 100%),
+        linear-gradient(60deg, transparent 0 70%, rgba(113, 128, 146, 0.04) 70% 70.2%, transparent 70.2% 100%);
+      opacity: 0.9;
     }
     a { color: inherit; }
-    .wrap { width: min(1248px, calc(100% - 32px)); margin: 0 auto; }
-    .mono { font-family: "JetBrains Mono", monospace; }
+    .mono { font-family: "IBM Plex Mono", monospace; }
+    .wrap { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
     .nav {
       position: sticky;
       top: 0;
-      z-index: 20;
+      z-index: 30;
       height: 74px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
-      padding: 0 32px;
-      background: rgba(255,255,255,0.82);
+      padding: 0 28px;
+      background: rgba(255, 255, 255, 0.82);
       backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(12, 23, 48, 0.08);
-      box-shadow: 0 16px 34px rgba(18,30,68,0.05);
+      border-bottom: 1px solid rgba(11, 11, 12, 0.07);
+      box-shadow: 0 14px 34px rgba(14, 17, 22, 0.05);
     }
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       text-decoration: none;
-      font-weight: 750;
-      letter-spacing: 0;
+      font-weight: 780;
+      letter-spacing: -0.03em;
       white-space: nowrap;
     }
     .brand-mark {
       width: 30px;
       height: 28px;
-      border-radius: 7px;
+      border-radius: 8px;
       display: grid;
       place-items: center;
       background: var(--ink);
       color: #fff;
-      font-family: "JetBrains Mono", monospace;
       font-size: 0.62rem;
-      font-weight: 600;
+      font-family: "IBM Plex Mono", monospace;
+      box-shadow: 0 12px 28px rgba(11, 11, 12, 0.18);
     }
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 24px;
-      list-style: none;
+      gap: 18px;
     }
     .nav-links a {
       text-decoration: none;
       color: var(--muted);
-      font-size: 0.86rem;
+      font-size: 0.87rem;
       font-weight: 650;
     }
     .nav-links a:hover { color: var(--ink); }
     .nav-cta {
+      min-height: 40px;
       display: inline-flex;
       align-items: center;
-      min-height: 38px;
+      justify-content: center;
       padding: 0 16px;
-      border-radius: 8px;
+      border-radius: 999px;
       background: var(--ink);
       color: #fff !important;
-      transition: transform 160ms ease, background 160ms ease;
+      box-shadow: 0 16px 32px rgba(11, 11, 12, 0.16);
+      transition: transform 180ms ease, box-shadow 180ms ease;
     }
-    .nav-cta:hover { transform: translateY(-1px); background: #222; }
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 36px rgba(11, 11, 12, 0.2);
+    }
+    main { position: relative; z-index: 1; }
+    section { padding: 22px 0; }
     .hero {
-      padding: 16px;
-      background: #fff;
+      padding: 16px 0 28px;
     }
     .hero-shell {
       position: relative;
-      min-height: 76vh;
-      border-radius: 24px;
-      background:
-        linear-gradient(120deg, rgba(255,255,255,0.88), transparent 34%),
-        linear-gradient(155deg, transparent 0 62%, rgba(12,12,12,0.04) 62% 64%, transparent 64% 100%),
-        linear-gradient(180deg, #fbfbfb 0%, #eef1f4 100%);
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border: 1px solid rgba(12,23,48,0.08);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 24px 68px rgba(18,30,68,0.08);
-      isolation: isolate;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(11, 11, 12, 0.08);
+      background:
+        linear-gradient(140deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.68)),
+        linear-gradient(180deg, #fbfcfd 0%, #eef2f6 100%);
+      box-shadow: var(--shadow-strong);
     }
     .hero-shell::before {
       content: "";
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(10,10,10,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(10,10,10,0.05) 1px, transparent 1px),
-        linear-gradient(135deg, transparent 0 46%, rgba(10,10,10,0.035) 46% 47%, transparent 47% 100%),
-        linear-gradient(30deg, transparent 0 72%, rgba(0,167,167,0.05) 72% 73%, transparent 73% 100%);
-      background-size: 34px 34px, 34px 34px, 34px 34px, 110px 110px;
-      mask-image: linear-gradient(180deg, rgba(0,0,0,0.54), transparent 68%);
-      pointer-events: none;
-      animation: gridDrift 18s linear infinite;
-    }
-    .hero-shell::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(115deg, transparent 0%, transparent 43%, rgba(255,255,255,0.7) 50%, transparent 58%, transparent 100%);
-      opacity: 0.58;
+        linear-gradient(rgba(11, 11, 12, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(11, 11, 12, 0.05) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent 82%);
       pointer-events: none;
     }
-    .motion-field {
+    .hero-glow {
       position: absolute;
-      inset: 0;
-      z-index: 0;
-      overflow: hidden;
+      inset: auto -8% -18% auto;
+      width: 440px;
+      height: 440px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, rgba(28, 155, 99, 0.14), transparent 36%),
+        radial-gradient(circle at 44% 40%, rgba(113, 128, 146, 0.16), transparent 20%);
+      filter: blur(4px);
+      opacity: 0.75;
       pointer-events: none;
     }
-    .motion-line {
-      position: absolute;
-      left: 8%;
-      right: 8%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(10,10,10,0.11), transparent);
-      opacity: 0.72;
-      transform: rotate(var(--r, 0deg));
-    }
-    .motion-line:nth-child(1) { top: 23%; --r: -8deg; }
-    .motion-line:nth-child(2) { top: 47%; --r: 7deg; left: 3%; right: 3%; }
-    .motion-line:nth-child(3) { top: 70%; --r: -5deg; left: 14%; right: 2%; }
-    .motion-line::before,
-    .motion-line::after {
-      content: "";
-      position: absolute;
-      top: -3px;
-      width: 7px;
-      height: 7px;
-      border-radius: 2px;
-      background: #111;
-      box-shadow: 0 0 0 6px rgba(10,10,10,0.045);
-      animation: dataNode 7s cubic-bezier(.45,0,.22,1) infinite;
-    }
-    .motion-line::after {
-      background: var(--green);
-      animation-delay: -3.2s;
-      box-shadow: 0 0 0 6px rgba(24,182,109,0.08);
-    }
-    .motion-line:nth-child(2)::before { animation-duration: 8.5s; background: var(--blue); box-shadow: 0 0 0 6px rgba(66,107,255,0.08); }
-    .motion-line:nth-child(2)::after { animation-duration: 9.5s; background: var(--amber); box-shadow: 0 0 0 6px rgba(217,151,37,0.09); }
-    .motion-line:nth-child(3)::before { animation-duration: 9s; }
-    .motion-line:nth-child(3)::after { animation-duration: 7.6s; }
-    .motion-packet {
-      position: absolute;
-      width: 92px;
-      height: 26px;
-      border: 1px solid rgba(10,10,10,0.12);
-      border-radius: 8px;
-      background: rgba(255,255,255,0.64);
-      box-shadow: 0 10px 28px rgba(10,10,10,0.055);
-      animation: packetFloat 8.5s ease-in-out infinite;
-    }
-    .motion-packet::before {
-      content: "";
-      position: absolute;
-      left: 9px;
-      top: 11px;
-      width: 56px;
-      height: 4px;
-      border-radius: 999px;
-      background: #111;
-      opacity: 0.68;
-    }
-    .motion-packet::after {
-      content: "";
-      position: absolute;
-      right: 9px;
-      top: 9px;
-      width: 8px;
-      height: 8px;
-      border-radius: 2px;
-      background: var(--green);
-    }
-    .motion-packet.one { top: 29%; left: 12%; }
-    .motion-packet.two { top: 58%; right: 9%; animation-delay: -2.6s; }
-    .motion-packet.three { top: 80%; left: 23%; animation-delay: -5s; }
-    .hero-scan {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.72) 48%, transparent 54%);
-      transform: translateY(-100%);
-      animation: scanPass 7.5s ease-in-out infinite;
-      opacity: 0.42;
-      pointer-events: none;
-      mix-blend-mode: screen;
-    }
-    .hero-copy {
+    .hero-grid {
       position: relative;
-      z-index: 1;
-      max-width: 100%;
-      margin: 0;
-      padding: 0;
-      text-align: left;
-    }
-    .hero-stage {
-      position: relative;
-      z-index: 1;
       display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
-      gap: 20px;
-      align-items: end;
-      padding: 70px 30px 18px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 28px;
+      align-items: center;
+      padding: 88px 42px 42px;
     }
     .eyebrow {
-      color: #737373;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted-2);
+      font-size: 0.73rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
-      font-weight: 600;
-      margin-bottom: 18px;
+      margin-bottom: 22px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: rgba(11, 11, 12, 0.24);
     }
     h1 {
       max-width: 760px;
-      margin: 0;
-      font-size: clamp(3.15rem, 6vw, 5.9rem);
+      font-size: clamp(3.3rem, 7vw, 6rem);
       line-height: 0.92;
-      letter-spacing: -0.04em;
+      letter-spacing: -0.07em;
       font-weight: 800;
-      text-wrap: balance;
-    }
-    h1 span {
-      display: block;
-      font-family: "Instrument Serif", serif;
-      font-style: italic;
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      color: #505862;
     }
     .hero-copy p {
-      max-width: 600px;
-      margin: 18px 0 0;
-      color: #525862;
-      font-size: clamp(1rem, 1.45vw, 1.14rem);
-      line-height: 1.56;
-      font-weight: 530;
+      max-width: 640px;
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 1.06rem;
+      line-height: 1.72;
     }
     .hero-actions {
       display: flex;
-      justify-content: flex-start;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 26px;
-    }
-    .hero-proof {
-      display: flex;
-      justify-content: flex-start;
-      flex-wrap: wrap;
-      gap: 8px;
-      max-width: 560px;
-      margin: 18px 0 0;
-    }
-    .proof-chip {
-      min-height: 28px;
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      border: 1px solid rgba(12,23,48,0.08);
-      border-radius: 999px;
-      background: rgba(255,255,255,0.84);
-      color: #42536a;
-      padding: 0 10px;
-      font-size: 0.72rem;
-      font-weight: 650;
-      box-shadow: 0 12px 26px rgba(18,30,68,0.06);
-    }
-    .proof-chip::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--green);
-    }
-    .proof-chip:nth-child(2)::before { background: var(--blue); }
-    .proof-chip:nth-child(3)::before { background: var(--amber); }
-    .proof-chip:nth-child(4)::before { background: var(--cyan); }
-    .hero-console {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      margin: 0;
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 14px;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
-        #111;
-      background-size: 28px 28px;
-      color: #fff;
-      overflow: hidden;
-      box-shadow: 0 24px 60px rgba(10,10,10,0.18);
-      transform: translateZ(0);
-    }
-    .hero-console::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
-      transform: translateX(-120%);
-      animation: consoleSheen 6.5s ease-in-out infinite;
-      pointer-events: none;
-    }
-    .console-top {
-      min-height: 42px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 0 14px;
-      border-bottom: 1px solid rgba(255,255,255,0.12);
-      color: #b8b8b8;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.12em;
-    }
-    .console-top strong {
-      margin-left: 6px;
-      font-weight: 600;
-    }
-    .console-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--green);
-    }
-    .console-dot.amber { background: var(--amber); }
-    .console-dot.blue { background: var(--blue); }
-    .console-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .console-cell {
-      min-height: 116px;
-      padding: 18px;
-      border-right: 1px solid rgba(255,255,255,0.1);
-      position: relative;
-      overflow: hidden;
-    }
-    .console-cell:last-child { border-right: 0; }
-    .console-cell::after {
-      content: "";
-      position: absolute;
-      left: 18px;
-      right: 18px;
-      bottom: 14px;
-      height: 4px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--green), transparent);
-      opacity: 0.82;
-    }
-    .console-cell:nth-child(2)::after { background: linear-gradient(90deg, var(--blue), transparent); }
-    .console-cell:nth-child(3)::after { background: linear-gradient(90deg, var(--amber), transparent); }
-    .console-cell:nth-child(4)::after { background: linear-gradient(90deg, var(--cyan), transparent); }
-    .console-cell small {
-      display: block;
-      color: #8d8d8d;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.1em;
-      margin-bottom: 16px;
-    }
-    .console-cell b {
-      display: block;
-      font-size: 0.92rem;
-      margin-bottom: 7px;
-    }
-    .console-cell span {
-      display: block;
-      color: #bdbdbd;
-      font-size: 0.72rem;
-      line-height: 1.4;
+      gap: 12px;
+      margin-top: 28px;
     }
     .btn {
-      min-height: 44px;
+      min-height: 48px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border-radius: 8px;
-      padding: 0 18px;
+      padding: 0 20px;
+      border-radius: 999px;
       text-decoration: none;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 750;
-      border: 1px solid transparent;
-      white-space: nowrap;
-      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
     }
-    .btn-primary { background: var(--ink); color: #fff; }
-    .btn-secondary { background: #fff; color: var(--ink); border-color: var(--line); }
-    .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(10,10,10,0.08); }
-    .artifact-row {
+    .btn-primary {
+      color: #fff;
+      background: var(--ink);
+      box-shadow: 0 16px 34px rgba(11, 11, 12, 0.16);
+    }
+    .btn-secondary {
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(11, 11, 12, 0.1);
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .hero-tags span {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(11, 11, 12, 0.08);
+      box-shadow: 0 12px 24px rgba(14, 17, 22, 0.05);
+      color: #2f3740;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .hero-panel {
       position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr 1.2fr 1fr;
-      gap: 14px;
-      width: min(1080px, calc(100% - 64px));
-      margin: 6px auto 42px;
-      padding: 14px;
-      border: 1px solid rgba(10,10,10,0.1);
-      border-radius: 18px;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,0.66), rgba(255,255,255,0.86)),
-        rgba(255,255,255,0.72);
-      box-shadow: 0 32px 84px rgba(18,30,68,0.12);
-      backdrop-filter: blur(14px);
+      border-radius: 24px;
+      border: 1px solid rgba(11, 11, 12, 0.08);
+      background: rgba(15, 17, 19, 0.96);
+      color: #fff;
+      padding: 24px;
+      box-shadow: 0 30px 64px rgba(11, 11, 12, 0.24);
       overflow: hidden;
-      transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+      min-height: 420px;
     }
-    .artifact-row::before {
+    .hero-panel::before {
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(90deg, transparent, rgba(255,255,255,0.64), transparent),
-        linear-gradient(180deg, transparent, rgba(10,10,10,0.035), transparent);
-      transform: translateX(-115%);
-      animation: boardSheen 8s ease-in-out infinite;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+      background-size: 30px 30px;
+      opacity: 0.6;
       pointer-events: none;
     }
-    .artifact-row:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 36px 94px rgba(18,30,68,0.14);
-      border-color: rgba(12,23,48,0.12);
-    }
-    .system-panel {
-      min-height: 324px;
-      border: 1px solid #e1e1e1;
-      border-radius: 13px;
-      background: #fff;
-      padding: 15px;
+    .panel-top {
+      position: relative;
       display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
-      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
-    }
-    .system-panel.dark {
-      border-color: rgba(255,255,255,0.12);
-      background:
-        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-        #121315;
-      background-size: 24px 24px;
-      color: #fff;
-    }
-    .system-panel:hover {
-      transform: translateY(-2px);
-      border-color: #d4d4d4;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 18px 34px rgba(10,10,10,0.08);
-    }
-    .system-panel.dark:hover {
-      border-color: rgba(255,255,255,0.2);
-      box-shadow: 0 18px 36px rgba(0,0,0,0.22);
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 26px;
     }
     .panel-kicker {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 14px;
-      color: #777;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.56rem;
-      letter-spacing: 0.1em;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.64);
     }
-    .system-panel.dark .panel-kicker { color: #9199a3; }
-    .status-light {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 0 4px rgba(24,182,109,0.11);
-    }
-    .status-light.amber { background: var(--amber); box-shadow: 0 0 0 4px rgba(217,151,37,0.12); }
-    .status-light.blue { background: var(--blue); box-shadow: 0 0 0 4px rgba(66,107,255,0.12); }
-    .stack-list {
-      display: grid;
-      gap: 9px;
-    }
-    .stack-item {
-      display: grid;
-      grid-template-columns: 32px 1fr auto;
-      gap: 10px;
-      align-items: center;
-      border: 1px solid rgba(12,23,48,0.08);
-      border-radius: 10px;
-      background: linear-gradient(180deg, #fbfdff, #f4f8fc);
-      padding: 10px;
-      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
-    }
-    .stack-item:hover {
-      transform: translateX(2px);
-      border-color: rgba(12,23,48,0.12);
-      background: #fff;
-    }
-    .stack-icon {
-      width: 30px;
-      height: 30px;
-      border-radius: 8px;
-      display: grid;
-      place-items: center;
-      background: #111;
-      color: #fff;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.62rem;
-    }
-    .stack-item b,
-    .queue-row b,
-    .logic-card b {
-      display: block;
-      font-size: 0.82rem;
-      line-height: 1.16;
-    }
-    .stack-item span,
-    .queue-row span,
-    .logic-card span {
-      display: block;
-      margin-top: 3px;
-      color: #6f7d8f;
-      font-size: 0.68rem;
-      line-height: 1.25;
-    }
-    .stack-tag {
-      min-height: 22px;
-      display: inline-grid;
-      place-items: center;
-      border-radius: 999px;
-      border: 1px solid #dedede;
-      color: #666;
-      background: #fff;
-      padding: 0 7px;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.5rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    .logic-map {
-      flex: 1;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      align-content: stretch;
-    }
-    .logic-card {
-      min-height: 100px;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      background: rgba(255,255,255,0.055);
-      padding: 13px;
-      position: relative;
-      overflow: hidden;
-      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
-    }
-    .logic-card:hover {
-      transform: translateY(-2px);
-      background: rgba(255,255,255,0.075);
-      border-color: rgba(255,255,255,0.18);
-    }
-    .logic-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--green), transparent);
-    }
-    .logic-card:nth-child(2)::before { background: linear-gradient(90deg, var(--blue), transparent); }
-    .logic-card:nth-child(3)::before { background: linear-gradient(90deg, var(--amber), transparent); }
-    .logic-card:nth-child(4)::before { background: linear-gradient(90deg, var(--cyan), transparent); }
-    .logic-card b { color: #fff; }
-    .logic-card span { color: #aeb6bf; }
-    .logic-meter {
-      height: 8px;
-      margin-top: 18px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      overflow: hidden;
-    }
-    .logic-meter i {
-      display: block;
-      height: 100%;
-      width: var(--w, 70%);
-      border-radius: inherit;
-      background: linear-gradient(90deg, #fff, rgba(255,255,255,0.22));
-    }
-    .queue-list {
-      display: grid;
-      gap: 10px;
-    }
-    .queue-row {
-      border: 1px solid rgba(12,23,48,0.08);
-      border-radius: 10px;
-      background: linear-gradient(180deg, #fbfdff, #f4f8fc);
-      padding: 11px;
-      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
-    }
-    .queue-row:hover {
-      transform: translateX(2px);
-      border-color: rgba(12,23,48,0.12);
-      background: #fff;
-    }
-    .queue-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      align-items: center;
-    }
-    .queue-pill {
-      min-height: 22px;
-      border-radius: 999px;
-      padding: 0 7px;
-      display: inline-grid;
-      place-items: center;
-      background: #f0f7f3;
-      color: #147647;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.5rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-    .queue-pill.amber { background: #fff7e7; color: #8a5f12; }
-    .queue-pill.blue { background: #f1f4ff; color: #3656b8; }
-    .queue-track {
-      height: 7px;
-      margin-top: 10px;
-      border-radius: 999px;
-      background: #ededed;
-      overflow: hidden;
-    }
-    .queue-track i {
-      display: block;
-      height: 100%;
-      width: var(--w, 64%);
-      border-radius: inherit;
-      background: #111;
-    }
-    .mini-window {
-      position: relative;
-      height: 100%;
-      border: 1px solid #d7d7d7;
-      border-radius: 10px;
-      background: #fff;
-      padding: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 14px 32px rgba(10,10,10,0.06);
-    }
-    .mini-window::after {
-      content: attr(data-status);
-      position: absolute;
-      right: 12px;
-      bottom: 11px;
-      border: 1px solid #dedede;
-      border-radius: 999px;
-      background: #fff;
-      color: #5f5f5f;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.52rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 4px 7px;
-    }
-    .mini-window::before {
-      content: attr(data-agent);
-      position: absolute;
-      left: 12px;
-      bottom: 11px;
-      color: #8a8a8a;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.52rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    .mini-window[data-accent="green"]::after { color: #0f8f54; border-color: rgba(57,196,127,0.35); background: #f2fbf6; }
-    .mini-window[data-accent="amber"]::after { color: #9a690f; border-color: rgba(243,178,63,0.45); background: #fff9eb; }
-    .mini-window[data-accent="red"]::after { color: #b53e3e; border-color: rgba(240,109,109,0.38); background: #fff4f4; }
-    .mini-window[data-accent="blue"]::after { color: #2c55cc; border-color: rgba(79,124,255,0.32); background: #f3f6ff; }
-    .mini-toolbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid #eeeeee;
-    }
-    .mini-title {
+    .panel-light {
+      width: 10px;
       height: 10px;
-      width: 48%;
-      border-radius: 99px;
-      background: #111;
-    }
-    .mini-meta { display: flex; gap: 4px; }
-    .mini-meta span {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #d7d7d7;
-    }
-    .mini-kpis {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 7px;
-    }
-    .mini-kpi {
-      height: 46px;
-      border-radius: 7px;
-      background: linear-gradient(180deg, #f9f9f9, #efefef);
-      border: 1px solid #dedede;
-      padding: 8px;
-    }
-    .mini-kpi b,
-    .mini-kpi span {
-      display: block;
-      height: 6px;
-      border-radius: 99px;
-      background: #111;
-      opacity: 0.86;
-    }
-    .mini-kpi span {
-      width: 68%;
-      margin-top: 8px;
-      background: #cfcfcf;
-      opacity: 1;
-    }
-    .mini-list {
-      display: grid;
-      gap: 7px;
-    }
-    .mini-list-row {
-      display: grid;
-      grid-template-columns: 8px 1fr 34px;
-      gap: 8px;
-      align-items: center;
-    }
-    .mini-list-row i {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #111;
-    }
-    .mini-list-row span {
-      height: 7px;
-      border-radius: 99px;
-      background: #d8d8d8;
-    }
-    .mini-list-row b {
-      height: 16px;
-      border-radius: 999px;
-      background: #f0f0f0;
-      border: 1px solid #dedede;
-    }
-    .mini-flow {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 7px;
-    }
-    .mini-flow span {
-      min-height: 34px;
-      border-radius: 8px;
-      background: #f2f2f2;
-      border: 1px solid #e0e0e0;
-    }
-    .mini-flow span:nth-child(1) { border-left: 4px solid var(--green); }
-    .mini-flow span:nth-child(2) { border-left: 4px solid var(--amber); }
-    .mini-flow span:nth-child(3) { border-left: 4px solid var(--blue); }
-    .mini-flow span:nth-child(4) { border-left: 4px solid var(--red); }
-    .mini-code {
-      display: grid;
-      gap: 6px;
-      padding: 10px;
-      border: 1px solid #e6e6e6;
-      border-radius: 8px;
-      background: #fbfbfb;
-    }
-    .mini-code span {
-      height: 6px;
-      border-radius: 999px;
-      background: #d7d7d7;
-    }
-    .mini-code span:nth-child(1) { width: 72%; background: #111; }
-    .mini-code span:nth-child(2) { width: 86%; }
-    .mini-code span:nth-child(3) { width: 58%; }
-    .mini-code span:nth-child(4) { width: 78%; }
-    .mini-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 5px;
-    }
-    .mini-grid span {
-      aspect-ratio: 1;
-      border-radius: 5px;
-      background: #eeeeee;
-      border: 1px solid #e0e0e0;
-    }
-    .mini-window[data-accent="green"] .mini-grid span:nth-child(3n),
-    .mini-window[data-accent="green"] .mini-code span:nth-child(1) { background: var(--green); }
-    .mini-window[data-accent="amber"] .mini-grid span:nth-child(2n),
-    .mini-window[data-accent="amber"] .mini-code span:nth-child(1) { background: var(--amber); }
-    .mini-window[data-accent="red"] .mini-grid span:nth-child(4n),
-    .mini-window[data-accent="red"] .mini-code span:nth-child(1) { background: var(--red); }
-    .mini-window[data-accent="blue"] .mini-grid span:nth-child(5n),
-    .mini-window[data-accent="blue"] .mini-code span:nth-child(1) { background: var(--blue); }
-    .mini-bars {
-      display: grid;
-      gap: 8px;
-      margin-top: 2px;
-    }
-    .mini-bar {
-      height: 12px;
-      border-radius: 999px;
-      background: #ededed;
-      overflow: hidden;
-    }
-    .mini-bar span {
-      display: block;
-      height: 100%;
-      border-radius: inherit;
-      background: #111;
-    }
-    .mini-window[data-accent="green"] .mini-list-row i,
-    .mini-window[data-accent="green"] .mini-bar span { background: var(--green); }
-    .mini-window[data-accent="amber"] .mini-list-row i,
-    .mini-window[data-accent="amber"] .mini-bar span { background: var(--amber); }
-    .mini-window[data-accent="red"] .mini-list-row i,
-    .mini-window[data-accent="red"] .mini-bar span { background: var(--red); }
-    .mini-window[data-accent="blue"] .mini-list-row i,
-    .mini-window[data-accent="blue"] .mini-bar span { background: var(--blue); }
-    .artifact-label {
-      display: inline-flex;
-      align-items: center;
-      min-height: 22px;
-      border-radius: 999px;
-      border: 1px solid #e2e2e2;
-      color: #666;
-      padding: 0 8px;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.55rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .artifact-body {
-      padding: 18px;
-    }
-    .artifact h3 {
-      font-size: 1.04rem;
-      line-height: 1.2;
-      margin-bottom: 8px;
-    }
-    .artifact p {
-      color: var(--muted);
-      font-size: 0.82rem;
-      line-height: 1.45;
-    }
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 14px;
-    }
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      min-height: 24px;
-      border-radius: 99px;
-      background: var(--soft);
-      color: #666;
-      padding: 0 9px;
-      font-size: 0.68rem;
-      font-weight: 650;
-    }
-    .tag.green { background: #effaf4; color: #147647; }
-    .tag.amber { background: #fff7e7; color: #8a5f12; }
-    .tag.red { background: #fff1f1; color: #a13b3b; }
-    .tag.blue { background: #f1f4ff; color: #3656b8; }
-    section { padding: 72px 0; }
-    .section-head {
-      display: grid;
-      justify-items: center;
-      text-align: center;
-      gap: 12px;
-      margin-bottom: 38px;
-    }
-    .section-head::before {
-      content: "";
-      width: 72px;
-      height: 8px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, rgba(17,17,17,0.16), rgba(112,118,126,0.18), rgba(17,17,17,0.06));
-      box-shadow: inset 0 0 0 1px rgba(17,17,17,0.05);
-    }
-    .section-head h2 {
-      max-width: 760px;
-      font-size: clamp(2.1rem, 4.5vw, 4rem);
-      line-height: 1;
-      letter-spacing: 0;
-      font-weight: 720;
-      text-wrap: balance;
-    }
-    .section-head p {
-      max-width: 620px;
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.55;
-      font-weight: 520;
-    }
-    .brief-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .deploy-section {
-      padding: 16px 0;
-    }
-    .deploy-shell {
-      position: relative;
-      border-radius: 24px;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-        #101010;
-      background-size: 42px 42px;
-      color: #fff;
-      padding: 72px 28px;
-      overflow: hidden;
-      box-shadow: 0 34px 92px rgba(10,14,24,0.24);
-    }
-    .deploy-shell::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(115deg, transparent 0 44%, rgba(255,255,255,0.1) 44% 45%, transparent 45% 100%),
-        linear-gradient(155deg, transparent 0 66%, rgba(24,182,109,0.16) 66% 67%, transparent 67% 100%);
-      pointer-events: none;
-    }
-    .deploy-shell .section-head {
-      position: relative;
-      z-index: 1;
-    }
-    .deploy-shell .section-head p { color: #bcbcbc; }
-    .deploy-grid {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      max-width: 1080px;
-      margin: 0 auto;
-    }
-    .deploy-card {
-      min-height: 300px;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 14px;
-      background: rgba(255,255,255,0.055);
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
-      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
-    }
-    .deploy-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.08);
-      box-shadow: 0 20px 48px rgba(0,0,0,0.22);
-    }
-    .deploy-card small {
-      color: #9c9c9c;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-    .deploy-card h3 {
-      margin-top: 14px;
-      font-size: 1.28rem;
-      line-height: 1.12;
-    }
-    .deploy-card p {
-      margin-top: 10px;
-      color: #c9c9c9;
-      font-size: 0.86rem;
-      line-height: 1.5;
-    }
-    .deploy-visual {
-      display: grid;
-      gap: 8px;
-      margin-top: 28px;
-    }
-    .deploy-visual span {
-      height: 32px;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 8px;
-      background: rgba(255,255,255,0.08);
-      position: relative;
-      overflow: hidden;
-    }
-    .deploy-visual span::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto 0 0;
-      width: var(--w, 54%);
-      background: linear-gradient(90deg, var(--green), rgba(24,182,109,0.22));
-    }
-    .deploy-card:nth-child(2) .deploy-visual span::before { background: linear-gradient(90deg, var(--blue), rgba(66,107,255,0.22)); }
-    .deploy-card:nth-child(3) .deploy-visual span::before { background: linear-gradient(90deg, var(--amber), rgba(217,151,37,0.22)); }
-    .brief-card {
-      min-height: 390px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,249,252,0.96));
-      box-shadow: var(--shadow);
-      padding: 26px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-    }
-    .brief-card::selection,
-    .artifact::selection,
-    .agent-card::selection { background: #111; color: #fff; }
-    .brief-card.faded {
-      background: linear-gradient(180deg, rgba(251,251,251,0.98), rgba(244,246,250,0.96));
-      box-shadow: 0 14px 34px rgba(10,10,10,0.045);
-    }
-    .brief-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 22px 54px rgba(10, 10, 10, 0.09);
-      border-color: #d9d9d9;
-    }
-    .brief-card h3 {
-      max-width: 430px;
-      font-size: 1.28rem;
-      line-height: 1.18;
-      margin-bottom: 8px;
-    }
-    .brief-card p {
-      max-width: 520px;
-      color: var(--muted);
-      font-size: 0.88rem;
-      line-height: 1.52;
-    }
-    .prompt-box {
-      min-height: 132px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: linear-gradient(180deg, #fbfcff, #f4f7fb);
-      padding: 16px;
-      color: #666;
-      font-size: 0.9rem;
-      line-height: 1.5;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.85), 0 10px 24px rgba(18,30,68,0.04);
-    }
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 12px;
-    }
-    .chip {
-      min-height: 28px;
-      display: inline-flex;
-      align-items: center;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: #fff;
-      color: #666;
-      padding: 0 10px;
-      font-size: 0.72rem;
-      font-weight: 650;
-    }
-    .build-feed {
-      display: grid;
-      gap: 10px;
-    }
-    .build-step {
-      display: grid;
-      grid-template-columns: 32px 1fr auto;
-      gap: 12px;
-      align-items: center;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,250,253,0.96));
-      padding: 12px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.86);
-    }
-    .build-step i {
-      width: 28px;
-      height: 28px;
-      display: grid;
-      place-items: center;
-      border-radius: 7px;
-      background: #111;
-      color: #fff;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.62rem;
-      font-style: normal;
-    }
-    .build-step b { display: block; font-size: 0.86rem; margin-bottom: 2px; }
-    .build-step span { color: #747474; font-size: 0.72rem; }
-    .build-step small {
-      color: #0f8f54;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.56rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    .agent-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    .agent-card {
-      min-height: 360px;
-      border-radius: 12px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.88), transparent),
-        linear-gradient(145deg, rgba(66,107,255,0.05), rgba(24,182,109,0.035)),
-        var(--soft);
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      overflow: hidden;
-      border: 1px solid transparent;
-      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
-    }
-    .agent-card:hover {
-      transform: translateY(-2px);
-      border-color: #dedede;
-      box-shadow: 0 16px 44px rgba(10, 10, 10, 0.07);
-    }
-    .agent-card h3 {
-      max-width: 320px;
-      font-size: 1.35rem;
-      line-height: 1.16;
-      margin-bottom: 10px;
-    }
-    .agent-card p {
-      max-width: 340px;
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.52;
-    }
-    .agent-ui {
-      margin-top: 36px;
-      border: 1px solid #dddddd;
-      border-radius: 12px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,250,254,0.97));
-      padding: 14px;
-      display: grid;
-      gap: 10px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
-    }
-    .agent-ui-row {
-      display: grid;
-      grid-template-columns: 28px 1fr auto;
-      gap: 10px;
-      align-items: center;
-      border-bottom: 1px solid #eeeeee;
-      padding-bottom: 10px;
-    }
-    .agent-ui-row:last-child { border-bottom: 0; padding-bottom: 0; }
-    .dot {
-      width: 8px;
-      height: 8px;
       border-radius: 50%;
       background: var(--green);
-      justify-self: center;
+      box-shadow: 0 0 0 8px rgba(28, 155, 99, 0.12);
     }
-    .dot.amber { background: var(--amber); }
-    .dot.red { background: var(--red); }
-    .dot.blue { background: var(--blue); }
-    .agent-ui-row b { font-size: 0.78rem; }
-    .agent-ui-row span { color: #777; font-size: 0.68rem; }
-    .example-shell {
-      display: grid;
-      grid-template-columns: 232px 1fr;
-      max-width: 1160px;
-      margin: 0 auto;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 18px;
-      background:
-        radial-gradient(circle at 18% 8%, rgba(66,107,255,0.16), transparent 32%),
-        radial-gradient(circle at 82% 18%, rgba(24,182,109,0.14), transparent 28%),
-        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-        #101113;
-      background-size: auto, auto, 34px 34px, 34px 34px, auto;
-      overflow: hidden;
-      box-shadow: 0 32px 86px rgba(10,10,10,0.18);
-    }
-    .example-shell::selection { background: #111; color: #fff; }
-    .example-side {
-      border-right: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.045);
-      padding: 20px 14px;
-    }
-    .example-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 750;
-      margin-bottom: 28px;
-      color: #fff;
-    }
-    .example-brand span {
-      width: 28px;
-      height: 28px;
-      border-radius: 7px;
-      display: grid;
-      place-items: center;
-      background: #111;
-      color: #fff;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.66rem;
-    }
-    .example-nav-label {
-      color: #8f969f;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .example-nav { display: grid; gap: 7px; list-style: none; }
-    .example-tab {
-      width: 100%;
-      min-height: 42px;
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      border: 0;
-      border-radius: 8px;
-      background: transparent;
-      color: #98a0aa;
-      font-family: inherit;
-      font-size: 0.82rem;
-      text-align: left;
-      padding: 0 10px;
-      cursor: pointer;
-    }
-    .example-tab.active,
-    .example-tab:hover {
-      color: #fff;
-      background: rgba(255,255,255,0.08);
-      font-weight: 700;
-    }
-    .example-tab b {
-      width: 23px;
-      height: 23px;
-      border-radius: 7px;
-      display: grid;
-      place-items: center;
-      background: #111;
-      color: #fff;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.6rem;
-      font-weight: 500;
-    }
-    .example-tab:not(.active) b { background: rgba(255,255,255,0.12); color: #9aa2ac; }
-    .example-main { padding: 28px 32px 32px; min-width: 0; }
-    .example-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-      padding-bottom: 22px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      margin-bottom: 22px;
-    }
-    .example-top h3 {
-      max-width: 700px;
-      font-size: clamp(1.7rem, 2.6vw, 2.7rem);
-      line-height: 1.02;
-      margin-bottom: 9px;
-      color: #fff;
-    }
-    .example-top p {
-      max-width: 740px;
-      color: #adb4bd;
-      line-height: 1.5;
-      font-size: 0.9rem;
-    }
-    .example-badge {
-      align-self: start;
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 999px;
-      padding: 8px 11px;
-      color: #dbe2ea;
-      background: rgba(255,255,255,0.06);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-    .system-cards {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-bottom: 22px;
-    }
-    .source-card {
-      min-height: 126px;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.035));
-      padding: 14px;
+    .panel-lines {
       position: relative;
-      overflow: hidden;
-      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
-    }
-    .source-card:hover {
-      transform: translateY(-1px);
-      border-color: rgba(255,255,255,0.18);
-      box-shadow: 0 18px 38px rgba(0,0,0,0.18);
-    }
-    .source-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto 0;
-      height: 3px;
-      background: linear-gradient(90deg, #fff, transparent);
-    }
-    .source-card small {
-      display: inline-flex;
-      min-height: 20px;
-      align-items: center;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 999px;
-      padding: 0 7px;
-      color: #cbd3dd;
-      background: rgba(255,255,255,0.055);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.54rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .source-card .icon {
-      width: 26px;
-      height: 26px;
       display: grid;
-      place-items: center;
-      border-radius: 7px;
-      background: #111;
-      color: #fff;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.66rem;
-      margin-bottom: 14px;
-    }
-    .source-card[data-tone="green"]::before,
-    .source-card[data-tone="green"] .icon { background: linear-gradient(135deg, var(--green), #86efac); }
-    .source-card[data-tone="amber"]::before,
-    .source-card[data-tone="amber"] .icon { background: linear-gradient(135deg, var(--amber), #f7d27a); }
-    .source-card[data-tone="red"]::before,
-    .source-card[data-tone="red"] .icon { background: linear-gradient(135deg, var(--red), #ff9a9a); }
-    .source-card[data-tone="blue"]::before,
-    .source-card[data-tone="blue"] .icon { background: linear-gradient(135deg, var(--blue), #8bd3ff); }
-    .source-card b { display: block; color: #fff; font-size: 0.88rem; margin-bottom: 5px; }
-    .source-card span { color: #aeb6bf; font-size: 0.72rem; line-height: 1.35; }
-    .example-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin: 22px 0;
-    }
-    .example-stat {
-      min-height: 78px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      border-radius: 12px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
-    }
-    .example-stat b { display: block; color: #fff; font-size: 1.7rem; line-height: 1; margin-bottom: 6px; }
-    .example-stat span { color: #9aa3ad; font-size: 0.72rem; }
-    .chart-title {
-      display: flex;
-      justify-content: space-between;
       gap: 14px;
-      margin: 22px 0 13px;
-      color: #fff;
     }
-    .chart-title b { font-size: 0.92rem; }
-    .chart-title span {
-      color: #8f98a3;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.56rem;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-    .heatmap { display: grid; gap: 8px; }
-    .heat-row {
-      display: grid;
-      grid-template-columns: 168px 1fr 52px;
-      gap: 12px;
-      align-items: center;
-      color: #cfd6de;
-      font-size: 0.8rem;
-      min-height: 42px;
-      padding: 8px 10px;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
-      background: rgba(255,255,255,0.045);
-    }
-    .heat-row > span:last-child {
-      justify-self: end;
-      min-width: 42px;
-      min-height: 22px;
-      display: inline-grid;
-      place-items: center;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.07);
-      color: #dbe2ea;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.56rem;
-      text-transform: uppercase;
-    }
-    .track {
-      height: 16px;
-      border-radius: 999px;
-      overflow: hidden;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px),
-        rgba(255,255,255,0.08);
-      background-size: 20% 100%;
-    }
-    .fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, #f6f7fb, rgba(246,247,251,0.32)); }
-    .fill.red { background: linear-gradient(90deg, var(--red), rgba(220,91,91,0.24)); }
-    .fill.gold { background: linear-gradient(90deg, var(--amber), rgba(217,151,37,0.24)); }
-    .fill.green { background: linear-gradient(90deg, var(--green), rgba(24,182,109,0.24)); }
-    .opportunity-card {
-      margin-top: 26px;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 14px;
-      background: rgba(255,255,255,0.055);
-      overflow: hidden;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
-    }
-    .opportunity-top {
-      padding: 16px 17px 14px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .bar-stack {
-      height: 12px;
-      display: grid;
-      grid-template-columns: 42% 28% 18% 12%;
-      overflow: hidden;
-      border-radius: 999px;
-      margin-top: 12px;
-      background: rgba(255,255,255,0.08);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
-    }
-    .bar-stack span:nth-child(1) { background: #f6f7fb; }
-    .bar-stack span:nth-child(2) { background: var(--green); }
-    .bar-stack span:nth-child(3) { background: var(--amber); }
-    .bar-stack span:nth-child(4) { background: var(--blue); }
-    .example-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.78rem;
-    }
-    .example-table th {
-      color: #8f98a3;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.54rem;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      text-align: left;
-      padding: 12px 15px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      font-weight: 500;
-      background: rgba(255,255,255,0.045);
-    }
-    .example-table td {
-      padding: 14px 15px;
-      border-bottom: 1px solid rgba(255,255,255,0.075);
-      color: #d4dbe3;
-    }
-    .example-table tr:hover td { background: rgba(255,255,255,0.045); }
-    .score-line {
-      width: 78px;
-      height: 8px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.09);
-      overflow: hidden;
-    }
-    .score-line span { display: block; height: 100%; background: linear-gradient(90deg, #f6f7fb, rgba(246,247,251,0.28)); border-radius: inherit; }
-    .score-line.green span { background: linear-gradient(90deg, var(--green), rgba(24,182,109,0.28)); }
-    .score-line.amber span { background: linear-gradient(90deg, var(--amber), rgba(217,151,37,0.28)); }
-    .score-line.red span { background: linear-gradient(90deg, var(--red), rgba(220,91,91,0.28)); }
-    .priority-pill {
-      display: inline-flex;
-      align-items: center;
-      min-height: 24px;
-      border-radius: 999px;
-      padding: 0 9px;
-      background: rgba(255,255,255,0.08);
-      color: #dbe2ea;
-      font-size: 0.68rem;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-    .priority-pill.green { background: rgba(24,182,109,0.16); color: #8df0bd; }
-    .priority-pill.amber { background: rgba(217,151,37,0.18); color: #ffd58a; }
-    .priority-pill.red { background: rgba(220,91,91,0.18); color: #ffaaa9; }
-    .tool-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 12px;
-    }
-    .tool-card {
-      min-height: 126px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
+    .panel-line {
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
       padding: 18px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.99), rgba(246,248,252,0.98));
-      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
-      position: relative;
       overflow: hidden;
     }
-    .tool-card::before {
+    .panel-line::after {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: #111;
+      inset: auto -20% 0 0;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(28, 155, 99, 0), rgba(28, 155, 99, 0.7), rgba(255, 255, 255, 0));
+      animation: signal 6s linear infinite;
     }
-    .tool-card:nth-child(2)::before { background: var(--amber); }
-    .tool-card:nth-child(3)::before { background: var(--green); }
-    .tool-card:nth-child(4)::before { background: var(--blue); }
-    .tool-card:nth-child(5)::before { background: var(--red); }
-    .tool-card:hover {
-      transform: translateY(-2px);
-      border-color: #d9d9d9;
-      box-shadow: 0 14px 36px rgba(10, 10, 10, 0.06);
-    }
-    .tool-card small {
-      color: #777;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.56rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .tool-card b {
+    .panel-line:nth-child(2)::after { animation-delay: -2s; }
+    .panel-line:nth-child(3)::after { animation-delay: -4s; }
+    .panel-line b {
       display: block;
-      margin-top: 26px;
-      font-size: 0.96rem;
-      line-height: 1.15;
-    }
-    .faq {
-      background:
-        radial-gradient(circle at 16% 0%, rgba(66,107,255,0.14), transparent 24%),
-        radial-gradient(circle at 86% 14%, rgba(24,182,109,0.1), transparent 20%),
-        #0f1628;
-      color: #fff;
-    }
-    .faq .section-head p { color: #bfc8d8; }
-    .faq-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      max-width: 980px;
-      margin: 0 auto;
-      border-top: 0;
-    }
-    .faq-item {
-      padding: 22px 20px;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 18px;
-      background: rgba(255,255,255,0.045);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
-    }
-    .faq-item:first-child {
-      padding-top: 22px;
-    }
-    .faq-item h3 { font-size: 1rem; margin-bottom: 8px; }
-    .faq-item p { color: #bfc8d8; line-height: 1.62; font-size: 0.88rem; }
-    .reliability-section {
-      padding-top: 20px;
-    }
-    .reliability-shell {
-      position: relative;
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 30px;
-      border: 1px solid rgba(12,20,48,0.08);
-      border-radius: 24px;
-      background:
-        radial-gradient(circle at 0% 0%, rgba(66,107,255,0.11), transparent 28%),
-        radial-gradient(circle at 100% 100%, rgba(24,182,109,0.08), transparent 24%),
-        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(245,248,252,0.98));
-      box-shadow: var(--shadow-premium);
-      overflow: hidden;
-    }
-    .reliability-shell::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg, rgba(12,20,48,0.035) 1px, transparent 1px),
-        linear-gradient(rgba(12,20,48,0.035) 1px, transparent 1px);
-      background-size: 28px 28px;
-      opacity: 0.5;
-      pointer-events: none;
-    }
-    .reliability-grid,
-    .reliability-rail {
-      position: relative;
-      z-index: 1;
-    }
-    .reliability-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-top: 28px;
-    }
-    .reliability-card {
-      min-height: 220px;
-      border: 1px solid rgba(12,20,48,0.08);
-      border-radius: 18px;
-      padding: 18px;
-      background: rgba(255,255,255,0.82);
-      box-shadow: 0 18px 42px rgba(18,30,68,0.08);
-      backdrop-filter: blur(12px);
-      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-    }
-    .reliability-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 24px 52px rgba(18,30,68,0.12);
-      border-color: rgba(66,107,255,0.18);
-    }
-    .reliability-card small {
-      color: #5b6a8f;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-    }
-    .reliability-card h3 {
-      margin-top: 14px;
-      font-size: 1.1rem;
-      line-height: 1.14;
-    }
-    .reliability-card p {
-      margin-top: 9px;
-      color: #56606f;
-      font-size: 0.84rem;
-      line-height: 1.55;
-    }
-    .reliability-list {
-      display: grid;
-      gap: 8px;
-      margin-top: 16px;
-    }
-    .reliability-list span {
-      min-height: 30px;
-      display: inline-flex;
-      align-items: center;
-      border: 1px solid rgba(12,20,48,0.08);
-      border-radius: 999px;
-      background: rgba(255,255,255,0.86);
-      padding: 0 10px;
-      color: #25324b;
-      font-size: 0.72rem;
-      font-weight: 650;
-    }
-    .reliability-list span::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--blue);
-      margin-right: 8px;
-      box-shadow: 0 0 0 5px rgba(66,107,255,0.08);
-      flex-shrink: 0;
-    }
-    .reliability-list span:nth-child(2)::before { background: var(--green); box-shadow: 0 0 0 5px rgba(24,182,109,0.08); }
-    .reliability-list span:nth-child(3)::before { background: var(--amber); box-shadow: 0 0 0 5px rgba(217,151,37,0.1); }
-    .reliability-rail {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 22px;
-    }
-    .rail-pill {
-      min-height: 84px;
-      border-radius: 16px;
-      border: 1px solid rgba(12,20,48,0.08);
-      background: rgba(12,20,48,0.92);
-      color: #edf2ff;
-      padding: 14px 16px;
-      box-shadow: 0 16px 36px rgba(12,20,48,0.16);
-    }
-    .rail-pill small {
-      display: block;
-      color: rgba(237,242,255,0.56);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.56rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-    .rail-pill b {
-      display: block;
-      font-size: 0.92rem;
-      line-height: 1.2;
+      font-size: 1.02rem;
+      letter-spacing: -0.03em;
       margin-bottom: 6px;
     }
-    .rail-pill span {
+    .panel-line span {
       display: block;
-      color: rgba(237,242,255,0.76);
-      font-size: 0.74rem;
-      line-height: 1.4;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    .section-head {
+      margin-bottom: 22px;
+    }
+    .section-kicker {
+      color: var(--muted-2);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      font-weight: 780;
+    }
+    .section-head p {
+      max-width: 760px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.72;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(11, 11, 12, 0.08);
+      background: rgba(255, 255, 255, 0.76);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      overflow: hidden;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(113, 128, 146, 0.07), transparent 38%);
+      pointer-events: none;
+    }
+    .card-label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: rgba(11, 11, 12, 0.05);
+      color: var(--muted-2);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .card h3 {
+      font-size: 1.42rem;
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+    }
+    .card p {
+      color: var(--muted);
+      line-height: 1.72;
+      font-size: 0.95rem;
+    }
+    .card ul {
+      list-style: none;
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+    }
+    .card li {
+      position: relative;
+      padding-left: 18px;
+      color: #313941;
+      line-height: 1.55;
+      font-size: 0.92rem;
+    }
+    .card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.58rem;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 5px rgba(28, 155, 99, 0.1);
+    }
+    .value-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 18px;
+    }
+    .value-panel {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(11, 11, 12, 0.08);
+      background: rgba(255, 255, 255, 0.76);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+    .value-panel p {
+      color: var(--muted);
+      line-height: 1.72;
+      font-size: 0.97rem;
+      margin-top: 12px;
+    }
+    .point-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .point {
+      border-top: 1px solid rgba(11, 11, 12, 0.08);
+      padding-top: 14px;
+    }
+    .point b {
+      display: block;
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+    }
+    .point span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 0.92rem;
+    }
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .who-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(11, 11, 12, 0.08);
+      background: rgba(255, 255, 255, 0.74);
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+    .who-card h3 {
+      font-size: 1.28rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+    }
+    .who-card p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.95rem;
     }
     .cta {
-      padding: 16px;
-      background: #fff;
+      padding: 24px 0 40px;
     }
     .cta-shell {
-      border-radius: 24px;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(11, 11, 12, 0.08);
       background:
-        radial-gradient(circle at 18% 18%, rgba(66,107,255,0.1), transparent 24%),
-        radial-gradient(circle at 82% 72%, rgba(24,182,109,0.1), transparent 22%),
-        linear-gradient(180deg, #f7faff, #edf3fa);
-      padding: 96px 24px;
-      text-align: center;
-      box-shadow: 0 28px 72px rgba(18,30,68,0.09);
+        linear-gradient(160deg, rgba(15, 17, 19, 0.96), rgba(25, 28, 31, 0.94)),
+        linear-gradient(180deg, #111214 0%, #1d2025 100%);
+      color: #fff;
+      box-shadow: 0 34px 84px rgba(11, 11, 12, 0.22);
+      overflow: hidden;
+      position: relative;
     }
-    .cta h2 {
-      max-width: 760px;
-      margin: 0 auto;
-      font-size: clamp(2.3rem, 5.4vw, 4.7rem);
-      line-height: 1;
-      letter-spacing: 0;
-      font-weight: 720;
+    .cta-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 88%);
+      opacity: 0.55;
+      pointer-events: none;
     }
-    .cta p {
-      max-width: 600px;
-      margin: 18px auto 26px;
-      color: var(--muted);
-      line-height: 1.55;
-      font-weight: 520;
+    .cta-inner {
+      position: relative;
+      padding: 42px;
+    }
+    .cta-inner h2 {
+      max-width: 720px;
+      color: #fff;
+    }
+    .cta-inner p {
+      max-width: 660px;
+      margin-top: 14px;
+      color: rgba(255, 255, 255, 0.74);
+      line-height: 1.72;
+      font-size: 1rem;
+    }
+    .cta-inner .btn-primary {
+      margin-top: 24px;
+      background: #fff;
+      color: var(--ink);
+      box-shadow: none;
     }
     footer {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto 24px;
+      padding: 18px 0 30px;
+      color: var(--muted-2);
+      font-size: 0.84rem;
       display: flex;
-      justify-content: space-between;
-      gap: 24px;
       flex-wrap: wrap;
-      padding: 26px 32px;
-      color: #777;
-      background: #fff;
-      border-top: 1px solid var(--line);
-      font-size: 0.76rem;
+      justify-content: space-between;
+      gap: 12px 18px;
     }
-    .foot-links { display: flex; flex-wrap: wrap; gap: 18px; }
-    .foot-links a { color: #777; text-decoration: none; }
-    .foot-links a:hover { color: #111; }
+    .foot-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
     .reveal {
-      opacity: 1;
-      transform: translateY(0);
-      transition: filter 420ms ease, transform 420ms ease;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 500ms ease, transform 500ms ease;
     }
     .reveal.is-visible {
       opacity: 1;
       transform: translateY(0);
-      filter: saturate(1.02);
     }
-    @keyframes gridDrift {
-      from { background-position: 0 0, 0 0, 0 0, 0 0; }
-      to { background-position: 34px 34px, 34px 34px, 34px 34px, 110px 110px; }
-    }
-    @keyframes scanPass {
-      0%, 44% { transform: translateY(-100%); opacity: 0; }
-      56% { opacity: 0.42; }
-      72%, 100% { transform: translateY(100%); opacity: 0; }
-    }
-    @keyframes consoleSheen {
-      0%, 58% { transform: translateX(-120%); opacity: 0; }
-      72% { opacity: 1; }
-      100% { transform: translateX(120%); opacity: 0; }
-    }
-    @keyframes boardSheen {
-      0%, 64% { transform: translateX(-115%); opacity: 0; }
-      78% { opacity: 0.42; }
-      100% { transform: translateX(115%); opacity: 0; }
-    }
-    @keyframes dataNode {
-      0% { left: 0%; opacity: 0; transform: scale(0.72); }
-      10% { opacity: 1; transform: scale(1); }
+    @keyframes signal {
+      0% { transform: translateX(-38%); opacity: 0; }
+      18% { opacity: 1; }
       82% { opacity: 1; }
-      100% { left: 100%; opacity: 0; transform: scale(0.72); }
-    }
-    @keyframes packetFloat {
-      0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.5; }
-      38% { transform: translate3d(16px, -10px, 0); opacity: 0.88; }
-      70% { transform: translate3d(-10px, 9px, 0); opacity: 0.72; }
-    }
-    @keyframes meterPulse {
-      0%, 100% { filter: brightness(1); transform: scaleX(1); }
-      50% { filter: brightness(1.22); transform: scaleX(0.96); }
-    }
-    .logic-meter i,
-    .queue-track i,
-    .deploy-visual span::before {
-      transform-origin: 0 50%;
-      animation: meterPulse 4.8s ease-in-out infinite;
-    }
-    .logic-card:nth-child(2) .logic-meter i,
-    .queue-row:nth-child(2) .queue-track i,
-    .deploy-card:nth-child(2) .deploy-visual span::before { animation-delay: -1.3s; }
-    .logic-card:nth-child(3) .logic-meter i,
-    .queue-row:nth-child(3) .queue-track i,
-    .deploy-card:nth-child(3) .deploy-visual span::before { animation-delay: -2.6s; }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after {
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.001ms !important;
-      }
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
+      100% { transform: translateX(138%); opacity: 0; }
     }
     @media (max-width: 980px) {
-      .nav { padding: 0 18px; }
-      .nav-links { display: none; }
-      .hero-copy { padding-top: 52px; }
-      .artifact-row {
+      .hero-grid,
+      .value-grid,
+      .grid-3,
+      .who-grid {
         grid-template-columns: 1fr;
-        width: calc(100% - 32px);
-        margin-bottom: 34px;
-        overflow: visible;
       }
-      .system-panel { min-height: auto; }
-      .hero-console { width: calc(100% - 32px); }
-      .console-grid { grid-template-columns: repeat(2, 1fr); }
-      .console-cell:nth-child(2) { border-right: 0; }
-      .console-cell:nth-child(1),
-      .console-cell:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.1); }
-      .brief-grid, .agent-grid, .example-shell, .faq-grid, .tool-grid, .deploy-grid, .reliability-grid, .reliability-rail { grid-template-columns: 1fr; }
-      .example-side { border-right: 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-      .example-nav {
-        display: flex;
-        overflow-x: auto;
-        padding-bottom: 4px;
+      .hero-panel {
+        min-height: 0;
       }
-      .example-nav li { flex: 0 0 126px; }
-      .example-tab { white-space: nowrap; }
-      .system-cards, .example-stats { grid-template-columns: 1fr; }
     }
-    @media (max-width: 680px) {
-      .wrap { width: min(100% - 30px, 1248px); }
+    @media (max-width: 760px) {
       .nav {
-        height: 64px;
-        padding: 0 22px;
-        position: sticky;
-        top: 0;
-      }
-      .brand { font-size: 1.02rem; }
-      .brand-mark { width: 28px; height: 28px; }
-      .hero { padding: 8px; }
-      .hero-shell {
-        min-height: auto;
-        border-radius: 18px;
-        background:
-          linear-gradient(180deg, rgba(255,255,255,0.9), transparent 38%),
-          linear-gradient(180deg, #f8f8f7 0%, #eeeeec 100%);
-      }
-      .hero-shell::before {
-        background-size: 28px 28px, 28px 28px, 56px 56px, 96px 96px;
-        mask-image: linear-gradient(180deg, rgba(0,0,0,0.34), transparent 54%);
-      }
-      .hero-shell::after { opacity: 0.34; }
-      .hero-scan { display: none; }
-      .motion-field { opacity: 0.42; }
-      .motion-packet { display: none; }
-      .hero-stage {
-        grid-template-columns: 1fr;
-        padding: 46px 18px 8px;
-      }
-      .hero-copy {
-        text-align: center;
-      }
-      .eyebrow {
-        font-size: 0.58rem;
-        margin-bottom: 14px;
-      }
-      h1 {
-        max-width: 360px;
-        font-size: clamp(2.35rem, 11vw, 3.2rem);
-        line-height: 1.01;
-      }
-      .hero-copy p {
-        max-width: 340px;
-        font-size: 0.96rem;
-        line-height: 1.48;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-      .btn { width: 100%; }
-      .hero-proof {
+        padding: 0 16px;
+        height: auto;
+        min-height: 70px;
+        flex-wrap: wrap;
         justify-content: center;
-        gap: 7px;
-        margin-top: 16px;
-        margin-left: auto;
-        margin-right: auto;
+        padding-top: 14px;
+        padding-bottom: 14px;
       }
-      .proof-chip {
-        min-height: 26px;
-        font-size: 0.66rem;
-        padding: 0 9px;
-      }
-      .hero-console {
+      .nav-links {
         width: 100%;
-        margin: 2px 0 18px;
-        border-radius: 12px;
-        box-shadow: 0 18px 44px rgba(10,10,10,0.16);
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px;
       }
-      .console-top {
-        min-height: 36px;
-        padding: 0 12px;
-        font-size: 0.5rem;
-        letter-spacing: 0.09em;
+      .wrap { width: min(100% - 20px, 1180px); }
+      .hero-grid { padding: 72px 20px 22px; }
+      h1 { font-size: clamp(2.5rem, 13vw, 4rem); }
+      .hero-copy p,
+      .section-head p,
+      .cta-inner p { font-size: 0.97rem; }
+      .hero-panel,
+      .card,
+      .value-panel,
+      .who-card,
+      .cta-inner { padding: 20px; }
+      section { padding: 18px 0; }
+      footer {
+        padding-left: 4px;
+        padding-right: 4px;
       }
-      .console-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .console-cell,
-      .console-cell:nth-child(2) {
-        min-height: 104px;
-        padding: 13px 14px 18px;
-        border-right: 1px solid rgba(255,255,255,0.1);
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-      }
-      .console-cell:nth-child(2),
-      .console-cell:nth-child(4) { border-right: 0; }
-      .console-cell:nth-child(3),
-      .console-cell:nth-child(4) { border-bottom: 0; }
-      .console-cell::after {
-        left: 14px;
-        right: 14px;
-        bottom: 10px;
-        height: 3px;
-      }
-      .console-cell small {
-        font-size: 0.5rem;
-        margin-bottom: 8px;
-      }
-      .console-cell b { font-size: 0.84rem; margin-bottom: 4px; }
-      .console-cell span { font-size: 0.68rem; }
-      .artifact-row {
-        grid-template-columns: 1fr;
-        width: calc(100% - 24px);
-        gap: 10px;
-        padding: 10px;
-        margin-bottom: 24px;
-        border-radius: 14px;
-      }
-      .system-panel {
-        border-radius: 11px;
-        padding: 12px;
-        gap: 8px;
-      }
-      .logic-map {
-        grid-template-columns: 1fr;
-      }
-      .stack-item { grid-template-columns: 30px 1fr; }
-      .stack-tag { grid-column: 2; justify-self: start; }
-      section { padding: 68px 0; }
-      .deploy-section { padding: 10px 0; }
-      .deploy-shell { border-radius: 18px; padding: 58px 18px; }
-      .section-head h2 { font-size: clamp(2rem, 10vw, 3.2rem); }
-      .brief-card, .agent-card { min-height: 320px; padding: 22px; }
-      .build-step { grid-template-columns: 30px 1fr; }
-      .build-step small { grid-column: 2; }
-      .example-shell,
-      .example-side,
-      .example-main { min-width: 0; }
-      .example-shell {
-        border-radius: 14px;
-        box-shadow: 0 24px 58px rgba(10,10,10,0.16);
-      }
-      .example-side { padding: 16px 12px; }
-      .example-brand { margin-bottom: 18px; }
-      .example-main { padding: 22px 16px 24px; }
-      .system-cards { gap: 8px; }
-      .source-card {
-        min-height: 104px;
-        padding: 12px;
-      }
-      .example-stats {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 8px;
-      }
-      .example-stat { min-height: 72px; }
-      .example-stat b { font-size: 1.38rem; }
-      .chart-title {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 5px;
-      }
-      .heat-row { grid-template-columns: 1fr; gap: 6px; }
-      .opportunity-card { overflow: hidden; }
-      .example-table { min-width: 0; table-layout: fixed; font-size: 0.66rem; }
-      .example-table th,
-      .example-table td { padding: 10px 8px; }
-      .example-table th:nth-child(1),
-      .example-table td:nth-child(1) { width: 42px; }
-      .example-table th:nth-child(3),
-      .example-table td:nth-child(3) { width: 64px; }
-      .example-table th:nth-child(4),
-      .example-table td:nth-child(4),
-      .example-table th:nth-child(5),
-      .example-table td:nth-child(5) { width: 72px; }
-      .score-line { width: 44px; }
-      .priority-pill { min-height: 20px; padding: 0 6px; font-size: 0.58rem; }
-      .cta { padding: 10px; }
-      .cta-shell { border-radius: 18px; padding: 74px 18px; }
-      footer { padding: 24px 18px; flex-direction: column; }
     }
   </style>
 </head>
 <body>
-  <div class="scroll-progress" aria-hidden="true"></div>
-  <div class="site-bg" aria-hidden="true"></div>
   <nav class="nav">
-    <a href="/" class="brand"><span class="brand-mark">AR</span>ArgusReach</a>
-    <ul class="nav-links">
-      <li><a href="/workflow.html">How It Works</a></li>
-      <li><a href="#example">Build Map</a></li>
-      <li><a href="#tools">Tools</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="https://calendly.com/vito-argusreach/30min" class="nav-cta" target="_blank" rel="noopener">Book a Call</a></li>
-    </ul>
+    <a class="brand" href="/">
+      <span class="brand-mark">AR</span>
+      <span>ArgusReach</span>
+    </a>
+    <div class="nav-links">
+      <a href="/workflow.html">How It Works</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="#book" class="nav-cta">Book a Call</a>
+    </div>
   </nav>
 
   <main>
     <section class="hero">
-      <div class="hero-shell">
-        <div class="hero-scan" aria-hidden="true"></div>
-        <div class="motion-field" aria-hidden="true">
-          <span class="motion-line"></span>
-          <span class="motion-line"></span>
-          <span class="motion-line"></span>
-          <span class="motion-packet one"></span>
-          <span class="motion-packet two"></span>
-          <span class="motion-packet three"></span>
+      <div class="wrap">
+        <div class="hero-shell reveal">
+          <div class="hero-glow"></div>
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <div class="eyebrow mono">ArgusReach</div>
+              <h1>AI systems for work that keeps repeating.</h1>
+              <p>ArgusReach helps businesses turn recurring reporting, research, operations, and internal workflow work into cleaner systems. The goal is not hype. The goal is useful output, less manual drag, and better visibility.</p>
+              <div class="hero-actions">
+                <a href="https://calendly.com/vito-argusreach/30min" class="btn btn-primary" target="_blank" rel="noopener">Book a Call</a>
+                <a href="/workflow.html" class="btn btn-secondary">See How It Works</a>
+              </div>
+              <div class="hero-tags">
+                <span>Reporting engines</span>
+                <span>Research agents</span>
+                <span>Internal tools</span>
+                <span>Workflow automation</span>
+              </div>
+            </div>
+            <aside class="hero-panel" aria-label="ArgusReach operating model">
+              <div class="panel-top">
+                <div class="panel-kicker mono">What We Actually Do</div>
+                <span class="panel-light" aria-hidden="true"></span>
+              </div>
+              <div class="panel-lines">
+                <div class="panel-line">
+                  <b>Map the real workflow.</b>
+                  <span>Start with the report, process, review loop, or internal task that already matters.</span>
+                </div>
+                <div class="panel-line">
+                  <b>Build the useful layer.</b>
+                  <span>Create the agent, dashboard, reporting engine, or operating tool that removes the repetitive work.</span>
+                </div>
+                <div class="panel-line">
+                  <b>Keep judgment visible.</b>
+                  <span>Approvals, edits, exceptions, and sensitive decisions stay clear instead of disappearing behind a black box.</span>
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
-        <div class="hero-stage">
-          <div class="hero-copy">
-            <div class="eyebrow">AI systems for reporting, research, and operations</div>
-            <h1>Build the system behind<span>the recurring work.</span></h1>
-            <p>ArgusReach designs AI systems for reporting, research, data pulls, review queues, dashboards, and internal workflows that still depend on manual effort.</p>
-            <div class="hero-actions">
-              <a href="https://calendly.com/vito-argusreach/30min" class="btn btn-primary" target="_blank" rel="noopener">Book a Call</a>
-              <a href="#example" class="btn btn-secondary">See a Build Map</a>
-            </div>
-            <div class="hero-proof" aria-label="System capabilities">
-              <span class="proof-chip">Workflow mapping</span>
-              <span class="proof-chip">System logic</span>
-              <span class="proof-chip">Human controls</span>
-              <span class="proof-chip">Production support</span>
-            </div>
-          </div>
-          <div class="hero-console" aria-label="Workflow system model">
-            <div class="console-top">
-              <span class="console-dot"></span>
-              <span class="console-dot amber"></span>
-              <span class="console-dot blue"></span>
-              <strong>ARGUS WORKFLOW MODEL</strong>
-            </div>
-            <div class="console-grid">
-              <div class="console-cell"><small>01</small><b>Workflow</b><span>Where the work starts, stalls, and gets checked</span></div>
-              <div class="console-cell"><small>02</small><b>System logic</b><span>Rules, routing, calculations, and stop points</span></div>
-              <div class="console-cell"><small>03</small><b>Review layer</b><span>Approvals, flags, visibility, and handoffs</span></div>
-              <div class="console-cell"><small>04</small><b>Operating path</b><span>Support, monitoring, and maintenance</span></div>
-            </div>
-          </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-kicker mono">What We Build</div>
+          <h2>Simple value prop. Real business work.</h2>
+          <p>We do not sell generic AI theater. We build practical systems around the work a business already has to do every week or every month.</p>
         </div>
-        <div class="artifact-row" aria-label="ArgusReach workflow system preview">
-          <div class="system-panel">
-            <div class="panel-kicker"><span>Approved stack</span><i class="status-light"></i></div>
-            <div class="stack-list">
-              <div class="stack-item"><span class="stack-icon">C</span><div><b>Claude / ChatGPT</b><span>Model layer when it belongs in the workflow</span></div><span class="stack-tag">model</span></div>
-              <div class="stack-item"><span class="stack-icon">P</span><div><b>Search / source review</b><span>Research, monitoring, and evidence checks</span></div><span class="stack-tag">source</span></div>
-              <div class="stack-item"><span class="stack-icon">M</span><div><b>Microsoft / files</b><span>SharePoint, Excel, PDFs, and folders</span></div><span class="stack-tag">data</span></div>
-              <div class="stack-item"><span class="stack-icon">A</span><div><b>Internal tool</b><span>Queue, dashboard, panel, or report surface</span></div><span class="stack-tag">build</span></div>
-            </div>
+        <div class="grid-3">
+          <article class="card reveal">
+            <div class="card-label mono">Reporting</div>
+            <h3>Reporting engines</h3>
+            <p>Recurring reports, dashboards, summaries, client updates, and executive views that should not be rebuilt by hand every cycle.</p>
+            <ul>
+              <li>Collect inputs from files, folders, exports, or websites</li>
+              <li>Run the logic and prepare the output</li>
+              <li>Keep review visible before anything important goes out</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <div class="card-label mono">Research</div>
+            <h3>Research and monitoring agents</h3>
+            <p>Systems that watch sources, track changes, organize findings, and deliver a useful brief instead of forcing someone to re-check everything manually.</p>
+            <ul>
+              <li>Source monitoring and change tracking</li>
+              <li>Structured notes and recurring summaries</li>
+              <li>Clear alerts when something actually matters</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <div class="card-label mono">Operations</div>
+            <h3>Internal workflow tools</h3>
+            <p>Approval queues, operating panels, recurring process tools, and AI-assisted workflows that help the team move faster without losing control.</p>
+            <ul>
+              <li>Visible handoffs and stop points</li>
+              <li>Human review where judgment matters</li>
+              <li>Supportable systems, not one-off hacks</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="value-grid">
+          <div class="value-panel reveal">
+            <div class="section-kicker mono">Why It Works</div>
+            <h2>Built around the workflow, not around a buzzword.</h2>
+            <p>The wrong approach is starting with a model and then inventing a problem for it. The right approach is starting with the actual work, then deciding what should be automated, what should be reviewed, and what should stay human.</p>
           </div>
-          <div class="system-panel dark">
-            <div class="panel-kicker"><span>Workflow logic</span><i class="status-light blue"></i></div>
-            <div class="logic-map">
-              <div class="logic-card"><b>Map inputs</b><span>Files, sources, owners, cadence</span><div class="logic-meter"><i style="--w: 86%;"></i></div></div>
-              <div class="logic-card"><b>Define the logic</b><span>Checks, calculations, summaries, routing</span><div class="logic-meter"><i style="--w: 72%;"></i></div></div>
-              <div class="logic-card"><b>Keep judgment visible</b><span>Approvals, edits, exceptions, stop points</span><div class="logic-meter"><i style="--w: 64%;"></i></div></div>
-              <div class="logic-card"><b>Deliver the output</b><span>Report, dashboard, queue, or operating layer</span><div class="logic-meter"><i style="--w: 78%;"></i></div></div>
-            </div>
-          </div>
-          <div class="system-panel">
-            <div class="panel-kicker"><span>Review queue</span><i class="status-light amber"></i></div>
-            <div class="queue-list">
-              <div class="queue-row"><div class="queue-head"><b>Executive brief</b><span class="queue-pill">ready</span></div><span>Draft complete and waiting for approval</span><div class="queue-track"><i style="--w: 92%;"></i></div></div>
-              <div class="queue-row"><div class="queue-head"><b>Report exception</b><span class="queue-pill amber">review</span></div><span>Mismatch flagged before output is released</span><div class="queue-track"><i style="--w: 68%;"></i></div></div>
-              <div class="queue-row"><div class="queue-head"><b>Ops handoff</b><span class="queue-pill blue">logged</span></div><span>Owner, next step, and status captured</span><div class="queue-track"><i style="--w: 76%;"></i></div></div>
+          <div class="value-panel reveal">
+            <div class="point-list">
+              <div class="point">
+                <b>Shorter path to value</b>
+                <span>We focus on the recurring work that is already expensive, slow, or annoying.</span>
+              </div>
+              <div class="point">
+                <b>Cleaner control layer</b>
+                <span>Approvals, exceptions, and review points are part of the build from the start.</span>
+              </div>
+              <div class="point">
+                <b>Fits the stack you already use</b>
+                <span>Files, Excel, SharePoint, websites, dashboards, and internal tools can all sit inside the same workflow.</span>
+              </div>
             </div>
           </div>
         </div>
@@ -2212,261 +745,40 @@
 
     <section>
       <div class="wrap">
-        <div class="section-head">
-          <h2>Map the work. Build the system.</h2>
-          <p>We start with the real process, not a generic AI use case. Then we build the system around the inputs, rules, exceptions, review points, and outputs that already define the job.</p>
+        <div class="section-head reveal">
+          <div class="section-kicker mono">Who It Is For</div>
+          <h2>Best fit for teams with recurring work and no time for nonsense.</h2>
+          <p>If the same report, research pass, review process, or internal operating task keeps getting rebuilt manually, that is the kind of work we look at first.</p>
         </div>
-        <div class="brief-grid">
-          <article class="brief-card">
-            <div>
-              <h3>Find the expensive manual loop.</h3>
-              <p>We isolate the recurring work people collect, check, rewrite, reconcile, approve, and resend every week or every month.</p>
-            </div>
-            <div>
-              <div class="prompt-box">Watch the sources, validate the inputs, assemble the draft, route exceptions, and log every handoff.</div>
-              <div class="chip-row">
-                <span class="chip">Source files</span>
-                <span class="chip">Rules</span>
-                <span class="chip">Review</span>
-                <span class="chip">Output</span>
-              </div>
-            </div>
+        <div class="who-grid">
+          <article class="who-card reveal">
+            <h3>Good fit</h3>
+            <p>Businesses dealing with recurring reporting, source monitoring, client materials, internal approvals, dashboards, workflow coordination, or research work that still depends too heavily on copy, paste, cleanup, and follow-up.</p>
           </article>
-          <article class="brief-card faded">
-            <div>
-              <h3>Build the operating layer.</h3>
-              <p>Agent logic, automations, dashboards, queues, review steps, logs, approvals, and support path.</p>
-            </div>
-            <div class="build-feed">
-              <div class="build-step"><i>01</i><div><b>Map the process</b><span>Inputs, owners, systems, and cadence.</span></div><small>ready</small></div>
-              <div class="build-step"><i>02</i><div><b>Define the agent</b><span>Read, check, draft, route, log, and stop when needed.</span></div><small>ready</small></div>
-              <div class="build-step"><i>03</i><div><b>Ship the workflow</b><span>Internal tool, report layer, or client-owned workspace.</span></div><small>review</small></div>
-            </div>
+          <article class="who-card reveal">
+            <h3>Not the pitch</h3>
+            <p>This is not a promise of full autopilot or employee replacement. It is AI-assisted workflow design and system building for businesses that want cleaner execution and better output.</p>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="deploy-section">
-      <div class="wrap">
-        <div class="deploy-shell">
-          <div class="section-head">
-            <h2>Choose the right build path.</h2>
-            <p>Sometimes the right answer is better AI usage and process design. Sometimes it is a custom agent, dashboard, reporting engine, automation, or internal tool.</p>
-          </div>
-          <div class="deploy-grid">
-            <article class="deploy-card">
-              <div>
-                <small>Path 01</small>
-                <h3>AI setup and operating model.</h3>
-                <p>Claude, ChatGPT, Microsoft, search, prompt systems, and firm-specific AI usage that people can actually follow.</p>
-              </div>
-              <div class="deploy-visual" aria-hidden="true">
-                <span style="--w: 78%;"></span>
-                <span style="--w: 52%;"></span>
-                <span style="--w: 66%;"></span>
-              </div>
-            </article>
-            <article class="deploy-card">
-              <div>
-                <small>Path 02</small>
-                <h3>Custom system build.</h3>
-                <p>For workflows that need a repeatable agent, automation, review queue, report builder, dashboard, or lightweight internal tool.</p>
-              </div>
-              <div class="deploy-visual" aria-hidden="true">
-                <span style="--w: 62%;"></span>
-                <span style="--w: 84%;"></span>
-                <span style="--w: 48%;"></span>
-              </div>
-            </article>
-            <article class="deploy-card">
-              <div>
-                <small>Path 03</small>
-                <h3>Support and expansion.</h3>
-                <p>Updates, fixes, refreshes, new workflows, and maintenance continue after the first useful system is live.</p>
-              </div>
-              <div class="deploy-visual" aria-hidden="true">
-                <span style="--w: 70%;"></span>
-                <span style="--w: 58%;"></span>
-                <span style="--w: 76%;"></span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="reliability-section">
-      <div class="wrap">
-        <div class="reliability-shell">
-          <div class="section-head">
-            <h2>What makes the system trustworthy.</h2>
-            <p>The useful part is not the AI headline. It is the structure underneath: rules, visibility, approvals, logs, and a clear maintenance path.</p>
-          </div>
-          <div class="reliability-grid">
-            <article class="reliability-card">
-              <small>01 / Context</small>
-              <h3>Rules and memory stay attached to the workflow.</h3>
-              <p>The system keeps business rules, source expectations, exception handling, and reviewer notes attached to the job instead of re-learning them every run.</p>
-              <div class="reliability-list">
-                <span>Source rules</span>
-                <span>Rulings log</span>
-                <span>Reviewer notes</span>
-              </div>
-            </article>
-            <article class="reliability-card">
-              <small>02 / Controls</small>
-              <h3>High-blast-radius actions stay gated.</h3>
-              <p>Drafting can move fast. Sensitive actions, client-facing outputs, and business decisions stay visible and reviewable on purpose.</p>
-              <div class="reliability-list">
-                <span>Approval points</span>
-                <span>Exception routing</span>
-                <span>No blind sends</span>
-              </div>
-            </article>
-            <article class="reliability-card">
-              <small>03 / Visibility</small>
-              <h3>Logs, queues, and review panels make work inspectable.</h3>
-              <p>The output should be easy to inspect. Reports, dashboards, queues, and issue flags keep the workflow visible instead of turning it into a black box.</p>
-              <div class="reliability-list">
-                <span>Review queues</span>
-                <span>Output logs</span>
-                <span>Audit trail</span>
-              </div>
-            </article>
-            <article class="reliability-card">
-              <small>04 / Rollout</small>
-              <h3>One workflow first. Expand after it proves itself.</h3>
-              <p>We scope the first useful lane, validate it, support it, and widen only after the system proves it can run cleanly and repeatedly.</p>
-              <div class="reliability-list">
-                <span>Pilot workflow</span>
-                <span>30-day review</span>
-                <span>Support path</span>
-              </div>
-            </article>
-          </div>
-          <div class="reliability-rail" aria-label="Reliability process">
-            <div class="rail-pill"><small>Input</small><b>Map the workflow</b><span>Files, owners, cadence, approvals.</span></div>
-            <div class="rail-pill"><small>Logic</small><b>Define the rules</b><span>Checks, routes, summaries, and stop points.</span></div>
-            <div class="rail-pill"><small>Review</small><b>Keep judgment visible</b><span>Edits, approvals, and exceptions stay human.</span></div>
-            <div class="rail-pill"><small>Support</small><b>Maintain the lane</b><span>Logs, monitoring, and updates keep it healthy.</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="example">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Map the workflow before you build.</h2>
-          <p>Examples that make the process concrete fast.</p>
-        </div>
-        <div class="example-shell">
-          <aside class="example-side">
-            <div class="example-brand"><span>A</span>Agent Example</div>
-            <div class="example-nav-label">Workflow audit</div>
-            <ul class="example-nav">
-              <li><button class="example-tab active" type="button" data-example-tab="discovery"><b>01</b>Discovery</button></li>
-              <li><button class="example-tab" type="button" data-example-tab="inputs"><b>02</b>Inputs</button></li>
-              <li><button class="example-tab" type="button" data-example-tab="logic"><b>03</b>Agent Logic</button></li>
-              <li><button class="example-tab" type="button" data-example-tab="review"><b>04</b>Review Map</button></li>
-              <li><button class="example-tab" type="button" data-example-tab="rollout"><b>05</b>Rollout</button></li>
-            </ul>
-          </aside>
-          <div class="example-main">
-            <div class="example-top">
-              <div>
-                <h3 id="example-title">Daily competitor data agent</h3>
-                <p id="example-copy">Pull from 15 websites, track changes, and produce a clean daily update.</p>
-              </div>
-              <div class="example-badge" id="example-badge">Illustrative only</div>
-            </div>
-            <div class="system-cards" id="example-sources">
-              <div class="source-card" data-tone="blue"><small>Mapped</small><div class="icon">S</div><b>SharePoint</b><span>Source files and monthly folders</span></div>
-              <div class="source-card" data-tone="amber"><small>Checked</small><div class="icon">X</div><b>Excel</b><span>Workbook cleanup and checks</span></div>
-              <div class="source-card" data-tone="red"><small>Review</small><div class="icon">P</div><b>PDFs</b><span>Statements and supporting documents</span></div>
-              <div class="source-card" data-tone="green"><small>Output</small><div class="icon">A</div><b>Review panel</b><span>Output ready for human review</span></div>
-            </div>
-            <div class="example-stats" id="example-stats">
-              <div class="example-stat"><div><b>4</b><span>Inputs mapped</span></div></div>
-              <div class="example-stat"><div><b>12</b><span>Workflow steps</span></div></div>
-              <div class="example-stat"><div><b>5</b><span>Review points</span></div></div>
-              <div class="example-stat"><div><b>3</b><span>Agent candidates</span></div></div>
-            </div>
-            <div class="chart-title"><b id="example-chart-title">Where time is being spent</b><span id="example-chart-label">Example heatmap</span></div>
-            <div class="heatmap" id="example-heatmap">
-              <div class="heat-row"><span>File collection</span><div class="track"><div class="fill red" style="width: 74%;"></div></div><span>High</span></div>
-              <div class="heat-row"><span>Workbook cleanup</span><div class="track"><div class="fill gold" style="width: 58%;"></div></div><span>Med</span></div>
-              <div class="heat-row"><span>Manual checks</span><div class="track"><div class="fill" style="width: 46%;"></div></div><span>Med</span></div>
-              <div class="heat-row"><span>Summary writing</span><div class="track"><div class="fill green" style="width: 38%;"></div></div><span>Low</span></div>
-            </div>
-            <div class="opportunity-card">
-              <div class="opportunity-top">
-                <div class="chart-title" style="margin:0;"><b id="example-table-title">Agent opportunity map</b><span id="example-table-label">Prioritized by effort and usefulness</span></div>
-                <div class="bar-stack" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-              </div>
-              <table class="example-table">
-                <thead>
-                  <tr id="example-table-head"><th>#</th><th>Workflow Piece</th><th>Agent Fit</th><th>First Build</th><th>Review</th></tr>
-                </thead>
-                <tbody id="example-table-body">
-                  <tr><td><span class="priority-pill green">P1</span></td><td>Input collection and validation</td><td><div class="score-line green"><span style="width:82%;"></span></div></td><td>Reporting Agent</td><td>Human approval</td></tr>
-                  <tr><td><span class="priority-pill amber">P2</span></td><td>Report packet assembly</td><td><div class="score-line amber"><span style="width:68%;"></span></div></td><td>Executive Brief Agent</td><td>Reviewer edits</td></tr>
-                  <tr><td><span class="priority-pill">P3</span></td><td>Dashboard refresh</td><td><div class="score-line"><span style="width:61%;"></span></div></td><td>Operations Agent</td><td>Monthly sign-off</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="tools">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Built around the tools you already use.</h2>
-          <p>Claude, ChatGPT, search, Microsoft, SharePoint, Excel, APIs, automations, or a custom tool when the workflow needs one.</p>
-        </div>
-        <div class="tool-grid">
-          <div class="tool-card"><small>Models</small><b>Claude, ChatGPT, OpenAI</b></div>
-          <div class="tool-card"><small>Research</small><b>Perplexity, web, source docs</b></div>
-          <div class="tool-card"><small>Inputs</small><b>Websites, spreadsheets, PDFs, folders</b></div>
-          <div class="tool-card"><small>Systems</small><b>Microsoft, CRMs, portals</b></div>
-          <div class="tool-card"><small>Outputs</small><b>Reports, dashboards, alerts</b></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="faq">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Quick questions.</h2>
-          <p>Short answers.</p>
-        </div>
-        <div class="faq-grid">
-          <div class="faq-item"><h3>Who is this for?</h3><p>Businesses with recurring work that is still too manual.</p></div>
-          <div class="faq-item"><h3>Is this just a chatbot?</h3><p>No. Useful systems work through files, rules, dashboards, reviews, and operating logic.</p></div>
-          <div class="faq-item"><h3>Do you replace employees?</h3><p>No. The point is AI-assisted work with human judgment where it matters.</p></div>
-          <div class="faq-item"><h3>Is this autopilot?</h3><p>No. Drafts can move fast, but approvals, exceptions, and sensitive actions stay visible.</p></div>
-          <div class="faq-item"><h3>How do you keep it reliable?</h3><p>Rules, review points, logs, ownership, and support are defined before the workflow is trusted.</p></div>
-          <div class="faq-item"><h3>How do we start?</h3><p>Start with one real workflow, then scope the first build around it.</p></div>
         </div>
       </div>
     </section>
 
     <section id="book" class="cta">
-      <div class="cta-shell">
-        <div class="wrap">
-          <h2>Start with one real workflow.</h2>
-          <p>Bring the report, process, dashboard, spreadsheet, or recurring task. We map what the system should do, where people stay involved, and what the first build needs to prove.</p>
-          <a href="https://calendly.com/vito-argusreach/30min" class="btn btn-primary" target="_blank" rel="noopener">Book a Call</a>
+      <div class="wrap">
+        <div class="cta-shell reveal">
+          <div class="cta-inner">
+            <div class="section-kicker mono">Start Here</div>
+            <h2>Bring one real workflow. We will tell you what is worth building.</h2>
+            <p>Show us the report, process, task, or recurring internal mess. We will map the value prop quickly: what the system should do, where people stay involved, and what the first useful build should be.</p>
+            <a href="https://calendly.com/vito-argusreach/30min" class="btn btn-primary" target="_blank" rel="noopener">Book a Call</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div><strong style="color:#111;">ArgusReach</strong> | Custom AI agents for business workflows | Tampa Bay, FL</div>
+    <div><strong style="color:#111;">ArgusReach</strong> | Custom AI systems for business workflows | Tampa Bay, FL</div>
     <div class="foot-links">
       <a href="/workflow.html">How It Works</a>
       <a href="/faq.html">FAQ</a>
@@ -2475,121 +787,9 @@
     </div>
     <div>&copy; 2026 ArgusReach</div>
   </footer>
+
   <script>
-    const examplePanels = {
-      discovery: {
-        title: "Daily competitor data agent",
-        copy: "Pull from 15 websites, track changes, and produce a clean daily update.",
-        badge: "Illustrative only",
-        sources: [["W", "Websites", "Competitor sources and URLs", "Mapped", "blue"], ["S", "Schedule", "Daily pull and retry rules", "Checked", "amber"], ["C", "Changes", "New rates, terms, pages, or notes", "Review", "red"], ["D", "Dashboard", "History and daily summary", "Output", "green"]],
-        stats: [["15", "Sources tracked"], ["1", "Daily run"], ["3", "Review points"], ["1", "Reporting engine"]],
-        chartTitle: "Where manual time disappears",
-        chartLabel: "Example heatmap",
-        heat: [["Website checks", 82, "High", "red"], ["Data copy/paste", 68, "High", "gold"], ["Change review", 46, "Med", ""], ["Summary writing", 38, "Low", "green"]],
-        tableTitle: "Agent opportunity map",
-        tableLabel: "Prioritized by effort and usefulness",
-        head: ["#", "Workflow Piece", "Agent Fit", "First Build", "Review"],
-        rows: [["P1", "Source collection", 88, "Data Pull Agent", "Exception review", "green"], ["P2", "Change detection", 72, "Tracking Agent", "Reviewer edits", "amber"], ["P3", "Dashboard refresh", 66, "Reporting Engine", "Daily sign-off", ""]]
-      },
-      inputs: {
-        title: "Inputs the agent needs to see",
-        copy: "Map the files, exports, folders, and systems the agent needs.",
-        badge: "Input map",
-        sources: [["F", "Folder drop", "Monthly source files", "Source", "blue"], ["C", "CRM export", "Account and contact fields", "Source", "green"], ["D", "Documents", "Statements and PDFs", "Source", "amber"], ["M", "Manual notes", "Review comments and context", "Context", "red"]],
-        stats: [["6", "Input types"], ["3", "Owners"], ["2", "Formats"], ["1", "Source checklist"]],
-        chartTitle: "Input readiness",
-        chartLabel: "Example source quality",
-        heat: [["Required fields", 82, "High", "green"], ["File consistency", 64, "Med", ""], ["Naming rules", 54, "Med", "gold"], ["Missing context", 36, "Low", "red"]],
-        tableTitle: "Input cleanup plan",
-        tableLabel: "Before build starts",
-        head: ["#", "Input Area", "Readiness", "Fix", "Owner"],
-        rows: [["I1", "Monthly source folder", 82, "Reporting Agent", "Operations", "green"], ["I2", "Workbook tabs", 64, "Finance Ops Agent", "Analyst", "amber"], ["I3", "PDF statements", 54, "Research Agent", "Reviewer", ""]]
-      },
-      logic: {
-        title: "Agent logic and decision rules",
-        copy: "Define what gets checked, drafted, routed, logged, and stopped.",
-        badge: "Agent logic",
-        sources: [["R", "Rules", "Calculations and checks", "Defined", "green"], ["E", "Exceptions", "What needs escalation", "Defined", "red"], ["T", "Tools", "Files, dashboards, and alerts", "Scoped", "blue"], ["L", "Logs", "Traceable agent activity", "Scoped", "amber"]],
-        stats: [["9", "Rules drafted"], ["4", "Stop points"], ["3", "Tool actions"], ["100%", "Logged actions"]],
-        chartTitle: "Agent decision path",
-        chartLabel: "Example logic coverage",
-        heat: [["Validation checks", 78, "High", "green"], ["Draft generation", 66, "Med", ""], ["Exception routing", 58, "Med", "gold"], ["Direct-send actions", 12, "Low", "red"]],
-        tableTitle: "Logic map",
-        tableLabel: "Human controls included",
-        head: ["#", "Agent Rule", "Coverage", "Action", "Control"],
-        rows: [["L1", "Validate source files", 78, "Reporting Agent", "Logged", "green"], ["L2", "Draft report notes", 66, "Executive Brief Agent", "Review", "amber"], ["L3", "Route exceptions", 58, "Operations Agent", "Approval", "red"]]
-      },
-      review: {
-        title: "Human review and approval map",
-        copy: "Keep approvals, edits, exceptions, and sign-off visible.",
-        badge: "Review map",
-        sources: [["A", "Approver", "Final sign-off owner", "Mapped", "amber"], ["Q", "QA checks", "Review checklist", "Mapped", "green"], ["N", "Notes", "Reviewer edits", "Mapped", "blue"], ["H", "History", "Audit trail", "Mapped", "red"]],
-        stats: [["5", "Review gates"], ["2", "Approvers"], ["4", "Escalations"], ["0", "Blind sends"]],
-        chartTitle: "Review load",
-        chartLabel: "Example oversight map",
-        heat: [["Final approval", 70, "High", "green"], ["Exception review", 62, "Med", "gold"], ["Draft edits", 42, "Med", ""], ["Routine checks", 24, "Low", "red"]],
-        tableTitle: "Review queue",
-        tableLabel: "What stays human",
-        head: ["#", "Review Point", "Load", "Agent Prep", "Human Action"],
-        rows: [["R1", "Final report sign-off", 70, "Executive Brief Agent", "Approve", "green"], ["R2", "Exceptions", 62, "Operations Agent", "Decide", "amber"], ["R3", "Draft edits", 42, "Reporting Agent", "Edit", ""]]
-      },
-      rollout: {
-        title: "Rollout and maintenance path",
-        copy: "Set cadence, ownership, monitoring, support, and change rules.",
-        badge: "Rollout plan",
-        sources: [["C", "Cadence", "Monthly or weekly refresh", "Planned", "green"], ["O", "Owner", "Who provides new inputs", "Planned", "blue"], ["M", "Monitor", "Failures and exceptions", "Planned", "amber"], ["S", "Support", "Change requests", "Planned", "red"]],
-        stats: [["1", "Pilot workflow"], ["30", "Day review"], ["4", "Runbook steps"], ["2", "Support paths"]],
-        chartTitle: "Rollout readiness",
-        chartLabel: "Example launch plan",
-        heat: [["Pilot scope", 86, "High", "green"], ["Runbook", 68, "Med", ""], ["Monitoring", 52, "Med", "gold"], ["Expansion", 28, "Later", "red"]],
-        tableTitle: "Rollout checklist",
-        tableLabel: "Keep it maintainable",
-        head: ["#", "Launch Area", "Readiness", "Next Step", "Owner"],
-        rows: [["O1", "Pilot workflow", 86, "Operations Agent", "ArgusReach", "green"], ["O2", "Runbook", 68, "Operating Manual", "Shared", "amber"], ["O3", "Monitoring", 52, "Workflow Monitor", "ArgusReach", ""]]
-      }
-    };
-
-    function renderExamplePanel(key) {
-      const panel = examplePanels[key] || examplePanels.discovery;
-      document.querySelectorAll("[data-example-tab]").forEach((tab) => {
-        tab.classList.toggle("active", tab.dataset.exampleTab === key);
-      });
-      document.getElementById("example-title").textContent = panel.title;
-      document.getElementById("example-copy").textContent = panel.copy;
-      document.getElementById("example-badge").textContent = panel.badge;
-      document.getElementById("example-chart-title").textContent = panel.chartTitle;
-      document.getElementById("example-chart-label").textContent = panel.chartLabel;
-      document.getElementById("example-table-title").textContent = panel.tableTitle;
-      document.getElementById("example-table-label").textContent = panel.tableLabel;
-      document.getElementById("example-sources").innerHTML = panel.sources.map(([icon, title, copy, label, tone]) =>
-        `<div class="source-card" data-tone="${tone || ""}"><small>${label}</small><div class="icon">${icon}</div><b>${title}</b><span>${copy}</span></div>`
-      ).join("");
-      document.getElementById("example-stats").innerHTML = panel.stats.map(([value, label]) =>
-        `<div class="example-stat"><div><b>${value}</b><span>${label}</span></div></div>`
-      ).join("");
-      document.getElementById("example-heatmap").innerHTML = panel.heat.map(([label, width, rating, color]) =>
-        `<div class="heat-row"><span>${label}</span><div class="track"><div class="fill ${color}" style="width: ${width}%;"></div></div><span>${rating}</span></div>`
-      ).join("");
-      document.getElementById("example-table-head").innerHTML = panel.head.map((heading) => `<th>${heading}</th>`).join("");
-      document.getElementById("example-table-body").innerHTML = panel.rows.map(([id, label, width, firstBuild, review, tone]) =>
-        `<tr><td><span class="priority-pill ${tone || ""}">${id}</span></td><td>${label}</td><td><div class="score-line ${tone || ""}"><span style="width:${width}%;"></span></div></td><td>${firstBuild}</td><td>${review}</td></tr>`
-      ).join("");
-    }
-
-    document.querySelectorAll("[data-example-tab]").forEach((tab) => {
-      tab.addEventListener("click", () => renderExamplePanel(tab.dataset.exampleTab));
-    });
-
-    const progress = document.querySelector(".scroll-progress");
-    const updateProgress = () => {
-      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-      const amount = scrollable > 0 ? window.scrollY / scrollable : 0;
-      progress.style.transform = `scaleX(${Math.min(1, Math.max(0, amount))})`;
-      document.body.style.setProperty("--scroll-y", `${window.scrollY}px`);
-    };
-
-    const revealTargets = document.querySelectorAll("section:not(.hero), .artifact-row, .brief-card, .deploy-card, .agent-card, .example-shell, .tool-card, .faq-item, .cta-shell");
-    revealTargets.forEach((item) => item.classList.add("reveal"));
+    const revealTargets = document.querySelectorAll(".reveal");
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -2597,11 +797,8 @@
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
     revealTargets.forEach((item) => revealObserver.observe(item));
-
-    window.addEventListener("scroll", updateProgress, { passive: true });
-    updateProgress();
   </script>
 </body>
 </html>
