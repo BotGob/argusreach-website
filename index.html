@@ -2,53 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="cache-bust" content="20260727-simplified-home-a" />
+  <meta name="cache-bust" content="20260728-intelligence-layer-a" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ArgusReach - AI Systems for Real Business Work</title>
-  <meta name="description" content="ArgusReach builds practical AI systems for reporting, research, operations, and internal workflows." />
+  <title>ArgusReach - Custom AI Agent Systems for Professional Firms</title>
+  <meta name="description" content="ArgusReach builds custom AI agent systems that improve existing work, add missing capacity, and connect a firm's systems into a reliable intelligence layer." />
   <link rel="canonical" href="https://argusreach.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://argusreach.com/" />
-  <meta property="og:title" content="ArgusReach - AI Systems for Real Business Work" />
-  <meta property="og:description" content="Practical AI systems for reporting, research, operations, and internal workflows." />
+  <meta property="og:title" content="ArgusReach - Custom AI Agent Systems for Professional Firms" />
+  <meta property="og:description" content="Custom AI agent systems for firms that need more output, better consistency, and tighter operational control." />
   <meta property="og:site_name" content="ArgusReach" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="ArgusReach - AI Systems for Real Business Work" />
-  <meta name="twitter:description" content="Practical AI systems for reporting, research, operations, and internal workflows." />
+  <meta name="twitter:title" content="ArgusReach - Custom AI Agent Systems for Professional Firms" />
+  <meta name="twitter:description" content="AI agent systems that improve work, add capability, and sit above your existing systems as an intelligence layer." />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --ink: #0b0b0c;
-      --muted: #565d66;
-      --muted-2: #7c838b;
-      --line: rgba(11, 11, 12, 0.10);
-      --line-strong: rgba(11, 11, 12, 0.16);
-      --panel: rgba(255, 255, 255, 0.78);
-      --panel-strong: #ffffff;
-      --soft: #f3f5f7;
-      --soft-2: #eceff2;
-      --white: #ffffff;
-      --green: #1c9b63;
-      --steel: #718092;
-      --shadow: 0 22px 60px rgba(14, 17, 22, 0.08);
-      --shadow-strong: 0 34px 92px rgba(14, 17, 22, 0.12);
-      --radius-xl: 28px;
+      --bg: #f3f5f7;
+      --bg-2: #eceff2;
+      --panel: rgba(255, 255, 255, 0.82);
+      --panel-strong: rgba(255, 255, 255, 0.92);
+      --ink: #0b0d10;
+      --muted: #58616c;
+      --muted-2: #7b848e;
+      --line: rgba(11, 13, 16, 0.09);
+      --line-strong: rgba(11, 13, 16, 0.16);
+      --accent: #1a2028;
+      --glow: rgba(99, 113, 130, 0.18);
+      --radius-xl: 30px;
       --radius-lg: 22px;
       --radius-md: 16px;
+      --shadow: 0 26px 70px rgba(13, 18, 24, 0.08);
+      --shadow-strong: 0 34px 96px rgba(13, 18, 24, 0.12);
     }
     html { scroll-behavior: smooth; }
     body {
-      font-family: Geist, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: Manrope, system-ui, sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(circle at top left, rgba(12, 12, 12, 0.05), transparent 24%),
-        radial-gradient(circle at 84% 8%, rgba(113, 128, 146, 0.08), transparent 16%),
-        linear-gradient(90deg, rgba(12, 12, 12, 0.03) 1px, transparent 1px),
-        linear-gradient(180deg, #fdfdfd 0%, #f1f4f7 100%);
+        radial-gradient(circle at 12% 0%, rgba(11, 13, 16, 0.06), transparent 24%),
+        radial-gradient(circle at 88% 10%, var(--glow), transparent 20%),
+        linear-gradient(90deg, rgba(11, 13, 16, 0.03) 1px, transparent 1px),
+        linear-gradient(180deg, #fbfbfc 0%, var(--bg) 100%);
       background-size: auto, auto, 96px 100%, auto;
       -webkit-font-smoothing: antialiased;
       text-rendering: geometricPrecision;
@@ -60,8 +59,8 @@
       inset: 0;
       pointer-events: none;
       background:
-        linear-gradient(125deg, transparent 0 32%, rgba(12, 12, 12, 0.03) 32% 32.25%, transparent 32.25% 100%),
-        linear-gradient(60deg, transparent 0 70%, rgba(113, 128, 146, 0.04) 70% 70.2%, transparent 70.2% 100%);
+        linear-gradient(130deg, transparent 0 34%, rgba(11, 13, 16, 0.035) 34% 34.2%, transparent 34.2% 100%),
+        linear-gradient(60deg, transparent 0 74%, rgba(120, 132, 145, 0.035) 74% 74.2%, transparent 74.2% 100%);
       opacity: 0.9;
     }
     a { color: inherit; }
@@ -70,24 +69,24 @@
     .nav {
       position: sticky;
       top: 0;
-      z-index: 30;
-      height: 74px;
+      z-index: 20;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 18px;
+      min-height: 72px;
       padding: 0 28px;
       background: rgba(255, 255, 255, 0.82);
       backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(11, 11, 12, 0.07);
-      box-shadow: 0 14px 34px rgba(14, 17, 22, 0.05);
+      border-bottom: 1px solid rgba(11, 13, 16, 0.07);
+      box-shadow: 0 16px 36px rgba(13, 18, 24, 0.05);
     }
     .brand {
       display: inline-flex;
       align-items: center;
       gap: 12px;
       text-decoration: none;
-      font-weight: 780;
+      font-weight: 800;
       letter-spacing: -0.03em;
       white-space: nowrap;
     }
@@ -97,53 +96,56 @@
       border-radius: 8px;
       display: grid;
       place-items: center;
-      background: var(--ink);
+      background: #0c0d10;
       color: #fff;
       font-size: 0.62rem;
-      font-family: "IBM Plex Mono", monospace;
-      box-shadow: 0 12px 28px rgba(11, 11, 12, 0.18);
+      box-shadow: 0 12px 28px rgba(11, 13, 16, 0.18);
     }
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 12px;
     }
-    .nav-links a {
+    .nav-link {
       text-decoration: none;
       color: var(--muted);
       font-size: 0.87rem;
-      font-weight: 650;
+      font-weight: 700;
     }
-    .nav-links a:hover { color: var(--ink); }
-    .nav-cta {
-      min-height: 40px;
+    .btn {
+      min-height: 44px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0 16px;
+      padding: 0 18px;
       border-radius: 999px;
-      background: var(--ink);
-      color: #fff !important;
-      box-shadow: 0 16px 32px rgba(11, 11, 12, 0.16);
-      transition: transform 180ms ease, box-shadow 180ms ease;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 800;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
     }
-    .nav-cta:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 20px 36px rgba(11, 11, 12, 0.2);
+    .btn:hover { transform: translateY(-1px); }
+    .btn-dark {
+      background: #0b0d10;
+      color: #fff;
+      box-shadow: 0 16px 34px rgba(11, 13, 16, 0.16);
     }
-    main { position: relative; z-index: 1; }
-    section { padding: 22px 0; }
-    .hero {
-      padding: 16px 0 28px;
+    .btn-light {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid var(--line);
+      color: var(--ink);
     }
+    main, section { position: relative; z-index: 1; }
+    section { padding: 88px 0; }
+    .hero { padding: 18px 0 32px; }
     .hero-shell {
       position: relative;
       overflow: hidden;
       border-radius: var(--radius-xl);
-      border: 1px solid rgba(11, 11, 12, 0.08);
+      border: 1px solid var(--line);
       background:
-        linear-gradient(140deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.68)),
-        linear-gradient(180deg, #fbfcfd 0%, #eef2f6 100%);
+        linear-gradient(140deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.68)),
+        linear-gradient(180deg, #fbfcfd 0%, var(--bg-2) 100%);
       box-shadow: var(--shadow-strong);
     }
     .hero-shell::before {
@@ -151,62 +153,64 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(11, 11, 12, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(11, 11, 12, 0.05) 1px, transparent 1px);
-      background-size: 36px 36px;
-      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent 82%);
+        linear-gradient(rgba(11, 13, 16, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(11, 13, 16, 0.05) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.78), transparent 80%);
+      animation: drift 16s linear infinite;
       pointer-events: none;
     }
-    .hero-glow {
+    .hero-orb {
       position: absolute;
-      inset: auto -8% -18% auto;
-      width: 440px;
-      height: 440px;
+      right: -120px;
+      bottom: -140px;
+      width: 420px;
+      height: 420px;
       border-radius: 50%;
       background:
-        radial-gradient(circle at center, rgba(28, 155, 99, 0.14), transparent 36%),
-        radial-gradient(circle at 44% 40%, rgba(113, 128, 146, 0.16), transparent 20%);
-      filter: blur(4px);
-      opacity: 0.75;
+        radial-gradient(circle at center, rgba(11, 13, 16, 0.10), transparent 32%),
+        radial-gradient(circle at 40% 40%, rgba(120, 132, 145, 0.18), transparent 20%);
+      filter: blur(10px);
+      opacity: 0.9;
       pointer-events: none;
     }
     .hero-grid {
       position: relative;
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-      gap: 28px;
-      align-items: center;
-      padding: 88px 42px 42px;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      gap: 24px;
+      align-items: end;
+      padding: 84px 42px 42px;
     }
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
       color: var(--muted-2);
-      font-size: 0.73rem;
+      font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.13em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
     .eyebrow::before {
       content: "";
-      width: 26px;
+      width: 24px;
       height: 1px;
-      background: rgba(11, 11, 12, 0.24);
+      background: rgba(11, 13, 16, 0.22);
     }
     h1 {
-      max-width: 760px;
-      font-size: clamp(3.3rem, 7vw, 6rem);
+      max-width: 780px;
+      font-size: clamp(3.2rem, 6.5vw, 5.9rem);
       line-height: 0.92;
       letter-spacing: -0.07em;
       font-weight: 800;
     }
-    .hero-copy p {
-      max-width: 640px;
+    .lead {
+      max-width: 720px;
       margin-top: 20px;
       color: var(--muted);
-      font-size: 1.06rem;
+      font-size: 1.04rem;
       line-height: 1.72;
     }
     .hero-actions {
@@ -215,149 +219,131 @@
       gap: 12px;
       margin-top: 28px;
     }
-    .btn {
-      min-height: 48px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 20px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 750;
-      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
-    }
-    .btn-primary {
-      color: #fff;
-      background: var(--ink);
-      box-shadow: 0 16px 34px rgba(11, 11, 12, 0.16);
-    }
-    .btn-secondary {
-      color: var(--ink);
-      background: rgba(255, 255, 255, 0.86);
-      border: 1px solid rgba(11, 11, 12, 0.1);
-    }
-    .btn:hover { transform: translateY(-1px); }
-    .hero-tags {
+    .hero-chips {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 28px;
+      margin-top: 24px;
     }
-    .hero-tags span {
+    .chip {
       min-height: 36px;
       display: inline-flex;
       align-items: center;
       padding: 0 14px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.78);
-      border: 1px solid rgba(11, 11, 12, 0.08);
-      box-shadow: 0 12px 24px rgba(14, 17, 22, 0.05);
-      color: #2f3740;
-      font-size: 0.78rem;
-      font-weight: 700;
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(11, 13, 16, 0.08);
+      color: #2d353d;
+      font-size: 0.76rem;
+      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(13, 18, 24, 0.05);
     }
-    .hero-panel {
+    .system-card {
       position: relative;
+      overflow: hidden;
       border-radius: 24px;
-      border: 1px solid rgba(11, 11, 12, 0.08);
-      background: rgba(15, 17, 19, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(12, 14, 18, 0.95);
       color: #fff;
       padding: 24px;
-      box-shadow: 0 30px 64px rgba(11, 11, 12, 0.24);
-      overflow: hidden;
-      min-height: 420px;
+      box-shadow: 0 28px 60px rgba(11, 13, 16, 0.22);
     }
-    .hero-panel::before {
+    .system-card::before {
       content: "";
       position: absolute;
       inset: 0;
       background-image:
         linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-      background-size: 30px 30px;
-      opacity: 0.6;
+      background-size: 28px 28px;
+      opacity: 0.55;
       pointer-events: none;
     }
-    .panel-top {
+    .system-head {
       position: relative;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 26px;
+      margin-bottom: 20px;
     }
-    .panel-kicker {
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
+    .system-head span {
+      color: rgba(255, 255, 255, 0.60);
+      font-size: 0.66rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.64);
+      font-weight: 700;
     }
-    .panel-light {
+    .system-light {
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 0 8px rgba(28, 155, 99, 0.12);
+      background: #a9b2bc;
+      box-shadow: 0 0 0 8px rgba(169, 178, 188, 0.12);
     }
-    .panel-lines {
+    .system-card h2 {
+      font-size: 1.5rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+    }
+    .system-card p {
+      color: rgba(255, 255, 255, 0.74);
+      line-height: 1.68;
+      font-size: 0.92rem;
+    }
+    .system-flow {
       position: relative;
       display: grid;
-      gap: 14px;
+      gap: 12px;
+      margin-top: 20px;
     }
-    .panel-line {
-      position: relative;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+    .flow-row {
       border-radius: 18px;
-      background: rgba(255, 255, 255, 0.04);
-      padding: 18px;
-      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 14px;
     }
-    .panel-line::after {
-      content: "";
-      position: absolute;
-      inset: auto -20% 0 0;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(28, 155, 99, 0), rgba(28, 155, 99, 0.7), rgba(255, 255, 255, 0));
-      animation: signal 6s linear infinite;
-    }
-    .panel-line:nth-child(2)::after { animation-delay: -2s; }
-    .panel-line:nth-child(3)::after { animation-delay: -4s; }
-    .panel-line b {
+    .flow-row small {
       display: block;
-      font-size: 1.02rem;
-      letter-spacing: -0.03em;
+      color: rgba(255, 255, 255, 0.48);
+      font-size: 0.60rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+    .flow-row b {
+      display: block;
+      font-size: 0.95rem;
       margin-bottom: 6px;
     }
-    .panel-line span {
+    .flow-row span {
       display: block;
       color: rgba(255, 255, 255, 0.72);
-      font-size: 0.9rem;
-      line-height: 1.6;
+      font-size: 0.82rem;
+      line-height: 1.52;
     }
     .section-head {
-      margin-bottom: 22px;
+      max-width: 760px;
+      margin-bottom: 26px;
     }
     .section-kicker {
       color: var(--muted-2);
-      font-size: 0.72rem;
+      font-size: 0.70rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       font-weight: 700;
       margin-bottom: 12px;
     }
-    h2 {
-      font-size: clamp(2rem, 4vw, 3.35rem);
-      line-height: 0.98;
+    .section-head h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 0.96;
       letter-spacing: -0.06em;
-      font-weight: 780;
+      font-weight: 800;
     }
     .section-head p {
-      max-width: 760px;
-      margin-top: 12px;
+      margin-top: 14px;
       color: var(--muted);
-      font-size: 1rem;
       line-height: 1.72;
+      font-size: 0.99rem;
     }
     .grid-3 {
       display: grid;
@@ -365,20 +351,11 @@
       gap: 18px;
     }
     .card {
-      position: relative;
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(11, 11, 12, 0.08);
-      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.78);
       box-shadow: var(--shadow);
       padding: 26px;
-      overflow: hidden;
-    }
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(113, 128, 146, 0.07), transparent 38%);
-      pointer-events: none;
     }
     .card-label {
       display: inline-flex;
@@ -386,123 +363,191 @@
       min-height: 30px;
       padding: 0 10px;
       border-radius: 999px;
-      background: rgba(11, 11, 12, 0.05);
+      background: rgba(11, 13, 16, 0.05);
       color: var(--muted-2);
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       font-weight: 700;
       margin-bottom: 16px;
     }
     .card h3 {
-      font-size: 1.42rem;
-      line-height: 1.06;
+      font-size: 1.34rem;
+      line-height: 1.04;
       letter-spacing: -0.04em;
       margin-bottom: 10px;
     }
     .card p {
       color: var(--muted);
       line-height: 1.72;
-      font-size: 0.95rem;
+      font-size: 0.94rem;
     }
     .card ul {
       list-style: none;
-      margin-top: 18px;
       display: grid;
       gap: 10px;
+      margin-top: 18px;
     }
     .card li {
       position: relative;
-      padding-left: 18px;
-      color: #313941;
-      line-height: 1.55;
-      font-size: 0.92rem;
+      padding-left: 16px;
+      color: #303841;
+      font-size: 0.90rem;
+      line-height: 1.56;
     }
     .card li::before {
       content: "";
       position: absolute;
       left: 0;
-      top: 0.58rem;
-      width: 7px;
-      height: 7px;
+      top: 0.55rem;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 0 5px rgba(28, 155, 99, 0.1);
+      background: #2b333d;
+      box-shadow: 0 0 0 5px rgba(43, 51, 61, 0.10);
     }
-    .value-grid {
+    .layer-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
+      grid-template-columns: 0.95fr 1.05fr;
       gap: 18px;
+      align-items: stretch;
     }
-    .value-panel {
+    .stack-card,
+    .list-card {
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(11, 11, 12, 0.08);
-      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.78);
       box-shadow: var(--shadow);
       padding: 28px;
     }
-    .value-panel p {
-      color: var(--muted);
-      line-height: 1.72;
-      font-size: 0.97rem;
-      margin-top: 12px;
-    }
-    .point-list {
+    .stack {
       display: grid;
       gap: 12px;
-      margin-top: 16px;
+      margin-top: 18px;
     }
-    .point {
-      border-top: 1px solid rgba(11, 11, 12, 0.08);
-      padding-top: 14px;
+    .stack-item {
+      border-radius: 18px;
+      border: 1px solid rgba(11, 13, 16, 0.08);
+      background: rgba(244, 246, 248, 0.92);
+      padding: 14px 16px;
     }
-    .point b {
+    .stack-item strong,
+    .list-item strong {
       display: block;
-      font-size: 1rem;
+      font-size: 0.96rem;
       letter-spacing: -0.03em;
+      margin-bottom: 6px;
     }
-    .point span {
+    .stack-item span,
+    .list-item span {
       display: block;
-      margin-top: 6px;
       color: var(--muted);
-      line-height: 1.65;
-      font-size: 0.92rem;
+      font-size: 0.90rem;
+      line-height: 1.6;
     }
-    .who-grid {
+    .list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .list-item {
+      padding-top: 12px;
+      border-top: 1px solid rgba(11, 13, 16, 0.08);
+    }
+    .list-item:first-child { border-top: 0; padding-top: 0; }
+    .steps {
+      display: grid;
+      gap: 14px;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 60px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 22px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.76);
+      box-shadow: 0 20px 48px rgba(13, 18, 24, 0.06);
+    }
+    .step-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: #0c0d10;
+      color: #fff;
+      font-size: 0.72rem;
+      letter-spacing: 0.10em;
+      box-shadow: 0 14px 28px rgba(11, 13, 16, 0.16);
+    }
+    .step h3 {
+      font-size: 1.02rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 7px;
+    }
+    .step p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.68;
+    }
+    .fit-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
     }
-    .who-card {
+    .fit-card {
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(11, 11, 12, 0.08);
-      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.78);
       box-shadow: var(--shadow);
       padding: 26px;
     }
-    .who-card h3 {
-      font-size: 1.28rem;
+    .fit-card h3 {
+      font-size: 1.26rem;
       letter-spacing: -0.04em;
       margin-bottom: 10px;
     }
-    .who-card p {
+    .fit-card p {
       color: var(--muted);
-      line-height: 1.7;
-      font-size: 0.95rem;
+      line-height: 1.72;
+      font-size: 0.94rem;
+      margin-bottom: 14px;
     }
-    .cta {
-      padding: 24px 0 40px;
+    .fit-card ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
     }
-    .cta-shell {
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(11, 11, 12, 0.08);
-      background:
-        linear-gradient(160deg, rgba(15, 17, 19, 0.96), rgba(25, 28, 31, 0.94)),
-        linear-gradient(180deg, #111214 0%, #1d2025 100%);
-      color: #fff;
-      box-shadow: 0 34px 84px rgba(11, 11, 12, 0.22);
-      overflow: hidden;
+    .fit-card li {
       position: relative;
+      padding-left: 16px;
+      color: #303841;
+      font-size: 0.90rem;
+      line-height: 1.56;
+    }
+    .fit-card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2b333d;
+    }
+    .cta { padding: 18px 0 40px; }
+    .cta-shell {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(11, 13, 16, 0.08);
+      background:
+        linear-gradient(160deg, rgba(10, 12, 15, 0.96), rgba(27, 31, 36, 0.94)),
+        linear-gradient(180deg, #101215 0%, #1d2127 100%);
+      color: #fff;
+      box-shadow: 0 34px 84px rgba(11, 13, 16, 0.22);
     }
     .cta-shell::before {
       content: "";
@@ -511,160 +556,130 @@
       background-image:
         linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-      background-size: 36px 36px;
-      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 88%);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent 86%);
       opacity: 0.55;
       pointer-events: none;
     }
     .cta-inner {
       position: relative;
-      padding: 42px;
+      padding: 44px 38px;
+      text-align: center;
     }
     .cta-inner h2 {
-      max-width: 720px;
-      color: #fff;
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: clamp(2.2rem, 4.8vw, 4.2rem);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+      font-weight: 800;
     }
     .cta-inner p {
-      max-width: 660px;
-      margin-top: 14px;
-      color: rgba(255, 255, 255, 0.74);
+      max-width: 620px;
+      margin: 16px auto 24px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.98rem;
       line-height: 1.72;
-      font-size: 1rem;
     }
-    .cta-inner .btn-primary {
-      margin-top: 24px;
-      background: #fff;
-      color: var(--ink);
-      box-shadow: none;
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .cta .btn-light {
+      background: rgba(255, 255, 255, 0.10);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.14);
     }
     footer {
-      width: min(1180px, calc(100% - 32px));
-      margin: 0 auto 24px;
-      padding: 18px 0 30px;
+      padding: 0 0 44px;
       color: var(--muted-2);
-      font-size: 0.84rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 12px 18px;
+      font-size: 0.78rem;
+      text-align: center;
     }
-    .foot-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 500ms ease, transform 500ms ease;
-    }
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    @keyframes signal {
-      0% { transform: translateX(-38%); opacity: 0; }
-      18% { opacity: 1; }
-      82% { opacity: 1; }
-      100% { transform: translateX(138%); opacity: 0; }
+    @keyframes drift {
+      from { transform: translate3d(0, 0, 0); }
+      to { transform: translate3d(-34px, -34px, 0); }
     }
     @media (max-width: 980px) {
       .hero-grid,
-      .value-grid,
-      .grid-3,
-      .who-grid {
+      .layer-grid,
+      .fit-grid,
+      .grid-3 {
         grid-template-columns: 1fr;
       }
-      .hero-panel {
-        min-height: 0;
-      }
     }
-    @media (max-width: 760px) {
+    @media (max-width: 720px) {
       .nav {
+        min-height: 66px;
         padding: 0 16px;
-        height: auto;
-        min-height: 70px;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding-top: 14px;
-        padding-bottom: 14px;
       }
-      .nav-links {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
+      .nav-link { display: none; }
+      .wrap { width: min(100% - 20px, 1180px); }
+      .hero-grid { padding: 62px 18px 20px; }
+      section { padding: 64px 0; }
+      .step {
+        grid-template-columns: 1fr;
         gap: 14px;
       }
-      .wrap { width: min(100% - 20px, 1180px); }
-      .hero-grid { padding: 72px 20px 22px; }
-      h1 { font-size: clamp(2.5rem, 13vw, 4rem); }
-      .hero-copy p,
-      .section-head p,
-      .cta-inner p { font-size: 0.97rem; }
-      .hero-panel,
-      .card,
-      .value-panel,
-      .who-card,
-      .cta-inner { padding: 20px; }
-      section { padding: 18px 0; }
-      footer {
-        padding-left: 4px;
-        padding-right: 4px;
-      }
+      .cta-inner { padding: 34px 18px; }
     }
   </style>
 </head>
 <body>
   <nav class="nav">
-    <a class="brand" href="/">
-      <span class="brand-mark">AR</span>
-      <span>ArgusReach</span>
-    </a>
+    <a href="/" class="brand"><span class="brand-mark mono">AR</span>ArgusReach</a>
     <div class="nav-links">
-      <a href="/workflow.html">How It Works</a>
-      <a href="/faq.html">FAQ</a>
-      <a href="#book" class="nav-cta">Book a Call</a>
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/workflow">Workflow</a>
+      <a class="nav-link" href="/faq">FAQ</a>
+      <a class="btn btn-dark" href="https://calendly.com/vito-argusreach/30min" target="_blank" rel="noopener">Discuss a Workflow</a>
     </div>
   </nav>
 
   <main>
     <section class="hero">
       <div class="wrap">
-        <div class="hero-shell reveal">
-          <div class="hero-glow"></div>
+        <div class="hero-shell">
+          <div class="hero-orb"></div>
           <div class="hero-grid">
-            <div class="hero-copy">
-              <div class="eyebrow mono">ArgusReach</div>
-              <h1>AI systems for work that keeps repeating.</h1>
-              <p>ArgusReach helps businesses turn recurring reporting, research, operations, and internal workflow work into cleaner systems. The goal is not hype. The goal is useful output, less manual drag, and better visibility.</p>
+            <div>
+              <div class="eyebrow mono">Custom AI agent systems</div>
+              <h1>The operational and growth layer a firm never hired.</h1>
+              <p class="lead">ArgusReach builds custom AI agent systems for professional firms that need more output, tighter consistency, and new capability without adding headcount. We improve work your team already does and perform valuable work your firm is not staffed to do.</p>
               <div class="hero-actions">
-                <a href="https://calendly.com/vito-argusreach/30min" class="btn btn-primary" target="_blank" rel="noopener">Book a Call</a>
-                <a href="/workflow.html" class="btn btn-secondary">See How It Works</a>
+                <a class="btn btn-dark" href="https://calendly.com/vito-argusreach/30min" target="_blank" rel="noopener">Discuss a Workflow</a>
+                <a class="btn btn-light" href="/workflow">See How It Works</a>
               </div>
-              <div class="hero-tags">
-                <span>Reporting engines</span>
-                <span>Research agents</span>
-                <span>Internal tools</span>
-                <span>Workflow automation</span>
+              <div class="hero-chips">
+                <span class="chip">Custom agents over generic tools</span>
+                <span class="chip">Human review where it matters</span>
+                <span class="chip">Built on top of existing systems</span>
               </div>
             </div>
-            <aside class="hero-panel" aria-label="ArgusReach operating model">
-              <div class="panel-top">
-                <div class="panel-kicker mono">What We Actually Do</div>
-                <span class="panel-light" aria-hidden="true"></span>
+            <aside class="system-card">
+              <div class="system-head">
+                <span class="mono">Intelligence layer</span>
+                <div class="system-light"></div>
               </div>
-              <div class="panel-lines">
-                <div class="panel-line">
-                  <b>Map the real workflow.</b>
-                  <span>Start with the report, process, review loop, or internal task that already matters.</span>
+              <h2>Your systems stay. The output gets better.</h2>
+              <p>We sit above the spreadsheets, inboxes, CRMs, folders, reports, and source data you already use. The result is a controlled layer that turns scattered information into reliable work.</p>
+              <div class="system-flow">
+                <div class="flow-row">
+                  <small class="mono">Inputs</small>
+                  <b>Internal systems and source data</b>
+                  <span>CRM records, spreadsheets, folders, documents, websites, dashboards, email threads.</span>
                 </div>
-                <div class="panel-line">
-                  <b>Build the useful layer.</b>
-                  <span>Create the agent, dashboard, reporting engine, or operating tool that removes the repetitive work.</span>
+                <div class="flow-row">
+                  <small class="mono">Agents</small>
+                  <b>Custom logic built around your workflow</b>
+                  <span>Research, routing, drafting, checking, reporting, follow-up, monitoring, and cross-system actions.</span>
                 </div>
-                <div class="panel-line">
-                  <b>Keep judgment visible.</b>
-                  <span>Approvals, edits, exceptions, and sensitive decisions stay clear instead of disappearing behind a black box.</span>
+                <div class="flow-row">
+                  <small class="mono">Outputs</small>
+                  <b>Work your team can actually use</b>
+                  <span>Reports, summaries, alerts, outbound activity, operational tasks, handoff queues, and clean decisions.</span>
                 </div>
               </div>
             </aside>
@@ -673,69 +688,87 @@
       </div>
     </section>
 
-    <section>
+    <section id="builds">
       <div class="wrap">
-        <div class="section-head reveal">
-          <div class="section-kicker mono">What We Build</div>
-          <h2>Simple value prop. Real business work.</h2>
-          <p>We do not sell generic AI theater. We build practical systems around the work a business already has to do every week or every month.</p>
+        <div class="section-head">
+          <div class="section-kicker mono">What we build</div>
+          <h2>Custom agents built around real business work.</h2>
+          <p>Not generic chatbots. Not off-the-shelf automation kits. We design systems around the actual work a firm needs done, then make that work faster, more consistent, and easier to control.</p>
         </div>
         <div class="grid-3">
-          <article class="card reveal">
-            <div class="card-label mono">Reporting</div>
-            <h3>Reporting engines</h3>
-            <p>Recurring reports, dashboards, summaries, client updates, and executive views that should not be rebuilt by hand every cycle.</p>
+          <article class="card">
+            <div class="card-label mono">Growth systems</div>
+            <h3>Sales and marketing engines</h3>
+            <p>Agents that keep business development moving without requiring constant manual effort.</p>
             <ul>
-              <li>Collect inputs from files, folders, exports, or websites</li>
-              <li>Run the logic and prepare the output</li>
-              <li>Keep review visible before anything important goes out</li>
+              <li>Lead research and qualification</li>
+              <li>Outbound support and client follow-up</li>
+              <li>Content and marketing workflow support</li>
             </ul>
           </article>
-          <article class="card reveal">
-            <div class="card-label mono">Research</div>
-            <h3>Research and monitoring agents</h3>
-            <p>Systems that watch sources, track changes, organize findings, and deliver a useful brief instead of forcing someone to re-check everything manually.</p>
+          <article class="card">
+            <div class="card-label mono">Intelligence systems</div>
+            <h3>Research, monitoring, and reporting</h3>
+            <p>Systems that watch important sources, extract the signal, and put it in front of the right people.</p>
             <ul>
-              <li>Source monitoring and change tracking</li>
-              <li>Structured notes and recurring summaries</li>
-              <li>Clear alerts when something actually matters</li>
+              <li>Executive summaries and recurring reports</li>
+              <li>Competitor, market, or policy monitoring</li>
+              <li>Decision support and internal intelligence</li>
             </ul>
           </article>
-          <article class="card reveal">
-            <div class="card-label mono">Operations</div>
-            <h3>Internal workflow tools</h3>
-            <p>Approval queues, operating panels, recurring process tools, and AI-assisted workflows that help the team move faster without losing control.</p>
+          <article class="card">
+            <div class="card-label mono">Operations systems</div>
+            <h3>Workflow and execution support</h3>
+            <p>Agent systems that reduce repetitive internal work and connect disconnected tools into one process.</p>
             <ul>
-              <li>Visible handoffs and stop points</li>
-              <li>Human review where judgment matters</li>
-              <li>Supportable systems, not one-off hacks</li>
+              <li>Bookkeeping support and data cleanup</li>
+              <li>Internal workflow routing and approvals</li>
+              <li>Cross-system automation with human checkpoints</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section>
+    <section id="layer">
       <div class="wrap">
-        <div class="value-grid">
-          <div class="value-panel reveal">
-            <div class="section-kicker mono">Why It Works</div>
-            <h2>Built around the workflow, not around a buzzword.</h2>
-            <p>The wrong approach is starting with a model and then inventing a problem for it. The right approach is starting with the actual work, then deciding what should be automated, what should be reviewed, and what should stay human.</p>
+        <div class="section-head">
+          <div class="section-kicker mono">The intelligence layer</div>
+          <h2>We do not ask firms to rip out what already works.</h2>
+          <p>Most firms already have the data. The problem is that it lives across too many places and does not reliably turn into output. ArgusReach builds the layer that connects that information, applies logic, and produces useful work.</p>
+        </div>
+        <div class="layer-grid">
+          <div class="stack-card">
+            <div class="section-kicker mono">What sits underneath</div>
+            <div class="stack">
+              <div class="stack-item">
+                <strong>Existing systems</strong>
+                <span>Email, spreadsheets, CRMs, dashboards, documents, internal files, websites, and reporting tools.</span>
+              </div>
+              <div class="stack-item">
+                <strong>Your process</strong>
+                <span>Reviews, approvals, follow-up steps, exceptions, and the points where judgment actually matters.</span>
+              </div>
+              <div class="stack-item">
+                <strong>Custom agent layer</strong>
+                <span>Logic, prompts, automations, monitoring, and handoffs designed around your workflow instead of around a generic app template.</span>
+              </div>
+            </div>
           </div>
-          <div class="value-panel reveal">
-            <div class="point-list">
-              <div class="point">
-                <b>Shorter path to value</b>
-                <span>We focus on the recurring work that is already expensive, slow, or annoying.</span>
+          <div class="list-card">
+            <div class="section-kicker mono">Why it works</div>
+            <div class="list">
+              <div class="list-item">
+                <strong>It fits the firm instead of forcing a new operating model.</strong>
+                <span>The agent layer works with the systems and people already in place.</span>
               </div>
-              <div class="point">
-                <b>Cleaner control layer</b>
-                <span>Approvals, exceptions, and review points are part of the build from the start.</span>
+              <div class="list-item">
+                <strong>It expands capacity without hiding the work.</strong>
+                <span>Teams get more done, and management keeps visibility into what the system is doing.</span>
               </div>
-              <div class="point">
-                <b>Fits the stack you already use</b>
-                <span>Files, Excel, SharePoint, websites, dashboards, and internal tools can all sit inside the same workflow.</span>
+              <div class="list-item">
+                <strong>It is built for production, not for demos.</strong>
+                <span>Outputs, checks, routing, and support are part of the build from the start.</span>
               </div>
             </div>
           </div>
@@ -743,34 +776,88 @@
       </div>
     </section>
 
-    <section>
+    <section id="process">
       <div class="wrap">
-        <div class="section-head reveal">
-          <div class="section-kicker mono">Who It Is For</div>
-          <h2>Best fit for teams with recurring work and no time for nonsense.</h2>
-          <p>If the same report, research pass, review process, or internal operating task keeps getting rebuilt manually, that is the kind of work we look at first.</p>
+        <div class="section-head">
+          <div class="section-kicker mono">How we work</div>
+          <h2>Discovery. Design. Build. Support.</h2>
+          <p>We start with one real workflow, define the business logic, build the right system around it, and keep it usable after launch.</p>
         </div>
-        <div class="who-grid">
-          <article class="who-card reveal">
-            <h3>Good fit</h3>
-            <p>Businesses dealing with recurring reporting, source monitoring, client materials, internal approvals, dashboards, workflow coordination, or research work that still depends too heavily on copy, paste, cleanup, and follow-up.</p>
+        <div class="steps">
+          <article class="step">
+            <div class="step-num mono">01</div>
+            <div>
+              <h3>Discovery</h3>
+              <p>We map the current workflow, identify the friction, and separate what should be automated from what should stay under human review.</p>
+            </div>
           </article>
-          <article class="who-card reveal">
-            <h3>Not the pitch</h3>
-            <p>This is not a promise of full autopilot or employee replacement. It is AI-assisted workflow design and system building for businesses that want cleaner execution and better output.</p>
+          <article class="step">
+            <div class="step-num mono">02</div>
+            <div>
+              <h3>Design</h3>
+              <p>We define the data sources, decision logic, outputs, failure handling, and checkpoints so the system fits the real business process.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div class="step-num mono">03</div>
+            <div>
+              <h3>Build</h3>
+              <p>We build the custom agents, integrations, and workflow layer that connect your systems and produce the output the firm needs.</p>
+            </div>
+          </article>
+          <article class="step">
+            <div class="step-num mono">04</div>
+            <div>
+              <h3>Support</h3>
+              <p>We stay involved after launch so the system is monitored, maintained, and adjusted as the workflow evolves.</p>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="book" class="cta">
+    <section id="fit">
       <div class="wrap">
-        <div class="cta-shell reveal">
+        <div class="section-head">
+          <div class="section-kicker mono">Fit</div>
+          <h2>Who this is for, and who it is not for.</h2>
+          <p>The best projects start where there is already meaningful work, useful data, and a clear reason to improve output or add capability.</p>
+        </div>
+        <div class="fit-grid">
+          <article class="fit-card">
+            <h3>Good fit</h3>
+            <p>Firms that want controlled, useful AI systems tied to real work.</p>
+            <ul>
+              <li>Professional firms with recurring workflows and decision bottlenecks</li>
+              <li>Operators who want measurable output, not AI theater</li>
+              <li>Teams that need more capacity without immediately adding headcount</li>
+              <li>Leaders who want human-in-the-loop controls where risk matters</li>
+            </ul>
+          </article>
+          <article class="fit-card">
+            <h3>Not a fit</h3>
+            <p>Situations where the goal is novelty, not operational value.</p>
+            <ul>
+              <li>Firms looking for a generic chatbot dropped onto the website</li>
+              <li>Teams that want full autopilot with no oversight</li>
+              <li>Projects with no real owner, workflow, or business use case</li>
+              <li>One-off experiments that are not meant to run in production</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap">
+        <div class="cta-shell">
           <div class="cta-inner">
-            <div class="section-kicker mono">Start Here</div>
-            <h2>Bring one real workflow. We will tell you what is worth building.</h2>
-            <p>Show us the report, process, task, or recurring internal mess. We will map the value prop quickly: what the system should do, where people stay involved, and what the first useful build should be.</p>
-            <a href="https://calendly.com/vito-argusreach/30min" class="btn btn-primary" target="_blank" rel="noopener">Book a Call</a>
+            <h2>Start with one workflow that matters.</h2>
+            <p>If there is a process in your firm that is repetitive, slow, inconsistent, or simply not getting done, that is the right place to start.</p>
+            <div class="cta-actions">
+              <a class="btn btn-dark" href="https://calendly.com/vito-argusreach/30min" target="_blank" rel="noopener">Discuss a Workflow</a>
+              <a class="btn btn-light" href="/faq">Read the FAQ</a>
+            </div>
           </div>
         </div>
       </div>
@@ -778,27 +865,7 @@
   </main>
 
   <footer>
-    <div><strong style="color:#111;">ArgusReach</strong> | Custom AI systems for business workflows | Tampa Bay, FL</div>
-    <div class="foot-links">
-      <a href="/workflow.html">How It Works</a>
-      <a href="/faq.html">FAQ</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="mailto:vito@argusreach.com">vito@argusreach.com</a>
-    </div>
-    <div>&copy; 2026 ArgusReach</div>
+    ArgusReach builds custom AI agent systems for professional firms.
   </footer>
-
-  <script>
-    const revealTargets = document.querySelectorAll(".reveal");
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
-    revealTargets.forEach((item) => revealObserver.observe(item));
-  </script>
 </body>
 </html>

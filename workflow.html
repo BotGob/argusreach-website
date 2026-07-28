@@ -1,811 +1,542 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="cache-bust" content="20260726-premium-system-b" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How ArgusReach Works - AI Systems for Real Workflows</title>
-<meta name="description" content="How ArgusReach maps a real business workflow and turns it into an AI system, dashboard, reporting engine, or controlled internal process." />
-<link rel="canonical" href="https://argusreach.com/workflow" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://argusreach.com/workflow" />
-<meta property="og:title" content="How ArgusReach Works - AI Systems for Real Workflows" />
-<meta property="og:description" content="From workflow walkthrough to a useful AI system, dashboard, reporting engine, or controlled internal process." />
-<meta property="og:site_name" content="ArgusReach" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="How ArgusReach Works - AI Systems for Real Workflows" />
-<meta name="twitter:description" content="How ArgusReach builds AI systems, dashboards, reports, and controlled workflows." />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --ink: #0b0c0f;
-  --ink-soft: #20242b;
-  --muted: #59616c;
-  --muted-2: #7a818b;
-  --line: rgba(11, 12, 15, 0.1);
-  --line-strong: rgba(11, 12, 15, 0.16);
-  --surface: rgba(255,255,255,0.86);
-  --surface-strong: #ffffff;
-  --panel: #f4f7fb;
-  --panel-2: #eef3fb;
-  --blue: #687484;
-  --cyan: #8692a0;
-  --green: #1b9a63;
-  --gold: #b5872b;
-  --navy: #111317;
-  --shadow: 0 28px 80px rgba(15, 18, 24, 0.09);
-  --shadow-strong: 0 36px 110px rgba(15, 18, 24, 0.14);
-  --radius-xl: 30px;
-  --radius-lg: 22px;
-  --radius-md: 16px;
-}
-html { scroll-behavior: smooth; }
-body {
-  font-family: Geist, system-ui, sans-serif;
-  color: var(--ink);
-  background:
-    radial-gradient(circle at 8% 0%, rgba(15,18,24,0.06), transparent 24%),
-    radial-gradient(circle at 88% 8%, rgba(116,128,142,0.07), transparent 18%),
-    linear-gradient(90deg, rgba(9,17,31,0.03) 1px, transparent 1px),
-    linear-gradient(180deg, #fcfcfc 0%, #f1f3f5 100%);
-  background-size: auto, auto, 120px 100%, auto;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: geometricPrecision;
-}
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(120deg, transparent 0 28%, rgba(15,18,24,0.03) 28% 28.3%, transparent 28.3% 100%),
-    linear-gradient(60deg, transparent 0 68%, rgba(125,134,145,0.03) 68% 68.25%, transparent 68.25% 100%);
-  opacity: 0.9;
-}
-a { color: inherit; }
-.wrap { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
-.mono { font-family: "JetBrains Mono", monospace; }
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 0 28px;
-  background: rgba(255,255,255,0.82);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(12,25,49,0.08);
-  box-shadow: 0 18px 34px rgba(14,26,54,0.05);
-}
-.brand {
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  font-weight: 760;
-  letter-spacing: -0.02em;
-}
-.brand-mark {
-  width: 30px;
-  height: 28px;
-  border-radius: 8px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(145deg, #0d1a33, #142445);
-  color: #fff;
-  font-size: 0.62rem;
-  font-family: "JetBrains Mono", monospace;
-  box-shadow: 0 14px 30px rgba(12,23,48,0.16);
-}
-.brand small {
-  color: var(--muted-2);
-  font-weight: 600;
-  font-size: 0.8rem;
-}
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.nav-link {
-  text-decoration: none;
-  color: var(--muted);
-  font-size: 0.88rem;
-  font-weight: 650;
-}
-.btn {
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  padding: 0 18px;
-  text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 750;
-  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
-}
-.btn-dark {
-  color: #fff;
-  background: linear-gradient(135deg, #0c1730, #17294b);
-  box-shadow: 0 18px 34px rgba(12,23,48,0.18);
-}
-.btn-light {
-  color: var(--ink);
-  background: rgba(255,255,255,0.84);
-  border: 1px solid rgba(12,25,49,0.1);
-  box-shadow: 0 14px 28px rgba(14,26,54,0.08);
-}
-.btn:hover { transform: translateY(-1px); }
-.hero {
-  padding: 16px 0 28px;
-}
-.hero-shell {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(12,25,49,0.08);
-  border-radius: var(--radius-xl);
-  background:
-    linear-gradient(120deg, rgba(255,255,255,0.88), rgba(255,255,255,0.55)),
-    linear-gradient(145deg, rgba(52,104,255,0.08), transparent 44%),
-    linear-gradient(180deg, #f8fbff 0%, #edf3fa 100%);
-  box-shadow: var(--shadow-strong);
-}
-.hero-shell::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(9,17,31,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(9,17,31,0.04) 1px, transparent 1px);
-  background-size: 36px 36px;
-  mask-image: linear-gradient(180deg, rgba(0,0,0,0.7), transparent 72%);
-  opacity: 0.55;
-  animation: drift 18s linear infinite;
-  pointer-events: none;
-}
-.hero-orbit {
-  position: absolute;
-  inset: auto -8% -22% auto;
-  width: 520px;
-  height: 520px;
-  border-radius: 50%;
-  border: 1px solid rgba(12,25,49,0.06);
-  background:
-    radial-gradient(circle at center, rgba(52,104,255,0.12), transparent 42%),
-    radial-gradient(circle at 34% 38%, rgba(18,169,199,0.16), transparent 14%);
-  filter: blur(0.3px);
-}
-.hero-orbit::before,
-.hero-orbit::after {
-  content: "";
-  position: absolute;
-  inset: 14%;
-  border-radius: 50%;
-  border: 1px solid rgba(12,25,49,0.08);
-}
-.hero-orbit::after {
-  inset: 31%;
-  border-color: rgba(52,104,255,0.14);
-}
-.hero-grid {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1.08fr 0.92fr;
-  gap: 24px;
-  align-items: end;
-  padding: 80px 44px 42px;
-}
-.eyebrow {
-  color: #59708c;
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-weight: 700;
-  margin-bottom: 18px;
-}
-h1 {
-  max-width: 800px;
-  font-size: clamp(3.25rem, 6vw, 5.8rem);
-  line-height: 0.92;
-  letter-spacing: -0.06em;
-  font-weight: 780;
-}
-h1 span {
-  display: block;
-  font-family: "Instrument Serif", serif;
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  color: #2f4b72;
-}
-.hero-copy p {
-  max-width: 620px;
-  margin-top: 20px;
-  color: var(--muted);
-  font-size: 1.05rem;
-  line-height: 1.72;
-}
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 28px;
-}
-.signal-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 22px;
-}
-.signal-chip {
-  min-height: 34px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0 13px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.72);
-  border: 1px solid rgba(12,25,49,0.08);
-  color: #43546b;
-  font-size: 0.76rem;
-  font-weight: 700;
-  box-shadow: 0 12px 24px rgba(14,26,54,0.05);
-}
-.signal-chip::before {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--green);
-  box-shadow: 0 0 0 5px rgba(29,184,121,0.09);
-}
-.signal-chip:nth-child(2)::before { background: var(--blue); box-shadow: 0 0 0 5px rgba(52,104,255,0.09); }
-.signal-chip:nth-child(3)::before { background: var(--gold); box-shadow: 0 0 0 5px rgba(213,155,44,0.09); }
-.signal-chip:nth-child(4)::before { background: var(--cyan); box-shadow: 0 0 0 5px rgba(18,169,199,0.09); }
-.hero-system {
-  position: relative;
-  border: 1px solid rgba(12,25,49,0.1);
-  border-radius: 24px;
-  background:
-    linear-gradient(180deg, rgba(12,23,48,0.96), rgba(15,28,55,0.92));
-  color: #f6f9ff;
-  box-shadow: 0 32px 72px rgba(12,23,48,0.22);
-  overflow: hidden;
-}
-.hero-system::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size: 28px 28px;
-  opacity: 0.7;
-}
-.system-top {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 42px;
-  padding: 0 18px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  font-size: 0.58rem;
-  color: rgba(255,255,255,0.54);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-family: "JetBrains Mono", monospace;
-}
-.system-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--green);
-}
-.system-dot:nth-child(2) { background: var(--gold); }
-.system-dot:nth-child(3) { background: var(--blue); }
-.system-grid {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  gap: 12px;
-  padding: 18px;
-}
-.system-card {
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
-  background: rgba(255,255,255,0.05);
-  padding: 14px;
-}
-.system-card small {
-  display: block;
-  color: rgba(255,255,255,0.48);
-  font-size: 0.58rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-family: "JetBrains Mono", monospace;
-  margin-bottom: 9px;
-}
-.system-card b {
-  display: block;
-  font-size: 0.96rem;
-  margin-bottom: 7px;
-}
-.system-card span {
-  display: block;
-  color: rgba(255,255,255,0.72);
-  font-size: 0.82rem;
-  line-height: 1.52;
-}
-.system-route {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-}
-.route-node {
-  min-height: 74px;
-  border-radius: 14px;
-  padding: 10px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-}
-.route-node b {
-  display: block;
-  font-size: 0.8rem;
-  margin-bottom: 6px;
-}
-.route-node span {
-  color: rgba(255,255,255,0.62);
-  font-size: 0.7rem;
-  line-height: 1.45;
-}
-section {
-  padding: 92px 0;
-}
-.section-kicker {
-  color: #637791;
-  font-size: 0.66rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-weight: 700;
-  margin-bottom: 16px;
-}
-.section-title {
-  max-width: 820px;
-  font-size: clamp(2.35rem, 4.8vw, 4.65rem);
-  line-height: 0.96;
-  letter-spacing: -0.06em;
-  font-weight: 770;
-}
-.section-title em {
-  font-family: "Instrument Serif", serif;
-  font-style: italic;
-  font-weight: 400;
-  color: #35527d;
-}
-.section-sub {
-  max-width: 720px;
-  margin-top: 18px;
-  color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.78;
-}
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 40px;
-}
-.card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 24px;
-  border: 1px solid rgba(12,25,49,0.08);
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.94), rgba(246,249,253,0.94));
-  padding: 24px;
-  box-shadow: var(--shadow);
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-}
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--blue), var(--cyan), var(--green));
-  opacity: 0.78;
-}
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-strong);
-  border-color: rgba(12,25,49,0.12);
-}
-.card h3 {
-  font-size: 1.05rem;
-  letter-spacing: -0.03em;
-  margin-bottom: 10px;
-}
-.card p {
-  color: var(--muted);
-  line-height: 1.72;
-  font-size: 0.92rem;
-}
-.timeline {
-  display: grid;
-  gap: 14px;
-  margin-top: 42px;
-}
-.step {
-  display: grid;
-  grid-template-columns: 58px minmax(0, 1fr);
-  gap: 18px;
-  align-items: start;
-  padding: 22px;
-  border-radius: 22px;
-  background: rgba(255,255,255,0.7);
-  border: 1px solid rgba(12,25,49,0.08);
-  box-shadow: 0 22px 48px rgba(14,26,54,0.06);
-}
-.step-num {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: linear-gradient(145deg, #0d1a33, #18315e);
-  color: #fff;
-  display: grid;
-  place-items: center;
-  font-size: 0.74rem;
-  letter-spacing: 0.08em;
-  box-shadow: 0 16px 28px rgba(12,23,48,0.16);
-}
-.step h3 {
-  font-size: 1.04rem;
-  letter-spacing: -0.03em;
-  margin-bottom: 7px;
-}
-.step p {
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.72;
-}
-.reliability-shell {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 20px;
-  margin-top: 42px;
-}
-.reliability-panel,
-.signal-stack {
-  border-radius: 28px;
-  border: 1px solid rgba(12,25,49,0.08);
-  background: rgba(255,255,255,0.76);
-  box-shadow: var(--shadow);
-}
-.reliability-panel {
-  padding: 28px;
-}
-.reliability-panel h3 {
-  font-size: 1.2rem;
-  letter-spacing: -0.03em;
-  margin-bottom: 10px;
-}
-.reliability-panel p {
-  color: var(--muted);
-  line-height: 1.75;
-  font-size: 0.94rem;
-}
-.pill-grid {
-  display: grid;
-  gap: 10px;
-  margin-top: 18px;
-}
-.pill {
-  min-height: 40px;
-  display: inline-flex;
-  align-items: center;
-  padding: 0 14px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.9);
-  border: 1px solid rgba(12,25,49,0.08);
-  font-size: 0.8rem;
-  color: #243754;
-  font-weight: 700;
-  box-shadow: 0 12px 24px rgba(14,26,54,0.05);
-}
-.pill::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--blue);
-  margin-right: 10px;
-  box-shadow: 0 0 0 5px rgba(52,104,255,0.1);
-}
-.pill:nth-child(2)::before { background: var(--green); box-shadow: 0 0 0 5px rgba(29,184,121,0.1); }
-.pill:nth-child(3)::before { background: var(--gold); box-shadow: 0 0 0 5px rgba(213,155,44,0.1); }
-.signal-stack {
-  background: linear-gradient(180deg, #0f1a34, #132347);
-  padding: 20px;
-  display: grid;
-  gap: 12px;
-}
-.signal-box {
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 18px;
-  background: rgba(255,255,255,0.04);
-  padding: 18px;
-}
-.signal-box small {
-  display: block;
-  color: rgba(241,246,255,0.48);
-  font-size: 0.58rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-family: "JetBrains Mono", monospace;
-  margin-bottom: 10px;
-}
-.signal-box b {
-  display: block;
-  color: #eef3ff;
-  font-size: 1rem;
-  margin-bottom: 6px;
-}
-.signal-box span {
-  color: rgba(241,246,255,0.72);
-  font-size: 0.82rem;
-  line-height: 1.52;
-}
-.cta {
-  padding-bottom: 110px;
-}
-.cta-shell {
-  position: relative;
-  overflow: hidden;
-  border-radius: 30px;
-  border: 1px solid rgba(12,25,49,0.08);
-  background:
-    radial-gradient(circle at 12% 10%, rgba(52,104,255,0.12), transparent 26%),
-    radial-gradient(circle at 88% 84%, rgba(29,184,121,0.12), transparent 22%),
-    linear-gradient(180deg, rgba(255,255,255,0.92), rgba(242,247,252,0.96));
-  box-shadow: var(--shadow-strong);
-  padding: 56px 40px;
-  text-align: center;
-}
-.cta-shell h2 {
-  max-width: 820px;
-  margin: 0 auto;
-  font-size: clamp(2.6rem, 5vw, 4.9rem);
-  letter-spacing: -0.06em;
-  line-height: 0.94;
-  font-weight: 770;
-}
-.cta-shell h2 span {
-  font-family: "Instrument Serif", serif;
-  font-style: italic;
-  font-weight: 400;
-  color: #31517f;
-}
-.cta-shell p {
-  max-width: 690px;
-  margin: 18px auto 28px;
-  color: var(--muted);
-  line-height: 1.8;
-  font-size: 1rem;
-}
-.footer {
-  margin-top: 22px;
-  color: #728194;
-  font-size: 0.78rem;
-}
-@keyframes drift {
-  from { transform: translateY(0); }
-  to { transform: translateY(36px); }
-}
-@media (max-width: 980px) {
-  .hero-grid,
-  .reliability-shell,
-  .grid,
-  .system-route {
-    grid-template-columns: 1fr;
-  }
-  .hero-grid {
-    padding: 66px 24px 28px;
-  }
-  .hero-system {
-    margin-top: 8px;
-  }
-}
-@media (max-width: 720px) {
-  .nav {
-    height: 66px;
-    padding: 0 16px;
-  }
-  .nav-links .nav-link {
-    display: none;
-  }
-  .brand small {
-    display: none;
-  }
-  .wrap {
-    width: min(100% - 20px, 1180px);
-  }
-  .hero {
-    padding-top: 10px;
-  }
-  .hero-grid,
-  .cta-shell {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-  .section-title,
-  .cta-shell h2 {
-    letter-spacing: -0.05em;
-  }
-  .step {
-    grid-template-columns: 1fr;
-  }
-  .step-num {
-    width: 42px;
-    height: 42px;
-  }
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="cache-bust" content="20260728-workflow-layer-a" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How ArgusReach Works - Discovery, Design, Build, Support</title>
+  <meta name="description" content="How ArgusReach turns one real workflow into a production-grade AI agent system with clear logic, human checkpoints, and ongoing support." />
+  <link rel="canonical" href="https://argusreach.com/workflow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://argusreach.com/workflow" />
+  <meta property="og:title" content="How ArgusReach Works - Discovery, Design, Build, Support" />
+  <meta property="og:description" content="A straightforward view of how ArgusReach designs and builds custom AI agent systems around real firm workflows." />
+  <meta property="og:site_name" content="ArgusReach" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How ArgusReach Works - Discovery, Design, Build, Support" />
+  <meta name="twitter:description" content="Discovery, design, build, and support for custom AI agent systems." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f2f4f6;
+      --bg-2: #e9edf1;
+      --panel: rgba(255, 255, 255, 0.84);
+      --ink: #0b0d10;
+      --muted: #58616c;
+      --muted-2: #7b848e;
+      --line: rgba(11, 13, 16, 0.09);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --shadow: 0 24px 70px rgba(13, 18, 24, 0.08);
+      --shadow-strong: 0 34px 94px rgba(13, 18, 24, 0.12);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Manrope, system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(11, 13, 16, 0.06), transparent 24%),
+        radial-gradient(circle at 90% 10%, rgba(120, 132, 145, 0.14), transparent 18%),
+        linear-gradient(90deg, rgba(11, 13, 16, 0.03) 1px, transparent 1px),
+        linear-gradient(180deg, #fbfbfc 0%, var(--bg) 100%);
+      background-size: auto, auto, 96px 100%, auto;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(130deg, transparent 0 34%, rgba(11, 13, 16, 0.035) 34% 34.2%, transparent 34.2% 100%),
+        linear-gradient(60deg, transparent 0 74%, rgba(120, 132, 145, 0.035) 74% 74.2%, transparent 74.2% 100%);
+    }
+    a { color: inherit; }
+    .mono { font-family: "IBM Plex Mono", monospace; }
+    .wrap { width: min(1160px, calc(100% - 32px)); margin: 0 auto; }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      padding: 0 28px;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(11, 13, 16, 0.07);
+      box-shadow: 0 16px 36px rgba(13, 18, 24, 0.05);
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .brand-mark {
+      width: 30px;
+      height: 28px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: #0c0d10;
+      color: #fff;
+      font-size: 0.62rem;
+      box-shadow: 0 12px 28px rgba(11, 13, 16, 0.18);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-link {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.87rem;
+      font-weight: 700;
+    }
+    .btn {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 800;
+      transition: transform 180ms ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-dark {
+      background: #0b0d10;
+      color: #fff;
+      box-shadow: 0 16px 34px rgba(11, 13, 16, 0.16);
+    }
+    section { position: relative; z-index: 1; padding: 84px 0; }
+    .hero { padding: 18px 0 28px; }
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(140deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.68)),
+        linear-gradient(180deg, #fbfcfd 0%, var(--bg-2) 100%);
+      box-shadow: var(--shadow-strong);
+      padding: 78px 40px 40px;
+    }
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(11, 13, 16, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(11, 13, 16, 0.05) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.76), transparent 82%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      color: var(--muted-2);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    h1 {
+      max-width: 860px;
+      font-size: clamp(3rem, 6vw, 5.6rem);
+      line-height: 0.93;
+      letter-spacing: -0.07em;
+      font-weight: 800;
+    }
+    .lead {
+      max-width: 720px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.72;
+    }
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .point {
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.74);
+      padding: 16px;
+    }
+    .point strong {
+      display: block;
+      font-size: 0.94rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+    .point span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.58;
+    }
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 24px;
+    }
+    .section-kicker {
+      color: var(--muted-2);
+      font-size: 0.70rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .section-head h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
+      font-weight: 800;
+    }
+    .section-head p {
+      margin-top: 14px;
+      color: var(--muted);
+      line-height: 1.72;
+      font-size: 0.99rem;
+    }
+    .steps {
+      display: grid;
+      gap: 14px;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+    .step-num {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: #0c0d10;
+      color: #fff;
+      font-size: 0.72rem;
+      letter-spacing: 0.10em;
+      box-shadow: 0 14px 28px rgba(11, 13, 16, 0.16);
+    }
+    .step h3 {
+      font-size: 1.04rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 7px;
+    }
+    .step p {
+      color: var(--muted);
+      line-height: 1.68;
+      font-size: 0.92rem;
+    }
+    .step ul {
+      list-style: none;
+      display: grid;
+      gap: 9px;
+      margin-top: 14px;
+    }
+    .step li {
+      position: relative;
+      padding-left: 16px;
+      color: #303841;
+      font-size: 0.90rem;
+      line-height: 1.54;
+    }
+    .step li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2b333d;
+    }
+    .layer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+    .card h3 {
+      font-size: 1.24rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+    }
+    .card p {
+      color: var(--muted);
+      line-height: 1.72;
+      font-size: 0.94rem;
+    }
+    .card ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .card li {
+      position: relative;
+      padding-left: 16px;
+      color: #303841;
+      font-size: 0.90rem;
+      line-height: 1.56;
+    }
+    .card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2b333d;
+    }
+    .cta-shell {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(11, 13, 16, 0.08);
+      background:
+        linear-gradient(160deg, rgba(10, 12, 15, 0.96), rgba(27, 31, 36, 0.94)),
+        linear-gradient(180deg, #101215 0%, #1d2127 100%);
+      color: #fff;
+      box-shadow: 0 34px 84px rgba(11, 13, 16, 0.22);
+      padding: 40px 32px;
+      text-align: center;
+    }
+    .cta-shell h2 {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: clamp(2.1rem, 4.6vw, 4rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      font-weight: 800;
+    }
+    .cta-shell p {
+      max-width: 620px;
+      margin: 16px auto 22px;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.72;
+      font-size: 0.97rem;
+    }
+    footer {
+      padding: 0 0 40px;
+      color: var(--muted-2);
+      font-size: 0.78rem;
+      text-align: center;
+    }
+    @media (max-width: 980px) {
+      .hero-points,
+      .layer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 720px) {
+      .nav {
+        min-height: 66px;
+        padding: 0 16px;
+      }
+      .nav-link { display: none; }
+      .wrap { width: min(100% - 20px, 1160px); }
+      .hero-shell { padding: 62px 18px 24px; }
+      section { padding: 64px 0; }
+      .step {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .cta-shell { padding: 34px 18px; }
+    }
+  </style>
 </head>
 <body>
-<nav class="nav">
-  <a href="/" class="brand"><span class="brand-mark">AR</span>ArgusReach<small>Workflow build process</small></a>
-  <div class="nav-links">
-    <a class="nav-link" href="/">Home</a>
-    <a class="nav-link" href="/faq">FAQ</a>
-    <a class="btn btn-dark" href="https://calendly.com/vito-argusreach/30min" target="_blank" rel="noopener">Book a Call</a>
-  </div>
-</nav>
+  <nav class="nav">
+    <a href="/" class="brand"><span class="brand-mark mono">AR</span>ArgusReach</a>
+    <div class="nav-links">
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/workflow">Workflow</a>
+      <a class="nav-link" href="/faq">FAQ</a>
+      <a class="btn btn-dark" href="https://calendly.com/vito-argusreach/30min" target="_blank" rel="noopener">Discuss a Workflow</a>
+    </div>
+  </nav>
 
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-shell">
-      <div class="hero-orbit" aria-hidden="true"></div>
-      <div class="hero-grid">
-        <div class="hero-copy">
-        <div class="eyebrow mono">Workflow build process</div>
-          <h1>Start with one workflow.<span>Build the first useful system.</span></h1>
-          <p>Map the work, define the logic, keep review visible, and ship a system that can actually hold up in production.</p>
-          <div class="hero-actions">
-            <a href="https://calendly.com/vito-argusreach/30min" class="btn btn-dark" target="_blank" rel="noopener">Book a Workflow Call</a>
-            <a href="/faq" class="btn btn-light">Read the FAQ</a>
-          </div>
-          <div class="signal-row" aria-label="Workflow system capabilities">
-            <span class="signal-chip">Workflow discovery</span>
-            <span class="signal-chip">System build</span>
-            <span class="signal-chip">Human controls</span>
-            <span class="signal-chip">Ongoing support</span>
-          </div>
-        </div>
-        <div class="hero-system" aria-label="Workflow system model">
-          <div class="system-top"><span class="system-dot"></span><span class="system-dot"></span><span class="system-dot"></span> ARGUSREACH SYSTEM MAP</div>
-          <div class="system-grid">
-            <div class="system-card">
-              <small>Starting point</small>
-              <b>We do not start with a generic AI tool.</b>
-              <span>We start by understanding the workflow: where the data comes from, what gets checked, what decisions matter, and where people still need approval or judgment.</span>
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-shell">
+          <div class="eyebrow mono">How we work</div>
+          <h1>One real workflow. Built into a production-grade system.</h1>
+          <p class="lead">ArgusReach does not start with a generic AI tool. We start with a real process inside the firm, define what should happen, decide where humans stay involved, and build the system around that.</p>
+          <div class="hero-points">
+            <div class="point">
+              <strong>Workflow first</strong>
+              <span>The build starts with the actual process, not with a software demo.</span>
             </div>
-            <div class="system-route">
-              <div class="route-node"><b>Input</b><span>Files, portals, spreadsheets, reports</span></div>
-              <div class="route-node"><b>Logic</b><span>Checks, calculations, routing, exceptions</span></div>
-              <div class="route-node"><b>Review</b><span>Approvals, edits, judgment</span></div>
-              <div class="route-node"><b>Output</b><span>Dashboard, alert, report, action</span></div>
+            <div class="point">
+              <strong>Human-in-the-loop</strong>
+              <span>Review, approvals, and exceptions stay visible where judgment matters.</span>
             </div>
-            <div class="system-card">
-              <small>Build posture</small>
-              <b>One lane first. Expand after trust is earned.</b>
-              <span>The first build should prove the workflow can run cleanly, visibly, and repeatedly before it grows into a larger system.</span>
+            <div class="point">
+              <strong>Production fit</strong>
+              <span>Data inputs, outputs, checks, and support are part of the design from day one.</span>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section>
-  <div class="wrap">
-    <div class="section-kicker mono">Step 1</div>
-    <h2 class="section-title">Show us the work that keeps getting rebuilt <em>manually.</em></h2>
-    <p class="section-sub">Start with a recurring report, spreadsheet process, dashboard update, research task, competitor data pull, policy monitor, document review, CRM cleanup, finance/admin task, or operational status update.</p>
-    <div class="grid">
-      <div class="card"><h3>Reports and dashboards</h3><p>Management reports, client-facing materials, operational summaries, executive dashboards, and recurring performance updates.</p></div>
-      <div class="card"><h3>Data and research collection</h3><p>Websites, shared folders, portals, PDFs, workbooks, CRMs, email, government sources, or other systems.</p></div>
-      <div class="card"><h3>Manual coordination</h3><p>Approvals, exceptions, handoffs, follow-ups, review queues, and status updates that slow teams down.</p></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="section-kicker mono">Reliability Layer</div>
-    <h2 class="section-title">Reliable workflows need more than <em>a prompt.</em></h2>
-    <p class="section-sub">The useful system is the combination of logic, review points, memory, logs, and a clear support path. That is what makes the workflow repeatable.</p>
-    <div class="reliability-shell">
-      <div class="reliability-panel">
-        <h3>What stays attached to the workflow</h3>
-        <p>Each build should keep source expectations, business rules, reviewer notes, exceptions, and approval logic close to the work so the team is not re-explaining the process every time.</p>
-        <div class="pill-grid">
-          <span class="pill">Rules and calculations</span>
-          <span class="pill">Reviewer notes and rulings</span>
-          <span class="pill">Logs, approvals, and escalation points</span>
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker mono">Process</div>
+          <h2>Discovery. Design. Build. Support.</h2>
+          <p>The work moves in four stages. Each one exists to make sure the system fits the business, not the other way around.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <div class="step-num mono">01</div>
+            <div>
+              <h3>Discovery</h3>
+              <p>We walk through the current workflow and identify where time is lost, where quality breaks down, and where valuable work is simply not getting done.</p>
+              <ul>
+                <li>Map systems, files, inputs, and outputs</li>
+                <li>Identify repetitive work and decision bottlenecks</li>
+                <li>Define the business outcome the system needs to produce</li>
+              </ul>
+            </div>
+          </article>
+          <article class="step">
+            <div class="step-num mono">02</div>
+            <div>
+              <h3>Design</h3>
+              <p>We define the logic of the system before building it. That includes the data sources, rules, output format, escalation points, and who signs off on what.</p>
+              <ul>
+                <li>Choose what the agent should do and not do</li>
+                <li>Set human review points and exception handling</li>
+                <li>Design the output so it is useful to the firm, not just technically correct</li>
+              </ul>
+            </div>
+          </article>
+          <article class="step">
+            <div class="step-num mono">03</div>
+            <div>
+              <h3>Build</h3>
+              <p>We build the custom agent system and connect it to the inputs, tools, and destinations it needs to work inside the real operating environment.</p>
+              <ul>
+                <li>Integrate with existing systems and data sources</li>
+                <li>Build the logic, prompts, routing, and outputs</li>
+                <li>Test for quality, failure handling, and business fit</li>
+              </ul>
+            </div>
+          </article>
+          <article class="step">
+            <div class="step-num mono">04</div>
+            <div>
+              <h3>Support</h3>
+              <p>We stay involved after launch so the system remains reliable, adjusted, and useful as the workflow changes over time.</p>
+              <ul>
+                <li>Monitor the live process</li>
+                <li>Refine prompts, rules, and edge cases</li>
+                <li>Expand into adjacent workflows when the first lane is working</li>
+              </ul>
+            </div>
+          </article>
         </div>
       </div>
-      <div class="signal-stack">
-        <div class="signal-box"><small>Control</small><b>No blind sends</b><span>High-risk actions stay behind a human review step.</span></div>
-        <div class="signal-box"><small>Rollout</small><b>One workflow first</b><span>We prove the lane, then expand only after it is stable.</span></div>
-        <div class="signal-box"><small>Support</small><b>Visible maintenance path</b><span>Owners, cadence, failure handling, and update rules are defined before launch.</span></div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker mono">System design</div>
+          <h2>The intelligence layer sits above the tools you already use.</h2>
+          <p>Most firms do not need a complete software replacement. They need a layer that connects the information they already have and turns it into consistent output.</p>
+        </div>
+        <div class="layer-grid">
+          <article class="card">
+            <h3>What goes into the layer</h3>
+            <p>The build can pull from existing systems, source documents, websites, internal files, email threads, and recurring reports.</p>
+            <ul>
+              <li>Spreadsheets and data files</li>
+              <li>CRMs and operating tools</li>
+              <li>Inboxes, approvals, and recurring reports</li>
+              <li>External sources that need monitoring or research</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>What comes out of the layer</h3>
+            <p>The system produces work the firm can use immediately, with controls and routing built in.</p>
+            <ul>
+              <li>Summaries, reports, and executive intelligence</li>
+              <li>Follow-up tasks, drafts, and routing decisions</li>
+              <li>Operational alerts and recurring support work</li>
+              <li>New capability the firm did not previously have bandwidth to run</li>
+            </ul>
+          </article>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section>
-  <div class="wrap">
-    <div class="section-kicker mono">Step 2</div>
-    <h2 class="section-title">Map the real process.</h2>
-    <p class="section-sub">Documentation rarely tells the whole story. We look at the actual files, checks, decisions, restrictions, data mapping, and workarounds the team uses to keep things moving.</p>
-    <div class="timeline">
-      <div class="step"><div class="step-num mono">01</div><div><h3>Inputs</h3><p>What files, systems, exports, records, or messages start the workflow?</p></div></div>
-      <div class="step"><div class="step-num mono">02</div><div><h3>Rules</h3><p>What needs to be cleaned, mapped, reconciled, calculated, summarized, or checked?</p></div></div>
-      <div class="step"><div class="step-num mono">03</div><div><h3>Outputs</h3><p>What dashboard, report, update, approval, or action should the system produce?</p></div></div>
-      <div class="step"><div class="step-num mono">04</div><div><h3>Controls</h3><p>Where should a human approve, review, pause, or correct the workflow?</p></div></div>
-    </div>
-  </div>
-</section>
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker mono">Why this approach works</div>
+          <h2>Because the system is designed around the business, not around a generic tool.</h2>
+          <p>That means better fit, clearer controls, and a higher chance the system remains useful after the first launch.</p>
+        </div>
+        <div class="layer-grid">
+          <article class="card">
+            <h3>Better operational fit</h3>
+            <p>The system is shaped around the actual process, people, and data already in place.</p>
+          </article>
+          <article class="card">
+            <h3>More control</h3>
+            <p>Human review stays where risk matters, so leadership does not have to choose between speed and visibility.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<section>
-  <div class="wrap">
-    <div class="section-kicker mono">Step 3</div>
-    <h2 class="section-title">Build around the highest-value part.</h2>
-    <p class="section-sub">Sometimes the right answer is an agent. Sometimes it is AI setup, a dashboard, report generator, internal portal, automation, SharePoint/Excel workflow, or a combination of several pieces.</p>
-    <div class="grid">
-      <div class="card"><h3>Custom agent</h3><p>Collect inputs, prepare work, check logic, draft summaries, track changes, and route exceptions.</p></div>
-      <div class="card"><h3>Dashboard or reporting engine</h3><p>Turn recurring data into a clean executive view, client-facing material, or repeatable report.</p></div>
-      <div class="card"><h3>AI-assisted workflow</h3><p>Give the team a controlled way to review, approve, update, and monitor the process without replacing judgment.</p></div>
-    </div>
-  </div>
-</section>
+    <section>
+      <div class="wrap">
+        <div class="cta-shell">
+          <h2>The right first conversation is about one real workflow.</h2>
+          <p>Bring the process that is slowing the team down, producing inconsistent work, or not getting done at all. That is the best starting point.</p>
+          <a class="btn btn-dark" href="https://calendly.com/vito-argusreach/30min" target="_blank" rel="noopener">Discuss a Workflow</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<section>
-  <div class="wrap">
-    <div class="section-kicker mono">Step 4</div>
-    <h2 class="section-title">Deploy with controls. Improve from there.</h2>
-    <p class="section-sub">The first version should make the workflow easier to run, reduce manual coordination, and prove the system can be trusted. Once that works, we expand carefully.</p>
-    <div class="timeline">
-      <div class="step"><div class="step-num mono">01</div><div><h3>Review and validation</h3><p>The system is checked against real examples before it is trusted with recurring work.</p></div></div>
-      <div class="step"><div class="step-num mono">02</div><div><h3>Human oversight</h3><p>Approvals, logs, and clear handoff points stay in place where judgment matters.</p></div></div>
-      <div class="step"><div class="step-num mono">03</div><div><h3>Maintenance path</h3><p>We define who provides new data, where it lives, how often it refreshes, and what happens if something breaks.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="cta">
-  <div class="wrap">
-    <div class="cta-shell">
-      <h2>Bring the workflow.<span> We will map what can be built.</span></h2>
-      <p>The first call is about the process itself: what is manual, what repeats, what matters, where AI should assist, and what the first useful system should prove.</p>
-      <a href="https://calendly.com/vito-argusreach/30min" class="btn btn-dark" target="_blank" rel="noopener">Book a Workflow Call</a>
-      <div class="footer"><a href="https://www.argusreach.com">argusreach.com</a> · vito@argusreach.com</div>
-    </div>
-  </div>
-</section>
+  <footer>
+    ArgusReach builds custom AI agent systems for professional firms.
+  </footer>
 </body>
 </html>
