@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="cache-bust" content="20260728-faq-layer-a" />
+  <meta name="cache-bust" content="20260807-polish-a" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FAQ - ArgusReach</title>
-  <meta name="description" content="Short answers about how ArgusReach builds custom AI agent systems for professional firms." />
+  <meta name="description" content="Short answers about how ArgusReach builds AI systems around real workflows, existing data, and human review." />
   <link rel="canonical" href="https://argusreach.com/faq" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://argusreach.com/faq" />
@@ -14,7 +14,7 @@
   <meta property="og:site_name" content="ArgusReach" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="FAQ - ArgusReach" />
-  <meta name="twitter:description" content="Direct answers about ArgusReach custom AI agent systems." />
+  <meta name="twitter:description" content="Direct answers about how ArgusReach builds AI systems around real workflows." />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,11 +28,11 @@
       --muted: #58616c;
       --muted-2: #7b848e;
       --line: rgba(11, 13, 16, 0.09);
-      --radius-xl: 30px;
-      --radius-lg: 22px;
+      --radius-xl: 28px;
+      --radius-lg: 20px;
       --radius-md: 16px;
-      --shadow: 0 24px 70px rgba(13, 18, 24, 0.08);
-      --shadow-strong: 0 34px 94px rgba(13, 18, 24, 0.12);
+      --shadow: 0 22px 56px rgba(13, 18, 24, 0.07);
+      --shadow-strong: 0 30px 84px rgba(13, 18, 24, 0.11);
     }
     html { scroll-behavior: smooth; }
     body {
@@ -66,12 +66,13 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 72px;
-      padding: 0 28px;
-      background: rgba(255, 255, 255, 0.82);
+      gap: 16px;
+      min-height: 68px;
+      padding: 0 24px;
+      background: rgba(255, 255, 255, 0.86);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid rgba(11, 13, 16, 0.07);
-      box-shadow: 0 16px 36px rgba(13, 18, 24, 0.05);
+      box-shadow: 0 12px 28px rgba(13, 18, 24, 0.04);
     }
     .brand {
       display: inline-flex;
@@ -103,6 +104,7 @@
       font-size: 0.87rem;
       font-weight: 700;
     }
+    .nav-link.active { color: var(--ink); }
     .btn {
       min-height: 44px;
       display: inline-flex;
@@ -113,13 +115,24 @@
       text-decoration: none;
       font-size: 0.88rem;
       font-weight: 800;
-      transition: transform 180ms ease;
+      border: 1px solid transparent;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
     }
     .btn:hover { transform: translateY(-1px); }
+    .btn:focus-visible {
+      outline: 2px solid rgba(11, 13, 16, 0.35);
+      outline-offset: 3px;
+    }
+    a:focus-visible,
+    .nav-link:focus-visible {
+      outline: 2px solid rgba(11, 13, 16, 0.28);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
     .btn-dark {
       background: #0b0d10;
       color: #fff;
-      box-shadow: 0 16px 34px rgba(11, 13, 16, 0.16);
+      box-shadow: 0 14px 28px rgba(11, 13, 16, 0.14);
     }
     section { position: relative; z-index: 1; padding: 84px 0; }
     .hero { padding: 18px 0 28px; }
@@ -243,24 +256,46 @@
       padding: 26px;
     }
     footer {
-      padding: 0 0 40px;
+      padding: 8px 0 40px;
       color: var(--muted-2);
       font-size: 0.78rem;
       text-align: center;
     }
+    footer .wrap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px 18px;
+    }
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    footer a:hover { color: var(--ink); }
     @media (max-width: 980px) {
       .faq-layout { grid-template-columns: 1fr; }
       .side-card { position: static; }
     }
     @media (max-width: 720px) {
       .nav {
-        min-height: 66px;
-        padding: 0 16px;
+        min-height: 62px;
+        padding: 0 14px;
       }
-      .nav-link { display: none; }
+      .nav-links { gap: 8px; }
+      .nav-link {
+        font-size: 0.78rem;
+        padding: 6px 0;
+      }
+      .nav .btn {
+        min-height: 38px;
+        padding: 0 12px;
+        font-size: 0.78rem;
+      }
       .wrap { width: min(100% - 20px, 1160px); }
-      .hero-shell { padding: 62px 18px 24px; }
-      section { padding: 64px 0; }
+      .hero-shell { padding: 56px 18px 22px; }
+      section { padding: 60px 0; }
       .faq-card,
       .side-card,
       .cta-shell { padding: 18px; }
@@ -273,7 +308,7 @@
     <div class="nav-links">
       <a class="nav-link" href="/">Home</a>
       <a class="nav-link" href="/workflow">Workflow</a>
-      <a class="nav-link" href="/faq">FAQ</a>
+      <a class="nav-link active" href="/faq">FAQ</a>
       <a class="btn btn-dark" href="https://calendly.com/vito-argusreach/30min" target="_blank" rel="noopener">Discuss a Workflow</a>
     </div>
   </nav>
@@ -284,7 +319,7 @@
         <div class="hero-shell">
           <div class="eyebrow mono">FAQ</div>
           <h1>Direct answers for operators and executives.</h1>
-          <p class="lead">What ArgusReach builds, where human review stays in place, what a good first project looks like, and why custom systems outperform generic AI tools for serious workflow work.</p>
+          <p class="lead">What ArgusReach builds, where human review stays in place, what a good first project looks like, and how AI systems can sit on top of the tools and data a firm already uses.</p>
         </div>
       </div>
     </section>
@@ -293,7 +328,7 @@
       <div class="wrap faq-layout">
         <aside class="side-card">
           <h2>Best way to start</h2>
-          <p>Bring one workflow that is slow, repetitive, inconsistent, or not getting done at all. That is the right starting point for a serious build.</p>
+          <p>Bring one workflow that is slow, repetitive, inconsistent, or not getting done at all. That is usually the right first system to build.</p>
           <ul class="side-list">
             <li>Recurring report or research process</li>
             <li>Client follow-up or sales support workflow</li>
@@ -306,15 +341,15 @@
           <div class="faq-stack">
             <article class="faq-card">
               <h3>What does ArgusReach actually build?</h3>
-              <p>Custom AI agent systems built around real business workflows. That can include research and monitoring agents, reporting systems, sales support workflows, client follow-up systems, internal routing, bookkeeping support, and cross-system automation.</p>
+              <p>AI systems built around real business workflows. That can include reporting engines, research and monitoring systems, sales support workflows, client follow-up systems, internal routing, bookkeeping support, and cross-system automation.</p>
             </article>
             <article class="faq-card">
               <h3>How is this different from a generic AI tool?</h3>
-              <p>Generic tools give you a broad interface. We build a system around your actual process, your data, your outputs, and your review points. The result is better fit, better reliability, and more useful work.</p>
+              <p>Generic tools give you a broad interface. We build around your actual process, your data, your outputs, and your review points. The result is better fit, better reliability, and more useful work.</p>
             </article>
             <article class="faq-card">
               <h3>Do you replace the systems we already use?</h3>
-              <p>No. In most cases we build above the tools and data already in place. The goal is to create an intelligence layer that connects existing systems and produces better output.</p>
+              <p>No. In most cases we build on top of the tools and data already in place. The goal is to create a workflow layer that connects existing systems and produces better output.</p>
             </article>
             <article class="faq-card">
               <h3>Where do humans stay involved?</h3>
@@ -326,7 +361,7 @@
             </article>
             <article class="faq-card">
               <h3>What is not a good fit?</h3>
-              <p>Generic chatbot requests, full autopilot expectations, vague AI experimentation with no owner, or projects that are not intended to become a real operating system inside the business.</p>
+              <p>Generic chatbot requests, full autopilot expectations, vague AI experimentation with no owner, or projects that are not intended to become a real working system inside the business.</p>
             </article>
             <article class="faq-card">
               <h3>What happens after launch?</h3>
@@ -345,7 +380,12 @@
   </main>
 
   <footer>
-    ArgusReach builds custom AI agent systems for professional firms.
+    <div class="wrap">
+      <span>ArgusReach builds AI systems for real workflows.</span>
+      <a href="/">Home</a>
+      <a href="/workflow">Workflow</a>
+      <a href="/faq">FAQ</a>
+    </div>
   </footer>
 </body>
 </html>
