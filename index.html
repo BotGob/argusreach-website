@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="cache-bust" content="20260809-locked-msg" />
+  <meta name="cache-bust" content="20260810-layer-contrast" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ArgusReach - AI Agents for Real Business Work</title>
   <meta name="description" content="ArgusReach builds AI agents like digital employees. We map the job, add the company context, and put them to work inside the systems you already use." />
@@ -710,13 +710,22 @@
     .section-dark .section-kicker {
       color: rgba(238, 242, 247, 0.74);
     }
+    /* Nested light cards on dark shell need dark text, not inherited light shell colors */
+    .section-dark .stack-card,
+    .section-dark .list-card {
+      color: var(--ink);
+    }
+    .section-dark .stack-card .section-kicker,
+    .section-dark .list-card .section-kicker {
+      color: var(--muted-2);
+    }
     .section-dark .stack-item span,
     .section-dark .list-item span {
-      color: rgba(238, 242, 247, 0.82);
+      color: var(--muted);
     }
     .section-dark .stack-item strong,
     .section-dark .list-item strong {
-      color: #f4f7fb;
+      color: var(--ink);
     }
     .section-dark-shell {
       position: relative;
