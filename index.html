@@ -487,6 +487,485 @@
       line-height: 1.5;
     }
 
+    /* -- One job flow (How it works example) -- */
+    .flow {
+      position: relative;
+      overflow: hidden;
+      margin-top: 20px;
+      padding: 30px 28px 26px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, #fbfcfd 0%, #f0f2f5 100%);
+    }
+    .flow::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(17, 20, 24, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(17, 20, 24, 0.035) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, rgba(0, 0, 0, 0.9), transparent 85%);
+      pointer-events: none;
+    }
+    .flow > * { position: relative; }
+    .flow-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12px 24px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .flow-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .flow-kicker::before {
+      content: "";
+      width: 18px;
+      height: 1px;
+      background: var(--accent);
+    }
+    .flow-title {
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: clamp(1.7rem, 2.6vw, 2.1rem);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+    .flow-meta {
+      color: var(--muted-2);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .flow-track {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr) 44px minmax(0, 1fr);
+      align-items: stretch;
+    }
+    .flow-stage {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 0;
+    }
+    .flow-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .flow-label b {
+      display: inline-grid;
+      place-items: center;
+      width: 26px;
+      height: 22px;
+      border-radius: 6px;
+      background: var(--bg-dark);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.64rem;
+    }
+    .flow-card {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 18px 18px 16px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+    .flow-card-foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 12px;
+      color: var(--muted-2);
+      font-size: 0.64rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .flow-caption {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+    .flow-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-bottom: 12px;
+      margin-bottom: 4px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted-2);
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* Stage 1: map */
+    .flow-map { list-style: none; position: relative; padding-top: 6px; }
+    .flow-map li {
+      position: relative;
+      display: grid;
+      grid-template-columns: 14px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 9px 0;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #2a313a;
+      line-height: 1.3;
+    }
+    .flow-map li::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      margin-left: 2px;
+      border-radius: 2px;
+      border: 1.5px solid #2b333d;
+      background: var(--panel);
+      transform: rotate(45deg);
+      z-index: 1;
+    }
+    .flow-map li:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: 6.5px;
+      top: calc(50% + 7px);
+      height: calc(100% - 10px);
+      width: 1px;
+      background: var(--line-strong);
+    }
+    .flow-map li.is-end { color: var(--accent); }
+    .flow-map li.is-end::before { border-color: var(--accent); background: var(--accent); }
+    .flow-map small {
+      font-family: var(--mono);
+      font-size: 0.64rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--muted-2);
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      white-space: nowrap;
+    }
+
+    /* Stage 2: work */
+    .flow-who {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding-bottom: 14px;
+      margin-bottom: 6px;
+      border-bottom: 1px solid var(--line);
+    }
+    .flow-mark {
+      position: relative;
+      flex: none;
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: var(--bg-dark);
+    }
+    .flow-mark svg { display: block; }
+    .flow-who-text { flex: 1; min-width: 0; line-height: 1.25; }
+    .flow-who-text strong {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+    .flow-who-text span {
+      color: var(--muted-2);
+      font-size: 0.66rem;
+      letter-spacing: 0.04em;
+    }
+    .flow-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .flow-live::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .flow-tasks { list-style: none; }
+    .flow-tasks li {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 11px;
+      align-items: center;
+      padding: 8px 0;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #2a313a;
+      line-height: 1.3;
+    }
+    .flow-tick {
+      display: grid;
+      place-items: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1.5px solid var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+    .flow-tick svg { display: block; }
+    .flow-progress {
+      height: 3px;
+      margin-top: 8px;
+      border-radius: 3px;
+      background: var(--bg-2);
+      overflow: hidden;
+    }
+    .flow-progress i {
+      display: block;
+      height: 100%;
+      width: 100%;
+      border-radius: inherit;
+      background: var(--accent);
+      transform-origin: left center;
+    }
+
+    /* Stage 3: output */
+    .flow-out { display: flex; flex-direction: column; }
+    .flow-out-title {
+      font-family: var(--display);
+      font-size: 1.55rem;
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin: 10px 0 12px;
+    }
+    .flow-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 5px;
+      height: 38px;
+      margin-bottom: 12px;
+    }
+    .flow-bars span {
+      flex: 1;
+      border-radius: 3px 3px 1px 1px;
+      background: rgba(74, 111, 165, 0.22);
+    }
+    .flow-bars span:nth-child(6) { background: var(--accent); }
+    .flow-rows { list-style: none; border-top: 1px solid var(--line); }
+    .flow-rows li {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 7px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+    .flow-rows li b { color: var(--ink); font-weight: 700; }
+    .flow-rows li.is-flag b { color: #a5574a; }
+    .flow-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 14px;
+    }
+    .flow-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 32px;
+      padding: 0 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border: 1px solid var(--line-strong);
+      color: var(--ink);
+      background: var(--panel);
+    }
+    .flow-btn-main { background: var(--bg-dark); border-color: var(--bg-dark); color: #fff; }
+    .flow-state { position: relative; display: inline-grid; }
+    .flow-state > span { grid-area: 1 / 1; }
+    .flow-state .is-wait { opacity: 0; }
+    .flow-state .is-ready { color: var(--accent); }
+
+    /* Connectors */
+    .flow-link {
+      position: relative;
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 34px;
+    }
+    .flow-link::before {
+      content: "";
+      width: 100%;
+      height: 1px;
+      margin: 0 6px;
+      background: repeating-linear-gradient(90deg, var(--line-strong) 0 4px, transparent 4px 8px);
+    }
+    .flow-link::after {
+      content: "";
+      position: absolute;
+      right: 6px;
+      top: calc(50% + 17px);
+      width: 6px;
+      height: 6px;
+      border-top: 1.5px solid var(--muted-2);
+      border-right: 1.5px solid var(--muted-2);
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .flow-pulse {
+      position: absolute;
+      left: 6px;
+      top: calc(50% + 17px);
+      width: 7px;
+      height: 7px;
+      margin-top: -3.5px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-soft);
+      opacity: 0;
+    }
+    .flow-foot {
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .flow-foot strong { color: var(--ink); font-weight: 700; }
+
+    /* Motion: one 10s loop. Resting (no-motion) state = finished. */
+    #process.is-visible .flow-tasks li:nth-child(1) .flow-tick { animation: tick1 10s ease infinite; }
+    #process.is-visible .flow-tasks li:nth-child(2) .flow-tick { animation: tick2 10s ease infinite; }
+    #process.is-visible .flow-tasks li:nth-child(3) .flow-tick { animation: tick3 10s ease infinite; }
+    #process.is-visible .flow-tasks li:nth-child(4) .flow-tick { animation: tick4 10s ease infinite; }
+    #process.is-visible .flow-tasks li:nth-child(1) { animation: task1 10s ease infinite; }
+    #process.is-visible .flow-tasks li:nth-child(2) { animation: task2 10s ease infinite; }
+    #process.is-visible .flow-tasks li:nth-child(3) { animation: task3 10s ease infinite; }
+    #process.is-visible .flow-tasks li:nth-child(4) { animation: task4 10s ease infinite; }
+    #process.is-visible .flow-progress i { animation: progressFill 10s linear infinite; }
+    #process.is-visible .flow-link-1 .flow-pulse { animation: pulseA 10s ease-in-out infinite; }
+    #process.is-visible .flow-link-2 .flow-pulse { animation: pulseB 10s ease-in-out infinite; }
+    #process.is-visible .flow-out { animation: outCard 10s ease infinite; }
+    #process.is-visible .flow-state .is-wait { animation: stateWait 10s ease infinite; }
+    #process.is-visible .flow-state .is-ready { animation: stateReady 10s ease infinite; }
+    #process.is-visible .flow-live::before { animation: liveDot 1.6s ease-in-out infinite; }
+
+    @keyframes pulseA {
+      0%, 1% { left: 6px; opacity: 0; }
+      3% { opacity: 1; }
+      9% { opacity: 1; }
+      11%, 100% { left: calc(100% - 13px); opacity: 0; }
+    }
+    @keyframes pulseB {
+      0%, 55% { left: 6px; opacity: 0; }
+      57% { opacity: 1; }
+      63% { opacity: 1; }
+      65%, 100% { left: calc(100% - 13px); opacity: 0; }
+    }
+    @keyframes tick1 {
+      0%, 11% { background: var(--panel); border-color: var(--line-strong); color: transparent; box-shadow: none; }
+      12%, 20% { background: var(--panel); border-color: var(--accent); color: transparent; box-shadow: 0 0 0 4px var(--accent-soft); }
+      22%, 93% { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: none; }
+      98%, 100% { background: var(--panel); border-color: var(--line-strong); color: transparent; box-shadow: none; }
+    }
+    @keyframes tick2 {
+      0%, 21% { background: var(--panel); border-color: var(--line-strong); color: transparent; box-shadow: none; }
+      22%, 30% { background: var(--panel); border-color: var(--accent); color: transparent; box-shadow: 0 0 0 4px var(--accent-soft); }
+      32%, 93% { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: none; }
+      98%, 100% { background: var(--panel); border-color: var(--line-strong); color: transparent; box-shadow: none; }
+    }
+    @keyframes tick3 {
+      0%, 31% { background: var(--panel); border-color: var(--line-strong); color: transparent; box-shadow: none; }
+      32%, 40% { background: var(--panel); border-color: var(--accent); color: transparent; box-shadow: 0 0 0 4px var(--accent-soft); }
+      42%, 93% { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: none; }
+      98%, 100% { background: var(--panel); border-color: var(--line-strong); color: transparent; box-shadow: none; }
+    }
+    @keyframes tick4 {
+      0%, 41% { background: var(--panel); border-color: var(--line-strong); color: transparent; box-shadow: none; }
+      42%, 51% { background: var(--panel); border-color: var(--accent); color: transparent; box-shadow: 0 0 0 4px var(--accent-soft); }
+      53%, 93% { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: none; }
+      98%, 100% { background: var(--panel); border-color: var(--line-strong); color: transparent; box-shadow: none; }
+    }
+    @keyframes task1 { 0%, 11% { opacity: 0.42; } 12%, 93% { opacity: 1; } 98%, 100% { opacity: 0.42; } }
+    @keyframes task2 { 0%, 21% { opacity: 0.42; } 22%, 93% { opacity: 1; } 98%, 100% { opacity: 0.42; } }
+    @keyframes task3 { 0%, 31% { opacity: 0.42; } 32%, 93% { opacity: 1; } 98%, 100% { opacity: 0.42; } }
+    @keyframes task4 { 0%, 41% { opacity: 0.42; } 42%, 93% { opacity: 1; } 98%, 100% { opacity: 0.42; } }
+    @keyframes progressFill {
+      0%, 11% { transform: scaleX(0); }
+      53%, 93% { transform: scaleX(1); }
+      98%, 100% { transform: scaleX(0); }
+    }
+    @keyframes outCard {
+      0%, 60% { opacity: 0.5; transform: translate3d(0, 4px, 0); }
+      65%, 93% { opacity: 1; transform: translate3d(0, 0, 0); }
+      98%, 100% { opacity: 0.5; transform: translate3d(0, 4px, 0); }
+    }
+    @keyframes stateWait { 0%, 60% { opacity: 1; } 63%, 95% { opacity: 0; } 98%, 100% { opacity: 1; } }
+    @keyframes stateReady { 0%, 61% { opacity: 0; } 64%, 95% { opacity: 1; } 98%, 100% { opacity: 0; } }
+    @keyframes liveDot {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(74, 111, 165, 0.45); }
+      50% { box-shadow: 0 0 0 4px rgba(74, 111, 165, 0); }
+    }
+
+    @media (max-width: 980px) {
+      .flow { padding: 24px 18px 20px; }
+      .flow-track { grid-template-columns: 1fr; }
+      .flow-link {
+        height: 40px;
+        padding-top: 0;
+        flex-direction: column;
+      }
+      .flow-link::before {
+        width: 1px;
+        height: 100%;
+        margin: 6px 0;
+        background: repeating-linear-gradient(180deg, var(--line-strong) 0 4px, transparent 4px 8px);
+      }
+      .flow-link::after {
+        right: auto;
+        left: 50%;
+        top: auto;
+        bottom: 6px;
+        transform: translateX(-50%) rotate(135deg);
+      }
+      .flow-pulse { display: none; }
+    }
+
     /* —— Why: 2×2 flat grid —— */
     .why-grid {
       list-style: none;
@@ -812,6 +1291,86 @@
               <p>We put it in place, watch it, and adjust as the work changes. You review and decide.</p>
             </div>
           </article>
+        </div>
+        <div class="flow" role="group" aria-label="Example: one job from map to your review">
+          <div class="flow-head">
+            <div>
+              <div class="flow-kicker mono">One job, start to finish</div>
+              <h3 class="flow-title">The Monday sales report</h3>
+            </div>
+            <div class="flow-meta mono">Example - runs every Monday, 6 am</div>
+          </div>
+          <div class="flow-track">
+            <div class="flow-stage">
+              <div class="flow-label mono"><b>01</b>Map</div>
+              <div class="flow-card">
+                <div class="flow-card-top mono"><span>The workflow</span><span>5 steps</span></div>
+                <ol class="flow-map">
+                  <li>Pull the numbers<small>sales + costs</small></li>
+                  <li>Sort by store<small>3 stores</small></li>
+                  <li>Flag what changed<small>vs last week</small></li>
+                  <li>Draft the summary<small>one page</small></li>
+                  <li class="is-end">Send to you<small>for review</small></li>
+                </ol>
+                <div class="flow-card-foot mono"><span>Set up once</span><span>Runs weekly</span></div>
+              </div>
+              <p class="flow-caption">We break the job into clear steps with you.</p>
+            </div>
+            <div class="flow-link flow-link-1" aria-hidden="true"><span class="flow-pulse"></span></div>
+            <div class="flow-stage">
+              <div class="flow-label mono"><b>02</b>Work</div>
+              <div class="flow-card">
+                <div class="flow-who">
+                  <span class="flow-mark" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                      <circle cx="10" cy="10" r="6.5" stroke="#4a6fa5" stroke-width="1.5"/>
+                      <circle cx="10" cy="10" r="2.6" fill="#f5f7fa"/>
+                      <circle cx="15.2" cy="4.8" r="1.7" fill="#4a6fa5"/>
+                    </svg>
+                  </span>
+                  <div class="flow-who-text">
+                    <strong>Digital employee</strong>
+                    <span class="mono">Built and run by Argus</span>
+                  </div>
+                  <span class="flow-live mono">Working</span>
+                </div>
+                <ul class="flow-tasks">
+                  <li><span class="flow-tick"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Pulled sales and costs</li>
+                  <li><span class="flow-tick"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Sorted by store</li>
+                  <li><span class="flow-tick"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Flagged 2 changes</li>
+                  <li><span class="flow-tick"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Drafted the summary</li>
+                </ul>
+                <div class="flow-card-foot mono"><span>Started 6:00 am</span><span>About 4 min</span></div>
+                <div class="flow-progress" aria-hidden="true"><i></i></div>
+              </div>
+              <p class="flow-caption">Each step runs in order, the same way every week.</p>
+            </div>
+            <div class="flow-link flow-link-2" aria-hidden="true"><span class="flow-pulse"></span></div>
+            <div class="flow-stage">
+              <div class="flow-label mono"><b>03</b>You review</div>
+              <div class="flow-card flow-out">
+                <div class="flow-card-top mono">
+                  <span>Week of Oct 5</span>
+                  <span class="flow-state"><span class="is-wait">Drafting</span><span class="is-ready">Ready for you</span></span>
+                </div>
+                <div class="flow-out-title">Sales up 6% last week</div>
+                <div class="flow-bars" aria-hidden="true">
+                  <span style="height:46%"></span><span style="height:58%"></span><span style="height:52%"></span><span style="height:64%"></span><span style="height:78%"></span><span style="height:100%"></span><span style="height:70%"></span>
+                </div>
+                <ul class="flow-rows">
+                  <li><span>Total sales</span><b>$48,210</b></li>
+                  <li><span>Best store</span><b>Main St</b></li>
+                  <li class="is-flag"><span>Needs a look</span><b>Elm St, down 9%</b></li>
+                </ul>
+                <div class="flow-actions" aria-hidden="true">
+                  <span class="flow-btn flow-btn-main">Approve</span>
+                  <span class="flow-btn">Ask for changes</span>
+                </div>
+              </div>
+              <p class="flow-caption">The finished report lands with you to approve.</p>
+            </div>
+          </div>
+          <p class="flow-foot"><strong>Argus builds and runs it.</strong> You review and decide.</p>
         </div>
       </div>
     </section>
