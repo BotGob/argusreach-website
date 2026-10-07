@@ -757,7 +757,6 @@
       width: 100%;
       border-radius: inherit;
       background: var(--accent);
-      transform-origin: left center;
     }
 
     /* Stage 3: output */
@@ -926,9 +925,9 @@
     @keyframes task3 { 0%, 31% { opacity: 0.42; } 32%, 93% { opacity: 1; } 98%, 100% { opacity: 0.42; } }
     @keyframes task4 { 0%, 41% { opacity: 0.42; } 42%, 93% { opacity: 1; } 98%, 100% { opacity: 0.42; } }
     @keyframes progressFill {
-      0%, 11% { transform: scaleX(0); }
-      53%, 93% { transform: scaleX(1); }
-      98%, 100% { transform: scaleX(0); }
+      0%, 11% { width: 0; }
+      53%, 93% { width: 100%; }
+      98%, 100% { width: 0; }
     }
     @keyframes outCard {
       0%, 60% { opacity: 0.5; transform: translate3d(0, 4px, 0); }
