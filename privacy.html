@@ -5,24 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy - ArgusReach</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #0f0f0f; --bg2: #161616; --border: rgba(255,255,255,0.08);
-      --text: #f5f5f5; --sub: #888; --muted: #444; --green: #4ade80;
+      --bg: #f4f5f7; --bg2: #ffffff; --border: rgba(17,20,24,0.08);
+      --text: #111418; --sub: #4d5560; --muted: #8a939e; --green: #4a6fa5;
     }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; -webkit-font-smoothing: antialiased; }
-    nav { display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 56px; background: rgba(15,15,15,0.97); border-bottom: 1px solid var(--border); }
-    .logo { font-size: 0.95rem; font-weight: 800; letter-spacing: -0.02em; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 10px; }
-    .logo-mark { width: 22px; height: 22px; border: 1.5px solid rgba(255,255,255,0.25); border-radius: 5px; display: grid; place-items: center; }
-    .logo-mark-dot { width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+    body { font-family: 'Manrope', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 56px; background: rgba(255,255,255,0.92); border-bottom: 1px solid var(--border); }
+    .logo { font-size: 0.95rem; font-weight: 800; letter-spacing: -0.02em; color: #111418; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      flex: none;
+      display: block;
+      overflow: visible;
+    }
+    .brand-mark .bm-box { fill: var(--bm-fill, #ffffff); stroke: var(--bm-ink, #111418); stroke-width: 5; }
+    .brand-mark .bm-a { fill: var(--bm-ink, #111418); font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace; font-weight: 600; font-size: 50px; }
+    .brand-mark .bm-dot { fill: var(--bm-dot, #4a6fa5); }
     .logo span { color: var(--sub); font-weight: 300; }
     .wrap { max-width: 720px; margin: 0 auto; padding: 64px 24px 80px; }
-    .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sub); margin-bottom: 16px; }
-    h1 { font-size: 2rem; font-weight: 900; letter-spacing: -0.03em; color: #fff; margin-bottom: 8px; }
+    .eyebrow { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sub); margin-bottom: 16px; }
+    h1 { font-size: 2rem; font-weight: 900; letter-spacing: -0.03em; color: #111418; margin-bottom: 8px; }
     .updated { font-size: 0.8rem; color: var(--muted); margin-bottom: 48px; }
-    h2 { font-size: 0.95rem; font-weight: 700; color: #fff; margin: 36px 0 12px; }
+    h2 { font-size: 0.95rem; font-weight: 700; color: #111418; margin: 36px 0 12px; }
     p, li { font-size: 0.9rem; color: var(--sub); line-height: 1.8; }
     ul { padding-left: 20px; margin-top: 8px; }
     li { margin-bottom: 6px; }
@@ -35,8 +43,8 @@
 
 <nav>
   <a href="https://www.argusreach.com" class="logo">
-    <div class="logo-mark"><div class="logo-mark-dot"></div></div>
-    ArgusReach <span>/ Privacy</span>
+    <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><rect class="bm-box" x="3" y="3" width="94" height="94" rx="21"/><text class="bm-a" x="50" y="68" text-anchor="middle">A</text><circle class="bm-dot" cx="77" cy="23" r="5.5"/></svg>
+    Argus AI <span>/ Privacy</span>
   </a>
 </nav>
 

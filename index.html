@@ -90,18 +90,16 @@
       font-size: 1.02rem;
     }
     .brand-mark {
-      width: 32px;
+      width: 30px;
       height: 30px;
-      border-radius: 7px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(160deg, #1a1e26, #0c0e12);
-      color: #f5f7fa;
-      font-size: 0.68rem;
-      font-weight: 600;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      flex: none;
+      display: block;
+      overflow: visible;
     }
+    .brand-mark .bm-box { fill: var(--bm-fill, #ffffff); stroke: var(--bm-ink, #111418); stroke-width: 5; }
+    .brand-mark .bm-a { fill: var(--bm-ink, #111418); font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace; font-weight: 600; font-size: 50px; }
+    .brand-mark .bm-dot { fill: var(--bm-dot, #4a6fa5); }
+    .nav .brand-mark { --bm-fill: transparent; --bm-ink: #f5f7fa; --bm-dot: #6f93c9; }
     .nav-links {
       display: flex;
       align-items: center;
@@ -1063,14 +1061,7 @@
       letter-spacing: -0.03em;
       font-size: 0.95rem;
     }
-    .footer-logo .brand-mark {
-      width: 28px;
-      height: 26px;
-      font-size: 0.6rem;
-      background: var(--bg-dark);
-      border-color: rgba(17, 20, 24, 0.2);
-      box-shadow: none;
-    }
+    .footer-logo .brand-mark { width: 26px; height: 26px; }
     .footer-tag {
       color: var(--muted);
       font-size: 0.82rem;
@@ -1184,7 +1175,7 @@
 </head>
 <body>
   <nav class="nav">
-    <a href="/" class="brand"><span class="brand-mark mono">AR</span>ArgusReach</a>
+    <a href="/" class="brand"><svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><rect class="bm-box" x="3" y="3" width="94" height="94" rx="21"/><text class="bm-a" x="50" y="68" text-anchor="middle">A</text><circle class="bm-dot" cx="77" cy="23" r="5.5"/></svg>Argus AI</a>
     <div class="nav-links">
       <a class="nav-link active" href="/">Home</a>
       <a class="nav-link" href="/workflow">Workflow</a>
@@ -1408,7 +1399,7 @@
   <footer>
     <div class="wrap">
       <div class="footer-brand">
-        <a href="/" class="footer-logo"><span class="brand-mark mono">AR</span>ArgusReach</a>
+        <a href="/" class="footer-logo"><svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><rect class="bm-box" x="3" y="3" width="94" height="94" rx="21"/><text class="bm-a" x="50" y="68" text-anchor="middle">A</text><circle class="bm-dot" cx="77" cy="23" r="5.5"/></svg>Argus AI</a>
         <span class="footer-tag">Custom AI for small and mid-size businesses.</span>
       </div>
       <div class="footer-links">

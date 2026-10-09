@@ -84,15 +84,14 @@
     }
     .brand-mark {
       width: 30px;
-      height: 28px;
-      border-radius: 8px;
-      display: grid;
-      place-items: center;
-      background: #0c0d10;
-      color: #fff;
-      font-size: 0.62rem;
-      box-shadow: 0 12px 28px rgba(11, 13, 16, 0.18);
+      height: 30px;
+      flex: none;
+      display: block;
+      overflow: visible;
     }
+    .brand-mark .bm-box { fill: var(--bm-fill, #ffffff); stroke: var(--bm-ink, #111418); stroke-width: 5; }
+    .brand-mark .bm-a { fill: var(--bm-ink, #111418); font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace; font-weight: 600; font-size: 50px; }
+    .brand-mark .bm-dot { fill: var(--bm-dot, #4a6fa5); }
     .nav-links {
       display: flex;
       align-items: center;
@@ -304,7 +303,7 @@
 </head>
 <body>
   <nav class="nav">
-    <a href="/" class="brand"><span class="brand-mark mono">AR</span>ArgusReach</a>
+    <a href="/" class="brand"><svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><rect class="bm-box" x="3" y="3" width="94" height="94" rx="21"/><text class="bm-a" x="50" y="68" text-anchor="middle">A</text><circle class="bm-dot" cx="77" cy="23" r="5.5"/></svg>Argus AI</a>
     <div class="nav-links">
       <a class="nav-link" href="/">Home</a>
       <a class="nav-link" href="/workflow">Workflow</a>
