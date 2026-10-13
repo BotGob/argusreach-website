@@ -154,6 +154,27 @@ h1{max-width:13ch;text-wrap:balance}h2,h3{text-wrap:balance}
 .local p{margin-top:12px;color:var(--ink2);max-width:46ch}
 @media (max-width:900px){.steps{grid-template-columns:1fr}.local-inner{grid-template-columns:1fr;gap:14px}}
 @media (max-width:600px){.system-card{display:none}.hero{padding-bottom:32px}}
+.vc{display:grid;grid-template-columns:auto auto 1fr auto;align-items:start;gap:4px 10px;margin-top:14px}
+.vc-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;min-width:44px;padding:0 14px;background:none;border:1px solid var(--rule);border-radius:999px;cursor:pointer;color:var(--ink2);font-size:.72rem}
+.vc-btn:hover{border-color:var(--ink);color:var(--ink)}
+.vc-btn svg{width:14px;height:14px}
+.vid-toggle{min-width:72px}
+.vc-track-wrap{position:relative;padding-bottom:20px}
+.vc-track{height:44px;display:flex;align-items:center;cursor:pointer;touch-action:none;outline:none}
+.vc-rail{position:relative;width:100%;height:3px;background:var(--rule);border-radius:3px}
+.vc-fill{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--steel);border-radius:3px}
+.vc-knob{position:absolute;top:50%;left:0;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--steel);box-shadow:0 0 0 3px var(--paper);transition:transform .15s}
+.vc-track:hover .vc-knob,.vc-track.drag .vc-knob{transform:scale(1.25)}
+.vc-track:focus-visible .vc-rail{outline:2px solid var(--steel);outline-offset:8px;border-radius:4px}
+.vc-marks{position:absolute;left:0;right:0;top:36px;height:0}
+.vc-mark{position:absolute;top:0;transform:translateX(-50%);background:none;border:0;padding:0 2px;cursor:pointer;font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}
+.vc-mark::before{content:"";display:block;width:1px;height:6px;margin:0 auto 3px;background:var(--ink3)}
+.vc-mark:first-child{transform:none}.vc-mark:first-child::before{margin-left:0}
+.vc-mark:hover,.vc-mark.on{color:var(--steel)}.vc-mark.on::before{background:var(--steel)}
+.vc-time{padding-top:15px;min-width:3.4em;text-align:right;font-variant-numeric:tabular-nums}
+@media (max-width:900px){.vc-mark span{display:none}.vc-mark{width:24px;height:22px}.vc-mark::before{height:8px}.vc-mark:first-child{transform:translateX(-50%)}.vc-mark:first-child::before{margin:0 auto 3px}.vc-track-wrap{padding-bottom:16px}.vc-marks{top:36px}}
+@media (max-width:600px){.vc{grid-template-columns:auto auto 1fr;gap:4px 8px}.vc-restart span{display:none}.vc-restart{padding:0}.vc-time{display:none}}
+@media (prefers-reduced-motion:reduce){.vc-knob{transition:none}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Argus AI","url":"https://www.argusreach.com/","logo":"https://www.argusreach.com/apple-touch-icon.png","image":"https://www.argusreach.com/media/og-image.png","description":"AI built around your business. Argus AI takes repetitive computer work off small and mid-size businesses.","email":"vito@argusreach.com","address":{"@type":"PostalAddress","addressLocality":"St. Petersburg","addressRegion":"FL","addressCountry":"US"},"areaServed":[{"@type":"Place","name":"Tampa Bay, FL"},{"@type":"City","name":"St. Petersburg, FL"}]}</script>
 </head>
@@ -174,7 +195,12 @@ h1{max-width:13ch;text-wrap:balance}h2,h3{text-wrap:balance}
 <section id="urgency" class="urgency"><div class="wrap grid2 reveal"><h2>Most owners know AI matters. Few know where it fits.</h2><p class="urgency-aside">We partner with you to find the bottlenecks, the repetitive computer work your team does by hand, and take it off their plate.</p></div></section>
 <section id="demo" class="demo" aria-label="Demo video"><div class="wrap reveal">
 <div class="demo-frame"><video class="demo-video" muted loop playsinline preload="none" poster="media/argus-demo-poster.jpg" aria-label="Demo: a request comes in, a quote is built, approved, scheduled, invoiced and paid"><source src="media/argus-demo.webm" type="video/webm"><source src="media/argus-demo.mp4" type="video/mp4"></video></div>
-<div class="demo-cap"><span class="label">Request - quote - invoice - paid</span><button class="vid-toggle label" type="button" aria-pressed="false">Pause</button></div>
+<div class="vc" role="group" aria-label="Video controls">
+<button class="vc-btn vc-restart label" type="button" aria-label="Restart video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8a5 5 0 1 0 1.5-3.6M3 2.5v2.8h2.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Restart</span></button>
+<button class="vc-btn vid-toggle label" type="button" aria-pressed="false">Pause</button>
+<div class="vc-track-wrap"><div class="vc-track" role="slider" tabindex="0" aria-label="Seek video" aria-valuemin="0" aria-valuemax="59" aria-valuenow="0" aria-valuetext="0:00 of 0:59"><div class="vc-rail"><div class="vc-fill"></div><div class="vc-knob"></div></div></div><div class="vc-marks"><button class="vc-mark" type="button" data-t="0" style="left:calc(0.000% )" aria-label="Jump to Request"><span>Request</span></button><button class="vc-mark" type="button" data-t="7.9" style="left:calc(13.338% )" aria-label="Jump to Quote"><span>Quote</span></button><button class="vc-mark" type="button" data-t="16.7" style="left:calc(28.195% )" aria-label="Jump to Approve"><span>Approve</span></button><button class="vc-mark" type="button" data-t="22.4" style="left:calc(37.819% )" aria-label="Jump to Send"><span>Send</span></button><button class="vc-mark" type="button" data-t="27.1" style="left:calc(45.754% )" aria-label="Jump to Book"><span>Book</span></button><button class="vc-mark" type="button" data-t="32.6" style="left:calc(55.040% )" aria-label="Jump to Schedule"><span>Schedule</span></button><button class="vc-mark" type="button" data-t="37.0" style="left:calc(62.468% )" aria-label="Jump to Invoice"><span>Invoice</span></button><button class="vc-mark" type="button" data-t="47.7" style="left:calc(80.534% )" aria-label="Jump to Paid"><span>Paid</span></button></div></div>
+<span class="vc-time label" aria-hidden="true">0:00</span>
+</div>
 </div></section>
 <section id="build" class="block"><div class="wrap reveal"><h2 class="big build-title">What we build</h2><ol class="builds"><li class="build"><span class="row-n">01</span><h3>Quotes to payment</h3><p>A request comes in, a quote goes out, and the invoice keeps following up until it's paid.</p></li><li class="build"><span class="row-n">02</span><h3>Reports that build themselves</h3><p>Your weekly numbers pulled together and waiting for you, no copy and paste.</p></li><li class="build"><span class="row-n">03</span><h3>Lead follow-up</h3><p>Every inquiry gets a quick, friendly reply, and a nudge if it goes quiet.</p></li><li class="build"><span class="row-n">04</span><h3>Visuals that help you sell</h3><p>Show customers the new fence, the pool, or the product in action before they buy.</p></li><li class="build"><span class="row-n">05</span><h3>Short videos and graphics</h3><p>Promo clips and simple explainers for your site and social, without hiring a video crew.</p></li><li class="build"><span class="row-n">06</span><h3>Custom tools</h3><p>A simple app or dashboard for when the spreadsheet stops keeping up.</p></li></ol></div></section>
 <section id="process" class="block"><div class="wrap reveal">
@@ -194,6 +220,27 @@ var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches
 function sync(){if(b){b.textContent=v.paused?'Play':'Pause';b.setAttribute('aria-pressed',v.paused?'true':'false')}}
 v.addEventListener('play',sync);v.addEventListener('pause',sync);
 if(b){b.addEventListener('click',function(){if(v.paused){user=false;v.play().catch(function(){})}else{user=true;v.pause()}});}
+
+var tr=document.querySelector('.vc-track'),fill=document.querySelector('.vc-fill'),knob=document.querySelector('.vc-knob'),tm=document.querySelector('.vc-time'),mk=[].slice.call(document.querySelectorAll('.vc-mark'));
+function fmt(s){s=Math.max(0,Math.floor(s||0));return Math.floor(s/60)+':'+('0'+s%60).slice(-2)}
+function dur(){return isFinite(v.duration)&&v.duration>0?v.duration:59.23}
+function draw(){var d=dur(),c=v.currentTime||0,p=Math.min(100,c/d*100);fill.style.width=p+'%';knob.style.left=p+'%';tm.textContent=fmt(c);
+tr.setAttribute('aria-valuemax',Math.round(d));tr.setAttribute('aria-valuenow',Math.round(c));tr.setAttribute('aria-valuetext',fmt(c)+' of '+fmt(d));
+var on=-1;mk.forEach(function(m,i){if(c>=+m.dataset.t-.05)on=i});mk.forEach(function(m,i){m.classList.toggle('on',i===on)})}
+var pend=null;function seek(s){s=Math.max(0,Math.min(dur()-.05,s));if(v.readyState<1){pend=s;v.preload='auto';v.load();return}v.currentTime=s;draw()}
+v.addEventListener('loadedmetadata',function(){if(pend!==null){v.currentTime=pend;pend=null;draw()}});
+v.addEventListener('timeupdate',draw);v.addEventListener('loadedmetadata',draw);v.addEventListener('seeked',draw);
+(function loop(){if(!v.paused)draw();requestAnimationFrame(loop)})();
+function at(e){var r=tr.getBoundingClientRect();return (e.clientX-r.left)/r.width*dur()}
+var drag=false;
+tr.addEventListener('pointerdown',function(e){drag=true;tr.classList.add('drag');try{tr.setPointerCapture(e.pointerId)}catch(_){}if(v.preload==='none'){v.preload='auto'}seek(at(e))});
+tr.addEventListener('pointermove',function(e){if(drag)seek(at(e))});
+['pointerup','pointercancel'].forEach(function(n){tr.addEventListener(n,function(){drag=false;tr.classList.remove('drag')})});
+tr.addEventListener('keydown',function(e){var k=e.key,c=v.currentTime||0;
+if(k==='ArrowRight'||k==='ArrowUp')seek(c+5);else if(k==='ArrowLeft'||k==='ArrowDown')seek(c-5);else if(k==='PageUp')seek(c+10);else if(k==='PageDown')seek(c-10);else if(k==='Home')seek(0);else if(k==='End')seek(dur());else if(k===' '||k==='Enter'){b.click()}else return;e.preventDefault()});
+mk.forEach(function(m){m.addEventListener('click',function(){seek(+m.dataset.t+.05)})});
+document.querySelector('.vc-restart').addEventListener('click',function(){seek(0);user=false;v.play().catch(function(){})});
+draw();
 if(rm){v.removeAttribute('loop');sync();return}
 if(!('IntersectionObserver' in window)){v.play().catch(function(){});return}
 new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){if(!user)v.play().catch(function(){})}else v.pause()})},{threshold:.4}).observe(v)})();
