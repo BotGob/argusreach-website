@@ -1171,7 +1171,8 @@
       .cta-inner { padding: 36px 20px; }
       .cta { padding: 0 0 36px; }
     }
-  </style>
+  .demo{padding:8px 0 40px}.demo-frame{border-radius:18px;overflow:hidden;box-shadow:0 20px 60px rgba(10,20,40,.18);background:#0b1220;aspect-ratio:16/9}.demo-video{display:block;width:100%;height:100%;object-fit:cover}
+</style>
 </head>
 <body>
   <nav class="nav">
@@ -1212,6 +1213,16 @@
               </ul>
             </aside>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo" class="demo" aria-label="Demo video">
+      <div class="wrap">
+        <div class="demo-frame">
+          <video class="demo-video" muted loop playsinline preload="metadata" poster="media/argus-demo-poster.png" aria-label="A request comes in, a quote is built, approved, scheduled, invoiced and paid">
+            <source src="media/argus-demo.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
     </section>
@@ -1282,86 +1293,6 @@
             </div>
           </article>
         </div>
-        <div class="flow" role="group" aria-label="Example: one job from map to your review">
-          <div class="flow-head">
-            <div>
-              <div class="flow-kicker mono">One job, start to finish</div>
-              <h3 class="flow-title">The Monday sales report</h3>
-            </div>
-            <div class="flow-meta mono">Example - runs every Monday, 6 am</div>
-          </div>
-          <div class="flow-track">
-            <div class="flow-stage">
-              <div class="flow-label mono"><b>01</b>Map</div>
-              <div class="flow-card">
-                <div class="flow-card-top mono"><span>The workflow</span><span>5 steps</span></div>
-                <ol class="flow-map">
-                  <li>Pull the numbers<small>sales + costs</small></li>
-                  <li>Sort by store<small>3 stores</small></li>
-                  <li>Flag what changed<small>vs last week</small></li>
-                  <li>Draft the summary<small>one page</small></li>
-                  <li class="is-end">Send to you<small>for review</small></li>
-                </ol>
-                <div class="flow-card-foot mono"><span>Set up once</span><span>Runs weekly</span></div>
-              </div>
-              <p class="flow-caption">We break the job into clear steps with you.</p>
-            </div>
-            <div class="flow-link flow-link-1" aria-hidden="true"><span class="flow-pulse"></span></div>
-            <div class="flow-stage">
-              <div class="flow-label mono"><b>02</b>Work</div>
-              <div class="flow-card">
-                <div class="flow-who">
-                  <span class="flow-mark" aria-hidden="true">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <circle cx="10" cy="10" r="6.5" stroke="#4a6fa5" stroke-width="1.5"/>
-                      <circle cx="10" cy="10" r="2.6" fill="#f5f7fa"/>
-                      <circle cx="15.2" cy="4.8" r="1.7" fill="#4a6fa5"/>
-                    </svg>
-                  </span>
-                  <div class="flow-who-text">
-                    <strong>Digital employee</strong>
-                    <span class="mono">Built and run by Argus</span>
-                  </div>
-                  <span class="flow-live mono">Working</span>
-                </div>
-                <ul class="flow-tasks">
-                  <li><span class="flow-tick"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Pulled sales and costs</li>
-                  <li><span class="flow-tick"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Sorted by store</li>
-                  <li><span class="flow-tick"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Flagged 2 changes</li>
-                  <li><span class="flow-tick"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Drafted the summary</li>
-                </ul>
-                <div class="flow-card-foot mono"><span>Started 6:00 am</span><span>About 4 min</span></div>
-                <div class="flow-progress" aria-hidden="true"><i></i></div>
-              </div>
-              <p class="flow-caption">Each step runs in order, the same way every week.</p>
-            </div>
-            <div class="flow-link flow-link-2" aria-hidden="true"><span class="flow-pulse"></span></div>
-            <div class="flow-stage">
-              <div class="flow-label mono"><b>03</b>You review</div>
-              <div class="flow-card flow-out">
-                <div class="flow-card-top mono">
-                  <span>Week of Oct 5</span>
-                  <span class="flow-state"><span class="is-wait">Drafting</span><span class="is-ready">Ready for you</span></span>
-                </div>
-                <div class="flow-out-title">Sales up 6% last week</div>
-                <div class="flow-bars" aria-hidden="true">
-                  <span style="height:46%"></span><span style="height:58%"></span><span style="height:52%"></span><span style="height:64%"></span><span style="height:78%"></span><span style="height:100%"></span><span style="height:70%"></span>
-                </div>
-                <ul class="flow-rows">
-                  <li><span>Total sales</span><b>$48,210</b></li>
-                  <li><span>Best store</span><b>Main St</b></li>
-                  <li class="is-flag"><span>Needs a look</span><b>Elm St, down 9%</b></li>
-                </ul>
-                <div class="flow-actions" aria-hidden="true">
-                  <span class="flow-btn flow-btn-main">Approve</span>
-                  <span class="flow-btn">Ask for changes</span>
-                </div>
-              </div>
-              <p class="flow-caption">The finished report lands with you to approve.</p>
-            </div>
-          </div>
-          <p class="flow-foot"><strong>Argus builds and runs it.</strong> You review and decide.</p>
-        </div>
       </div>
     </section>
 
@@ -1426,5 +1357,6 @@
       observer.observe(section);
     });
   </script>
+<script>(function(){var v=document.querySelector('.demo-video');if(!v)return;if(!('IntersectionObserver' in window)){v.play().catch(function(){});return;}new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){v.play().catch(function(){})}else{v.pause()}})},{threshold:0.4}).observe(v)})();</script>
 </body>
 </html>
