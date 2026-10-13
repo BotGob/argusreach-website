@@ -141,7 +141,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 html:not(.js) .reveal{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 .footer-loc{font-family:var(--mono);font-size:.78rem;color:var(--ink3)}
-@media (max-width:600px){.nav-links{gap:14px}.nav-link[href="/workflow"]{display:inline}.nav-link[href="/"]{display:none}}
+@media (max-width:600px){.nav-links{gap:14px}.nav-link[href="/workflow"]{display:inline-flex}.nav-link[href="/"]{display:none}}
 .head-aside{align-self:end}
 h1{max-width:13ch;text-wrap:balance}h2,h3{text-wrap:balance}
 .steps{grid-template-columns:repeat(4,1fr)}
@@ -182,6 +182,12 @@ h1{max-width:13ch;text-wrap:balance}h2,h3{text-wrap:balance}
 #process .head-aside{max-width:40ch}
 #demo{scroll-margin-top:96px}
 @media (max-width:900px){.build-head{grid-template-columns:1fr;gap:14px;margin-bottom:28px}}
+.brand,.nav .btn,.nav-link{white-space:nowrap}
+p,li{text-wrap:pretty}
+@media (max-width:600px){.brand{min-height:44px}.nav-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:0 4px}.nav .btn{height:44px}
+.footer-links{gap:8px}.footer-links a,.footer-logo{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:0 6px}.footer-links a:first-child{padding-left:0}
+.vc-mark{pointer-events:none}}
+@media (max-width:380px){.nav .wrap{gap:8px}.nav-links{gap:0;font-size:.84rem}.nav-link{padding:0 6px}.brand{gap:7px;font-size:.9rem}.brand-mark{width:26px;height:26px}.nav .btn{padding:0 11px;margin-left:4px;font-size:.84rem}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Argus AI","url":"https://www.argusreach.com/","logo":"https://www.argusreach.com/apple-touch-icon.png","image":"https://www.argusreach.com/media/og-image.png","description":"AI built around your business. Argus AI takes repetitive computer work off small and mid-size businesses.","email":"vito@argusreach.com","address":{"@type":"PostalAddress","addressLocality":"St. Petersburg","addressRegion":"FL","addressCountry":"US"},"areaServed":[{"@type":"Place","name":"Tampa Bay, FL"},{"@type":"City","name":"St. Petersburg, FL"}]}</script>
 </head>
