@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>document.documentElement.className+=" js"</script>
   <meta charset="UTF-8" />
   <meta name="cache-bust" content="20260809-premium-ai" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How Argus AI Works - Talk, Map, Build, Keep It Running</title>
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Argus AI" />
-  <meta property="og:title" content="Argus AI" />
-  <meta property="og:description" content="How Argus AI turns one real job into a digital employee. We map it, build it, and keep it running. You review and decide." />
-  <meta property="og:url" content="https://argusreach.com/workflow" />
-  <meta property="og:image" content="https://argusreach.com/media/og-image.png" />
+  <meta property="og:title" content="How Argus AI Works - Talk, Map, Build, Keep It Running" />
+  <meta property="og:description" content="How Argus AI works: we start with one real job, map it with you, build it into the tools you already use, and keep it running." />
+  <meta property="og:url" content="https://www.argusreach.com/workflow" />
+  <meta property="og:image" content="https://www.argusreach.com/media/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Argus AI - AI built around your business." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Argus AI" />
-  <meta name="twitter:description" content="How Argus AI turns one real job into a digital employee. We map it, build it, and keep it running. You review and decide." />
-  <meta name="twitter:image" content="https://argusreach.com/media/og-image.png" />
+  <meta name="twitter:title" content="How Argus AI Works - Talk, Map, Build, Keep It Running" />
+  <meta name="twitter:description" content="How Argus AI works: we start with one real job, map it with you, build it into the tools you already use, and keep it running." />
+  <meta name="twitter:image" content="https://www.argusreach.com/media/og-image.png" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <meta name="description" content="How Argus AI turns one real job into a digital employee. We map it, build it, and keep it running. You review and decide." />
-  <link rel="canonical" href="https://argusreach.com/workflow" />
+  <meta name="description" content="How Argus AI works: we start with one real job, map it with you, build it into the tools you already use, and keep it running." />
+  <link rel="canonical" href="https://www.argusreach.com/workflow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
 :root{--paper:#f6f5f1;--ink:#14171c;--ink2:#4a505a;--ink3:#7d838c;--rule:#dcdad3;--steel:#4a6fa5;--steel-d:#36557f;--dark:#111418;
 --sans:'Geist',system-ui,-apple-system,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;--w:1180px;--gut:clamp(20px,4vw,48px)}
@@ -119,6 +120,14 @@ body{font-size:16px}
 .demo-frame{padding:5px;border-radius:9px}.demo-video{border-radius:5px}
 footer .wrap,.footer-brand{flex-direction:column;align-items:flex-start}
 }
+:root{--ink3:#626872}
+strong,b{font-weight:600}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--steel);outline-offset:3px;border-radius:4px}
+html:not(.js) .reveal{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.footer-loc{font-family:var(--mono);font-size:.78rem;color:var(--ink3)}
+@media (max-width:600px){.nav-links{gap:14px}.nav-link[href="/workflow"]{display:inline}.nav-link[href="/"]{display:none}}
 </style>
 <style>
 /* subpages */
@@ -172,7 +181,7 @@ main>section+section:not(.hero){border-top:1px solid var(--rule)}
   <nav class="nav"><div class="wrap">
 <a href="/" class="brand"><svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><rect class="bm-box" x="3" y="3" width="94" height="94" rx="21"/><text class="bm-a" x="50" y="68" text-anchor="middle">A</text><circle class="bm-dot" cx="77" cy="23" r="5.5"/></svg>Argus AI</a>
 <div class="nav-links"><a class="nav-link" href="/">Home</a><a class="nav-link active" href="/workflow">Workflow</a><a class="nav-link" href="/faq">FAQ</a>
-<a class="btn btn-primary" href="https://calendly.com/vito-argusreach/30min" target="_blank" rel="noopener" aria-label="Book a 30-minute conversation">Book a call</a></div>
+<a class="btn btn-primary" href="https://calendly.com/vito-argusreach/30min" target="_blank" rel="noopener">Book a call<span class="sr-only"> (opens Calendly)</span></a></div>
 </div></nav>
 
   <main>
@@ -180,8 +189,8 @@ main>section+section:not(.hero){border-top:1px solid var(--rule)}
       <div class="wrap">
         <div class="hero-shell">
           <div class="eyebrow mono">How we work</div>
-          <h1>One real job. Built into a digital employee.</h1>
-          <p class="lead">We start with one job inside your business, learn how it runs today, and build the digital employee around it.</p>
+          <h1>One real job, built and kept running.</h1>
+          <p class="lead">We start with one job inside your business, learn how it runs today, and build around the way it already works.</p>
           <div class="hero-points">
             <div class="point">
               <strong>Nothing to set up</strong>
@@ -193,7 +202,7 @@ main>section+section:not(.hero){border-top:1px solid var(--rule)}
             </div>
             <div class="point">
               <strong>Days or weeks</strong>
-              <span>Useful capacity in days or weeks, not a long IT project.</span>
+              <span>Working in days or weeks, not a long IT project.</span>
             </div>
           </div>
         </div>
@@ -212,7 +221,7 @@ main>section+section:not(.hero){border-top:1px solid var(--rule)}
             <div class="step-num mono">01</div>
             <div>
               <h3>Talk</h3>
-              <p>It starts with a 30-minute conversation about your bottlenecks. Then we come back with a few ideas.</p>
+              <p>30 minutes on where the week goes. We pick the job that pays off first.</p>
               <ul>
                 <li>Where the hours go each week</li>
                 <li>What keeps slipping or never gets done</li>
@@ -224,7 +233,7 @@ main>section+section:not(.hero){border-top:1px solid var(--rule)}
             <div class="step-num mono">02</div>
             <div>
               <h3>Map</h3>
-              <p>Before we build anything, we walk through the job with you, step by step.</p>
+              <p>We walk through the job with you and agree on what finished looks like.</p>
               <ul>
                 <li>Where the information comes from</li>
                 <li>What the finished result looks like</li>
@@ -236,7 +245,7 @@ main>section+section:not(.hero){border-top:1px solid var(--rule)}
             <div class="step-num mono">03</div>
             <div>
               <h3>Build</h3>
-              <p>We build the digital employee around how your team already works.</p>
+              <p>Built into the email and software you already use, tested on real examples.</p>
               <ul>
                 <li>Connected to the email, files, and software the job already uses</li>
                 <li>Checks at each step</li>
@@ -248,7 +257,7 @@ main>section+section:not(.hero){border-top:1px solid var(--rule)}
             <div class="step-num mono">04</div>
             <div>
               <h3>Keep it running</h3>
-              <p>After launch, we stay on it.</p>
+              <p>We watch it, fix what drifts, and add the next job when you're ready.</p>
               <ul>
                 <li>We check the work and catch problems early</li>
                 <li>We adjust it when the job or your rules change</li>
@@ -265,7 +274,7 @@ main>section+section:not(.hero){border-top:1px solid var(--rule)}
         <div class="section-head">
           <div class="section-kicker mono">In and out</div>
           <h2>What goes in. What comes back to you.</h2>
-          <p>A digital employee works from the information you already have and hands back finished work.</p>
+          <p>What we build works from the information you already have and hands back finished work.</p>
         </div>
         <div class="layer-grid">
           <article class="card">
@@ -285,7 +294,7 @@ main>section+section:not(.hero){border-top:1px solid var(--rule)}
               <li>Reports and summaries, like the Monday sales report</li>
               <li>Drafted follow-ups and to-dos</li>
               <li>A heads-up when something needs your attention</li>
-              <li>The work you kept putting off</li>
+              <li>Finished drafts of the work that used to eat your week</li>
             </ul>
           </article>
         </div>
@@ -295,15 +304,15 @@ main>section+section:not(.hero){border-top:1px solid var(--rule)}
     <section>
       <div class="wrap">
         <div class="cta-shell">
-          <h2>The right first conversation is about one real job.</h2>
-          <p>Bring the job that eats your week.</p>
-          <a class="btn btn-primary" href="https://calendly.com/vito-argusreach/30min" target="_blank" rel="noopener">Book a 30-minute conversation</a>
+          <h2>Bring the job that eats your week.</h2>
+          <p>30 minutes with the founder, no prep needed. We'll tell you honestly whether it's a fit.</p>
+          <a class="btn btn-primary" href="https://calendly.com/vito-argusreach/30min" target="_blank" rel="noopener">Talk with the founder<span class="sr-only"> (opens Calendly)</span></a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer><div class="wrap"><div class="footer-brand"><a href="/" class="footer-logo"><svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><rect class="bm-box" x="3" y="3" width="94" height="94" rx="21"/><text class="bm-a" x="50" y="68" text-anchor="middle">A</text><circle class="bm-dot" cx="77" cy="23" r="5.5"/></svg>Argus AI</a><span class="footer-tag">Digital employees, built around your business.</span></div>
+  <footer><div class="wrap"><div class="footer-brand"><a href="/" class="footer-logo"><svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><rect class="bm-box" x="3" y="3" width="94" height="94" rx="21"/><text class="bm-a" x="50" y="68" text-anchor="middle">A</text><circle class="bm-dot" cx="77" cy="23" r="5.5"/></svg>Argus AI</a><span class="footer-tag">AI built around your business.</span><span class="footer-loc">St. Pete - Tampa Bay</span></div>
 <div class="footer-links"><a href="/workflow">Workflow</a><a href="/faq">FAQ</a><a href="/privacy">Privacy</a></div></div></footer>
 </body>
 </html>
