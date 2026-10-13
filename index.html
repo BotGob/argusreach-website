@@ -243,7 +243,7 @@ document.querySelector('.vc-restart').addEventListener('click',function(){seek(0
 draw();
 if(rm){v.removeAttribute('loop');sync();return}
 if(!('IntersectionObserver' in window)){v.play().catch(function(){});return}
-new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){if(!user)v.play().catch(function(){})}else v.pause()})},{threshold:.4}).observe(v)})();
+var tmr=null;new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){if(!user&&!tmr)tmr=setTimeout(function(){tmr=null;if(!user)v.play().catch(function(){})},1000)}else{clearTimeout(tmr);tmr=null;v.pause()}})},{threshold:.4}).observe(v)})();
 </script>
 </body>
 </html>
