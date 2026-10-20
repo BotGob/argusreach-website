@@ -147,3 +147,8 @@ html:not(.js) .reveal :is(.area,.step){opacity:1;transform:none}
 /* dark band: align columns at top */
 .urgency .grid2{align-items:start}
 .urgency-aside{margin-top:.5em}
+
+/* graphite-glow: neutral hero glow and grid, all sizes; dimmer on phones */
+.hero::before{background-image:linear-gradient(rgba(40,50,65,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(40,50,65,.10) 1px,transparent 1px)}
+.hero::after{width:min(900px,110vw);right:-12%;top:-50%;filter:blur(24px);background:radial-gradient(circle,rgba(20,23,28,.10) 0%,rgba(20,23,28,.04) 38%,transparent 66%)}
+@media (max-width:600px){.hero::after{width:120vw;right:-55%;top:-30%;background:radial-gradient(circle,rgba(20,23,28,.07) 0%,rgba(20,23,28,.025) 40%,transparent 66%)}}
