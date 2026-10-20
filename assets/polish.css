@@ -143,3 +143,7 @@ html:not(.js) .reveal :is(.area,.step){opacity:1;transform:none}
 .urgency::after{width:1000px;height:1000px;right:-260px;bottom:-560px;background:radial-gradient(circle,rgba(74,111,165,.55),rgba(74,111,165,.18) 40%,transparent 65%)}
 .cta-inner::before,.cta-shell::before{background-image:linear-gradient(rgba(125,159,208,.11) 1px,transparent 1px),linear-gradient(90deg,rgba(125,159,208,.11) 1px,transparent 1px)}
 @media (max-width:600px){.hero::after{right:-60%;top:-25%}.urgency::after{width:700px;height:700px;right:-300px;bottom:-420px}}
+
+/* dark band: align columns at top */
+.urgency .grid2{align-items:start}
+.urgency-aside{margin-top:.5em}
