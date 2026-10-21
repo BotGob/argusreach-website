@@ -189,3 +189,9 @@ h2.big,.section-head h2,.cta h2,.cta-shell h2,.urgency h2{font-size:clamp(30px,3
 .doc h1{font-size:clamp(30px,5vw,48px)}
 @media (max-width:900px){.step-num{font-size:30px}}
 @media (max-width:600px){.local h2{font-size:20px}}
+
+/* buttons back to 15px */
+.btn,.nav .btn{font-size:15px}
+/* demo section heading */
+.demo-title{font-family:var(--sans);font-size:30px;font-weight:600;letter-spacing:-.025em;line-height:1.15;color:var(--ink);text-transform:none;margin-bottom:24px}
+@media (max-width:600px){.demo-title{font-size:20px;margin-bottom:16px}}
