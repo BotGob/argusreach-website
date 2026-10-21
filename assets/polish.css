@@ -152,3 +152,46 @@ html:not(.js) .reveal :is(.area,.step){opacity:1;transform:none}
 .hero::before{background-image:linear-gradient(rgba(40,50,65,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(40,50,65,.10) 1px,transparent 1px)}
 .hero::after{width:min(900px,110vw);right:-12%;top:-50%;filter:blur(24px);background:radial-gradient(circle,rgba(20,23,28,.10) 0%,rgba(20,23,28,.04) 38%,transparent 66%)}
 @media (max-width:600px){.hero::after{width:120vw;right:-55%;top:-30%;background:radial-gradient(circle,rgba(20,23,28,.07) 0%,rgba(20,23,28,.025) 40%,transparent 66%)}}
+
+/* ===== de-slop ===== */
+/* 1. Solid text, no gradients */
+.hero h1{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--ink);padding-bottom:0}
+.urgency h2{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:#fff}
+.step-num{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--steel)}
+
+/* 2. Plain mono eyebrow (workflow, FAQ) */
+.hero .eyebrow.label,.hero .eyebrow.mono{display:block;padding:0;border:0;border-radius:0;background:none;box-shadow:none;width:auto}
+.hero .eyebrow b,.hero .eyebrow::before{animation:none}
+
+/* 3. Solid dark closing panels */
+.cta-inner::before,.cta-inner::after,.cta-shell::before,.cta-shell::after{content:none;display:none}
+.cta-inner,.cta-shell{background:var(--dark);border-radius:12px;box-shadow:none}
+
+/* 4. Crisper cards */
+#build .areas .area,#build .areas .area:nth-child(n),
+body .steps>.step,body .steps>.step+.step,
+.card,.card+.card,.side-card{border-radius:12px;border:1px solid rgba(20,23,28,.10);background:var(--surface-2);box-shadow:none}
+#build .area::before{content:none;display:none}
+#build .area:hover,body .steps>.step:hover,.reveal.is-visible :is(.area,.step):hover{transform:translateY(-2px);box-shadow:0 8px 20px -12px rgba(20,23,28,.18);border-color:rgba(74,111,165,.30)}
+.point,.point+.point{border-radius:12px;border:1px solid rgba(20,23,28,.10);background:var(--surface-2);-webkit-backdrop-filter:none;backdrop-filter:none}
+.demo-frame{border-radius:12px}
+
+/* 5. Type scale: 12 / 14 / 17 / 20 / 30 / 48 / hero */
+.label,.section-kicker,.hero .eyebrow,.footer-loc,.doc .eyebrow,.doc .updated{font-size:12px}
+.vc-mark,.vc-btn,.vc-step{font-size:11px}
+.nav-links,.nav .btn,.btn,footer,.system-list,.step ul,.card ul,.side-list,.point span,.vc-time{font-size:14px}
+.brand{font-size:14px}
+.build-head .build-lead,.build-close,.urgency-aside,.step p,.area p,.local p,.cta p,.cta-shell p,.faq-card p,.side-card p,.card p,.section-head p,.head-aside{font-size:17px}
+.lead,.hero-copy .lead,.area h3,.step h3,.card h3,.faq-card h3,.side-card h2,.doc h2,.row h3{font-size:20px}
+.step-num{font-size:30px}
+h2.big,.section-head h2,.cta h2,.cta-shell h2,.urgency h2{font-size:clamp(30px,3.6vw,48px)}
+.local h2{font-size:30px}
+.doc h1{font-size:clamp(30px,5vw,48px)}
+@media (max-width:900px){.step-num{font-size:30px}}
+@media (max-width:600px){.local h2{font-size:20px}}
+
+/* buttons back to 15px */
+.btn,.nav .btn{font-size:15px}
+/* demo section heading */
+.demo-title{font-family:var(--sans);font-size:30px;font-weight:600;letter-spacing:-.025em;line-height:1.15;color:var(--ink);text-transform:none;margin-bottom:24px}
+@media (max-width:600px){.demo-title{font-size:20px;margin-bottom:16px}}
