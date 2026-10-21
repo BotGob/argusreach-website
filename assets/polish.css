@@ -223,3 +223,13 @@ h2.big,.section-head h2,.cta h2,.cta-shell h2,.urgency h2{font-size:clamp(30px,3
 @media (prefers-reduced-motion:reduce){.vc-knob,.vc-mark span{transition:none}}
 /* demo frame: on narrow screens keep the soft shadow inside the side margins so the page background stays seamless */
 @media (max-width:900px){.demo-frame{box-shadow:0 1px 2px rgba(20,23,28,.04),0 18px 32px -20px rgba(20,23,28,.3),0 0 0 6px rgba(255,255,255,.5)}}
+
+/* click/tap the demo to play or pause; brief centered glyph confirms the toggle */
+.demo-frame{position:relative;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.vid-flash{position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:rgba(20,23,28,.55);color:#fff;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none}
+.vid-flash svg{width:20px;height:20px;display:none}
+.vid-flash.is-play .f-play,.vid-flash.is-pause .f-pause{display:block}
+.vid-flash.go{animation:vid-flash .4s cubic-bezier(.4,0,.2,1)}
+@keyframes vid-flash{0%{opacity:1;transform:scale(.92)}100%{opacity:0;transform:scale(1.08)}}
+@media (max-width:600px){.vid-flash{width:44px;height:44px;margin:-22px 0 0 -22px}.vid-flash svg{width:16px;height:16px}}
+@media (prefers-reduced-motion:reduce){.vid-flash{display:none}}
