@@ -178,8 +178,8 @@ body .steps>.step,body .steps>.step+.step,
 
 /* 5. Type scale: 12 / 14 / 17 / 20 / 30 / 48 / hero */
 .label,.section-kicker,.hero .eyebrow,.footer-loc,.doc .eyebrow,.doc .updated{font-size:12px}
-.vc-mark,.vc-btn,.vc-step{font-size:11px}
-.nav-links,.nav .btn,.btn,footer,.system-list,.step ul,.card ul,.side-list,.point span,.vc-time{font-size:14px}
+.vc-mark,.vc-btn{font-size:11px}
+.nav-links,.nav .btn,.btn,footer,.system-list,.step ul,.card ul,.side-list,.point span{font-size:14px}
 .brand{font-size:14px}
 .build-head .build-lead,.build-close,.urgency-aside,.step p,.area p,.local p,.cta p,.cta-shell p,.faq-card p,.side-card p,.card p,.section-head p,.head-aside{font-size:17px}
 .lead,.hero-copy .lead,.area h3,.step h3,.card h3,.faq-card h3,.side-card h2,.doc h2,.row h3{font-size:20px}
@@ -195,3 +195,29 @@ h2.big,.section-head h2,.cta h2,.cta-shell h2,.urgency h2{font-size:clamp(30px,3
 /* demo section heading */
 .demo-title{font-family:var(--sans);font-size:30px;font-weight:600;letter-spacing:-.025em;line-height:1.15;color:var(--ink);text-transform:none;margin-bottom:24px}
 @media (max-width:600px){.demo-title{font-size:20px;margin-bottom:16px}}
+/* demo controls v2: hairline bar, icon buttons, one label at a time */
+.vc{display:grid;grid-template-columns:auto auto 1fr auto;align-items:center;gap:0 4px;margin-top:12px;padding:3px 14px 3px 3px;border:1px solid var(--rule);border-radius:12px;background:rgba(255,255,255,.55)}
+.vc-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;min-width:0;padding:0;background:none;border:0;border-radius:10px;cursor:pointer;color:var(--ink2)}
+.vc-btn:hover{background:rgba(20,23,28,.05);color:var(--ink)}
+.vc-btn:focus-visible{outline:2px solid var(--steel);outline-offset:-2px}
+.vc-btn svg{width:16px;height:16px;display:block}
+.vid-toggle .i-play,.vid-toggle.is-paused .i-pause{display:none}.vid-toggle.is-paused .i-play{display:block}
+.vc-track-wrap{position:relative;margin:0 8px 0 6px}
+.vc-track{height:44px;display:flex;align-items:flex-start;padding-top:15px;box-sizing:border-box;cursor:pointer;touch-action:none;outline:none}
+.vc-rail{position:relative;width:100%;height:2px;background:var(--rule);border-radius:2px}
+.vc-fill{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--steel);border-radius:2px}
+.vc-knob{position:absolute;top:50%;left:0;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--steel);box-shadow:0 0 0 3px #fff;transition:transform .15s}
+.vc-track:hover .vc-knob,.vc-track.drag .vc-knob{transform:scale(1.2)}
+.vc-track:focus-visible .vc-rail{outline:2px solid var(--steel);outline-offset:6px;border-radius:3px}
+.vc-marks{position:absolute;left:0;right:0;top:21px;height:0}
+.vc-mark{position:absolute;top:0;width:22px;height:20px;margin-left:-11px;padding:0;background:none;border:0;cursor:pointer;transform:none}
+.vc-mark::before{content:"";position:absolute;top:0;left:50%;width:1px;height:5px;margin-left:-.5px;background:var(--ink3);opacity:.55}
+.vc-mark:hover::before,.vc-mark.on::before{background:var(--steel);opacity:1}
+.vc-mark span{position:absolute;top:8px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:11px;line-height:1;letter-spacing:.06em;text-transform:uppercase;color:var(--steel);white-space:nowrap;opacity:0;transition:opacity .15s;pointer-events:none}
+.vc-mark:first-child span{left:0;transform:none}
+.vc-mark.on span,.vc-mark:hover span,.vc-mark:focus-visible span{opacity:1}
+.vc-marks:hover .vc-mark.on:not(:hover) span{opacity:0}
+.vc-mark:focus-visible{outline:none}.vc-mark:focus-visible::before{outline:2px solid var(--steel);outline-offset:2px}
+.vc-time{font-family:var(--mono);font-size:12px;color:var(--ink3);font-variant-numeric:tabular-nums;white-space:nowrap;padding:0;min-width:0;text-align:right}
+@media (max-width:600px){.vc{padding:2px 10px 2px 2px;gap:0 2px}.vc-time{font-size:11px}.vc-mark{pointer-events:none}}
+@media (prefers-reduced-motion:reduce){.vc-knob,.vc-mark span{transition:none}}
