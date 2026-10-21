@@ -23,7 +23,6 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <meta name="description" content="Argus AI builds and runs digital employees: custom AI software for the recurring computer work in any business." />
   <link rel="canonical" href="https://www.argusreach.com/" />
-  <link rel="preload" as="image" href="media/argus-demo-poster.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -146,37 +145,12 @@ html:not(.js) .reveal{opacity:1;transform:none}
 h1{max-width:13ch;text-wrap:balance}h2,h3{text-wrap:balance}
 .steps{grid-template-columns:repeat(4,1fr)}
 .demo-cap{align-items:center}
-.vid-toggle{background:none;border:1px solid var(--rule);border-radius:999px;padding:6px 12px;cursor:pointer;color:var(--ink2)}
-.vid-toggle:hover{border-color:var(--ink);color:var(--ink)}
 .local{padding:0 0 clamp(56px,7vw,88px)}
 .local-inner{display:grid;grid-template-columns:1fr 2fr;gap:clamp(32px,6vw,96px);border-top:1px solid var(--ink);padding-top:28px}
 .local h2{font-size:clamp(1.4rem,2.4vw,1.9rem);line-height:1.15;letter-spacing:-.025em;font-weight:600;max-width:24ch}
 .local p{margin-top:12px;color:var(--ink2);max-width:46ch}
 @media (max-width:900px){.steps{grid-template-columns:1fr}.local-inner{grid-template-columns:1fr;gap:14px}}
 @media (max-width:600px){.system-card{display:none}.hero{padding-bottom:32px}}
-.vc{display:grid;grid-template-columns:auto auto 1fr auto;align-items:start;gap:4px 10px;margin-top:14px}
-.vc-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;min-width:44px;padding:0 14px;background:none;border:1px solid var(--rule);border-radius:999px;cursor:pointer;color:var(--ink2);font-size:.72rem}
-.vc-btn:hover{border-color:var(--ink);color:var(--ink)}
-.vc-btn svg{width:14px;height:14px}
-.vid-toggle{min-width:72px}
-.vc-track-wrap{position:relative;padding-bottom:20px}
-.vc-track{height:44px;display:flex;align-items:center;cursor:pointer;touch-action:none;outline:none}
-.vc-rail{position:relative;width:100%;height:3px;background:var(--rule);border-radius:3px}
-.vc-fill{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--steel);border-radius:3px}
-.vc-knob{position:absolute;top:50%;left:0;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--steel);box-shadow:0 0 0 3px var(--paper);transition:transform .15s}
-.vc-track:hover .vc-knob,.vc-track.drag .vc-knob{transform:scale(1.25)}
-.vc-track:focus-visible .vc-rail{outline:2px solid var(--steel);outline-offset:8px;border-radius:4px}
-.vc-marks{position:absolute;left:0;right:0;top:36px;height:0}
-.vc-mark{position:absolute;top:0;transform:translateX(-50%);background:none;border:0;padding:0 2px;cursor:pointer;font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}
-.vc-mark::before{content:"";display:block;width:1px;height:6px;margin:0 auto 3px;background:var(--ink3)}
-.vc-mark:first-child{transform:none}.vc-mark:first-child::before{margin-left:0}
-.vc-mark:hover,.vc-mark.on{color:var(--steel)}.vc-mark.on::before{background:var(--steel)}
-.vc-time{padding-top:15px;min-width:3.4em;text-align:right;font-variant-numeric:tabular-nums}
-@media (max-width:900px){.vc-mark span{display:none}.vc-mark{width:24px;height:22px}.vc-mark::before{height:8px}.vc-mark:first-child{transform:translateX(-50%)}.vc-mark:first-child::before{margin:0 auto 3px}.vc-track-wrap{padding-bottom:16px}.vc-marks{top:36px}}
-@media (max-width:600px){.vc{grid-template-columns:auto auto 1fr;gap:4px 8px}.vc-restart span{display:none}.vc-restart{padding:0}.vc-time{display:none}}
-.vc-step{display:none}
-@media (max-width:700px){.vc-step{display:block;margin-top:6px;text-align:center;color:var(--steel);font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;min-height:1.2em}}
-@media (prefers-reduced-motion:reduce){.vc-knob{transition:none}}
 .build-head{display:grid;grid-template-columns:1fr 2fr;gap:clamp(32px,6vw,96px);align-items:end;margin-bottom:40px}
 .build-head .build-lead{margin:0;max-width:52ch;color:var(--ink2);font-size:1.05rem;line-height:1.5}
 .build-lead strong{color:var(--ink);font-weight:600}
@@ -188,8 +162,7 @@ h1{max-width:13ch;text-wrap:balance}h2,h3{text-wrap:balance}
 .brand,.nav .btn,.nav-link{white-space:nowrap}
 p,li{text-wrap:pretty}
 @media (max-width:600px){.brand{min-height:44px}.nav-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:0 4px}.nav .btn{height:44px}
-.footer-links{gap:8px}.footer-links a,.footer-logo{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:0 6px}.footer-links a:first-child{padding-left:0}
-.vc-mark{pointer-events:none}}
+.footer-links{gap:8px}.footer-links a,.footer-logo{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:0 6px}.footer-links a:first-child{padding-left:0}}
 @media (max-width:420px){.nav .wrap{gap:8px}.nav-links{gap:0;font-size:.84rem}.nav-link{padding:0 6px}.brand{gap:7px;font-size:.9rem}.brand-mark{width:26px;height:26px}.nav .btn{padding:0 11px;margin-left:4px;font-size:.84rem}}
 .areas{list-style:none;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--ink)}
 .area{padding:32px 40px 36px 0;border-bottom:1px solid var(--rule)}
@@ -216,7 +189,7 @@ p,li{text-wrap:pretty}
 @media (max-width:900px){.areas5{grid-template-columns:1fr}.areas5 .area,.areas5 .area:nth-child(even),.areas5 .area:nth-child(n+4){grid-column:auto;padding:24px 0;border-left:0}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Argus AI","url":"https://www.argusreach.com/","logo":"https://www.argusreach.com/apple-touch-icon.png","image":"https://www.argusreach.com/media/og-image.png","description":"Argus AI builds and runs digital employees: custom AI software for the recurring computer work in any business.","email":"vito@argusreach.com","address":{"@type":"PostalAddress","addressLocality":"St. Petersburg","addressRegion":"FL","addressCountry":"US"},"areaServed":[{"@type":"Place","name":"Tampa Bay, FL"},{"@type":"City","name":"St. Petersburg, FL"}]}</script>
-<link rel="stylesheet" href="/assets/polish.css?v=20261021c" />
+<link rel="stylesheet" href="/assets/polish.css?v=20261021d" />
 <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
@@ -237,14 +210,14 @@ p,li{text-wrap:pretty}
 <section id="build" class="block"><div class="wrap reveal"><div class="section-head build-head"><h2 class="big">What we build</h2><p class="build-lead"><strong>If it's done on a computer, we can build something to handle it.</strong>In any industry, across every part of the business. A few examples of the range:</p></div><ul class="areas areas5"><li class="area"><h3>Data and insight</h3><p>We pull information from one place or many, inside your business or out, and turn it into dashboards, reports and maps your team actually uses, with an AI layer that flags what matters.</p></li><li class="area"><h3>Sales and marketing</h3><p>Campaigns, follow-ups, proposals and content that go out on autopilot, so leads hear back fast and new business keeps moving.</p></li><li class="area"><h3>Phones and customer service</h3><p>An AI assistant that always answers, handles the routine calls, and sends anything important straight to you or triggers the right follow-up.</p></li><li class="area"><h3>Finance and billing</h3><p>Quotes, invoicing, payment follow-ups and bookkeeping, handled on schedule so the numbers stay current without the late nights.</p></li><li class="area"><h3>Operations and internal tools</h3><p>Scheduling, intake, hiring and onboarding, inventory, vendor and compliance tracking, plus custom tools your team keeps wishing it had.</p></li></ul><p class="build-close"><strong>Every build is custom software, made for your business.</strong></p></div></section>
 <section id="demo" class="demo" aria-label="Demo video"><div class="wrap reveal">
 <h2 class="demo-label demo-title">One real-world example, start to finish</h2>
-<div class="demo-frame"><video class="demo-video" muted loop playsinline preload="none" poster="media/argus-demo-poster.jpg" aria-label="Demo: a request comes in, a quote is built, approved, scheduled, invoiced and paid"><source src="media/argus-demo.webm" type="video/webm"><source src="media/argus-demo.mp4" type="video/mp4"></video></div>
+<ol id="demo-steps" class="sr-only"><li>Step 1, Request: A pricing request comes in.</li><li>Step 2, Quote: Your assistant builds the quote.</li><li>Step 3, Approve: You approve by text or email.</li><li>Step 4, Send: Then it goes to the client.</li><li>Step 5, Book: The client accepts and picks a date.</li><li>Step 6, Schedule: Your team gets the job.</li><li>Step 7, Invoice: Job done. Invoice sent.</li><li>Step 8, Paid: Late? A friendly nudge.</li></ol>
+<div class="demo-frame"><video class="demo-video" muted loop playsinline preload="none" poster="media/argus-demo-v2-poster.webp" aria-label="Demo: a request comes in, a quote is built, approved, sent, booked, scheduled, invoiced and paid" aria-describedby="demo-steps"><source src="media/argus-demo-v2.webm" type="video/webm"><source src="media/argus-demo-v2.mp4" type="video/mp4"></video></div>
 <div class="vc" role="group" aria-label="Video controls">
-<button class="vc-btn vc-restart label" type="button" aria-label="Restart video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8a5 5 0 1 0 1.5-3.6M3 2.5v2.8h2.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Restart</span></button>
-<button class="vc-btn vid-toggle label" type="button" aria-pressed="false">Pause</button>
-<div class="vc-track-wrap"><div class="vc-track" role="slider" tabindex="0" aria-label="Seek video" aria-valuemin="0" aria-valuemax="59" aria-valuenow="0" aria-valuetext="0:00 of 0:59"><div class="vc-rail"><div class="vc-fill"></div><div class="vc-knob"></div></div></div><div class="vc-marks"><button class="vc-mark" type="button" data-t="0" style="left:calc(0.000% )" aria-label="Jump to Request"><span>Request</span></button><button class="vc-mark" type="button" data-t="7.9" style="left:calc(13.338% )" aria-label="Jump to Quote"><span>Quote</span></button><button class="vc-mark" type="button" data-t="16.7" style="left:calc(28.195% )" aria-label="Jump to Approve"><span>Approve</span></button><button class="vc-mark" type="button" data-t="22.4" style="left:calc(37.819% )" aria-label="Jump to Send"><span>Send</span></button><button class="vc-mark" type="button" data-t="27.1" style="left:calc(45.754% )" aria-label="Jump to Book"><span>Book</span></button><button class="vc-mark" type="button" data-t="32.6" style="left:calc(55.040% )" aria-label="Jump to Schedule"><span>Schedule</span></button><button class="vc-mark" type="button" data-t="37.0" style="left:calc(62.468% )" aria-label="Jump to Invoice"><span>Invoice</span></button><button class="vc-mark" type="button" data-t="47.7" style="left:calc(80.534% )" aria-label="Jump to Paid"><span>Paid</span></button></div></div>
-<span class="vc-time label" aria-hidden="true">0:00</span>
+<button class="vc-btn vc-restart" type="button" aria-label="Restart video" title="Restart"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8a5 5 0 1 0 1.5-3.6M3 2.5v2.8h2.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<button class="vc-btn vid-toggle is-paused" type="button" aria-label="Play video" title="Play or pause"><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6L12.6 8z" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg></button>
+<div class="vc-track-wrap"><div class="vc-track" role="slider" tabindex="0" aria-label="Seek video" aria-valuemin="0" aria-valuemax="43" aria-valuenow="0" aria-valuetext="0:00 of 0:42"><div class="vc-rail"><div class="vc-fill"></div><div class="vc-knob"></div></div></div><div class="vc-marks"><button class="vc-mark" type="button" data-t="0.0" style="left:0.000%" aria-label="Jump to Request"><span>Request</span></button><button class="vc-mark" type="button" data-t="5.6" style="left:13.084%" aria-label="Jump to Quote"><span>Quote</span></button><button class="vc-mark" type="button" data-t="12.6" style="left:29.439%" aria-label="Jump to Approve"><span>Approve</span></button><button class="vc-mark" type="button" data-t="17.6" style="left:41.121%" aria-label="Jump to Send"><span>Send</span></button><button class="vc-mark" type="button" data-t="21.6" style="left:50.467%" aria-label="Jump to Book"><span>Book</span></button><button class="vc-mark" type="button" data-t="26.1" style="left:60.981%" aria-label="Jump to Schedule"><span>Schedule</span></button><button class="vc-mark" type="button" data-t="29.6" style="left:69.159%" aria-label="Jump to Invoice"><span>Invoice</span></button><button class="vc-mark" type="button" data-t="35.6" style="left:83.178%" aria-label="Jump to Paid"><span>Paid</span></button></div></div>
+<span class="vc-time" aria-hidden="true">0:00 / 0:42</span>
 </div>
-<p class="vc-step label" aria-hidden="true"></p>
 </div></section>
 <section id="process" class="block"><div class="wrap reveal">
 <div class="section-head split"><div><span class="label">How it works</span><h2 class="big">Talk. Map. Build. Run.</h2></div><p class="head-aside">The short version. You set the pace.</p></div>
@@ -259,15 +232,16 @@ p,li{text-wrap:pretty}
 (function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 var v=document.querySelector('.demo-video'),b=document.querySelector('.vid-toggle');if(!v)return;
+var wp=new Image();wp.onerror=function(){v.poster='media/argus-demo-v2-poster.jpg'};wp.src='data:image/webp;base64,UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==';
 var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,user=rm;
-function sync(){if(b){b.textContent=v.paused?'Play':'Pause';b.setAttribute('aria-pressed',v.paused?'true':'false')}}
+function sync(){if(b){b.classList.toggle('is-paused',v.paused);b.setAttribute('aria-label',v.paused?'Play video':'Pause video')}}
 v.addEventListener('play',sync);v.addEventListener('pause',sync);
 if(b){b.addEventListener('click',function(){if(v.paused){user=false;v.play().catch(function(){})}else{user=true;v.pause()}});}
 
 var tr=document.querySelector('.vc-track'),fill=document.querySelector('.vc-fill'),knob=document.querySelector('.vc-knob'),tm=document.querySelector('.vc-time'),mk=[].slice.call(document.querySelectorAll('.vc-mark')),st=document.querySelector('.vc-step');
 function fmt(s){s=Math.max(0,Math.floor(s||0));return Math.floor(s/60)+':'+('0'+s%60).slice(-2)}
-function dur(){return isFinite(v.duration)&&v.duration>0?v.duration:59.23}
-function draw(){var d=dur(),c=v.currentTime||0,p=Math.min(100,c/d*100);fill.style.width=p+'%';knob.style.left=p+'%';tm.textContent=fmt(c);
+function dur(){return isFinite(v.duration)&&v.duration>0?v.duration:42.80}
+function draw(){var d=dur(),c=v.currentTime||0,p=Math.min(100,c/d*100);fill.style.width=p+'%';knob.style.left=p+'%';tm.textContent=fmt(c)+' / '+fmt(d);
 tr.setAttribute('aria-valuemax',Math.round(d));tr.setAttribute('aria-valuenow',Math.round(c));tr.setAttribute('aria-valuetext',fmt(c)+' of '+fmt(d));
 var on=-1;mk.forEach(function(m,i){if(c>=+m.dataset.t-.05)on=i});mk.forEach(function(m,i){m.classList.toggle('on',i===on)});if(st){var nm=on>=0?mk[on].textContent:'';if(st.textContent!==nm)st.textContent=nm}}
 var pend=null;function seek(s){s=Math.max(0,Math.min(dur()-.05,s));if(v.readyState<1){pend=s;v.preload='auto';v.load();return}v.currentTime=s;draw()}
